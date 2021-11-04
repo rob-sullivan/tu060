@@ -12,6 +12,7 @@
 .venv/
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
+tu060.Rproj
 
 # Mono auto generated files
 mono_crash.*
