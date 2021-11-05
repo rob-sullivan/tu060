@@ -11,9 +11,13 @@
 *.sln.docstates
 .venv/
 # User-specific files (MonoDevelop/Xamarin Studio)
-*.userprefs
+
+.ipynb_checkpoints
 tu060.Rproj
+working-with-data.Rproj
 .Rhistory
+
+*.userprefs
 # Mono auto generated files
 mono_crash.*
 
