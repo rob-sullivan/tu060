@@ -10,7 +10,9 @@
 *.userosscache
 *.sln.docstates
 .venv/
-tu060.Rproj
+*.Rproj
+.RData
+.ipynb_checkpoints
 .Rhistory
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

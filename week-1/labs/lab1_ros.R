@@ -62,4 +62,33 @@ hist(AirPassengers,
      prob = TRUE)
 lines(density(AirPassengers))
 #inter-quartile range and box plot
-IQR(chol$WEIGHT) #difference between the 75th and 25th percentiles 
+IQR(chol$WEIGHT) #difference between the 75th and 25th percentiles
+boxplot(WEIGHT~SMOKE, data=chol, main="weight", xlab="smokes", ylab="weight", ylim=c(0,120))
+boxplot(AGE~SMOKE, data=chol, main="age", xlab="smokes", ylab="age")
+boxplot(HEIGHT~SMOKE, data=chol, main="height", xlab="smokes", ylab="height")
+var(chol$WEIGHT)
+sd(chol$WEIGHT)
+var(chol$HEIGHT)
+sd(chol$HEIGHT)
+plot(chol$WEIGHT, chol$CHOL, main="Scatterplot Example",
+     xlab="Weight ", ylab="CHOL ", pch=1)
+barplot(height=c(4,17,12,3),width=c(1,1,1,2),names=c('0-19','20-39','40-59','60-99'))
+hist(c(3,5,7,17,21,21,23,25,25,28,30,31,32,33,33,33,34,36,37,38,39,41,44,44,45,47,49,
+       50,50,52,55,56,57,62,66,70,76,84,91),breaks=c(0,20,40,60,100))
+
+# find the range
+dataset <- c(2, 3, 4, 4, 5, 5, 5, 7, 9, 10, 10, 11, 12, 12, 15)
+max(dataset) - min(dataset)
+IQR(dataset)
+
+
+#P1a_description_tallies_Q3
+data1 <- c(0,3,1,2,4)
+barplot(height=data1, names="hello")
+
+#P1a_description_tallies_Q4
+measure_type <- c(rep("shoe_size", 5))
+shoe_size_table <- table(data1, measure_type)
+barplot(shoe_size_table, legend=rownames(shoe_size_table), args.legend=c(x="center"))
+pie(shoe_size_table, labels=rownames(shoe_size_table))
+boxplot(data1)
