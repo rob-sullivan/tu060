@@ -12,3 +12,5 @@ code relating to TU Dublin's master's in data science
 ## week 5
 
 ## week 6
+
+## week 7
