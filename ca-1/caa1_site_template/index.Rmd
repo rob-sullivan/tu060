@@ -1,0 +1,28 @@
+---
+title: "Home page"
+output:
+  html_document:
+    df_print: paged
+---
+
+                       |     
+-----------------------|-----------------
+**Name:**              | Josephine Bloggs
+**Student id:**        | D12345678
+**Programme code:**    | TU0XX
+**Version of R used:** | 1.4.1717
+**Packages used:**     | ggplot2, ...
+
+ 
+
+## Table of contents
+
+Provide the table of contents with links here. A sample link to the descriptive analysis page is given.
+
+[A heading](a_page.html)
+
+ 
+
+## Introduction
+
+Introduce your work here.
