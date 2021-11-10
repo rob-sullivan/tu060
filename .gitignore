@@ -13,8 +13,8 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 
 .ipynb_checkpoints
-tu060.Rproj
-working-with-data.Rproj
+
+*.Rproj
 .Rhistory
 
 *.userprefs
