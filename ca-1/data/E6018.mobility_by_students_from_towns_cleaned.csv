@@ -1,0 +1,2289 @@
+year,sex,means_of_travel,town_size,age,edu_level,value
+2011,Male,walking,Dublin City and suburbs,>=15,junior-cert,25517
+2011,Male,walking,Dublin City and suburbs,5 to 12,primary-school,21769
+2011,Male,walking,Dublin City and suburbs,13 to 18,leaving-cert,12174
+2011,Male,walking,Dublin City and suburbs,>=19,university,6712
+2011,Male,walking,Cork City and suburbs,>=15,junior-cert,4566
+2011,Male,walking,Cork City and suburbs,5 to 12,primary-school,2809
+2011,Male,walking,Cork City and suburbs,13 to 18,leaving-cert,1975
+2011,Male,walking,Cork City and suburbs,>=19,university,2174
+2011,Male,walking,Limerick City and suburbs,>=15,junior-cert,1910
+2011,Male,walking,Limerick City and suburbs,5 to 12,primary-school,1490
+2011,Male,walking,Limerick City and suburbs,13 to 18,leaving-cert,924
+2011,Male,walking,Limerick City and suburbs,>=19,university,1236
+2011,Male,walking,Galway City and suburbs,>=15,junior-cert,2050
+2011,Male,walking,Galway City and suburbs,5 to 12,primary-school,592
+2011,Male,walking,Galway City and suburbs,13 to 18,leaving-cert,412
+2011,Male,walking,Galway City and suburbs,>=19,university,1634
+2011,Male,walking,Waterford City and suburbs,>=15,junior-cert,1062
+2011,Male,walking,Waterford City and suburbs,5 to 12,primary-school,603
+2011,Male,walking,Waterford City and suburbs,13 to 18,leaving-cert,471
+2011,Male,walking,Waterford City and suburbs,>=19,university,498
+2011,Male,walking,"Towns 10,000 population and over",>=15,junior-cert,12806
+2011,Male,walking,"Towns 10,000 population and over",5 to 12,primary-school,11732
+2011,Male,walking,"Towns 10,000 population and over",13 to 18,leaving-cert,9393
+2011,Male,walking,"Towns 10,000 population and over",>=19,university,4100
+2011,Male,walking,"Towns 5,000 - 9,999 population",>=15,junior-cert,4788
+2011,Male,walking,"Towns 5,000 - 9,999 population",5 to 12,primary-school,5796
+2011,Male,walking,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,4551
+2011,Male,walking,"Towns 5,000 - 9,999 population",>=19,university,868
+2011,Male,walking,"Towns 2,000 - 4,999 population",>=15,junior-cert,3839
+2011,Male,walking,"Towns 2,000 - 4,999 population",5 to 12,primary-school,4022
+2011,Male,walking,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,2996
+2011,Male,walking,"Towns 2,000 - 4,999 population",>=19,university,675
+2011,Male,walking,"Towns 1,500 - 1,999 population",>=15,junior-cert,1046
+2011,Male,walking,"Towns 1,500 - 1,999 population",5 to 12,primary-school,1252
+2011,Male,walking,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,556
+2011,Male,walking,"Towns 1,500 - 1,999 population",>=19,university,220
+2011,Male,walking,"Towns 1,000 - 1,499 population",>=15,junior-cert,1253
+2011,Male,walking,"Towns 1,000 - 1,499 population",5 to 12,primary-school,1818
+2011,Male,walking,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,909
+2011,Male,walking,"Towns 1,000 - 1,499 population",>=19,university,227
+2011,Male,walking,Total Towns 500 - 999 population,>=15,junior-cert,1462
+2011,Male,walking,Total Towns 500 - 999 population,5 to 12,primary-school,2646
+2011,Male,walking,Total Towns 500 - 999 population,13 to 18,leaving-cert,750
+2011,Male,walking,Total Towns 500 - 999 population,>=19,university,367
+2011,Male,walking,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,1176
+2011,Male,walking,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,2377
+2011,Male,walking,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,274
+2011,Male,walking,Towns under 500 population but with at least 50 inhabited houses,>=19,university,352
+2011,Male,walking,Remainder of country,>=15,junior-cert,12239
+2011,Male,walking,Remainder of country,5 to 12,primary-school,3080
+2011,Male,walking,Remainder of country,13 to 18,leaving-cert,2058
+2011,Male,walking,Remainder of country,>=19,university,5330
+2011,Male,bike,Dublin City and suburbs,>=15,junior-cert,18534
+2011,Male,bike,Dublin City and suburbs,5 to 12,primary-school,1824
+2011,Male,bike,Dublin City and suburbs,13 to 18,leaving-cert,3870
+2011,Male,bike,Dublin City and suburbs,>=19,university,3494
+2011,Male,bike,Cork City and suburbs,>=15,junior-cert,1186
+2011,Male,bike,Cork City and suburbs,5 to 12,primary-school,49
+2011,Male,bike,Cork City and suburbs,13 to 18,leaving-cert,120
+2011,Male,bike,Cork City and suburbs,>=19,university,450
+2011,Male,bike,Limerick City and suburbs,>=15,junior-cert,605
+2011,Male,bike,Limerick City and suburbs,5 to 12,primary-school,50
+2011,Male,bike,Limerick City and suburbs,13 to 18,leaving-cert,172
+2011,Male,bike,Limerick City and suburbs,>=19,university,227
+2011,Male,bike,Galway City and suburbs,>=15,junior-cert,924
+2011,Male,bike,Galway City and suburbs,5 to 12,primary-school,70
+2011,Male,bike,Galway City and suburbs,13 to 18,leaving-cert,131
+2011,Male,bike,Galway City and suburbs,>=19,university,432
+2011,Male,bike,Waterford City and suburbs,>=15,junior-cert,298
+2011,Male,bike,Waterford City and suburbs,5 to 12,primary-school,11
+2011,Male,bike,Waterford City and suburbs,13 to 18,leaving-cert,19
+2011,Male,bike,Waterford City and suburbs,>=19,university,70
+2011,Male,bike,"Towns 10,000 population and over",>=15,junior-cert,3659
+2011,Male,bike,"Towns 10,000 population and over",5 to 12,primary-school,898
+2011,Male,bike,"Towns 10,000 population and over",13 to 18,leaving-cert,1058
+2011,Male,bike,"Towns 10,000 population and over",>=19,university,518
+2011,Male,bike,"Towns 5,000 - 9,999 population",>=15,junior-cert,1006
+2011,Male,bike,"Towns 5,000 - 9,999 population",5 to 12,primary-school,436
+2011,Male,bike,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,253
+2011,Male,bike,"Towns 5,000 - 9,999 population",>=19,university,89
+2011,Male,bike,"Towns 2,000 - 4,999 population",>=15,junior-cert,564
+2011,Male,bike,"Towns 2,000 - 4,999 population",5 to 12,primary-school,188
+2011,Male,bike,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,74
+2011,Male,bike,"Towns 2,000 - 4,999 population",>=19,university,75
+2011,Male,bike,"Towns 1,500 - 1,999 population",>=15,junior-cert,127
+2011,Male,bike,"Towns 1,500 - 1,999 population",5 to 12,primary-school,59
+2011,Male,bike,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,14
+2011,Male,bike,"Towns 1,500 - 1,999 population",>=19,university,23
+2011,Male,bike,"Towns 1,000 - 1,499 population",>=15,junior-cert,166
+2011,Male,bike,"Towns 1,000 - 1,499 population",5 to 12,primary-school,82
+2011,Male,bike,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,25
+2011,Male,bike,"Towns 1,000 - 1,499 population",>=19,university,21
+2011,Male,bike,Total Towns 500 - 999 population,>=15,junior-cert,163
+2011,Male,bike,Total Towns 500 - 999 population,5 to 12,primary-school,118
+2011,Male,bike,Total Towns 500 - 999 population,13 to 18,leaving-cert,27
+2011,Male,bike,Total Towns 500 - 999 population,>=19,university,42
+2011,Male,bike,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,171
+2011,Male,bike,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,85
+2011,Male,bike,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,21
+2011,Male,bike,Towns under 500 population but with at least 50 inhabited houses,>=19,university,40
+2011,Male,bike,Remainder of country,>=15,junior-cert,1672
+2011,Male,bike,Remainder of country,5 to 12,primary-school,587
+2011,Male,bike,Remainder of country,13 to 18,leaving-cert,279
+2011,Male,bike,Remainder of country,>=19,university,734
+2011,Male,bus,Dublin City and suburbs,>=15,junior-cert,24820
+2011,Male,bus,Dublin City and suburbs,5 to 12,primary-school,3182
+2011,Male,bus,Dublin City and suburbs,13 to 18,leaving-cert,7653
+2011,Male,bus,Dublin City and suburbs,>=19,university,9320
+2011,Male,bus,Cork City and suburbs,>=15,junior-cert,1990
+2011,Male,bus,Cork City and suburbs,5 to 12,primary-school,378
+2011,Male,bus,Cork City and suburbs,13 to 18,leaving-cert,1106
+2011,Male,bus,Cork City and suburbs,>=19,university,847
+2011,Male,bus,Limerick City and suburbs,>=15,junior-cert,525
+2011,Male,bus,Limerick City and suburbs,5 to 12,primary-school,188
+2011,Male,bus,Limerick City and suburbs,13 to 18,leaving-cert,522
+2011,Male,bus,Limerick City and suburbs,>=19,university,384
+2011,Male,bus,Galway City and suburbs,>=15,junior-cert,634
+2011,Male,bus,Galway City and suburbs,5 to 12,primary-school,221
+2011,Male,bus,Galway City and suburbs,13 to 18,leaving-cert,550
+2011,Male,bus,Galway City and suburbs,>=19,university,314
+2011,Male,bus,Waterford City and suburbs,>=15,junior-cert,174
+2011,Male,bus,Waterford City and suburbs,5 to 12,primary-school,167
+2011,Male,bus,Waterford City and suburbs,13 to 18,leaving-cert,229
+2011,Male,bus,Waterford City and suburbs,>=19,university,125
+2011,Male,bus,"Towns 10,000 population and over",>=15,junior-cert,4928
+2011,Male,bus,"Towns 10,000 population and over",5 to 12,primary-school,3502
+2011,Male,bus,"Towns 10,000 population and over",13 to 18,leaving-cert,3301
+2011,Male,bus,"Towns 10,000 population and over",>=19,university,2932
+2011,Male,bus,"Towns 5,000 - 9,999 population",>=15,junior-cert,1424
+2011,Male,bus,"Towns 5,000 - 9,999 population",5 to 12,primary-school,1413
+2011,Male,bus,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,1292
+2011,Male,bus,"Towns 5,000 - 9,999 population",>=19,university,966
+2011,Male,bus,"Towns 2,000 - 4,999 population",>=15,junior-cert,825
+2011,Male,bus,"Towns 2,000 - 4,999 population",5 to 12,primary-school,966
+2011,Male,bus,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,1189
+2011,Male,bus,"Towns 2,000 - 4,999 population",>=19,university,599
+2011,Male,bus,"Towns 1,500 - 1,999 population",>=15,junior-cert,180
+2011,Male,bus,"Towns 1,500 - 1,999 population",5 to 12,primary-school,228
+2011,Male,bus,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,711
+2011,Male,bus,"Towns 1,500 - 1,999 population",>=19,university,129
+2011,Male,bus,"Towns 1,000 - 1,499 population",>=15,junior-cert,269
+2011,Male,bus,"Towns 1,000 - 1,499 population",5 to 12,primary-school,332
+2011,Male,bus,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,1020
+2011,Male,bus,"Towns 1,000 - 1,499 population",>=19,university,197
+2011,Male,bus,Total Towns 500 - 999 population,>=15,junior-cert,320
+2011,Male,bus,Total Towns 500 - 999 population,5 to 12,primary-school,523
+2011,Male,bus,Total Towns 500 - 999 population,13 to 18,leaving-cert,1975
+2011,Male,bus,Total Towns 500 - 999 population,>=19,university,255
+2011,Male,bus,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,204
+2011,Male,bus,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,731
+2011,Male,bus,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,2405
+2011,Male,bus,Towns under 500 population but with at least 50 inhabited houses,>=19,university,228
+2011,Male,bus,Remainder of country,>=15,junior-cert,2302
+2011,Male,bus,Remainder of country,5 to 12,primary-school,19386
+2011,Male,bus,Remainder of country,13 to 18,leaving-cert,26190
+2011,Male,bus,Remainder of country,>=19,university,3009
+2011,Male,train,Dublin City and suburbs,>=15,junior-cert,16019
+2011,Male,train,Dublin City and suburbs,5 to 12,primary-school,265
+2011,Male,train,Dublin City and suburbs,13 to 18,leaving-cert,1863
+2011,Male,train,Dublin City and suburbs,>=19,university,3239
+2011,Male,train,Cork City and suburbs,>=15,junior-cert,164
+2011,Male,train,Cork City and suburbs,5 to 12,primary-school,5
+2011,Male,train,Cork City and suburbs,13 to 18,leaving-cert,21
+2011,Male,train,Cork City and suburbs,>=19,university,24
+2011,Male,train,Limerick City and suburbs,>=15,junior-cert,36
+2011,Male,train,Limerick City and suburbs,5 to 12,primary-school,3
+2011,Male,train,Limerick City and suburbs,13 to 18,leaving-cert,2
+2011,Male,train,Limerick City and suburbs,>=19,university,17
+2011,Male,train,Galway City and suburbs,>=15,junior-cert,28
+2011,Male,train,Galway City and suburbs,5 to 12,primary-school,1
+2011,Male,train,Galway City and suburbs,13 to 18,leaving-cert,0
+2011,Male,train,Galway City and suburbs,>=19,university,9
+2011,Male,train,Waterford City and suburbs,>=15,junior-cert,20
+2011,Male,train,Waterford City and suburbs,5 to 12,primary-school,0
+2011,Male,train,Waterford City and suburbs,13 to 18,leaving-cert,1
+2011,Male,train,Waterford City and suburbs,>=19,university,4
+2011,Male,train,"Towns 10,000 population and over",>=15,junior-cert,5058
+2011,Male,train,"Towns 10,000 population and over",5 to 12,primary-school,36
+2011,Male,train,"Towns 10,000 population and over",13 to 18,leaving-cert,468
+2011,Male,train,"Towns 10,000 population and over",>=19,university,1335
+2011,Male,train,"Towns 5,000 - 9,999 population",>=15,junior-cert,2273
+2011,Male,train,"Towns 5,000 - 9,999 population",5 to 12,primary-school,18
+2011,Male,train,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,229
+2011,Male,train,"Towns 5,000 - 9,999 population",>=19,university,517
+2011,Male,train,"Towns 2,000 - 4,999 population",>=15,junior-cert,354
+2011,Male,train,"Towns 2,000 - 4,999 population",5 to 12,primary-school,4
+2011,Male,train,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,31
+2011,Male,train,"Towns 2,000 - 4,999 population",>=19,university,102
+2011,Male,train,"Towns 1,500 - 1,999 population",>=15,junior-cert,94
+2011,Male,train,"Towns 1,500 - 1,999 population",5 to 12,primary-school,1
+2011,Male,train,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,16
+2011,Male,train,"Towns 1,500 - 1,999 population",>=19,university,33
+2011,Male,train,"Towns 1,000 - 1,499 population",>=15,junior-cert,107
+2011,Male,train,"Towns 1,000 - 1,499 population",5 to 12,primary-school,1
+2011,Male,train,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,21
+2011,Male,train,"Towns 1,000 - 1,499 population",>=19,university,38
+2011,Male,train,Total Towns 500 - 999 population,>=15,junior-cert,159
+2011,Male,train,Total Towns 500 - 999 population,5 to 12,primary-school,3
+2011,Male,train,Total Towns 500 - 999 population,13 to 18,leaving-cert,17
+2011,Male,train,Total Towns 500 - 999 population,>=19,university,40
+2011,Male,train,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,112
+2011,Male,train,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,3
+2011,Male,train,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,19
+2011,Male,train,Towns under 500 population but with at least 50 inhabited houses,>=19,university,46
+2011,Male,train,Remainder of country,>=15,junior-cert,1228
+2011,Male,train,Remainder of country,5 to 12,primary-school,31
+2011,Male,train,Remainder of country,13 to 18,leaving-cert,238
+2011,Male,train,Remainder of country,>=19,university,652
+2011,Male,motorbike,Dublin City and suburbs,>=15,junior-cert,3811
+2011,Male,motorbike,Dublin City and suburbs,5 to 12,primary-school,0
+2011,Male,motorbike,Dublin City and suburbs,13 to 18,leaving-cert,28
+2011,Male,motorbike,Dublin City and suburbs,>=19,university,235
+2011,Male,motorbike,Cork City and suburbs,>=15,junior-cert,395
+2011,Male,motorbike,Cork City and suburbs,5 to 12,primary-school,0
+2011,Male,motorbike,Cork City and suburbs,13 to 18,leaving-cert,29
+2011,Male,motorbike,Cork City and suburbs,>=19,university,49
+2011,Male,motorbike,Limerick City and suburbs,>=15,junior-cert,79
+2011,Male,motorbike,Limerick City and suburbs,5 to 12,primary-school,0
+2011,Male,motorbike,Limerick City and suburbs,13 to 18,leaving-cert,5
+2011,Male,motorbike,Limerick City and suburbs,>=19,university,13
+2011,Male,motorbike,Galway City and suburbs,>=15,junior-cert,87
+2011,Male,motorbike,Galway City and suburbs,5 to 12,primary-school,0
+2011,Male,motorbike,Galway City and suburbs,13 to 18,leaving-cert,3
+2011,Male,motorbike,Galway City and suburbs,>=19,university,18
+2011,Male,motorbike,Waterford City and suburbs,>=15,junior-cert,75
+2011,Male,motorbike,Waterford City and suburbs,5 to 12,primary-school,0
+2011,Male,motorbike,Waterford City and suburbs,13 to 18,leaving-cert,1
+2011,Male,motorbike,Waterford City and suburbs,>=19,university,7
+2011,Male,motorbike,"Towns 10,000 population and over",>=15,junior-cert,1043
+2011,Male,motorbike,"Towns 10,000 population and over",5 to 12,primary-school,0
+2011,Male,motorbike,"Towns 10,000 population and over",13 to 18,leaving-cert,23
+2011,Male,motorbike,"Towns 10,000 population and over",>=19,university,56
+2011,Male,motorbike,"Towns 5,000 - 9,999 population",>=15,junior-cert,398
+2011,Male,motorbike,"Towns 5,000 - 9,999 population",5 to 12,primary-school,0
+2011,Male,motorbike,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,6
+2011,Male,motorbike,"Towns 5,000 - 9,999 population",>=19,university,15
+2011,Male,motorbike,"Towns 2,000 - 4,999 population",>=15,junior-cert,219
+2011,Male,motorbike,"Towns 2,000 - 4,999 population",5 to 12,primary-school,0
+2011,Male,motorbike,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,4
+2011,Male,motorbike,"Towns 2,000 - 4,999 population",>=19,university,10
+2011,Male,motorbike,"Towns 1,500 - 1,999 population",>=15,junior-cert,53
+2011,Male,motorbike,"Towns 1,500 - 1,999 population",5 to 12,primary-school,0
+2011,Male,motorbike,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,3
+2011,Male,motorbike,"Towns 1,500 - 1,999 population",>=19,university,3
+2011,Male,motorbike,"Towns 1,000 - 1,499 population",>=15,junior-cert,81
+2011,Male,motorbike,"Towns 1,000 - 1,499 population",5 to 12,primary-school,0
+2011,Male,motorbike,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,7
+2011,Male,motorbike,"Towns 1,000 - 1,499 population",>=19,university,7
+2011,Male,motorbike,Total Towns 500 - 999 population,>=15,junior-cert,90
+2011,Male,motorbike,Total Towns 500 - 999 population,5 to 12,primary-school,0
+2011,Male,motorbike,Total Towns 500 - 999 population,13 to 18,leaving-cert,3
+2011,Male,motorbike,Total Towns 500 - 999 population,>=19,university,7
+2011,Male,motorbike,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,100
+2011,Male,motorbike,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,0
+2011,Male,motorbike,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,1
+2011,Male,motorbike,Towns under 500 population but with at least 50 inhabited houses,>=19,university,14
+2011,Male,motorbike,Remainder of country,>=15,junior-cert,901
+2011,Male,motorbike,Remainder of country,5 to 12,primary-school,0
+2011,Male,motorbike,Remainder of country,13 to 18,leaving-cert,68
+2011,Male,motorbike,Remainder of country,>=19,university,72
+2011,Male,car,Dublin City and suburbs,>=15,junior-cert,112669
+2011,Male,car,Dublin City and suburbs,5 to 12,primary-school,0
+2011,Male,car,Dublin City and suburbs,13 to 18,leaving-cert,329
+2011,Male,car,Dublin City and suburbs,>=19,university,4411
+2011,Male,car,Cork City and suburbs,>=15,junior-cert,24613
+2011,Male,car,Cork City and suburbs,5 to 12,primary-school,0
+2011,Male,car,Cork City and suburbs,13 to 18,leaving-cert,139
+2011,Male,car,Cork City and suburbs,>=19,university,1302
+2011,Male,car,Limerick City and suburbs,>=15,junior-cert,10309
+2011,Male,car,Limerick City and suburbs,5 to 12,primary-school,0
+2011,Male,car,Limerick City and suburbs,13 to 18,leaving-cert,55
+2011,Male,car,Limerick City and suburbs,>=19,university,896
+2011,Male,car,Galway City and suburbs,>=15,junior-cert,8545
+2011,Male,car,Galway City and suburbs,5 to 12,primary-school,0
+2011,Male,car,Galway City and suburbs,13 to 18,leaving-cert,18
+2011,Male,car,Galway City and suburbs,>=19,university,554
+2011,Male,car,Waterford City and suburbs,>=15,junior-cert,5901
+2011,Male,car,Waterford City and suburbs,5 to 12,primary-school,0
+2011,Male,car,Waterford City and suburbs,13 to 18,leaving-cert,29
+2011,Male,car,Waterford City and suburbs,>=19,university,347
+2011,Male,car,"Towns 10,000 population and over",>=15,junior-cert,89573
+2011,Male,car,"Towns 10,000 population and over",5 to 12,primary-school,0
+2011,Male,car,"Towns 10,000 population and over",13 to 18,leaving-cert,343
+2011,Male,car,"Towns 10,000 population and over",>=19,university,3297
+2011,Male,car,"Towns 5,000 - 9,999 population",>=15,junior-cert,36559
+2011,Male,car,"Towns 5,000 - 9,999 population",5 to 12,primary-school,0
+2011,Male,car,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,171
+2011,Male,car,"Towns 5,000 - 9,999 population",>=19,university,1256
+2011,Male,car,"Towns 2,000 - 4,999 population",>=15,junior-cert,27132
+2011,Male,car,"Towns 2,000 - 4,999 population",5 to 12,primary-school,0
+2011,Male,car,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,125
+2011,Male,car,"Towns 2,000 - 4,999 population",>=19,university,1056
+2011,Male,car,"Towns 1,500 - 1,999 population",>=15,junior-cert,7491
+2011,Male,car,"Towns 1,500 - 1,999 population",5 to 12,primary-school,0
+2011,Male,car,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,36
+2011,Male,car,"Towns 1,500 - 1,999 population",>=19,university,301
+2011,Male,car,"Towns 1,000 - 1,499 population",>=15,junior-cert,10720
+2011,Male,car,"Towns 1,000 - 1,499 population",5 to 12,primary-school,0
+2011,Male,car,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,68
+2011,Male,car,"Towns 1,000 - 1,499 population",>=19,university,450
+2011,Male,car,Total Towns 500 - 999 population,>=15,junior-cert,13881
+2011,Male,car,Total Towns 500 - 999 population,5 to 12,primary-school,0
+2011,Male,car,Total Towns 500 - 999 population,13 to 18,leaving-cert,92
+2011,Male,car,Total Towns 500 - 999 population,>=19,university,626
+2011,Male,car,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,12783
+2011,Male,car,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,0
+2011,Male,car,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,86
+2011,Male,car,Towns under 500 population but with at least 50 inhabited houses,>=19,university,618
+2011,Male,car,Remainder of country,>=15,junior-cert,155637
+2011,Male,car,Remainder of country,5 to 12,primary-school,0
+2011,Male,car,Remainder of country,13 to 18,leaving-cert,2093
+2011,Male,car,Remainder of country,>=19,university,8912
+2011,Male,carpool,Dublin City and suburbs,>=15,junior-cert,4593
+2011,Male,carpool,Dublin City and suburbs,5 to 12,primary-school,23493
+2011,Male,carpool,Dublin City and suburbs,13 to 18,leaving-cert,7605
+2011,Male,carpool,Dublin City and suburbs,>=19,university,882
+2011,Male,carpool,Cork City and suburbs,>=15,junior-cert,1414
+2011,Male,carpool,Cork City and suburbs,5 to 12,primary-school,5861
+2011,Male,carpool,Cork City and suburbs,13 to 18,leaving-cert,3286
+2011,Male,carpool,Cork City and suburbs,>=19,university,683
+2011,Male,carpool,Limerick City and suburbs,>=15,junior-cert,705
+2011,Male,carpool,Limerick City and suburbs,5 to 12,primary-school,2298
+2011,Male,carpool,Limerick City and suburbs,13 to 18,leaving-cert,1172
+2011,Male,carpool,Limerick City and suburbs,>=19,university,246
+2011,Male,carpool,Galway City and suburbs,>=15,junior-cert,555
+2011,Male,carpool,Galway City and suburbs,5 to 12,primary-school,2153
+2011,Male,carpool,Galway City and suburbs,13 to 18,leaving-cert,907
+2011,Male,carpool,Galway City and suburbs,>=19,university,211
+2011,Male,carpool,Waterford City and suburbs,>=15,junior-cert,538
+2011,Male,carpool,Waterford City and suburbs,5 to 12,primary-school,1834
+2011,Male,carpool,Waterford City and suburbs,13 to 18,leaving-cert,881
+2011,Male,carpool,Waterford City and suburbs,>=19,university,133
+2011,Male,carpool,"Towns 10,000 population and over",>=15,junior-cert,5415
+2011,Male,carpool,"Towns 10,000 population and over",5 to 12,primary-school,24273
+2011,Male,carpool,"Towns 10,000 population and over",13 to 18,leaving-cert,9796
+2011,Male,carpool,"Towns 10,000 population and over",>=19,university,1135
+2011,Male,carpool,"Towns 5,000 - 9,999 population",>=15,junior-cert,2498
+2011,Male,carpool,"Towns 5,000 - 9,999 population",5 to 12,primary-school,9544
+2011,Male,carpool,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,3430
+2011,Male,carpool,"Towns 5,000 - 9,999 population",>=19,university,378
+2011,Male,carpool,"Towns 2,000 - 4,999 population",>=15,junior-cert,1819
+2011,Male,carpool,"Towns 2,000 - 4,999 population",5 to 12,primary-school,7039
+2011,Male,carpool,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,2525
+2011,Male,carpool,"Towns 2,000 - 4,999 population",>=19,university,330
+2011,Male,carpool,"Towns 1,500 - 1,999 population",>=15,junior-cert,454
+2011,Male,carpool,"Towns 1,500 - 1,999 population",5 to 12,primary-school,2110
+2011,Male,carpool,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,798
+2011,Male,carpool,"Towns 1,500 - 1,999 population",>=19,university,136
+2011,Male,carpool,"Towns 1,000 - 1,499 population",>=15,junior-cert,602
+2011,Male,carpool,"Towns 1,000 - 1,499 population",5 to 12,primary-school,3088
+2011,Male,carpool,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,974
+2011,Male,carpool,"Towns 1,000 - 1,499 population",>=19,university,144
+2011,Male,carpool,Total Towns 500 - 999 population,>=15,junior-cert,792
+2011,Male,carpool,Total Towns 500 - 999 population,5 to 12,primary-school,4078
+2011,Male,carpool,Total Towns 500 - 999 population,13 to 18,leaving-cert,1513
+2011,Male,carpool,Total Towns 500 - 999 population,>=19,university,215
+2011,Male,carpool,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,657
+2011,Male,carpool,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,3585
+2011,Male,carpool,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,1256
+2011,Male,carpool,Towns under 500 population but with at least 50 inhabited houses,>=19,university,200
+2011,Male,carpool,Remainder of country,>=15,junior-cert,5776
+2011,Male,carpool,Remainder of country,5 to 12,primary-school,61462
+2011,Male,carpool,Remainder of country,13 to 18,leaving-cert,27272
+2011,Male,carpool,Remainder of country,>=19,university,2803
+2011,Male,truck,Dublin City and suburbs,>=15,junior-cert,13484
+2011,Male,truck,Dublin City and suburbs,5 to 12,primary-school,65
+2011,Male,truck,Dublin City and suburbs,13 to 18,leaving-cert,28
+2011,Male,truck,Dublin City and suburbs,>=19,university,69
+2011,Male,truck,Cork City and suburbs,>=15,junior-cert,3002
+2011,Male,truck,Cork City and suburbs,5 to 12,primary-school,17
+2011,Male,truck,Cork City and suburbs,13 to 18,leaving-cert,16
+2011,Male,truck,Cork City and suburbs,>=19,university,26
+2011,Male,truck,Limerick City and suburbs,>=15,junior-cert,1158
+2011,Male,truck,Limerick City and suburbs,5 to 12,primary-school,5
+2011,Male,truck,Limerick City and suburbs,13 to 18,leaving-cert,6
+2011,Male,truck,Limerick City and suburbs,>=19,university,16
+2011,Male,truck,Galway City and suburbs,>=15,junior-cert,983
+2011,Male,truck,Galway City and suburbs,5 to 12,primary-school,6
+2011,Male,truck,Galway City and suburbs,13 to 18,leaving-cert,2
+2011,Male,truck,Galway City and suburbs,>=19,university,20
+2011,Male,truck,Waterford City and suburbs,>=15,junior-cert,743
+2011,Male,truck,Waterford City and suburbs,5 to 12,primary-school,3
+2011,Male,truck,Waterford City and suburbs,13 to 18,leaving-cert,4
+2011,Male,truck,Waterford City and suburbs,>=19,university,11
+2011,Male,truck,"Towns 10,000 population and over",>=15,junior-cert,13212
+2011,Male,truck,"Towns 10,000 population and over",5 to 12,primary-school,88
+2011,Male,truck,"Towns 10,000 population and over",13 to 18,leaving-cert,55
+2011,Male,truck,"Towns 10,000 population and over",>=19,university,116
+2011,Male,truck,"Towns 5,000 - 9,999 population",>=15,junior-cert,6102
+2011,Male,truck,"Towns 5,000 - 9,999 population",5 to 12,primary-school,27
+2011,Male,truck,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,17
+2011,Male,truck,"Towns 5,000 - 9,999 population",>=19,university,53
+2011,Male,truck,"Towns 2,000 - 4,999 population",>=15,junior-cert,5616
+2011,Male,truck,"Towns 2,000 - 4,999 population",5 to 12,primary-school,22
+2011,Male,truck,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,26
+2011,Male,truck,"Towns 2,000 - 4,999 population",>=19,university,57
+2011,Male,truck,"Towns 1,500 - 1,999 population",>=15,junior-cert,1605
+2011,Male,truck,"Towns 1,500 - 1,999 population",5 to 12,primary-school,10
+2011,Male,truck,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,2
+2011,Male,truck,"Towns 1,500 - 1,999 population",>=19,university,15
+2011,Male,truck,"Towns 1,000 - 1,499 population",>=15,junior-cert,2500
+2011,Male,truck,"Towns 1,000 - 1,499 population",5 to 12,primary-school,10
+2011,Male,truck,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,5
+2011,Male,truck,"Towns 1,000 - 1,499 population",>=19,university,28
+2011,Male,truck,Total Towns 500 - 999 population,>=15,junior-cert,3455
+2011,Male,truck,Total Towns 500 - 999 population,5 to 12,primary-school,15
+2011,Male,truck,Total Towns 500 - 999 population,13 to 18,leaving-cert,11
+2011,Male,truck,Total Towns 500 - 999 population,>=19,university,37
+2011,Male,truck,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,3632
+2011,Male,truck,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,12
+2011,Male,truck,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,5
+2011,Male,truck,Towns under 500 population but with at least 50 inhabited houses,>=19,university,34
+2011,Male,truck,Remainder of country,>=15,junior-cert,58030
+2011,Male,truck,Remainder of country,5 to 12,primary-school,219
+2011,Male,truck,Remainder of country,13 to 18,leaving-cert,262
+2011,Male,truck,Remainder of country,>=19,university,555
+2011,Male,truck,Dublin City and suburbs,>=15,junior-cert,854
+2011,Male,truck,Dublin City and suburbs,5 to 12,primary-school,17
+2011,Male,truck,Dublin City and suburbs,13 to 18,leaving-cert,8
+2011,Male,truck,Dublin City and suburbs,>=19,university,6
+2011,Male,truck,Cork City and suburbs,>=15,junior-cert,284
+2011,Male,truck,Cork City and suburbs,5 to 12,primary-school,2
+2011,Male,truck,Cork City and suburbs,13 to 18,leaving-cert,2
+2011,Male,truck,Cork City and suburbs,>=19,university,3
+2011,Male,truck,Limerick City and suburbs,>=15,junior-cert,74
+2011,Male,truck,Limerick City and suburbs,5 to 12,primary-school,3
+2011,Male,truck,Limerick City and suburbs,13 to 18,leaving-cert,0
+2011,Male,truck,Limerick City and suburbs,>=19,university,1
+2011,Male,truck,Galway City and suburbs,>=15,junior-cert,76
+2011,Male,truck,Galway City and suburbs,5 to 12,primary-school,1
+2011,Male,truck,Galway City and suburbs,13 to 18,leaving-cert,0
+2011,Male,truck,Galway City and suburbs,>=19,university,5
+2011,Male,truck,Waterford City and suburbs,>=15,junior-cert,52
+2011,Male,truck,Waterford City and suburbs,5 to 12,primary-school,1
+2011,Male,truck,Waterford City and suburbs,13 to 18,leaving-cert,0
+2011,Male,truck,Waterford City and suburbs,>=19,university,1
+2011,Male,truck,"Towns 10,000 population and over",>=15,junior-cert,1007
+2011,Male,truck,"Towns 10,000 population and over",5 to 12,primary-school,18
+2011,Male,truck,"Towns 10,000 population and over",13 to 18,leaving-cert,6
+2011,Male,truck,"Towns 10,000 population and over",>=19,university,9
+2011,Male,truck,"Towns 5,000 - 9,999 population",>=15,junior-cert,534
+2011,Male,truck,"Towns 5,000 - 9,999 population",5 to 12,primary-school,5
+2011,Male,truck,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,3
+2011,Male,truck,"Towns 5,000 - 9,999 population",>=19,university,3
+2011,Male,truck,"Towns 2,000 - 4,999 population",>=15,junior-cert,503
+2011,Male,truck,"Towns 2,000 - 4,999 population",5 to 12,primary-school,4
+2011,Male,truck,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,1
+2011,Male,truck,"Towns 2,000 - 4,999 population",>=19,university,3
+2011,Male,truck,"Towns 1,500 - 1,999 population",>=15,junior-cert,163
+2011,Male,truck,"Towns 1,500 - 1,999 population",5 to 12,primary-school,0
+2011,Male,truck,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,0
+2011,Male,truck,"Towns 1,500 - 1,999 population",>=19,university,1
+2011,Male,truck,"Towns 1,000 - 1,499 population",>=15,junior-cert,267
+2011,Male,truck,"Towns 1,000 - 1,499 population",5 to 12,primary-school,2
+2011,Male,truck,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,0
+2011,Male,truck,"Towns 1,000 - 1,499 population",>=19,university,2
+2011,Male,truck,Total Towns 500 - 999 population,>=15,junior-cert,420
+2011,Male,truck,Total Towns 500 - 999 population,5 to 12,primary-school,4
+2011,Male,truck,Total Towns 500 - 999 population,13 to 18,leaving-cert,0
+2011,Male,truck,Total Towns 500 - 999 population,>=19,university,1
+2011,Male,truck,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,500
+2011,Male,truck,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,3
+2011,Male,truck,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,3
+2011,Male,truck,Towns under 500 population but with at least 50 inhabited houses,>=19,university,1
+2011,Male,truck,Remainder of country,>=15,junior-cert,9575
+2011,Male,truck,Remainder of country,5 to 12,primary-school,29
+2011,Male,truck,Remainder of country,13 to 18,leaving-cert,36
+2011,Male,truck,Remainder of country,>=19,university,21
+2011,Male,remote,Dublin City and suburbs,>=15,junior-cert,5683
+2011,Male,remote,Dublin City and suburbs,5 to 12,primary-school,32
+2011,Male,remote,Dublin City and suburbs,13 to 18,leaving-cert,27
+2011,Male,remote,Dublin City and suburbs,>=19,university,78
+2011,Male,remote,Cork City and suburbs,>=15,junior-cert,828
+2011,Male,remote,Cork City and suburbs,5 to 12,primary-school,5
+2011,Male,remote,Cork City and suburbs,13 to 18,leaving-cert,1
+2011,Male,remote,Cork City and suburbs,>=19,university,11
+2011,Male,remote,Limerick City and suburbs,>=15,junior-cert,340
+2011,Male,remote,Limerick City and suburbs,5 to 12,primary-school,1
+2011,Male,remote,Limerick City and suburbs,13 to 18,leaving-cert,3
+2011,Male,remote,Limerick City and suburbs,>=19,university,4
+2011,Male,remote,Galway City and suburbs,>=15,junior-cert,397
+2011,Male,remote,Galway City and suburbs,5 to 12,primary-school,0
+2011,Male,remote,Galway City and suburbs,13 to 18,leaving-cert,2
+2011,Male,remote,Galway City and suburbs,>=19,university,5
+2011,Male,remote,Waterford City and suburbs,>=15,junior-cert,177
+2011,Male,remote,Waterford City and suburbs,5 to 12,primary-school,0
+2011,Male,remote,Waterford City and suburbs,13 to 18,leaving-cert,1
+2011,Male,remote,Waterford City and suburbs,>=19,university,2
+2011,Male,remote,"Towns 10,000 population and over",>=15,junior-cert,3196
+2011,Male,remote,"Towns 10,000 population and over",5 to 12,primary-school,22
+2011,Male,remote,"Towns 10,000 population and over",13 to 18,leaving-cert,14
+2011,Male,remote,"Towns 10,000 population and over",>=19,university,35
+2011,Male,remote,"Towns 5,000 - 9,999 population",>=15,junior-cert,1382
+2011,Male,remote,"Towns 5,000 - 9,999 population",5 to 12,primary-school,4
+2011,Male,remote,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,6
+2011,Male,remote,"Towns 5,000 - 9,999 population",>=19,university,10
+2011,Male,remote,"Towns 2,000 - 4,999 population",>=15,junior-cert,1239
+2011,Male,remote,"Towns 2,000 - 4,999 population",5 to 12,primary-school,8
+2011,Male,remote,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,6
+2011,Male,remote,"Towns 2,000 - 4,999 population",>=19,university,8
+2011,Male,remote,"Towns 1,500 - 1,999 population",>=15,junior-cert,445
+2011,Male,remote,"Towns 1,500 - 1,999 population",5 to 12,primary-school,0
+2011,Male,remote,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,1
+2011,Male,remote,"Towns 1,500 - 1,999 population",>=19,university,5
+2011,Male,remote,"Towns 1,000 - 1,499 population",>=15,junior-cert,634
+2011,Male,remote,"Towns 1,000 - 1,499 population",5 to 12,primary-school,0
+2011,Male,remote,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,3
+2011,Male,remote,"Towns 1,000 - 1,499 population",>=19,university,2
+2011,Male,remote,Total Towns 500 - 999 population,>=15,junior-cert,1028
+2011,Male,remote,Total Towns 500 - 999 population,5 to 12,primary-school,0
+2011,Male,remote,Total Towns 500 - 999 population,13 to 18,leaving-cert,2
+2011,Male,remote,Total Towns 500 - 999 population,>=19,university,7
+2011,Male,remote,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,1257
+2011,Male,remote,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,8
+2011,Male,remote,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,5
+2011,Male,remote,Towns under 500 population but with at least 50 inhabited houses,>=19,university,0
+2011,Male,remote,Remainder of country,>=15,junior-cert,42672
+2011,Male,remote,Remainder of country,5 to 12,primary-school,55
+2011,Male,remote,Remainder of country,13 to 18,leaving-cert,66
+2011,Male,remote,Remainder of country,>=19,university,72
+2011,Male,na,Dublin City and suburbs,>=15,junior-cert,8243
+2011,Male,na,Dublin City and suburbs,5 to 12,primary-school,2276
+2011,Male,na,Dublin City and suburbs,13 to 18,leaving-cert,865
+2011,Male,na,Dublin City and suburbs,>=19,university,1130
+2011,Male,na,Cork City and suburbs,>=15,junior-cert,1306
+2011,Male,na,Cork City and suburbs,5 to 12,primary-school,425
+2011,Male,na,Cork City and suburbs,13 to 18,leaving-cert,157
+2011,Male,na,Cork City and suburbs,>=19,university,216
+2011,Male,na,Limerick City and suburbs,>=15,junior-cert,624
+2011,Male,na,Limerick City and suburbs,5 to 12,primary-school,207
+2011,Male,na,Limerick City and suburbs,13 to 18,leaving-cert,79
+2011,Male,na,Limerick City and suburbs,>=19,university,118
+2011,Male,na,Galway City and suburbs,>=15,junior-cert,564
+2011,Male,na,Galway City and suburbs,5 to 12,primary-school,156
+2011,Male,na,Galway City and suburbs,13 to 18,leaving-cert,57
+2011,Male,na,Galway City and suburbs,>=19,university,126
+2011,Male,na,Waterford City and suburbs,>=15,junior-cert,357
+2011,Male,na,Waterford City and suburbs,5 to 12,primary-school,117
+2011,Male,na,Waterford City and suburbs,13 to 18,leaving-cert,45
+2011,Male,na,Waterford City and suburbs,>=19,university,70
+2011,Male,na,"Towns 10,000 population and over",>=15,junior-cert,4283
+2011,Male,na,"Towns 10,000 population and over",5 to 12,primary-school,1791
+2011,Male,na,"Towns 10,000 population and over",13 to 18,leaving-cert,677
+2011,Male,na,"Towns 10,000 population and over",>=19,university,602
+2011,Male,na,"Towns 5,000 - 9,999 population",>=15,junior-cert,1438
+2011,Male,na,"Towns 5,000 - 9,999 population",5 to 12,primary-school,643
+2011,Male,na,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,257
+2011,Male,na,"Towns 5,000 - 9,999 population",>=19,university,164
+2011,Male,na,"Towns 2,000 - 4,999 population",>=15,junior-cert,1332
+2011,Male,na,"Towns 2,000 - 4,999 population",5 to 12,primary-school,547
+2011,Male,na,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,200
+2011,Male,na,"Towns 2,000 - 4,999 population",>=19,university,131
+2011,Male,na,"Towns 1,500 - 1,999 population",>=15,junior-cert,381
+2011,Male,na,"Towns 1,500 - 1,999 population",5 to 12,primary-school,159
+2011,Male,na,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,56
+2011,Male,na,"Towns 1,500 - 1,999 population",>=19,university,42
+2011,Male,na,"Towns 1,000 - 1,499 population",>=15,junior-cert,539
+2011,Male,na,"Towns 1,000 - 1,499 population",5 to 12,primary-school,194
+2011,Male,na,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,80
+2011,Male,na,"Towns 1,000 - 1,499 population",>=19,university,47
+2011,Male,na,Total Towns 500 - 999 population,>=15,junior-cert,677
+2011,Male,na,Total Towns 500 - 999 population,5 to 12,primary-school,269
+2011,Male,na,Total Towns 500 - 999 population,13 to 18,leaving-cert,91
+2011,Male,na,Total Towns 500 - 999 population,>=19,university,65
+2011,Male,na,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,709
+2011,Male,na,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,217
+2011,Male,na,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,90
+2011,Male,na,Towns under 500 population but with at least 50 inhabited houses,>=19,university,68
+2011,Male,na,Remainder of country,>=15,junior-cert,15614
+2011,Male,na,Remainder of country,5 to 12,primary-school,2139
+2011,Male,na,Remainder of country,13 to 18,leaving-cert,1000
+2011,Male,na,Remainder of country,>=19,university,704
+2011,Female,walking,Dublin City and suburbs,>=15,junior-cert,37723
+2011,Female,walking,Dublin City and suburbs,5 to 12,primary-school,21448
+2011,Female,walking,Dublin City and suburbs,13 to 18,leaving-cert,12969
+2011,Female,walking,Dublin City and suburbs,>=19,university,6920
+2011,Female,walking,Cork City and suburbs,>=15,junior-cert,6466
+2011,Female,walking,Cork City and suburbs,5 to 12,primary-school,2550
+2011,Female,walking,Cork City and suburbs,13 to 18,leaving-cert,1836
+2011,Female,walking,Cork City and suburbs,>=19,university,2415
+2011,Female,walking,Limerick City and suburbs,>=15,junior-cert,2942
+2011,Female,walking,Limerick City and suburbs,5 to 12,primary-school,1446
+2011,Female,walking,Limerick City and suburbs,13 to 18,leaving-cert,875
+2011,Female,walking,Limerick City and suburbs,>=19,university,1194
+2011,Female,walking,Galway City and suburbs,>=15,junior-cert,2849
+2011,Female,walking,Galway City and suburbs,5 to 12,primary-school,628
+2011,Female,walking,Galway City and suburbs,13 to 18,leaving-cert,382
+2011,Female,walking,Galway City and suburbs,>=19,university,1740
+2011,Female,walking,Waterford City and suburbs,>=15,junior-cert,1480
+2011,Female,walking,Waterford City and suburbs,5 to 12,primary-school,628
+2011,Female,walking,Waterford City and suburbs,13 to 18,leaving-cert,576
+2011,Female,walking,Waterford City and suburbs,>=19,university,482
+2011,Female,walking,"Towns 10,000 population and over",>=15,junior-cert,20592
+2011,Female,walking,"Towns 10,000 population and over",5 to 12,primary-school,11632
+2011,Female,walking,"Towns 10,000 population and over",13 to 18,leaving-cert,8525
+2011,Female,walking,"Towns 10,000 population and over",>=19,university,4193
+2011,Female,walking,"Towns 5,000 - 9,999 population",>=15,junior-cert,7636
+2011,Female,walking,"Towns 5,000 - 9,999 population",5 to 12,primary-school,5665
+2011,Female,walking,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,4053
+2011,Female,walking,"Towns 5,000 - 9,999 population",>=19,university,1043
+2011,Female,walking,"Towns 2,000 - 4,999 population",>=15,junior-cert,5695
+2011,Female,walking,"Towns 2,000 - 4,999 population",5 to 12,primary-school,3811
+2011,Female,walking,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,2825
+2011,Female,walking,"Towns 2,000 - 4,999 population",>=19,university,779
+2011,Female,walking,"Towns 1,500 - 1,999 population",>=15,junior-cert,1416
+2011,Female,walking,"Towns 1,500 - 1,999 population",5 to 12,primary-school,1297
+2011,Female,walking,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,510
+2011,Female,walking,"Towns 1,500 - 1,999 population",>=19,university,245
+2011,Female,walking,"Towns 1,000 - 1,499 population",>=15,junior-cert,1743
+2011,Female,walking,"Towns 1,000 - 1,499 population",5 to 12,primary-school,1751
+2011,Female,walking,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,816
+2011,Female,walking,"Towns 1,000 - 1,499 population",>=19,university,303
+2011,Female,walking,Total Towns 500 - 999 population,>=15,junior-cert,2065
+2011,Female,walking,Total Towns 500 - 999 population,5 to 12,primary-school,2502
+2011,Female,walking,Total Towns 500 - 999 population,13 to 18,leaving-cert,676
+2011,Female,walking,Total Towns 500 - 999 population,>=19,university,414
+2011,Female,walking,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,1398
+2011,Female,walking,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,2230
+2011,Female,walking,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,290
+2011,Female,walking,Towns under 500 population but with at least 50 inhabited houses,>=19,university,427
+2011,Female,walking,Remainder of country,>=15,junior-cert,4791
+2011,Female,walking,Remainder of country,5 to 12,primary-school,2949
+2011,Female,walking,Remainder of country,13 to 18,leaving-cert,2170
+2011,Female,walking,Remainder of country,>=19,university,7411
+2011,Female,bike,Dublin City and suburbs,>=15,junior-cert,7252
+2011,Female,bike,Dublin City and suburbs,5 to 12,primary-school,714
+2011,Female,bike,Dublin City and suburbs,13 to 18,leaving-cert,310
+2011,Female,bike,Dublin City and suburbs,>=19,university,1355
+2011,Female,bike,Cork City and suburbs,>=15,junior-cert,416
+2011,Female,bike,Cork City and suburbs,5 to 12,primary-school,17
+2011,Female,bike,Cork City and suburbs,13 to 18,leaving-cert,10
+2011,Female,bike,Cork City and suburbs,>=19,university,163
+2011,Female,bike,Limerick City and suburbs,>=15,junior-cert,132
+2011,Female,bike,Limerick City and suburbs,5 to 12,primary-school,13
+2011,Female,bike,Limerick City and suburbs,13 to 18,leaving-cert,13
+2011,Female,bike,Limerick City and suburbs,>=19,university,75
+2011,Female,bike,Galway City and suburbs,>=15,junior-cert,474
+2011,Female,bike,Galway City and suburbs,5 to 12,primary-school,31
+2011,Female,bike,Galway City and suburbs,13 to 18,leaving-cert,23
+2011,Female,bike,Galway City and suburbs,>=19,university,183
+2011,Female,bike,Waterford City and suburbs,>=15,junior-cert,59
+2011,Female,bike,Waterford City and suburbs,5 to 12,primary-school,1
+2011,Female,bike,Waterford City and suburbs,13 to 18,leaving-cert,2
+2011,Female,bike,Waterford City and suburbs,>=19,university,21
+2011,Female,bike,"Towns 10,000 population and over",>=15,junior-cert,1106
+2011,Female,bike,"Towns 10,000 population and over",5 to 12,primary-school,319
+2011,Female,bike,"Towns 10,000 population and over",13 to 18,leaving-cert,63
+2011,Female,bike,"Towns 10,000 population and over",>=19,university,144
+2011,Female,bike,"Towns 5,000 - 9,999 population",>=15,junior-cert,299
+2011,Female,bike,"Towns 5,000 - 9,999 population",5 to 12,primary-school,176
+2011,Female,bike,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,20
+2011,Female,bike,"Towns 5,000 - 9,999 population",>=19,university,31
+2011,Female,bike,"Towns 2,000 - 4,999 population",>=15,junior-cert,192
+2011,Female,bike,"Towns 2,000 - 4,999 population",5 to 12,primary-school,60
+2011,Female,bike,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,8
+2011,Female,bike,"Towns 2,000 - 4,999 population",>=19,university,28
+2011,Female,bike,"Towns 1,500 - 1,999 population",>=15,junior-cert,48
+2011,Female,bike,"Towns 1,500 - 1,999 population",5 to 12,primary-school,20
+2011,Female,bike,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,2
+2011,Female,bike,"Towns 1,500 - 1,999 population",>=19,university,6
+2011,Female,bike,"Towns 1,000 - 1,499 population",>=15,junior-cert,62
+2011,Female,bike,"Towns 1,000 - 1,499 population",5 to 12,primary-school,32
+2011,Female,bike,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,4
+2011,Female,bike,"Towns 1,000 - 1,499 population",>=19,university,5
+2011,Female,bike,Total Towns 500 - 999 population,>=15,junior-cert,60
+2011,Female,bike,Total Towns 500 - 999 population,5 to 12,primary-school,32
+2011,Female,bike,Total Towns 500 - 999 population,13 to 18,leaving-cert,1
+2011,Female,bike,Total Towns 500 - 999 population,>=19,university,5
+2011,Female,bike,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,48
+2011,Female,bike,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,58
+2011,Female,bike,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,0
+2011,Female,bike,Towns under 500 population but with at least 50 inhabited houses,>=19,university,20
+2011,Female,bike,Remainder of country,>=15,junior-cert,580
+2011,Female,bike,Remainder of country,5 to 12,primary-school,322
+2011,Female,bike,Remainder of country,13 to 18,leaving-cert,73
+2011,Female,bike,Remainder of country,>=19,university,279
+2011,Female,bus,Dublin City and suburbs,>=15,junior-cert,35344
+2011,Female,bus,Dublin City and suburbs,5 to 12,primary-school,2849
+2011,Female,bus,Dublin City and suburbs,13 to 18,leaving-cert,8231
+2011,Female,bus,Dublin City and suburbs,>=19,university,10226
+2011,Female,bus,Cork City and suburbs,>=15,junior-cert,2733
+2011,Female,bus,Cork City and suburbs,5 to 12,primary-school,320
+2011,Female,bus,Cork City and suburbs,13 to 18,leaving-cert,985
+2011,Female,bus,Cork City and suburbs,>=19,university,981
+2011,Female,bus,Limerick City and suburbs,>=15,junior-cert,748
+2011,Female,bus,Limerick City and suburbs,5 to 12,primary-school,165
+2011,Female,bus,Limerick City and suburbs,13 to 18,leaving-cert,539
+2011,Female,bus,Limerick City and suburbs,>=19,university,326
+2011,Female,bus,Galway City and suburbs,>=15,junior-cert,1074
+2011,Female,bus,Galway City and suburbs,5 to 12,primary-school,177
+2011,Female,bus,Galway City and suburbs,13 to 18,leaving-cert,557
+2011,Female,bus,Galway City and suburbs,>=19,university,364
+2011,Female,bus,Waterford City and suburbs,>=15,junior-cert,297
+2011,Female,bus,Waterford City and suburbs,5 to 12,primary-school,111
+2011,Female,bus,Waterford City and suburbs,13 to 18,leaving-cert,153
+2011,Female,bus,Waterford City and suburbs,>=19,university,111
+2011,Female,bus,"Towns 10,000 population and over",>=15,junior-cert,6289
+2011,Female,bus,"Towns 10,000 population and over",5 to 12,primary-school,3377
+2011,Female,bus,"Towns 10,000 population and over",13 to 18,leaving-cert,3660
+2011,Female,bus,"Towns 10,000 population and over",>=19,university,3067
+2011,Female,bus,"Towns 5,000 - 9,999 population",>=15,junior-cert,1895
+2011,Female,bus,"Towns 5,000 - 9,999 population",5 to 12,primary-school,1298
+2011,Female,bus,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,1332
+2011,Female,bus,"Towns 5,000 - 9,999 population",>=19,university,931
+2011,Female,bus,"Towns 2,000 - 4,999 population",>=15,junior-cert,1057
+2011,Female,bus,"Towns 2,000 - 4,999 population",5 to 12,primary-school,878
+2011,Female,bus,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,1240
+2011,Female,bus,"Towns 2,000 - 4,999 population",>=19,university,680
+2011,Female,bus,"Towns 1,500 - 1,999 population",>=15,junior-cert,185
+2011,Female,bus,"Towns 1,500 - 1,999 population",5 to 12,primary-school,189
+2011,Female,bus,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,742
+2011,Female,bus,"Towns 1,500 - 1,999 population",>=19,university,165
+2011,Female,bus,"Towns 1,000 - 1,499 population",>=15,junior-cert,322
+2011,Female,bus,"Towns 1,000 - 1,499 population",5 to 12,primary-school,285
+2011,Female,bus,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,1058
+2011,Female,bus,"Towns 1,000 - 1,499 population",>=19,university,225
+2011,Female,bus,Total Towns 500 - 999 population,>=15,junior-cert,374
+2011,Female,bus,Total Towns 500 - 999 population,5 to 12,primary-school,481
+2011,Female,bus,Total Towns 500 - 999 population,13 to 18,leaving-cert,1789
+2011,Female,bus,Total Towns 500 - 999 population,>=19,university,269
+2011,Female,bus,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,256
+2011,Female,bus,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,682
+2011,Female,bus,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,2303
+2011,Female,bus,Towns under 500 population but with at least 50 inhabited houses,>=19,university,301
+2011,Female,bus,Remainder of country,>=15,junior-cert,2507
+2011,Female,bus,Remainder of country,5 to 12,primary-school,18234
+2011,Female,bus,Remainder of country,13 to 18,leaving-cert,25421
+2011,Female,bus,Remainder of country,>=19,university,3519
+2011,Female,train,Dublin City and suburbs,>=15,junior-cert,17463
+2011,Female,train,Dublin City and suburbs,5 to 12,primary-school,225
+2011,Female,train,Dublin City and suburbs,13 to 18,leaving-cert,1352
+2011,Female,train,Dublin City and suburbs,>=19,university,2961
+2011,Female,train,Cork City and suburbs,>=15,junior-cert,85
+2011,Female,train,Cork City and suburbs,5 to 12,primary-school,6
+2011,Female,train,Cork City and suburbs,13 to 18,leaving-cert,19
+2011,Female,train,Cork City and suburbs,>=19,university,41
+2011,Female,train,Limerick City and suburbs,>=15,junior-cert,19
+2011,Female,train,Limerick City and suburbs,5 to 12,primary-school,1
+2011,Female,train,Limerick City and suburbs,13 to 18,leaving-cert,2
+2011,Female,train,Limerick City and suburbs,>=19,university,10
+2011,Female,train,Galway City and suburbs,>=15,junior-cert,20
+2011,Female,train,Galway City and suburbs,5 to 12,primary-school,0
+2011,Female,train,Galway City and suburbs,13 to 18,leaving-cert,5
+2011,Female,train,Galway City and suburbs,>=19,university,12
+2011,Female,train,Waterford City and suburbs,>=15,junior-cert,13
+2011,Female,train,Waterford City and suburbs,5 to 12,primary-school,0
+2011,Female,train,Waterford City and suburbs,13 to 18,leaving-cert,1
+2011,Female,train,Waterford City and suburbs,>=19,university,10
+2011,Female,train,"Towns 10,000 population and over",>=15,junior-cert,4950
+2011,Female,train,"Towns 10,000 population and over",5 to 12,primary-school,37
+2011,Female,train,"Towns 10,000 population and over",13 to 18,leaving-cert,538
+2011,Female,train,"Towns 10,000 population and over",>=19,university,1283
+2011,Female,train,"Towns 5,000 - 9,999 population",>=15,junior-cert,2413
+2011,Female,train,"Towns 5,000 - 9,999 population",5 to 12,primary-school,15
+2011,Female,train,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,352
+2011,Female,train,"Towns 5,000 - 9,999 population",>=19,university,477
+2011,Female,train,"Towns 2,000 - 4,999 population",>=15,junior-cert,451
+2011,Female,train,"Towns 2,000 - 4,999 population",5 to 12,primary-school,7
+2011,Female,train,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,48
+2011,Female,train,"Towns 2,000 - 4,999 population",>=19,university,97
+2011,Female,train,"Towns 1,500 - 1,999 population",>=15,junior-cert,97
+2011,Female,train,"Towns 1,500 - 1,999 population",5 to 12,primary-school,2
+2011,Female,train,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,12
+2011,Female,train,"Towns 1,500 - 1,999 population",>=19,university,35
+2011,Female,train,"Towns 1,000 - 1,499 population",>=15,junior-cert,132
+2011,Female,train,"Towns 1,000 - 1,499 population",5 to 12,primary-school,2
+2011,Female,train,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,28
+2011,Female,train,"Towns 1,000 - 1,499 population",>=19,university,54
+2011,Female,train,Total Towns 500 - 999 population,>=15,junior-cert,140
+2011,Female,train,Total Towns 500 - 999 population,5 to 12,primary-school,2
+2011,Female,train,Total Towns 500 - 999 population,13 to 18,leaving-cert,28
+2011,Female,train,Total Towns 500 - 999 population,>=19,university,58
+2011,Female,train,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,102
+2011,Female,train,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,0
+2011,Female,train,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,22
+2011,Female,train,Towns under 500 population but with at least 50 inhabited houses,>=19,university,55
+2011,Female,train,Remainder of country,>=15,junior-cert,1212
+2011,Female,train,Remainder of country,5 to 12,primary-school,23
+2011,Female,train,Remainder of country,13 to 18,leaving-cert,307
+2011,Female,train,Remainder of country,>=19,university,747
+2011,Female,motorbike,Dublin City and suburbs,>=15,junior-cert,468
+2011,Female,motorbike,Dublin City and suburbs,5 to 12,primary-school,0
+2011,Female,motorbike,Dublin City and suburbs,13 to 18,leaving-cert,8
+2011,Female,motorbike,Dublin City and suburbs,>=19,university,49
+2011,Female,motorbike,Cork City and suburbs,>=15,junior-cert,51
+2011,Female,motorbike,Cork City and suburbs,5 to 12,primary-school,0
+2011,Female,motorbike,Cork City and suburbs,13 to 18,leaving-cert,8
+2011,Female,motorbike,Cork City and suburbs,>=19,university,12
+2011,Female,motorbike,Limerick City and suburbs,>=15,junior-cert,23
+2011,Female,motorbike,Limerick City and suburbs,5 to 12,primary-school,0
+2011,Female,motorbike,Limerick City and suburbs,13 to 18,leaving-cert,1
+2011,Female,motorbike,Limerick City and suburbs,>=19,university,5
+2011,Female,motorbike,Galway City and suburbs,>=15,junior-cert,14
+2011,Female,motorbike,Galway City and suburbs,5 to 12,primary-school,0
+2011,Female,motorbike,Galway City and suburbs,13 to 18,leaving-cert,3
+2011,Female,motorbike,Galway City and suburbs,>=19,university,2
+2011,Female,motorbike,Waterford City and suburbs,>=15,junior-cert,12
+2011,Female,motorbike,Waterford City and suburbs,5 to 12,primary-school,0
+2011,Female,motorbike,Waterford City and suburbs,13 to 18,leaving-cert,0
+2011,Female,motorbike,Waterford City and suburbs,>=19,university,0
+2011,Female,motorbike,"Towns 10,000 population and over",>=15,junior-cert,136
+2011,Female,motorbike,"Towns 10,000 population and over",5 to 12,primary-school,0
+2011,Female,motorbike,"Towns 10,000 population and over",13 to 18,leaving-cert,8
+2011,Female,motorbike,"Towns 10,000 population and over",>=19,university,17
+2011,Female,motorbike,"Towns 5,000 - 9,999 population",>=15,junior-cert,50
+2011,Female,motorbike,"Towns 5,000 - 9,999 population",5 to 12,primary-school,0
+2011,Female,motorbike,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,0
+2011,Female,motorbike,"Towns 5,000 - 9,999 population",>=19,university,0
+2011,Female,motorbike,"Towns 2,000 - 4,999 population",>=15,junior-cert,37
+2011,Female,motorbike,"Towns 2,000 - 4,999 population",5 to 12,primary-school,0
+2011,Female,motorbike,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,1
+2011,Female,motorbike,"Towns 2,000 - 4,999 population",>=19,university,5
+2011,Female,motorbike,"Towns 1,500 - 1,999 population",>=15,junior-cert,10
+2011,Female,motorbike,"Towns 1,500 - 1,999 population",5 to 12,primary-school,0
+2011,Female,motorbike,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,2
+2011,Female,motorbike,"Towns 1,500 - 1,999 population",>=19,university,3
+2011,Female,motorbike,"Towns 1,000 - 1,499 population",>=15,junior-cert,10
+2011,Female,motorbike,"Towns 1,000 - 1,499 population",5 to 12,primary-school,0
+2011,Female,motorbike,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,0
+2011,Female,motorbike,"Towns 1,000 - 1,499 population",>=19,university,1
+2011,Female,motorbike,Total Towns 500 - 999 population,>=15,junior-cert,19
+2011,Female,motorbike,Total Towns 500 - 999 population,5 to 12,primary-school,0
+2011,Female,motorbike,Total Towns 500 - 999 population,13 to 18,leaving-cert,3
+2011,Female,motorbike,Total Towns 500 - 999 population,>=19,university,0
+2011,Female,motorbike,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,20
+2011,Female,motorbike,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,0
+2011,Female,motorbike,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,0
+2011,Female,motorbike,Towns under 500 population but with at least 50 inhabited houses,>=19,university,2
+2011,Female,motorbike,Remainder of country,>=15,junior-cert,261
+2011,Female,motorbike,Remainder of country,5 to 12,primary-school,0
+2011,Female,motorbike,Remainder of country,13 to 18,leaving-cert,21
+2011,Female,motorbike,Remainder of country,>=19,university,31
+2011,Female,car,Dublin City and suburbs,>=15,junior-cert,105950
+2011,Female,car,Dublin City and suburbs,5 to 12,primary-school,0
+2011,Female,car,Dublin City and suburbs,13 to 18,leaving-cert,385
+2011,Female,car,Dublin City and suburbs,>=19,university,5258
+2011,Female,car,Cork City and suburbs,>=15,junior-cert,22985
+2011,Female,car,Cork City and suburbs,5 to 12,primary-school,0
+2011,Female,car,Cork City and suburbs,13 to 18,leaving-cert,105
+2011,Female,car,Cork City and suburbs,>=19,university,1311
+2011,Female,car,Limerick City and suburbs,>=15,junior-cert,9486
+2011,Female,car,Limerick City and suburbs,5 to 12,primary-school,0
+2011,Female,car,Limerick City and suburbs,13 to 18,leaving-cert,36
+2011,Female,car,Limerick City and suburbs,>=19,university,879
+2011,Female,car,Galway City and suburbs,>=15,junior-cert,9105
+2011,Female,car,Galway City and suburbs,5 to 12,primary-school,0
+2011,Female,car,Galway City and suburbs,13 to 18,leaving-cert,18
+2011,Female,car,Galway City and suburbs,>=19,university,623
+2011,Female,car,Waterford City and suburbs,>=15,junior-cert,5953
+2011,Female,car,Waterford City and suburbs,5 to 12,primary-school,0
+2011,Female,car,Waterford City and suburbs,13 to 18,leaving-cert,19
+2011,Female,car,Waterford City and suburbs,>=19,university,419
+2011,Female,car,"Towns 10,000 population and over",>=15,junior-cert,86985
+2011,Female,car,"Towns 10,000 population and over",5 to 12,primary-school,0
+2011,Female,car,"Towns 10,000 population and over",13 to 18,leaving-cert,273
+2011,Female,car,"Towns 10,000 population and over",>=19,university,4249
+2011,Female,car,"Towns 5,000 - 9,999 population",>=15,junior-cert,35355
+2011,Female,car,"Towns 5,000 - 9,999 population",5 to 12,primary-school,0
+2011,Female,car,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,135
+2011,Female,car,"Towns 5,000 - 9,999 population",>=19,university,1742
+2011,Female,car,"Towns 2,000 - 4,999 population",>=15,junior-cert,28132
+2011,Female,car,"Towns 2,000 - 4,999 population",5 to 12,primary-school,0
+2011,Female,car,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,108
+2011,Female,car,"Towns 2,000 - 4,999 population",>=19,university,1406
+2011,Female,car,"Towns 1,500 - 1,999 population",>=15,junior-cert,7834
+2011,Female,car,"Towns 1,500 - 1,999 population",5 to 12,primary-school,0
+2011,Female,car,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,40
+2011,Female,car,"Towns 1,500 - 1,999 population",>=19,university,449
+2011,Female,car,"Towns 1,000 - 1,499 population",>=15,junior-cert,11887
+2011,Female,car,"Towns 1,000 - 1,499 population",5 to 12,primary-school,0
+2011,Female,car,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,58
+2011,Female,car,"Towns 1,000 - 1,499 population",>=19,university,624
+2011,Female,car,Total Towns 500 - 999 population,>=15,junior-cert,15663
+2011,Female,car,Total Towns 500 - 999 population,5 to 12,primary-school,0
+2011,Female,car,Total Towns 500 - 999 population,13 to 18,leaving-cert,99
+2011,Female,car,Total Towns 500 - 999 population,>=19,university,898
+2011,Female,car,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,15215
+2011,Female,car,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,0
+2011,Female,car,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,90
+2011,Female,car,Towns under 500 population but with at least 50 inhabited houses,>=19,university,923
+2011,Female,car,Remainder of country,>=15,junior-cert,197088
+2011,Female,car,Remainder of country,5 to 12,primary-school,0
+2011,Female,car,Remainder of country,13 to 18,leaving-cert,1389
+2011,Female,car,Remainder of country,>=19,university,10799
+2011,Female,carpool,Dublin City and suburbs,>=15,junior-cert,9056
+2011,Female,carpool,Dublin City and suburbs,5 to 12,primary-school,23024
+2011,Female,carpool,Dublin City and suburbs,13 to 18,leaving-cert,9124
+2011,Female,carpool,Dublin City and suburbs,>=19,university,1161
+2011,Female,carpool,Cork City and suburbs,>=15,junior-cert,2702
+2011,Female,carpool,Cork City and suburbs,5 to 12,primary-school,5517
+2011,Female,carpool,Cork City and suburbs,13 to 18,leaving-cert,3381
+2011,Female,carpool,Cork City and suburbs,>=19,university,743
+2011,Female,carpool,Limerick City and suburbs,>=15,junior-cert,1105
+2011,Female,carpool,Limerick City and suburbs,5 to 12,primary-school,2358
+2011,Female,carpool,Limerick City and suburbs,13 to 18,leaving-cert,1347
+2011,Female,carpool,Limerick City and suburbs,>=19,university,292
+2011,Female,carpool,Galway City and suburbs,>=15,junior-cert,1046
+2011,Female,carpool,Galway City and suburbs,5 to 12,primary-school,2108
+2011,Female,carpool,Galway City and suburbs,13 to 18,leaving-cert,962
+2011,Female,carpool,Galway City and suburbs,>=19,university,276
+2011,Female,carpool,Waterford City and suburbs,>=15,junior-cert,869
+2011,Female,carpool,Waterford City and suburbs,5 to 12,primary-school,1709
+2011,Female,carpool,Waterford City and suburbs,13 to 18,leaving-cert,858
+2011,Female,carpool,Waterford City and suburbs,>=19,university,180
+2011,Female,carpool,"Towns 10,000 population and over",>=15,junior-cert,9347
+2011,Female,carpool,"Towns 10,000 population and over",5 to 12,primary-school,23751
+2011,Female,carpool,"Towns 10,000 population and over",13 to 18,leaving-cert,10662
+2011,Female,carpool,"Towns 10,000 population and over",>=19,university,1380
+2011,Female,carpool,"Towns 5,000 - 9,999 population",>=15,junior-cert,3508
+2011,Female,carpool,"Towns 5,000 - 9,999 population",5 to 12,primary-school,9219
+2011,Female,carpool,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,3910
+2011,Female,carpool,"Towns 5,000 - 9,999 population",>=19,university,497
+2011,Female,carpool,"Towns 2,000 - 4,999 population",>=15,junior-cert,2501
+2011,Female,carpool,"Towns 2,000 - 4,999 population",5 to 12,primary-school,6963
+2011,Female,carpool,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,2942
+2011,Female,carpool,"Towns 2,000 - 4,999 population",>=19,university,368
+2011,Female,carpool,"Towns 1,500 - 1,999 population",>=15,junior-cert,635
+2011,Female,carpool,"Towns 1,500 - 1,999 population",5 to 12,primary-school,2116
+2011,Female,carpool,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,769
+2011,Female,carpool,"Towns 1,500 - 1,999 population",>=19,university,150
+2011,Female,carpool,"Towns 1,000 - 1,499 population",>=15,junior-cert,952
+2011,Female,carpool,"Towns 1,000 - 1,499 population",5 to 12,primary-school,3017
+2011,Female,carpool,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,1105
+2011,Female,carpool,"Towns 1,000 - 1,499 population",>=19,university,185
+2011,Female,carpool,Total Towns 500 - 999 population,>=15,junior-cert,1180
+2011,Female,carpool,Total Towns 500 - 999 population,5 to 12,primary-school,3819
+2011,Female,carpool,Total Towns 500 - 999 population,13 to 18,leaving-cert,1512
+2011,Female,carpool,Total Towns 500 - 999 population,>=19,university,246
+2011,Female,carpool,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,968
+2011,Female,carpool,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,3538
+2011,Female,carpool,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,1361
+2011,Female,carpool,Towns under 500 population but with at least 50 inhabited houses,>=19,university,245
+2011,Female,carpool,Remainder of country,>=15,junior-cert,9477
+2011,Female,carpool,Remainder of country,5 to 12,primary-school,58754
+2011,Female,carpool,Remainder of country,13 to 18,leaving-cert,26824
+2011,Female,carpool,Remainder of country,>=19,university,3072
+2011,Female,truck,Dublin City and suburbs,>=15,junior-cert,311
+2011,Female,truck,Dublin City and suburbs,5 to 12,primary-school,54
+2011,Female,truck,Dublin City and suburbs,13 to 18,leaving-cert,24
+2011,Female,truck,Dublin City and suburbs,>=19,university,13
+2011,Female,truck,Cork City and suburbs,>=15,junior-cert,90
+2011,Female,truck,Cork City and suburbs,5 to 12,primary-school,12
+2011,Female,truck,Cork City and suburbs,13 to 18,leaving-cert,8
+2011,Female,truck,Cork City and suburbs,>=19,university,1
+2011,Female,truck,Limerick City and suburbs,>=15,junior-cert,30
+2011,Female,truck,Limerick City and suburbs,5 to 12,primary-school,5
+2011,Female,truck,Limerick City and suburbs,13 to 18,leaving-cert,1
+2011,Female,truck,Limerick City and suburbs,>=19,university,6
+2011,Female,truck,Galway City and suburbs,>=15,junior-cert,41
+2011,Female,truck,Galway City and suburbs,5 to 12,primary-school,6
+2011,Female,truck,Galway City and suburbs,13 to 18,leaving-cert,5
+2011,Female,truck,Galway City and suburbs,>=19,university,2
+2011,Female,truck,Waterford City and suburbs,>=15,junior-cert,21
+2011,Female,truck,Waterford City and suburbs,5 to 12,primary-school,3
+2011,Female,truck,Waterford City and suburbs,13 to 18,leaving-cert,4
+2011,Female,truck,Waterford City and suburbs,>=19,university,2
+2011,Female,truck,"Towns 10,000 population and over",>=15,junior-cert,309
+2011,Female,truck,"Towns 10,000 population and over",5 to 12,primary-school,65
+2011,Female,truck,"Towns 10,000 population and over",13 to 18,leaving-cert,49
+2011,Female,truck,"Towns 10,000 population and over",>=19,university,5
+2011,Female,truck,"Towns 5,000 - 9,999 population",>=15,junior-cert,164
+2011,Female,truck,"Towns 5,000 - 9,999 population",5 to 12,primary-school,29
+2011,Female,truck,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,20
+2011,Female,truck,"Towns 5,000 - 9,999 population",>=19,university,3
+2011,Female,truck,"Towns 2,000 - 4,999 population",>=15,junior-cert,156
+2011,Female,truck,"Towns 2,000 - 4,999 population",5 to 12,primary-school,18
+2011,Female,truck,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,11
+2011,Female,truck,"Towns 2,000 - 4,999 population",>=19,university,5
+2011,Female,truck,"Towns 1,500 - 1,999 population",>=15,junior-cert,56
+2011,Female,truck,"Towns 1,500 - 1,999 population",5 to 12,primary-school,9
+2011,Female,truck,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,1
+2011,Female,truck,"Towns 1,500 - 1,999 population",>=19,university,1
+2011,Female,truck,"Towns 1,000 - 1,499 population",>=15,junior-cert,60
+2011,Female,truck,"Towns 1,000 - 1,499 population",5 to 12,primary-school,7
+2011,Female,truck,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,4
+2011,Female,truck,"Towns 1,000 - 1,499 population",>=19,university,3
+2011,Female,truck,Total Towns 500 - 999 population,>=15,junior-cert,74
+2011,Female,truck,Total Towns 500 - 999 population,5 to 12,primary-school,6
+2011,Female,truck,Total Towns 500 - 999 population,13 to 18,leaving-cert,10
+2011,Female,truck,Total Towns 500 - 999 population,>=19,university,3
+2011,Female,truck,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,91
+2011,Female,truck,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,7
+2011,Female,truck,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,4
+2011,Female,truck,Towns under 500 population but with at least 50 inhabited houses,>=19,university,4
+2011,Female,truck,Remainder of country,>=15,junior-cert,1323
+2011,Female,truck,Remainder of country,5 to 12,primary-school,189
+2011,Female,truck,Remainder of country,13 to 18,leaving-cert,123
+2011,Female,truck,Remainder of country,>=19,university,46
+2011,Female,truck,Dublin City and suburbs,>=15,junior-cert,81
+2011,Female,truck,Dublin City and suburbs,5 to 12,primary-school,16
+2011,Female,truck,Dublin City and suburbs,13 to 18,leaving-cert,5
+2011,Female,truck,Dublin City and suburbs,>=19,university,10
+2011,Female,truck,Cork City and suburbs,>=15,junior-cert,17
+2011,Female,truck,Cork City and suburbs,5 to 12,primary-school,1
+2011,Female,truck,Cork City and suburbs,13 to 18,leaving-cert,4
+2011,Female,truck,Cork City and suburbs,>=19,university,2
+2011,Female,truck,Limerick City and suburbs,>=15,junior-cert,8
+2011,Female,truck,Limerick City and suburbs,5 to 12,primary-school,1
+2011,Female,truck,Limerick City and suburbs,13 to 18,leaving-cert,0
+2011,Female,truck,Limerick City and suburbs,>=19,university,0
+2011,Female,truck,Galway City and suburbs,>=15,junior-cert,8
+2011,Female,truck,Galway City and suburbs,5 to 12,primary-school,2
+2011,Female,truck,Galway City and suburbs,13 to 18,leaving-cert,0
+2011,Female,truck,Galway City and suburbs,>=19,university,0
+2011,Female,truck,Waterford City and suburbs,>=15,junior-cert,5
+2011,Female,truck,Waterford City and suburbs,5 to 12,primary-school,0
+2011,Female,truck,Waterford City and suburbs,13 to 18,leaving-cert,0
+2011,Female,truck,Waterford City and suburbs,>=19,university,1
+2011,Female,truck,"Towns 10,000 population and over",>=15,junior-cert,92
+2011,Female,truck,"Towns 10,000 population and over",5 to 12,primary-school,12
+2011,Female,truck,"Towns 10,000 population and over",13 to 18,leaving-cert,3
+2011,Female,truck,"Towns 10,000 population and over",>=19,university,3
+2011,Female,truck,"Towns 5,000 - 9,999 population",>=15,junior-cert,11
+2011,Female,truck,"Towns 5,000 - 9,999 population",5 to 12,primary-school,8
+2011,Female,truck,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,0
+2011,Female,truck,"Towns 5,000 - 9,999 population",>=19,university,2
+2011,Female,truck,"Towns 2,000 - 4,999 population",>=15,junior-cert,21
+2011,Female,truck,"Towns 2,000 - 4,999 population",5 to 12,primary-school,3
+2011,Female,truck,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,0
+2011,Female,truck,"Towns 2,000 - 4,999 population",>=19,university,1
+2011,Female,truck,"Towns 1,500 - 1,999 population",>=15,junior-cert,8
+2011,Female,truck,"Towns 1,500 - 1,999 population",5 to 12,primary-school,0
+2011,Female,truck,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,0
+2011,Female,truck,"Towns 1,500 - 1,999 population",>=19,university,0
+2011,Female,truck,"Towns 1,000 - 1,499 population",>=15,junior-cert,7
+2011,Female,truck,"Towns 1,000 - 1,499 population",5 to 12,primary-school,1
+2011,Female,truck,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,0
+2011,Female,truck,"Towns 1,000 - 1,499 population",>=19,university,0
+2011,Female,truck,Total Towns 500 - 999 population,>=15,junior-cert,10
+2011,Female,truck,Total Towns 500 - 999 population,5 to 12,primary-school,2
+2011,Female,truck,Total Towns 500 - 999 population,13 to 18,leaving-cert,0
+2011,Female,truck,Total Towns 500 - 999 population,>=19,university,0
+2011,Female,truck,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,9
+2011,Female,truck,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,3
+2011,Female,truck,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,0
+2011,Female,truck,Towns under 500 population but with at least 50 inhabited houses,>=19,university,5
+2011,Female,truck,Remainder of country,>=15,junior-cert,184
+2011,Female,truck,Remainder of country,5 to 12,primary-school,31
+2011,Female,truck,Remainder of country,13 to 18,leaving-cert,23
+2011,Female,truck,Remainder of country,>=19,university,10
+2011,Female,remote,Dublin City and suburbs,>=15,junior-cert,4446
+2011,Female,remote,Dublin City and suburbs,5 to 12,primary-school,22
+2011,Female,remote,Dublin City and suburbs,13 to 18,leaving-cert,20
+2011,Female,remote,Dublin City and suburbs,>=19,university,98
+2011,Female,remote,Cork City and suburbs,>=15,junior-cert,627
+2011,Female,remote,Cork City and suburbs,5 to 12,primary-school,7
+2011,Female,remote,Cork City and suburbs,13 to 18,leaving-cert,3
+2011,Female,remote,Cork City and suburbs,>=19,university,17
+2011,Female,remote,Limerick City and suburbs,>=15,junior-cert,273
+2011,Female,remote,Limerick City and suburbs,5 to 12,primary-school,0
+2011,Female,remote,Limerick City and suburbs,13 to 18,leaving-cert,3
+2011,Female,remote,Limerick City and suburbs,>=19,university,13
+2011,Female,remote,Galway City and suburbs,>=15,junior-cert,308
+2011,Female,remote,Galway City and suburbs,5 to 12,primary-school,1
+2011,Female,remote,Galway City and suburbs,13 to 18,leaving-cert,2
+2011,Female,remote,Galway City and suburbs,>=19,university,10
+2011,Female,remote,Waterford City and suburbs,>=15,junior-cert,132
+2011,Female,remote,Waterford City and suburbs,5 to 12,primary-school,1
+2011,Female,remote,Waterford City and suburbs,13 to 18,leaving-cert,3
+2011,Female,remote,Waterford City and suburbs,>=19,university,5
+2011,Female,remote,"Towns 10,000 population and over",>=15,junior-cert,2783
+2011,Female,remote,"Towns 10,000 population and over",5 to 12,primary-school,21
+2011,Female,remote,"Towns 10,000 population and over",13 to 18,leaving-cert,17
+2011,Female,remote,"Towns 10,000 population and over",>=19,university,44
+2011,Female,remote,"Towns 5,000 - 9,999 population",>=15,junior-cert,1162
+2011,Female,remote,"Towns 5,000 - 9,999 population",5 to 12,primary-school,5
+2011,Female,remote,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,6
+2011,Female,remote,"Towns 5,000 - 9,999 population",>=19,university,17
+2011,Female,remote,"Towns 2,000 - 4,999 population",>=15,junior-cert,1039
+2011,Female,remote,"Towns 2,000 - 4,999 population",5 to 12,primary-school,7
+2011,Female,remote,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,6
+2011,Female,remote,"Towns 2,000 - 4,999 population",>=19,university,14
+2011,Female,remote,"Towns 1,500 - 1,999 population",>=15,junior-cert,347
+2011,Female,remote,"Towns 1,500 - 1,999 population",5 to 12,primary-school,2
+2011,Female,remote,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,0
+2011,Female,remote,"Towns 1,500 - 1,999 population",>=19,university,5
+2011,Female,remote,"Towns 1,000 - 1,499 population",>=15,junior-cert,453
+2011,Female,remote,"Towns 1,000 - 1,499 population",5 to 12,primary-school,2
+2011,Female,remote,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,0
+2011,Female,remote,"Towns 1,000 - 1,499 population",>=19,university,1
+2011,Female,remote,Total Towns 500 - 999 population,>=15,junior-cert,780
+2011,Female,remote,Total Towns 500 - 999 population,5 to 12,primary-school,2
+2011,Female,remote,Total Towns 500 - 999 population,13 to 18,leaving-cert,3
+2011,Female,remote,Total Towns 500 - 999 population,>=19,university,12
+2011,Female,remote,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,713
+2011,Female,remote,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,6
+2011,Female,remote,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,4
+2011,Female,remote,Towns under 500 population but with at least 50 inhabited houses,>=19,university,11
+2011,Female,remote,Remainder of country,>=15,junior-cert,10985
+2011,Female,remote,Remainder of country,5 to 12,primary-school,53
+2011,Female,remote,Remainder of country,13 to 18,leaving-cert,41
+2011,Female,remote,Remainder of country,>=19,university,106
+2011,Female,na,Dublin City and suburbs,>=15,junior-cert,7686
+2011,Female,na,Dublin City and suburbs,5 to 12,primary-school,2086
+2011,Female,na,Dublin City and suburbs,13 to 18,leaving-cert,696
+2011,Female,na,Dublin City and suburbs,>=19,university,1053
+2011,Female,na,Cork City and suburbs,>=15,junior-cert,1213
+2011,Female,na,Cork City and suburbs,5 to 12,primary-school,403
+2011,Female,na,Cork City and suburbs,13 to 18,leaving-cert,128
+2011,Female,na,Cork City and suburbs,>=19,university,133
+2011,Female,na,Limerick City and suburbs,>=15,junior-cert,565
+2011,Female,na,Limerick City and suburbs,5 to 12,primary-school,221
+2011,Female,na,Limerick City and suburbs,13 to 18,leaving-cert,59
+2011,Female,na,Limerick City and suburbs,>=19,university,99
+2011,Female,na,Galway City and suburbs,>=15,junior-cert,558
+2011,Female,na,Galway City and suburbs,5 to 12,primary-school,169
+2011,Female,na,Galway City and suburbs,13 to 18,leaving-cert,58
+2011,Female,na,Galway City and suburbs,>=19,university,129
+2011,Female,na,Waterford City and suburbs,>=15,junior-cert,358
+2011,Female,na,Waterford City and suburbs,5 to 12,primary-school,163
+2011,Female,na,Waterford City and suburbs,13 to 18,leaving-cert,34
+2011,Female,na,Waterford City and suburbs,>=19,university,53
+2011,Female,na,"Towns 10,000 population and over",>=15,junior-cert,4122
+2011,Female,na,"Towns 10,000 population and over",5 to 12,primary-school,1624
+2011,Female,na,"Towns 10,000 population and over",13 to 18,leaving-cert,500
+2011,Female,na,"Towns 10,000 population and over",>=19,university,485
+2011,Female,na,"Towns 5,000 - 9,999 population",>=15,junior-cert,1613
+2011,Female,na,"Towns 5,000 - 9,999 population",5 to 12,primary-school,640
+2011,Female,na,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,167
+2011,Female,na,"Towns 5,000 - 9,999 population",>=19,university,196
+2011,Female,na,"Towns 2,000 - 4,999 population",>=15,junior-cert,1388
+2011,Female,na,"Towns 2,000 - 4,999 population",5 to 12,primary-school,516
+2011,Female,na,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,146
+2011,Female,na,"Towns 2,000 - 4,999 population",>=19,university,145
+2011,Female,na,"Towns 1,500 - 1,999 population",>=15,junior-cert,377
+2011,Female,na,"Towns 1,500 - 1,999 population",5 to 12,primary-school,145
+2011,Female,na,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,56
+2011,Female,na,"Towns 1,500 - 1,999 population",>=19,university,28
+2011,Female,na,"Towns 1,000 - 1,499 population",>=15,junior-cert,517
+2011,Female,na,"Towns 1,000 - 1,499 population",5 to 12,primary-school,179
+2011,Female,na,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,56
+2011,Female,na,"Towns 1,000 - 1,499 population",>=19,university,36
+2011,Female,na,Total Towns 500 - 999 population,>=15,junior-cert,705
+2011,Female,na,Total Towns 500 - 999 population,5 to 12,primary-school,238
+2011,Female,na,Total Towns 500 - 999 population,13 to 18,leaving-cert,69
+2011,Female,na,Total Towns 500 - 999 population,>=19,university,68
+2011,Female,na,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,683
+2011,Female,na,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,219
+2011,Female,na,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,55
+2011,Female,na,Towns under 500 population but with at least 50 inhabited houses,>=19,university,66
+2011,Female,na,Remainder of country,>=15,junior-cert,8408
+2011,Female,na,Remainder of country,5 to 12,primary-school,1939
+2011,Female,na,Remainder of country,13 to 18,leaving-cert,641
+2011,Female,na,Remainder of country,>=19,university,657
+2016,Male,walking,Dublin City and suburbs,>=15,junior-cert,29346
+2016,Male,walking,Dublin City and suburbs,5 to 12,primary-school,23274
+2016,Male,walking,Dublin City and suburbs,13 to 18,leaving-cert,11644
+2016,Male,walking,Dublin City and suburbs,>=19,university,6023
+2016,Male,walking,Cork City and suburbs,>=15,junior-cert,5141
+2016,Male,walking,Cork City and suburbs,5 to 12,primary-school,2792
+2016,Male,walking,Cork City and suburbs,13 to 18,leaving-cert,1771
+2016,Male,walking,Cork City and suburbs,>=19,university,2397
+2016,Male,walking,Limerick City and suburbs,>=15,junior-cert,2423
+2016,Male,walking,Limerick City and suburbs,5 to 12,primary-school,1553
+2016,Male,walking,Limerick City and suburbs,13 to 18,leaving-cert,931
+2016,Male,walking,Limerick City and suburbs,>=19,university,1187
+2016,Male,walking,Galway City and suburbs,>=15,junior-cert,2433
+2016,Male,walking,Galway City and suburbs,5 to 12,primary-school,725
+2016,Male,walking,Galway City and suburbs,13 to 18,leaving-cert,434
+2016,Male,walking,Galway City and suburbs,>=19,university,1607
+2016,Male,walking,Waterford City and suburbs,>=15,junior-cert,1210
+2016,Male,walking,Waterford City and suburbs,5 to 12,primary-school,592
+2016,Male,walking,Waterford City and suburbs,13 to 18,leaving-cert,518
+2016,Male,walking,Waterford City and suburbs,>=19,university,513
+2016,Male,walking,"Towns 10,000 population and over",>=15,junior-cert,14249
+2016,Male,walking,"Towns 10,000 population and over",5 to 12,primary-school,13759
+2016,Male,walking,"Towns 10,000 population and over",13 to 18,leaving-cert,10189
+2016,Male,walking,"Towns 10,000 population and over",>=19,university,3812
+2016,Male,walking,"Towns 5,000 - 9,999 population",>=15,junior-cert,4943
+2016,Male,walking,"Towns 5,000 - 9,999 population",5 to 12,primary-school,5865
+2016,Male,walking,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,4604
+2016,Male,walking,"Towns 5,000 - 9,999 population",>=19,university,684
+2016,Male,walking,"Towns 2,000 - 4,999 population",>=15,junior-cert,3905
+2016,Male,walking,"Towns 2,000 - 4,999 population",5 to 12,primary-school,4698
+2016,Male,walking,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,3181
+2016,Male,walking,"Towns 2,000 - 4,999 population",>=19,university,551
+2016,Male,walking,"Towns 1,500 - 1,999 population",>=15,junior-cert,1201
+2016,Male,walking,"Towns 1,500 - 1,999 population",5 to 12,primary-school,1514
+2016,Male,walking,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,666
+2016,Male,walking,"Towns 1,500 - 1,999 population",>=19,university,188
+2016,Male,walking,"Towns 1,000 - 1,499 population",>=15,junior-cert,1355
+2016,Male,walking,"Towns 1,000 - 1,499 population",5 to 12,primary-school,1868
+2016,Male,walking,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,999
+2016,Male,walking,"Towns 1,000 - 1,499 population",>=19,university,214
+2016,Male,walking,Total Towns 500 - 999 population,>=15,junior-cert,1501
+2016,Male,walking,Total Towns 500 - 999 population,5 to 12,primary-school,2975
+2016,Male,walking,Total Towns 500 - 999 population,13 to 18,leaving-cert,747
+2016,Male,walking,Total Towns 500 - 999 population,>=19,university,324
+2016,Male,walking,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,1263
+2016,Male,walking,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,2298
+2016,Male,walking,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,280
+2016,Male,walking,Towns under 500 population but with at least 50 inhabited houses,>=19,university,305
+2016,Male,walking,Remainder of country,>=15,junior-cert,10596
+2016,Male,walking,Remainder of country,5 to 12,primary-school,2851
+2016,Male,walking,Remainder of country,13 to 18,leaving-cert,1650
+2016,Male,walking,Remainder of country,>=19,university,4679
+2016,Male,bike,Dublin City and suburbs,>=15,junior-cert,27923
+2016,Male,bike,Dublin City and suburbs,5 to 12,primary-school,2421
+2016,Male,bike,Dublin City and suburbs,13 to 18,leaving-cert,4356
+2016,Male,bike,Dublin City and suburbs,>=19,university,4397
+2016,Male,bike,Cork City and suburbs,>=15,junior-cert,1685
+2016,Male,bike,Cork City and suburbs,5 to 12,primary-school,68
+2016,Male,bike,Cork City and suburbs,13 to 18,leaving-cert,91
+2016,Male,bike,Cork City and suburbs,>=19,university,485
+2016,Male,bike,Limerick City and suburbs,>=15,junior-cert,783
+2016,Male,bike,Limerick City and suburbs,5 to 12,primary-school,54
+2016,Male,bike,Limerick City and suburbs,13 to 18,leaving-cert,147
+2016,Male,bike,Limerick City and suburbs,>=19,university,266
+2016,Male,bike,Galway City and suburbs,>=15,junior-cert,1299
+2016,Male,bike,Galway City and suburbs,5 to 12,primary-school,84
+2016,Male,bike,Galway City and suburbs,13 to 18,leaving-cert,147
+2016,Male,bike,Galway City and suburbs,>=19,university,437
+2016,Male,bike,Waterford City and suburbs,>=15,junior-cert,337
+2016,Male,bike,Waterford City and suburbs,5 to 12,primary-school,9
+2016,Male,bike,Waterford City and suburbs,13 to 18,leaving-cert,27
+2016,Male,bike,Waterford City and suburbs,>=19,university,60
+2016,Male,bike,"Towns 10,000 population and over",>=15,junior-cert,4542
+2016,Male,bike,"Towns 10,000 population and over",5 to 12,primary-school,912
+2016,Male,bike,"Towns 10,000 population and over",13 to 18,leaving-cert,1146
+2016,Male,bike,"Towns 10,000 population and over",>=19,university,541
+2016,Male,bike,"Towns 5,000 - 9,999 population",>=15,junior-cert,1192
+2016,Male,bike,"Towns 5,000 - 9,999 population",5 to 12,primary-school,395
+2016,Male,bike,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,244
+2016,Male,bike,"Towns 5,000 - 9,999 population",>=19,university,107
+2016,Male,bike,"Towns 2,000 - 4,999 population",>=15,junior-cert,712
+2016,Male,bike,"Towns 2,000 - 4,999 population",5 to 12,primary-school,163
+2016,Male,bike,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,77
+2016,Male,bike,"Towns 2,000 - 4,999 population",>=19,university,64
+2016,Male,bike,"Towns 1,500 - 1,999 population",>=15,junior-cert,200
+2016,Male,bike,"Towns 1,500 - 1,999 population",5 to 12,primary-school,59
+2016,Male,bike,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,13
+2016,Male,bike,"Towns 1,500 - 1,999 population",>=19,university,25
+2016,Male,bike,"Towns 1,000 - 1,499 population",>=15,junior-cert,227
+2016,Male,bike,"Towns 1,000 - 1,499 population",5 to 12,primary-school,75
+2016,Male,bike,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,45
+2016,Male,bike,"Towns 1,000 - 1,499 population",>=19,university,20
+2016,Male,bike,Total Towns 500 - 999 population,>=15,junior-cert,215
+2016,Male,bike,Total Towns 500 - 999 population,5 to 12,primary-school,99
+2016,Male,bike,Total Towns 500 - 999 population,13 to 18,leaving-cert,25
+2016,Male,bike,Total Towns 500 - 999 population,>=19,university,44
+2016,Male,bike,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,198
+2016,Male,bike,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,73
+2016,Male,bike,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,13
+2016,Male,bike,Towns under 500 population but with at least 50 inhabited houses,>=19,university,31
+2016,Male,bike,Remainder of country,>=15,junior-cert,2028
+2016,Male,bike,Remainder of country,5 to 12,primary-school,446
+2016,Male,bike,Remainder of country,13 to 18,leaving-cert,257
+2016,Male,bike,Remainder of country,>=19,university,846
+2016,Male,bus,Dublin City and suburbs,>=15,junior-cert,30079
+2016,Male,bus,Dublin City and suburbs,5 to 12,primary-school,3024
+2016,Male,bus,Dublin City and suburbs,13 to 18,leaving-cert,7984
+2016,Male,bus,Dublin City and suburbs,>=19,university,9224
+2016,Male,bus,Cork City and suburbs,>=15,junior-cert,3162
+2016,Male,bus,Cork City and suburbs,5 to 12,primary-school,348
+2016,Male,bus,Cork City and suburbs,13 to 18,leaving-cert,1045
+2016,Male,bus,Cork City and suburbs,>=19,university,1134
+2016,Male,bus,Limerick City and suburbs,>=15,junior-cert,787
+2016,Male,bus,Limerick City and suburbs,5 to 12,primary-school,213
+2016,Male,bus,Limerick City and suburbs,13 to 18,leaving-cert,497
+2016,Male,bus,Limerick City and suburbs,>=19,university,441
+2016,Male,bus,Galway City and suburbs,>=15,junior-cert,1041
+2016,Male,bus,Galway City and suburbs,5 to 12,primary-school,253
+2016,Male,bus,Galway City and suburbs,13 to 18,leaving-cert,548
+2016,Male,bus,Galway City and suburbs,>=19,university,352
+2016,Male,bus,Waterford City and suburbs,>=15,junior-cert,221
+2016,Male,bus,Waterford City and suburbs,5 to 12,primary-school,140
+2016,Male,bus,Waterford City and suburbs,13 to 18,leaving-cert,205
+2016,Male,bus,Waterford City and suburbs,>=19,university,117
+2016,Male,bus,"Towns 10,000 population and over",>=15,junior-cert,7336
+2016,Male,bus,"Towns 10,000 population and over",5 to 12,primary-school,4137
+2016,Male,bus,"Towns 10,000 population and over",13 to 18,leaving-cert,3921
+2016,Male,bus,"Towns 10,000 population and over",>=19,university,3522
+2016,Male,bus,"Towns 5,000 - 9,999 population",>=15,junior-cert,1993
+2016,Male,bus,"Towns 5,000 - 9,999 population",5 to 12,primary-school,1598
+2016,Male,bus,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,1431
+2016,Male,bus,"Towns 5,000 - 9,999 population",>=19,university,1302
+2016,Male,bus,"Towns 2,000 - 4,999 population",>=15,junior-cert,1125
+2016,Male,bus,"Towns 2,000 - 4,999 population",5 to 12,primary-school,1122
+2016,Male,bus,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,1555
+2016,Male,bus,"Towns 2,000 - 4,999 population",>=19,university,748
+2016,Male,bus,"Towns 1,500 - 1,999 population",>=15,junior-cert,230
+2016,Male,bus,"Towns 1,500 - 1,999 population",5 to 12,primary-school,263
+2016,Male,bus,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,796
+2016,Male,bus,"Towns 1,500 - 1,999 population",>=19,university,209
+2016,Male,bus,"Towns 1,000 - 1,499 population",>=15,junior-cert,320
+2016,Male,bus,"Towns 1,000 - 1,499 population",5 to 12,primary-school,349
+2016,Male,bus,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,1213
+2016,Male,bus,"Towns 1,000 - 1,499 population",>=19,university,254
+2016,Male,bus,Total Towns 500 - 999 population,>=15,junior-cert,371
+2016,Male,bus,Total Towns 500 - 999 population,5 to 12,primary-school,575
+2016,Male,bus,Total Towns 500 - 999 population,13 to 18,leaving-cert,2403
+2016,Male,bus,Total Towns 500 - 999 population,>=19,university,367
+2016,Male,bus,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,271
+2016,Male,bus,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,716
+2016,Male,bus,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,2496
+2016,Male,bus,Towns under 500 population but with at least 50 inhabited houses,>=19,university,290
+2016,Male,bus,Remainder of country,>=15,junior-cert,2852
+2016,Male,bus,Remainder of country,5 to 12,primary-school,16672
+2016,Male,bus,Remainder of country,13 to 18,leaving-cert,25840
+2016,Male,bus,Remainder of country,>=19,university,3481
+2016,Male,train,Dublin City and suburbs,>=15,junior-cert,20512
+2016,Male,train,Dublin City and suburbs,5 to 12,primary-school,320
+2016,Male,train,Dublin City and suburbs,13 to 18,leaving-cert,1907
+2016,Male,train,Dublin City and suburbs,>=19,university,3299
+2016,Male,train,Cork City and suburbs,>=15,junior-cert,193
+2016,Male,train,Cork City and suburbs,5 to 12,primary-school,2
+2016,Male,train,Cork City and suburbs,13 to 18,leaving-cert,36
+2016,Male,train,Cork City and suburbs,>=19,university,35
+2016,Male,train,Limerick City and suburbs,>=15,junior-cert,39
+2016,Male,train,Limerick City and suburbs,5 to 12,primary-school,0
+2016,Male,train,Limerick City and suburbs,13 to 18,leaving-cert,1
+2016,Male,train,Limerick City and suburbs,>=19,university,19
+2016,Male,train,Galway City and suburbs,>=15,junior-cert,31
+2016,Male,train,Galway City and suburbs,5 to 12,primary-school,0
+2016,Male,train,Galway City and suburbs,13 to 18,leaving-cert,3
+2016,Male,train,Galway City and suburbs,>=19,university,13
+2016,Male,train,Waterford City and suburbs,>=15,junior-cert,30
+2016,Male,train,Waterford City and suburbs,5 to 12,primary-school,0
+2016,Male,train,Waterford City and suburbs,13 to 18,leaving-cert,0
+2016,Male,train,Waterford City and suburbs,>=19,university,12
+2016,Male,train,"Towns 10,000 population and over",>=15,junior-cert,6322
+2016,Male,train,"Towns 10,000 population and over",5 to 12,primary-school,26
+2016,Male,train,"Towns 10,000 population and over",13 to 18,leaving-cert,496
+2016,Male,train,"Towns 10,000 population and over",>=19,university,1522
+2016,Male,train,"Towns 5,000 - 9,999 population",>=15,junior-cert,2224
+2016,Male,train,"Towns 5,000 - 9,999 population",5 to 12,primary-school,16
+2016,Male,train,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,169
+2016,Male,train,"Towns 5,000 - 9,999 population",>=19,university,438
+2016,Male,train,"Towns 2,000 - 4,999 population",>=15,junior-cert,584
+2016,Male,train,"Towns 2,000 - 4,999 population",5 to 12,primary-school,4
+2016,Male,train,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,43
+2016,Male,train,"Towns 2,000 - 4,999 population",>=19,university,149
+2016,Male,train,"Towns 1,500 - 1,999 population",>=15,junior-cert,106
+2016,Male,train,"Towns 1,500 - 1,999 population",5 to 12,primary-school,0
+2016,Male,train,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,7
+2016,Male,train,"Towns 1,500 - 1,999 population",>=19,university,47
+2016,Male,train,"Towns 1,000 - 1,499 population",>=15,junior-cert,119
+2016,Male,train,"Towns 1,000 - 1,499 population",5 to 12,primary-school,2
+2016,Male,train,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,10
+2016,Male,train,"Towns 1,000 - 1,499 population",>=19,university,41
+2016,Male,train,Total Towns 500 - 999 population,>=15,junior-cert,209
+2016,Male,train,Total Towns 500 - 999 population,5 to 12,primary-school,0
+2016,Male,train,Total Towns 500 - 999 population,13 to 18,leaving-cert,20
+2016,Male,train,Total Towns 500 - 999 population,>=19,university,58
+2016,Male,train,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,149
+2016,Male,train,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,0
+2016,Male,train,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,15
+2016,Male,train,Towns under 500 population but with at least 50 inhabited houses,>=19,university,60
+2016,Male,train,Remainder of country,>=15,junior-cert,1789
+2016,Male,train,Remainder of country,5 to 12,primary-school,13
+2016,Male,train,Remainder of country,13 to 18,leaving-cert,226
+2016,Male,train,Remainder of country,>=19,university,810
+2016,Male,motorbike,Dublin City and suburbs,>=15,junior-cert,3442
+2016,Male,motorbike,Dublin City and suburbs,5 to 12,primary-school,0
+2016,Male,motorbike,Dublin City and suburbs,13 to 18,leaving-cert,20
+2016,Male,motorbike,Dublin City and suburbs,>=19,university,144
+2016,Male,motorbike,Cork City and suburbs,>=15,junior-cert,338
+2016,Male,motorbike,Cork City and suburbs,5 to 12,primary-school,0
+2016,Male,motorbike,Cork City and suburbs,13 to 18,leaving-cert,8
+2016,Male,motorbike,Cork City and suburbs,>=19,university,37
+2016,Male,motorbike,Limerick City and suburbs,>=15,junior-cert,88
+2016,Male,motorbike,Limerick City and suburbs,5 to 12,primary-school,0
+2016,Male,motorbike,Limerick City and suburbs,13 to 18,leaving-cert,2
+2016,Male,motorbike,Limerick City and suburbs,>=19,university,8
+2016,Male,motorbike,Galway City and suburbs,>=15,junior-cert,96
+2016,Male,motorbike,Galway City and suburbs,5 to 12,primary-school,0
+2016,Male,motorbike,Galway City and suburbs,13 to 18,leaving-cert,5
+2016,Male,motorbike,Galway City and suburbs,>=19,university,5
+2016,Male,motorbike,Waterford City and suburbs,>=15,junior-cert,68
+2016,Male,motorbike,Waterford City and suburbs,5 to 12,primary-school,0
+2016,Male,motorbike,Waterford City and suburbs,13 to 18,leaving-cert,0
+2016,Male,motorbike,Waterford City and suburbs,>=19,university,9
+2016,Male,motorbike,"Towns 10,000 population and over",>=15,junior-cert,933
+2016,Male,motorbike,"Towns 10,000 population and over",5 to 12,primary-school,0
+2016,Male,motorbike,"Towns 10,000 population and over",13 to 18,leaving-cert,8
+2016,Male,motorbike,"Towns 10,000 population and over",>=19,university,49
+2016,Male,motorbike,"Towns 5,000 - 9,999 population",>=15,junior-cert,325
+2016,Male,motorbike,"Towns 5,000 - 9,999 population",5 to 12,primary-school,0
+2016,Male,motorbike,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,3
+2016,Male,motorbike,"Towns 5,000 - 9,999 population",>=19,university,7
+2016,Male,motorbike,"Towns 2,000 - 4,999 population",>=15,junior-cert,220
+2016,Male,motorbike,"Towns 2,000 - 4,999 population",5 to 12,primary-school,0
+2016,Male,motorbike,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,7
+2016,Male,motorbike,"Towns 2,000 - 4,999 population",>=19,university,6
+2016,Male,motorbike,"Towns 1,500 - 1,999 population",>=15,junior-cert,61
+2016,Male,motorbike,"Towns 1,500 - 1,999 population",5 to 12,primary-school,0
+2016,Male,motorbike,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,0
+2016,Male,motorbike,"Towns 1,500 - 1,999 population",>=19,university,2
+2016,Male,motorbike,"Towns 1,000 - 1,499 population",>=15,junior-cert,73
+2016,Male,motorbike,"Towns 1,000 - 1,499 population",5 to 12,primary-school,0
+2016,Male,motorbike,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,0
+2016,Male,motorbike,"Towns 1,000 - 1,499 population",>=19,university,5
+2016,Male,motorbike,Total Towns 500 - 999 population,>=15,junior-cert,99
+2016,Male,motorbike,Total Towns 500 - 999 population,5 to 12,primary-school,0
+2016,Male,motorbike,Total Towns 500 - 999 population,13 to 18,leaving-cert,1
+2016,Male,motorbike,Total Towns 500 - 999 population,>=19,university,5
+2016,Male,motorbike,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,71
+2016,Male,motorbike,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,0
+2016,Male,motorbike,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,2
+2016,Male,motorbike,Towns under 500 population but with at least 50 inhabited houses,>=19,university,3
+2016,Male,motorbike,Remainder of country,>=15,junior-cert,926
+2016,Male,motorbike,Remainder of country,5 to 12,primary-school,0
+2016,Male,motorbike,Remainder of country,13 to 18,leaving-cert,41
+2016,Male,motorbike,Remainder of country,>=19,university,56
+2016,Male,car,Dublin City and suburbs,>=15,junior-cert,117132
+2016,Male,car,Dublin City and suburbs,5 to 12,primary-school,0
+2016,Male,car,Dublin City and suburbs,13 to 18,leaving-cert,248
+2016,Male,car,Dublin City and suburbs,>=19,university,3412
+2016,Male,car,Cork City and suburbs,>=15,junior-cert,26795
+2016,Male,car,Cork City and suburbs,5 to 12,primary-school,0
+2016,Male,car,Cork City and suburbs,13 to 18,leaving-cert,102
+2016,Male,car,Cork City and suburbs,>=19,university,1210
+2016,Male,car,Limerick City and suburbs,>=15,junior-cert,10964
+2016,Male,car,Limerick City and suburbs,5 to 12,primary-school,0
+2016,Male,car,Limerick City and suburbs,13 to 18,leaving-cert,28
+2016,Male,car,Limerick City and suburbs,>=19,university,696
+2016,Male,car,Galway City and suburbs,>=15,junior-cert,8930
+2016,Male,car,Galway City and suburbs,5 to 12,primary-school,0
+2016,Male,car,Galway City and suburbs,13 to 18,leaving-cert,6
+2016,Male,car,Galway City and suburbs,>=19,university,391
+2016,Male,car,Waterford City and suburbs,>=15,junior-cert,6257
+2016,Male,car,Waterford City and suburbs,5 to 12,primary-school,0
+2016,Male,car,Waterford City and suburbs,13 to 18,leaving-cert,30
+2016,Male,car,Waterford City and suburbs,>=19,university,286
+2016,Male,car,"Towns 10,000 population and over",>=15,junior-cert,97270
+2016,Male,car,"Towns 10,000 population and over",5 to 12,primary-school,0
+2016,Male,car,"Towns 10,000 population and over",13 to 18,leaving-cert,269
+2016,Male,car,"Towns 10,000 population and over",>=19,university,2814
+2016,Male,car,"Towns 5,000 - 9,999 population",>=15,junior-cert,38369
+2016,Male,car,"Towns 5,000 - 9,999 population",5 to 12,primary-school,0
+2016,Male,car,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,131
+2016,Male,car,"Towns 5,000 - 9,999 population",>=19,university,1030
+2016,Male,car,"Towns 2,000 - 4,999 population",>=15,junior-cert,29349
+2016,Male,car,"Towns 2,000 - 4,999 population",5 to 12,primary-school,0
+2016,Male,car,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,91
+2016,Male,car,"Towns 2,000 - 4,999 population",>=19,university,857
+2016,Male,car,"Towns 1,500 - 1,999 population",>=15,junior-cert,8951
+2016,Male,car,"Towns 1,500 - 1,999 population",5 to 12,primary-school,0
+2016,Male,car,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,38
+2016,Male,car,"Towns 1,500 - 1,999 population",>=19,university,282
+2016,Male,car,"Towns 1,000 - 1,499 population",>=15,junior-cert,11430
+2016,Male,car,"Towns 1,000 - 1,499 population",5 to 12,primary-school,0
+2016,Male,car,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,35
+2016,Male,car,"Towns 1,000 - 1,499 population",>=19,university,397
+2016,Male,car,Total Towns 500 - 999 population,>=15,junior-cert,16521
+2016,Male,car,Total Towns 500 - 999 population,5 to 12,primary-school,0
+2016,Male,car,Total Towns 500 - 999 population,13 to 18,leaving-cert,72
+2016,Male,car,Total Towns 500 - 999 population,>=19,university,546
+2016,Male,car,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,13967
+2016,Male,car,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,0
+2016,Male,car,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,100
+2016,Male,car,Towns under 500 population but with at least 50 inhabited houses,>=19,university,548
+2016,Male,car,Remainder of country,>=15,junior-cert,175769
+2016,Male,car,Remainder of country,5 to 12,primary-school,0
+2016,Male,car,Remainder of country,13 to 18,leaving-cert,1821
+2016,Male,car,Remainder of country,>=19,university,8803
+2016,Male,carpool,Dublin City and suburbs,>=15,junior-cert,5522
+2016,Male,carpool,Dublin City and suburbs,5 to 12,primary-school,25389
+2016,Male,carpool,Dublin City and suburbs,13 to 18,leaving-cert,9062
+2016,Male,carpool,Dublin City and suburbs,>=19,university,902
+2016,Male,carpool,Cork City and suburbs,>=15,junior-cert,1741
+2016,Male,carpool,Cork City and suburbs,5 to 12,primary-school,6161
+2016,Male,carpool,Cork City and suburbs,13 to 18,leaving-cert,3722
+2016,Male,carpool,Cork City and suburbs,>=19,university,894
+2016,Male,carpool,Limerick City and suburbs,>=15,junior-cert,860
+2016,Male,carpool,Limerick City and suburbs,5 to 12,primary-school,2659
+2016,Male,carpool,Limerick City and suburbs,13 to 18,leaving-cert,1378
+2016,Male,carpool,Limerick City and suburbs,>=19,university,305
+2016,Male,carpool,Galway City and suburbs,>=15,junior-cert,684
+2016,Male,carpool,Galway City and suburbs,5 to 12,primary-school,2230
+2016,Male,carpool,Galway City and suburbs,13 to 18,leaving-cert,964
+2016,Male,carpool,Galway City and suburbs,>=19,university,192
+2016,Male,carpool,Waterford City and suburbs,>=15,junior-cert,707
+2016,Male,carpool,Waterford City and suburbs,5 to 12,primary-school,1980
+2016,Male,carpool,Waterford City and suburbs,13 to 18,leaving-cert,1115
+2016,Male,carpool,Waterford City and suburbs,>=19,university,163
+2016,Male,carpool,"Towns 10,000 population and over",>=15,junior-cert,6998
+2016,Male,carpool,"Towns 10,000 population and over",5 to 12,primary-school,27203
+2016,Male,carpool,"Towns 10,000 population and over",13 to 18,leaving-cert,11585
+2016,Male,carpool,"Towns 10,000 population and over",>=19,university,1187
+2016,Male,carpool,"Towns 5,000 - 9,999 population",>=15,junior-cert,3021
+2016,Male,carpool,"Towns 5,000 - 9,999 population",5 to 12,primary-school,10651
+2016,Male,carpool,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,4029
+2016,Male,carpool,"Towns 5,000 - 9,999 population",>=19,university,490
+2016,Male,carpool,"Towns 2,000 - 4,999 population",>=15,junior-cert,2308
+2016,Male,carpool,"Towns 2,000 - 4,999 population",5 to 12,primary-school,8402
+2016,Male,carpool,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,3079
+2016,Male,carpool,"Towns 2,000 - 4,999 population",>=19,university,404
+2016,Male,carpool,"Towns 1,500 - 1,999 population",>=15,junior-cert,731
+2016,Male,carpool,"Towns 1,500 - 1,999 population",5 to 12,primary-school,2588
+2016,Male,carpool,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,1023
+2016,Male,carpool,"Towns 1,500 - 1,999 population",>=19,university,149
+2016,Male,carpool,"Towns 1,000 - 1,499 population",>=15,junior-cert,849
+2016,Male,carpool,"Towns 1,000 - 1,499 population",5 to 12,primary-school,3533
+2016,Male,carpool,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,1181
+2016,Male,carpool,"Towns 1,000 - 1,499 population",>=19,university,208
+2016,Male,carpool,Total Towns 500 - 999 population,>=15,junior-cert,1144
+2016,Male,carpool,Total Towns 500 - 999 population,5 to 12,primary-school,4658
+2016,Male,carpool,Total Towns 500 - 999 population,13 to 18,leaving-cert,1790
+2016,Male,carpool,Total Towns 500 - 999 population,>=19,university,302
+2016,Male,carpool,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,934
+2016,Male,carpool,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,3956
+2016,Male,carpool,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,1566
+2016,Male,carpool,Towns under 500 population but with at least 50 inhabited houses,>=19,university,272
+2016,Male,carpool,Remainder of country,>=15,junior-cert,7852
+2016,Male,carpool,Remainder of country,5 to 12,primary-school,66480
+2016,Male,carpool,Remainder of country,13 to 18,leaving-cert,31128
+2016,Male,carpool,Remainder of country,>=19,university,3471
+2016,Male,truck,Dublin City and suburbs,>=15,junior-cert,14825
+2016,Male,truck,Dublin City and suburbs,5 to 12,primary-school,74
+2016,Male,truck,Dublin City and suburbs,13 to 18,leaving-cert,24
+2016,Male,truck,Dublin City and suburbs,>=19,university,25
+2016,Male,truck,Cork City and suburbs,>=15,junior-cert,3336
+2016,Male,truck,Cork City and suburbs,5 to 12,primary-school,16
+2016,Male,truck,Cork City and suburbs,13 to 18,leaving-cert,10
+2016,Male,truck,Cork City and suburbs,>=19,university,21
+2016,Male,truck,Limerick City and suburbs,>=15,junior-cert,1164
+2016,Male,truck,Limerick City and suburbs,5 to 12,primary-school,6
+2016,Male,truck,Limerick City and suburbs,13 to 18,leaving-cert,3
+2016,Male,truck,Limerick City and suburbs,>=19,university,16
+2016,Male,truck,Galway City and suburbs,>=15,junior-cert,983
+2016,Male,truck,Galway City and suburbs,5 to 12,primary-school,6
+2016,Male,truck,Galway City and suburbs,13 to 18,leaving-cert,8
+2016,Male,truck,Galway City and suburbs,>=19,university,12
+2016,Male,truck,Waterford City and suburbs,>=15,junior-cert,789
+2016,Male,truck,Waterford City and suburbs,5 to 12,primary-school,1
+2016,Male,truck,Waterford City and suburbs,13 to 18,leaving-cert,4
+2016,Male,truck,Waterford City and suburbs,>=19,university,7
+2016,Male,truck,"Towns 10,000 population and over",>=15,junior-cert,14472
+2016,Male,truck,"Towns 10,000 population and over",5 to 12,primary-school,74
+2016,Male,truck,"Towns 10,000 population and over",13 to 18,leaving-cert,43
+2016,Male,truck,"Towns 10,000 population and over",>=19,university,63
+2016,Male,truck,"Towns 5,000 - 9,999 population",>=15,junior-cert,6428
+2016,Male,truck,"Towns 5,000 - 9,999 population",5 to 12,primary-school,29
+2016,Male,truck,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,18
+2016,Male,truck,"Towns 5,000 - 9,999 population",>=19,university,17
+2016,Male,truck,"Towns 2,000 - 4,999 population",>=15,junior-cert,6011
+2016,Male,truck,"Towns 2,000 - 4,999 population",5 to 12,primary-school,36
+2016,Male,truck,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,10
+2016,Male,truck,"Towns 2,000 - 4,999 population",>=19,university,33
+2016,Male,truck,"Towns 1,500 - 1,999 population",>=15,junior-cert,1857
+2016,Male,truck,"Towns 1,500 - 1,999 population",5 to 12,primary-school,8
+2016,Male,truck,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,3
+2016,Male,truck,"Towns 1,500 - 1,999 population",>=19,university,9
+2016,Male,truck,"Towns 1,000 - 1,499 population",>=15,junior-cert,2682
+2016,Male,truck,"Towns 1,000 - 1,499 population",5 to 12,primary-school,11
+2016,Male,truck,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,7
+2016,Male,truck,"Towns 1,000 - 1,499 population",>=19,university,7
+2016,Male,truck,Total Towns 500 - 999 population,>=15,junior-cert,4062
+2016,Male,truck,Total Towns 500 - 999 population,5 to 12,primary-school,11
+2016,Male,truck,Total Towns 500 - 999 population,13 to 18,leaving-cert,5
+2016,Male,truck,Total Towns 500 - 999 population,>=19,university,24
+2016,Male,truck,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,4053
+2016,Male,truck,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,7
+2016,Male,truck,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,6
+2016,Male,truck,Towns under 500 population but with at least 50 inhabited houses,>=19,university,24
+2016,Male,truck,Remainder of country,>=15,junior-cert,62686
+2016,Male,truck,Remainder of country,5 to 12,primary-school,206
+2016,Male,truck,Remainder of country,13 to 18,leaving-cert,203
+2016,Male,truck,Remainder of country,>=19,university,418
+2016,Male,truck,Dublin City and suburbs,>=15,junior-cert,702
+2016,Male,truck,Dublin City and suburbs,5 to 12,primary-school,16
+2016,Male,truck,Dublin City and suburbs,13 to 18,leaving-cert,7
+2016,Male,truck,Dublin City and suburbs,>=19,university,15
+2016,Male,truck,Cork City and suburbs,>=15,junior-cert,219
+2016,Male,truck,Cork City and suburbs,5 to 12,primary-school,9
+2016,Male,truck,Cork City and suburbs,13 to 18,leaving-cert,8
+2016,Male,truck,Cork City and suburbs,>=19,university,2
+2016,Male,truck,Limerick City and suburbs,>=15,junior-cert,51
+2016,Male,truck,Limerick City and suburbs,5 to 12,primary-school,5
+2016,Male,truck,Limerick City and suburbs,13 to 18,leaving-cert,2
+2016,Male,truck,Limerick City and suburbs,>=19,university,2
+2016,Male,truck,Galway City and suburbs,>=15,junior-cert,64
+2016,Male,truck,Galway City and suburbs,5 to 12,primary-school,1
+2016,Male,truck,Galway City and suburbs,13 to 18,leaving-cert,0
+2016,Male,truck,Galway City and suburbs,>=19,university,1
+2016,Male,truck,Waterford City and suburbs,>=15,junior-cert,35
+2016,Male,truck,Waterford City and suburbs,5 to 12,primary-school,2
+2016,Male,truck,Waterford City and suburbs,13 to 18,leaving-cert,0
+2016,Male,truck,Waterford City and suburbs,>=19,university,0
+2016,Male,truck,"Towns 10,000 population and over",>=15,junior-cert,747
+2016,Male,truck,"Towns 10,000 population and over",5 to 12,primary-school,14
+2016,Male,truck,"Towns 10,000 population and over",13 to 18,leaving-cert,5
+2016,Male,truck,"Towns 10,000 population and over",>=19,university,1
+2016,Male,truck,"Towns 5,000 - 9,999 population",>=15,junior-cert,428
+2016,Male,truck,"Towns 5,000 - 9,999 population",5 to 12,primary-school,7
+2016,Male,truck,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,1
+2016,Male,truck,"Towns 5,000 - 9,999 population",>=19,university,1
+2016,Male,truck,"Towns 2,000 - 4,999 population",>=15,junior-cert,353
+2016,Male,truck,"Towns 2,000 - 4,999 population",5 to 12,primary-school,2
+2016,Male,truck,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,3
+2016,Male,truck,"Towns 2,000 - 4,999 population",>=19,university,0
+2016,Male,truck,"Towns 1,500 - 1,999 population",>=15,junior-cert,142
+2016,Male,truck,"Towns 1,500 - 1,999 population",5 to 12,primary-school,6
+2016,Male,truck,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,0
+2016,Male,truck,"Towns 1,500 - 1,999 population",>=19,university,0
+2016,Male,truck,"Towns 1,000 - 1,499 population",>=15,junior-cert,234
+2016,Male,truck,"Towns 1,000 - 1,499 population",5 to 12,primary-school,2
+2016,Male,truck,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,0
+2016,Male,truck,"Towns 1,000 - 1,499 population",>=19,university,1
+2016,Male,truck,Total Towns 500 - 999 population,>=15,junior-cert,335
+2016,Male,truck,Total Towns 500 - 999 population,5 to 12,primary-school,2
+2016,Male,truck,Total Towns 500 - 999 population,13 to 18,leaving-cert,2
+2016,Male,truck,Total Towns 500 - 999 population,>=19,university,0
+2016,Male,truck,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,362
+2016,Male,truck,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,4
+2016,Male,truck,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,2
+2016,Male,truck,Towns under 500 population but with at least 50 inhabited houses,>=19,university,3
+2016,Male,truck,Remainder of country,>=15,junior-cert,7501
+2016,Male,truck,Remainder of country,5 to 12,primary-school,18
+2016,Male,truck,Remainder of country,13 to 18,leaving-cert,27
+2016,Male,truck,Remainder of country,>=19,university,24
+2016,Male,remote,Dublin City and suburbs,>=15,junior-cert,6528
+2016,Male,remote,Dublin City and suburbs,5 to 12,primary-school,32
+2016,Male,remote,Dublin City and suburbs,13 to 18,leaving-cert,20
+2016,Male,remote,Dublin City and suburbs,>=19,university,62
+2016,Male,remote,Cork City and suburbs,>=15,junior-cert,1126
+2016,Male,remote,Cork City and suburbs,5 to 12,primary-school,5
+2016,Male,remote,Cork City and suburbs,13 to 18,leaving-cert,5
+2016,Male,remote,Cork City and suburbs,>=19,university,9
+2016,Male,remote,Limerick City and suburbs,>=15,junior-cert,470
+2016,Male,remote,Limerick City and suburbs,5 to 12,primary-school,1
+2016,Male,remote,Limerick City and suburbs,13 to 18,leaving-cert,3
+2016,Male,remote,Limerick City and suburbs,>=19,university,5
+2016,Male,remote,Galway City and suburbs,>=15,junior-cert,524
+2016,Male,remote,Galway City and suburbs,5 to 12,primary-school,1
+2016,Male,remote,Galway City and suburbs,13 to 18,leaving-cert,3
+2016,Male,remote,Galway City and suburbs,>=19,university,3
+2016,Male,remote,Waterford City and suburbs,>=15,junior-cert,296
+2016,Male,remote,Waterford City and suburbs,5 to 12,primary-school,1
+2016,Male,remote,Waterford City and suburbs,13 to 18,leaving-cert,0
+2016,Male,remote,Waterford City and suburbs,>=19,university,2
+2016,Male,remote,"Towns 10,000 population and over",>=15,junior-cert,4087
+2016,Male,remote,"Towns 10,000 population and over",5 to 12,primary-school,14
+2016,Male,remote,"Towns 10,000 population and over",13 to 18,leaving-cert,11
+2016,Male,remote,"Towns 10,000 population and over",>=19,university,34
+2016,Male,remote,"Towns 5,000 - 9,999 population",>=15,junior-cert,1627
+2016,Male,remote,"Towns 5,000 - 9,999 population",5 to 12,primary-school,5
+2016,Male,remote,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,3
+2016,Male,remote,"Towns 5,000 - 9,999 population",>=19,university,11
+2016,Male,remote,"Towns 2,000 - 4,999 population",>=15,junior-cert,1477
+2016,Male,remote,"Towns 2,000 - 4,999 population",5 to 12,primary-school,10
+2016,Male,remote,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,6
+2016,Male,remote,"Towns 2,000 - 4,999 population",>=19,university,8
+2016,Male,remote,"Towns 1,500 - 1,999 population",>=15,junior-cert,484
+2016,Male,remote,"Towns 1,500 - 1,999 population",5 to 12,primary-school,4
+2016,Male,remote,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,1
+2016,Male,remote,"Towns 1,500 - 1,999 population",>=19,university,0
+2016,Male,remote,"Towns 1,000 - 1,499 population",>=15,junior-cert,721
+2016,Male,remote,"Towns 1,000 - 1,499 population",5 to 12,primary-school,3
+2016,Male,remote,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,3
+2016,Male,remote,"Towns 1,000 - 1,499 population",>=19,university,5
+2016,Male,remote,Total Towns 500 - 999 population,>=15,junior-cert,1135
+2016,Male,remote,Total Towns 500 - 999 population,5 to 12,primary-school,6
+2016,Male,remote,Total Towns 500 - 999 population,13 to 18,leaving-cert,3
+2016,Male,remote,Total Towns 500 - 999 population,>=19,university,3
+2016,Male,remote,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,1323
+2016,Male,remote,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,2
+2016,Male,remote,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,2
+2016,Male,remote,Towns under 500 population but with at least 50 inhabited houses,>=19,university,7
+2016,Male,remote,Remainder of country,>=15,junior-cert,45810
+2016,Male,remote,Remainder of country,5 to 12,primary-school,63
+2016,Male,remote,Remainder of country,13 to 18,leaving-cert,54
+2016,Male,remote,Remainder of country,>=19,university,95
+2016,Male,na,Dublin City and suburbs,>=15,junior-cert,17797
+2016,Male,na,Dublin City and suburbs,5 to 12,primary-school,3716
+2016,Male,na,Dublin City and suburbs,13 to 18,leaving-cert,1658
+2016,Male,na,Dublin City and suburbs,>=19,university,944
+2016,Male,na,Cork City and suburbs,>=15,junior-cert,2116
+2016,Male,na,Cork City and suburbs,5 to 12,primary-school,514
+2016,Male,na,Cork City and suburbs,13 to 18,leaving-cert,221
+2016,Male,na,Cork City and suburbs,>=19,university,236
+2016,Male,na,Limerick City and suburbs,>=15,junior-cert,1281
+2016,Male,na,Limerick City and suburbs,5 to 12,primary-school,303
+2016,Male,na,Limerick City and suburbs,13 to 18,leaving-cert,139
+2016,Male,na,Limerick City and suburbs,>=19,university,241
+2016,Male,na,Galway City and suburbs,>=15,junior-cert,1072
+2016,Male,na,Galway City and suburbs,5 to 12,primary-school,257
+2016,Male,na,Galway City and suburbs,13 to 18,leaving-cert,101
+2016,Male,na,Galway City and suburbs,>=19,university,102
+2016,Male,na,Waterford City and suburbs,>=15,junior-cert,601
+2016,Male,na,Waterford City and suburbs,5 to 12,primary-school,205
+2016,Male,na,Waterford City and suburbs,13 to 18,leaving-cert,82
+2016,Male,na,Waterford City and suburbs,>=19,university,62
+2016,Male,na,"Towns 10,000 population and over",>=15,junior-cert,7385
+2016,Male,na,"Towns 10,000 population and over",5 to 12,primary-school,2823
+2016,Male,na,"Towns 10,000 population and over",13 to 18,leaving-cert,1040
+2016,Male,na,"Towns 10,000 population and over",>=19,university,516
+2016,Male,na,"Towns 5,000 - 9,999 population",>=15,junior-cert,2346
+2016,Male,na,"Towns 5,000 - 9,999 population",5 to 12,primary-school,1021
+2016,Male,na,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,401
+2016,Male,na,"Towns 5,000 - 9,999 population",>=19,university,166
+2016,Male,na,"Towns 2,000 - 4,999 population",>=15,junior-cert,1827
+2016,Male,na,"Towns 2,000 - 4,999 population",5 to 12,primary-school,783
+2016,Male,na,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,262
+2016,Male,na,"Towns 2,000 - 4,999 population",>=19,university,98
+2016,Male,na,"Towns 1,500 - 1,999 population",>=15,junior-cert,587
+2016,Male,na,"Towns 1,500 - 1,999 population",5 to 12,primary-school,208
+2016,Male,na,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,86
+2016,Male,na,"Towns 1,500 - 1,999 population",>=19,university,39
+2016,Male,na,"Towns 1,000 - 1,499 population",>=15,junior-cert,806
+2016,Male,na,"Towns 1,000 - 1,499 population",5 to 12,primary-school,287
+2016,Male,na,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,105
+2016,Male,na,"Towns 1,000 - 1,499 population",>=19,university,47
+2016,Male,na,Total Towns 500 - 999 population,>=15,junior-cert,967
+2016,Male,na,Total Towns 500 - 999 population,5 to 12,primary-school,413
+2016,Male,na,Total Towns 500 - 999 population,13 to 18,leaving-cert,150
+2016,Male,na,Total Towns 500 - 999 population,>=19,university,75
+2016,Male,na,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,869
+2016,Male,na,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,323
+2016,Male,na,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,108
+2016,Male,na,Towns under 500 population but with at least 50 inhabited houses,>=19,university,65
+2016,Male,na,Remainder of country,>=15,junior-cert,14985
+2016,Male,na,Remainder of country,5 to 12,primary-school,2787
+2016,Male,na,Remainder of country,13 to 18,leaving-cert,1226
+2016,Male,na,Remainder of country,>=19,university,627
+2016,Female,walking,Dublin City and suburbs,>=15,junior-cert,38414
+2016,Female,walking,Dublin City and suburbs,5 to 12,primary-school,23103
+2016,Female,walking,Dublin City and suburbs,13 to 18,leaving-cert,12558
+2016,Female,walking,Dublin City and suburbs,>=19,university,7085
+2016,Female,walking,Cork City and suburbs,>=15,junior-cert,6447
+2016,Female,walking,Cork City and suburbs,5 to 12,primary-school,2668
+2016,Female,walking,Cork City and suburbs,13 to 18,leaving-cert,1623
+2016,Female,walking,Cork City and suburbs,>=19,university,2667
+2016,Female,walking,Limerick City and suburbs,>=15,junior-cert,2763
+2016,Female,walking,Limerick City and suburbs,5 to 12,primary-school,1522
+2016,Female,walking,Limerick City and suburbs,13 to 18,leaving-cert,832
+2016,Female,walking,Limerick City and suburbs,>=19,university,1164
+2016,Female,walking,Galway City and suburbs,>=15,junior-cert,3016
+2016,Female,walking,Galway City and suburbs,5 to 12,primary-school,727
+2016,Female,walking,Galway City and suburbs,13 to 18,leaving-cert,431
+2016,Female,walking,Galway City and suburbs,>=19,university,1659
+2016,Female,walking,Waterford City and suburbs,>=15,junior-cert,1410
+2016,Female,walking,Waterford City and suburbs,5 to 12,primary-school,645
+2016,Female,walking,Waterford City and suburbs,13 to 18,leaving-cert,557
+2016,Female,walking,Waterford City and suburbs,>=19,university,499
+2016,Female,walking,"Towns 10,000 population and over",>=15,junior-cert,20424
+2016,Female,walking,"Towns 10,000 population and over",5 to 12,primary-school,13390
+2016,Female,walking,"Towns 10,000 population and over",13 to 18,leaving-cert,9605
+2016,Female,walking,"Towns 10,000 population and over",>=19,university,4002
+2016,Female,walking,"Towns 5,000 - 9,999 population",>=15,junior-cert,6754
+2016,Female,walking,"Towns 5,000 - 9,999 population",5 to 12,primary-school,5846
+2016,Female,walking,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,4288
+2016,Female,walking,"Towns 5,000 - 9,999 population",>=19,university,846
+2016,Female,walking,"Towns 2,000 - 4,999 population",>=15,junior-cert,5398
+2016,Female,walking,"Towns 2,000 - 4,999 population",5 to 12,primary-school,4430
+2016,Female,walking,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,2812
+2016,Female,walking,"Towns 2,000 - 4,999 population",>=19,university,669
+2016,Female,walking,"Towns 1,500 - 1,999 population",>=15,junior-cert,1406
+2016,Female,walking,"Towns 1,500 - 1,999 population",5 to 12,primary-school,1510
+2016,Female,walking,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,576
+2016,Female,walking,"Towns 1,500 - 1,999 population",>=19,university,251
+2016,Female,walking,"Towns 1,000 - 1,499 population",>=15,junior-cert,1717
+2016,Female,walking,"Towns 1,000 - 1,499 population",5 to 12,primary-school,1797
+2016,Female,walking,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,854
+2016,Female,walking,"Towns 1,000 - 1,499 population",>=19,university,282
+2016,Female,walking,Total Towns 500 - 999 population,>=15,junior-cert,1899
+2016,Female,walking,Total Towns 500 - 999 population,5 to 12,primary-school,2888
+2016,Female,walking,Total Towns 500 - 999 population,13 to 18,leaving-cert,647
+2016,Female,walking,Total Towns 500 - 999 population,>=19,university,356
+2016,Female,walking,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,1371
+2016,Female,walking,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,2205
+2016,Female,walking,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,224
+2016,Female,walking,Towns under 500 population but with at least 50 inhabited houses,>=19,university,403
+2016,Female,walking,Remainder of country,>=15,junior-cert,4495
+2016,Female,walking,Remainder of country,5 to 12,primary-school,2723
+2016,Female,walking,Remainder of country,13 to 18,leaving-cert,1490
+2016,Female,walking,Remainder of country,>=19,university,6445
+2016,Female,bike,Dublin City and suburbs,>=15,junior-cert,11226
+2016,Female,bike,Dublin City and suburbs,5 to 12,primary-school,1269
+2016,Female,bike,Dublin City and suburbs,13 to 18,leaving-cert,423
+2016,Female,bike,Dublin City and suburbs,>=19,university,2046
+2016,Female,bike,Cork City and suburbs,>=15,junior-cert,664
+2016,Female,bike,Cork City and suburbs,5 to 12,primary-school,40
+2016,Female,bike,Cork City and suburbs,13 to 18,leaving-cert,9
+2016,Female,bike,Cork City and suburbs,>=19,university,233
+2016,Female,bike,Limerick City and suburbs,>=15,junior-cert,188
+2016,Female,bike,Limerick City and suburbs,5 to 12,primary-school,26
+2016,Female,bike,Limerick City and suburbs,13 to 18,leaving-cert,6
+2016,Female,bike,Limerick City and suburbs,>=19,university,91
+2016,Female,bike,Galway City and suburbs,>=15,junior-cert,592
+2016,Female,bike,Galway City and suburbs,5 to 12,primary-school,55
+2016,Female,bike,Galway City and suburbs,13 to 18,leaving-cert,32
+2016,Female,bike,Galway City and suburbs,>=19,university,233
+2016,Female,bike,Waterford City and suburbs,>=15,junior-cert,60
+2016,Female,bike,Waterford City and suburbs,5 to 12,primary-school,7
+2016,Female,bike,Waterford City and suburbs,13 to 18,leaving-cert,5
+2016,Female,bike,Waterford City and suburbs,>=19,university,24
+2016,Female,bike,"Towns 10,000 population and over",>=15,junior-cert,1396
+2016,Female,bike,"Towns 10,000 population and over",5 to 12,primary-school,398
+2016,Female,bike,"Towns 10,000 population and over",13 to 18,leaving-cert,81
+2016,Female,bike,"Towns 10,000 population and over",>=19,university,209
+2016,Female,bike,"Towns 5,000 - 9,999 population",>=15,junior-cert,309
+2016,Female,bike,"Towns 5,000 - 9,999 population",5 to 12,primary-school,174
+2016,Female,bike,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,37
+2016,Female,bike,"Towns 5,000 - 9,999 population",>=19,university,37
+2016,Female,bike,"Towns 2,000 - 4,999 population",>=15,junior-cert,205
+2016,Female,bike,"Towns 2,000 - 4,999 population",5 to 12,primary-school,86
+2016,Female,bike,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,11
+2016,Female,bike,"Towns 2,000 - 4,999 population",>=19,university,34
+2016,Female,bike,"Towns 1,500 - 1,999 population",>=15,junior-cert,51
+2016,Female,bike,"Towns 1,500 - 1,999 population",5 to 12,primary-school,25
+2016,Female,bike,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,3
+2016,Female,bike,"Towns 1,500 - 1,999 population",>=19,university,10
+2016,Female,bike,"Towns 1,000 - 1,499 population",>=15,junior-cert,64
+2016,Female,bike,"Towns 1,000 - 1,499 population",5 to 12,primary-school,43
+2016,Female,bike,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,7
+2016,Female,bike,"Towns 1,000 - 1,499 population",>=19,university,9
+2016,Female,bike,Total Towns 500 - 999 population,>=15,junior-cert,56
+2016,Female,bike,Total Towns 500 - 999 population,5 to 12,primary-school,50
+2016,Female,bike,Total Towns 500 - 999 population,13 to 18,leaving-cert,1
+2016,Female,bike,Total Towns 500 - 999 population,>=19,university,16
+2016,Female,bike,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,65
+2016,Female,bike,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,31
+2016,Female,bike,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,2
+2016,Female,bike,Towns under 500 population but with at least 50 inhabited houses,>=19,university,21
+2016,Female,bike,Remainder of country,>=15,junior-cert,620
+2016,Female,bike,Remainder of country,5 to 12,primary-school,264
+2016,Female,bike,Remainder of country,13 to 18,leaving-cert,77
+2016,Female,bike,Remainder of country,>=19,university,392
+2016,Female,bus,Dublin City and suburbs,>=15,junior-cert,39418
+2016,Female,bus,Dublin City and suburbs,5 to 12,primary-school,2532
+2016,Female,bus,Dublin City and suburbs,13 to 18,leaving-cert,8560
+2016,Female,bus,Dublin City and suburbs,>=19,university,10998
+2016,Female,bus,Cork City and suburbs,>=15,junior-cert,3726
+2016,Female,bus,Cork City and suburbs,5 to 12,primary-school,325
+2016,Female,bus,Cork City and suburbs,13 to 18,leaving-cert,939
+2016,Female,bus,Cork City and suburbs,>=19,university,1158
+2016,Female,bus,Limerick City and suburbs,>=15,junior-cert,896
+2016,Female,bus,Limerick City and suburbs,5 to 12,primary-school,175
+2016,Female,bus,Limerick City and suburbs,13 to 18,leaving-cert,628
+2016,Female,bus,Limerick City and suburbs,>=19,university,454
+2016,Female,bus,Galway City and suburbs,>=15,junior-cert,1539
+2016,Female,bus,Galway City and suburbs,5 to 12,primary-school,196
+2016,Female,bus,Galway City and suburbs,13 to 18,leaving-cert,571
+2016,Female,bus,Galway City and suburbs,>=19,university,441
+2016,Female,bus,Waterford City and suburbs,>=15,junior-cert,282
+2016,Female,bus,Waterford City and suburbs,5 to 12,primary-school,92
+2016,Female,bus,Waterford City and suburbs,13 to 18,leaving-cert,164
+2016,Female,bus,Waterford City and suburbs,>=19,university,132
+2016,Female,bus,"Towns 10,000 population and over",>=15,junior-cert,7964
+2016,Female,bus,"Towns 10,000 population and over",5 to 12,primary-school,3678
+2016,Female,bus,"Towns 10,000 population and over",13 to 18,leaving-cert,4060
+2016,Female,bus,"Towns 10,000 population and over",>=19,university,3629
+2016,Female,bus,"Towns 5,000 - 9,999 population",>=15,junior-cert,2437
+2016,Female,bus,"Towns 5,000 - 9,999 population",5 to 12,primary-school,1294
+2016,Female,bus,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,1493
+2016,Female,bus,"Towns 5,000 - 9,999 population",>=19,university,1253
+2016,Female,bus,"Towns 2,000 - 4,999 population",>=15,junior-cert,1293
+2016,Female,bus,"Towns 2,000 - 4,999 population",5 to 12,primary-school,1025
+2016,Female,bus,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,1631
+2016,Female,bus,"Towns 2,000 - 4,999 population",>=19,university,883
+2016,Female,bus,"Towns 1,500 - 1,999 population",>=15,junior-cert,247
+2016,Female,bus,"Towns 1,500 - 1,999 population",5 to 12,primary-school,211
+2016,Female,bus,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,797
+2016,Female,bus,"Towns 1,500 - 1,999 population",>=19,university,206
+2016,Female,bus,"Towns 1,000 - 1,499 population",>=15,junior-cert,371
+2016,Female,bus,"Towns 1,000 - 1,499 population",5 to 12,primary-school,305
+2016,Female,bus,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,1218
+2016,Female,bus,"Towns 1,000 - 1,499 population",>=19,university,292
+2016,Female,bus,Total Towns 500 - 999 population,>=15,junior-cert,456
+2016,Female,bus,Total Towns 500 - 999 population,5 to 12,primary-school,518
+2016,Female,bus,Total Towns 500 - 999 population,13 to 18,leaving-cert,2275
+2016,Female,bus,Total Towns 500 - 999 population,>=19,university,417
+2016,Female,bus,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,295
+2016,Female,bus,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,619
+2016,Female,bus,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,2474
+2016,Female,bus,Towns under 500 population but with at least 50 inhabited houses,>=19,university,344
+2016,Female,bus,Remainder of country,>=15,junior-cert,2724
+2016,Female,bus,Remainder of country,5 to 12,primary-school,15765
+2016,Female,bus,Remainder of country,13 to 18,leaving-cert,24829
+2016,Female,bus,Remainder of country,>=19,university,4295
+2016,Female,train,Dublin City and suburbs,>=15,junior-cert,20190
+2016,Female,train,Dublin City and suburbs,5 to 12,primary-school,256
+2016,Female,train,Dublin City and suburbs,13 to 18,leaving-cert,1477
+2016,Female,train,Dublin City and suburbs,>=19,university,3270
+2016,Female,train,Cork City and suburbs,>=15,junior-cert,145
+2016,Female,train,Cork City and suburbs,5 to 12,primary-school,3
+2016,Female,train,Cork City and suburbs,13 to 18,leaving-cert,17
+2016,Female,train,Cork City and suburbs,>=19,university,44
+2016,Female,train,Limerick City and suburbs,>=15,junior-cert,22
+2016,Female,train,Limerick City and suburbs,5 to 12,primary-school,0
+2016,Female,train,Limerick City and suburbs,13 to 18,leaving-cert,0
+2016,Female,train,Limerick City and suburbs,>=19,university,14
+2016,Female,train,Galway City and suburbs,>=15,junior-cert,31
+2016,Female,train,Galway City and suburbs,5 to 12,primary-school,0
+2016,Female,train,Galway City and suburbs,13 to 18,leaving-cert,5
+2016,Female,train,Galway City and suburbs,>=19,university,16
+2016,Female,train,Waterford City and suburbs,>=15,junior-cert,17
+2016,Female,train,Waterford City and suburbs,5 to 12,primary-school,2
+2016,Female,train,Waterford City and suburbs,13 to 18,leaving-cert,3
+2016,Female,train,Waterford City and suburbs,>=19,university,12
+2016,Female,train,"Towns 10,000 population and over",>=15,junior-cert,5605
+2016,Female,train,"Towns 10,000 population and over",5 to 12,primary-school,29
+2016,Female,train,"Towns 10,000 population and over",13 to 18,leaving-cert,616
+2016,Female,train,"Towns 10,000 population and over",>=19,university,1396
+2016,Female,train,"Towns 5,000 - 9,999 population",>=15,junior-cert,2108
+2016,Female,train,"Towns 5,000 - 9,999 population",5 to 12,primary-school,10
+2016,Female,train,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,207
+2016,Female,train,"Towns 5,000 - 9,999 population",>=19,university,428
+2016,Female,train,"Towns 2,000 - 4,999 population",>=15,junior-cert,612
+2016,Female,train,"Towns 2,000 - 4,999 population",5 to 12,primary-school,7
+2016,Female,train,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,68
+2016,Female,train,"Towns 2,000 - 4,999 population",>=19,university,161
+2016,Female,train,"Towns 1,500 - 1,999 population",>=15,junior-cert,91
+2016,Female,train,"Towns 1,500 - 1,999 population",5 to 12,primary-school,1
+2016,Female,train,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,16
+2016,Female,train,"Towns 1,500 - 1,999 population",>=19,university,53
+2016,Female,train,"Towns 1,000 - 1,499 population",>=15,junior-cert,120
+2016,Female,train,"Towns 1,000 - 1,499 population",5 to 12,primary-school,1
+2016,Female,train,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,21
+2016,Female,train,"Towns 1,000 - 1,499 population",>=19,university,47
+2016,Female,train,Total Towns 500 - 999 population,>=15,junior-cert,159
+2016,Female,train,Total Towns 500 - 999 population,5 to 12,primary-school,0
+2016,Female,train,Total Towns 500 - 999 population,13 to 18,leaving-cert,26
+2016,Female,train,Total Towns 500 - 999 population,>=19,university,59
+2016,Female,train,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,113
+2016,Female,train,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,0
+2016,Female,train,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,17
+2016,Female,train,Towns under 500 population but with at least 50 inhabited houses,>=19,university,83
+2016,Female,train,Remainder of country,>=15,junior-cert,1613
+2016,Female,train,Remainder of country,5 to 12,primary-school,9
+2016,Female,train,Remainder of country,13 to 18,leaving-cert,243
+2016,Female,train,Remainder of country,>=19,university,1058
+2016,Female,motorbike,Dublin City and suburbs,>=15,junior-cert,486
+2016,Female,motorbike,Dublin City and suburbs,5 to 12,primary-school,0
+2016,Female,motorbike,Dublin City and suburbs,13 to 18,leaving-cert,4
+2016,Female,motorbike,Dublin City and suburbs,>=19,university,29
+2016,Female,motorbike,Cork City and suburbs,>=15,junior-cert,49
+2016,Female,motorbike,Cork City and suburbs,5 to 12,primary-school,0
+2016,Female,motorbike,Cork City and suburbs,13 to 18,leaving-cert,4
+2016,Female,motorbike,Cork City and suburbs,>=19,university,8
+2016,Female,motorbike,Limerick City and suburbs,>=15,junior-cert,23
+2016,Female,motorbike,Limerick City and suburbs,5 to 12,primary-school,0
+2016,Female,motorbike,Limerick City and suburbs,13 to 18,leaving-cert,0
+2016,Female,motorbike,Limerick City and suburbs,>=19,university,3
+2016,Female,motorbike,Galway City and suburbs,>=15,junior-cert,18
+2016,Female,motorbike,Galway City and suburbs,5 to 12,primary-school,0
+2016,Female,motorbike,Galway City and suburbs,13 to 18,leaving-cert,3
+2016,Female,motorbike,Galway City and suburbs,>=19,university,0
+2016,Female,motorbike,Waterford City and suburbs,>=15,junior-cert,10
+2016,Female,motorbike,Waterford City and suburbs,5 to 12,primary-school,0
+2016,Female,motorbike,Waterford City and suburbs,13 to 18,leaving-cert,1
+2016,Female,motorbike,Waterford City and suburbs,>=19,university,2
+2016,Female,motorbike,"Towns 10,000 population and over",>=15,junior-cert,179
+2016,Female,motorbike,"Towns 10,000 population and over",5 to 12,primary-school,0
+2016,Female,motorbike,"Towns 10,000 population and over",13 to 18,leaving-cert,15
+2016,Female,motorbike,"Towns 10,000 population and over",>=19,university,11
+2016,Female,motorbike,"Towns 5,000 - 9,999 population",>=15,junior-cert,76
+2016,Female,motorbike,"Towns 5,000 - 9,999 population",5 to 12,primary-school,0
+2016,Female,motorbike,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,1
+2016,Female,motorbike,"Towns 5,000 - 9,999 population",>=19,university,1
+2016,Female,motorbike,"Towns 2,000 - 4,999 population",>=15,junior-cert,47
+2016,Female,motorbike,"Towns 2,000 - 4,999 population",5 to 12,primary-school,0
+2016,Female,motorbike,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,3
+2016,Female,motorbike,"Towns 2,000 - 4,999 population",>=19,university,0
+2016,Female,motorbike,"Towns 1,500 - 1,999 population",>=15,junior-cert,15
+2016,Female,motorbike,"Towns 1,500 - 1,999 population",5 to 12,primary-school,0
+2016,Female,motorbike,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,0
+2016,Female,motorbike,"Towns 1,500 - 1,999 population",>=19,university,0
+2016,Female,motorbike,"Towns 1,000 - 1,499 population",>=15,junior-cert,15
+2016,Female,motorbike,"Towns 1,000 - 1,499 population",5 to 12,primary-school,0
+2016,Female,motorbike,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,1
+2016,Female,motorbike,"Towns 1,000 - 1,499 population",>=19,university,1
+2016,Female,motorbike,Total Towns 500 - 999 population,>=15,junior-cert,27
+2016,Female,motorbike,Total Towns 500 - 999 population,5 to 12,primary-school,0
+2016,Female,motorbike,Total Towns 500 - 999 population,13 to 18,leaving-cert,4
+2016,Female,motorbike,Total Towns 500 - 999 population,>=19,university,1
+2016,Female,motorbike,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,28
+2016,Female,motorbike,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,0
+2016,Female,motorbike,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,1
+2016,Female,motorbike,Towns under 500 population but with at least 50 inhabited houses,>=19,university,1
+2016,Female,motorbike,Remainder of country,>=15,junior-cert,277
+2016,Female,motorbike,Remainder of country,5 to 12,primary-school,0
+2016,Female,motorbike,Remainder of country,13 to 18,leaving-cert,26
+2016,Female,motorbike,Remainder of country,>=19,university,22
+2016,Female,car,Dublin City and suburbs,>=15,junior-cert,111490
+2016,Female,car,Dublin City and suburbs,5 to 12,primary-school,0
+2016,Female,car,Dublin City and suburbs,13 to 18,leaving-cert,274
+2016,Female,car,Dublin City and suburbs,>=19,university,4018
+2016,Female,car,Cork City and suburbs,>=15,junior-cert,25013
+2016,Female,car,Cork City and suburbs,5 to 12,primary-school,0
+2016,Female,car,Cork City and suburbs,13 to 18,leaving-cert,58
+2016,Female,car,Cork City and suburbs,>=19,university,1022
+2016,Female,car,Limerick City and suburbs,>=15,junior-cert,9954
+2016,Female,car,Limerick City and suburbs,5 to 12,primary-school,0
+2016,Female,car,Limerick City and suburbs,13 to 18,leaving-cert,38
+2016,Female,car,Limerick City and suburbs,>=19,university,687
+2016,Female,car,Galway City and suburbs,>=15,junior-cert,9352
+2016,Female,car,Galway City and suburbs,5 to 12,primary-school,0
+2016,Female,car,Galway City and suburbs,13 to 18,leaving-cert,15
+2016,Female,car,Galway City and suburbs,>=19,university,434
+2016,Female,car,Waterford City and suburbs,>=15,junior-cert,6337
+2016,Female,car,Waterford City and suburbs,5 to 12,primary-school,0
+2016,Female,car,Waterford City and suburbs,13 to 18,leaving-cert,19
+2016,Female,car,Waterford City and suburbs,>=19,university,309
+2016,Female,car,"Towns 10,000 population and over",>=15,junior-cert,93946
+2016,Female,car,"Towns 10,000 population and over",5 to 12,primary-school,0
+2016,Female,car,"Towns 10,000 population and over",13 to 18,leaving-cert,237
+2016,Female,car,"Towns 10,000 population and over",>=19,university,3367
+2016,Female,car,"Towns 5,000 - 9,999 population",>=15,junior-cert,36661
+2016,Female,car,"Towns 5,000 - 9,999 population",5 to 12,primary-school,0
+2016,Female,car,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,119
+2016,Female,car,"Towns 5,000 - 9,999 population",>=19,university,1309
+2016,Female,car,"Towns 2,000 - 4,999 population",>=15,junior-cert,29574
+2016,Female,car,"Towns 2,000 - 4,999 population",5 to 12,primary-school,0
+2016,Female,car,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,90
+2016,Female,car,"Towns 2,000 - 4,999 population",>=19,university,1052
+2016,Female,car,"Towns 1,500 - 1,999 population",>=15,junior-cert,9335
+2016,Female,car,"Towns 1,500 - 1,999 population",5 to 12,primary-school,0
+2016,Female,car,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,26
+2016,Female,car,"Towns 1,500 - 1,999 population",>=19,university,366
+2016,Female,car,"Towns 1,000 - 1,499 population",>=15,junior-cert,12468
+2016,Female,car,"Towns 1,000 - 1,499 population",5 to 12,primary-school,0
+2016,Female,car,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,31
+2016,Female,car,"Towns 1,000 - 1,499 population",>=19,university,486
+2016,Female,car,Total Towns 500 - 999 population,>=15,junior-cert,17901
+2016,Female,car,Total Towns 500 - 999 population,5 to 12,primary-school,0
+2016,Female,car,Total Towns 500 - 999 population,13 to 18,leaving-cert,49
+2016,Female,car,Total Towns 500 - 999 population,>=19,university,663
+2016,Female,car,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,16215
+2016,Female,car,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,0
+2016,Female,car,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,54
+2016,Female,car,Towns under 500 population but with at least 50 inhabited houses,>=19,university,676
+2016,Female,car,Remainder of country,>=15,junior-cert,212681
+2016,Female,car,Remainder of country,5 to 12,primary-school,0
+2016,Female,car,Remainder of country,13 to 18,leaving-cert,1058
+2016,Female,car,Remainder of country,>=19,university,9110
+2016,Female,carpool,Dublin City and suburbs,>=15,junior-cert,8498
+2016,Female,carpool,Dublin City and suburbs,5 to 12,primary-school,25382
+2016,Female,carpool,Dublin City and suburbs,13 to 18,leaving-cert,10916
+2016,Female,carpool,Dublin City and suburbs,>=19,university,1143
+2016,Female,carpool,Cork City and suburbs,>=15,junior-cert,2744
+2016,Female,carpool,Cork City and suburbs,5 to 12,primary-school,6019
+2016,Female,carpool,Cork City and suburbs,13 to 18,leaving-cert,3641
+2016,Female,carpool,Cork City and suburbs,>=19,university,980
+2016,Female,carpool,Limerick City and suburbs,>=15,junior-cert,1180
+2016,Female,carpool,Limerick City and suburbs,5 to 12,primary-school,2553
+2016,Female,carpool,Limerick City and suburbs,13 to 18,leaving-cert,1448
+2016,Female,carpool,Limerick City and suburbs,>=19,university,370
+2016,Female,carpool,Galway City and suburbs,>=15,junior-cert,1019
+2016,Female,carpool,Galway City and suburbs,5 to 12,primary-school,2145
+2016,Female,carpool,Galway City and suburbs,13 to 18,leaving-cert,1130
+2016,Female,carpool,Galway City and suburbs,>=19,university,274
+2016,Female,carpool,Waterford City and suburbs,>=15,junior-cert,835
+2016,Female,carpool,Waterford City and suburbs,5 to 12,primary-school,1985
+2016,Female,carpool,Waterford City and suburbs,13 to 18,leaving-cert,1002
+2016,Female,carpool,Waterford City and suburbs,>=19,university,189
+2016,Female,carpool,"Towns 10,000 population and over",>=15,junior-cert,9509
+2016,Female,carpool,"Towns 10,000 population and over",5 to 12,primary-school,26640
+2016,Female,carpool,"Towns 10,000 population and over",13 to 18,leaving-cert,12573
+2016,Female,carpool,"Towns 10,000 population and over",>=19,university,1426
+2016,Female,carpool,"Towns 5,000 - 9,999 population",>=15,junior-cert,3507
+2016,Female,carpool,"Towns 5,000 - 9,999 population",5 to 12,primary-school,10395
+2016,Female,carpool,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,4470
+2016,Female,carpool,"Towns 5,000 - 9,999 population",>=19,university,543
+2016,Female,carpool,"Towns 2,000 - 4,999 population",>=15,junior-cert,2462
+2016,Female,carpool,"Towns 2,000 - 4,999 population",5 to 12,primary-school,8177
+2016,Female,carpool,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,3397
+2016,Female,carpool,"Towns 2,000 - 4,999 population",>=19,university,443
+2016,Female,carpool,"Towns 1,500 - 1,999 population",>=15,junior-cert,715
+2016,Female,carpool,"Towns 1,500 - 1,999 population",5 to 12,primary-school,2630
+2016,Female,carpool,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,1102
+2016,Female,carpool,"Towns 1,500 - 1,999 population",>=19,university,191
+2016,Female,carpool,"Towns 1,000 - 1,499 population",>=15,junior-cert,953
+2016,Female,carpool,"Towns 1,000 - 1,499 population",5 to 12,primary-school,3386
+2016,Female,carpool,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,1243
+2016,Female,carpool,"Towns 1,000 - 1,499 population",>=19,university,218
+2016,Female,carpool,Total Towns 500 - 999 population,>=15,junior-cert,1294
+2016,Female,carpool,Total Towns 500 - 999 population,5 to 12,primary-school,4502
+2016,Female,carpool,Total Towns 500 - 999 population,13 to 18,leaving-cert,1861
+2016,Female,carpool,Total Towns 500 - 999 population,>=19,university,327
+2016,Female,carpool,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,1061
+2016,Female,carpool,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,3907
+2016,Female,carpool,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,1655
+2016,Female,carpool,Towns under 500 population but with at least 50 inhabited houses,>=19,university,311
+2016,Female,carpool,Remainder of country,>=15,junior-cert,10207
+2016,Female,carpool,Remainder of country,5 to 12,primary-school,63428
+2016,Female,carpool,Remainder of country,13 to 18,leaving-cert,30695
+2016,Female,carpool,Remainder of country,>=19,university,3771
+2016,Female,truck,Dublin City and suburbs,>=15,junior-cert,299
+2016,Female,truck,Dublin City and suburbs,5 to 12,primary-school,43
+2016,Female,truck,Dublin City and suburbs,13 to 18,leaving-cert,12
+2016,Female,truck,Dublin City and suburbs,>=19,university,8
+2016,Female,truck,Cork City and suburbs,>=15,junior-cert,73
+2016,Female,truck,Cork City and suburbs,5 to 12,primary-school,15
+2016,Female,truck,Cork City and suburbs,13 to 18,leaving-cert,15
+2016,Female,truck,Cork City and suburbs,>=19,university,3
+2016,Female,truck,Limerick City and suburbs,>=15,junior-cert,31
+2016,Female,truck,Limerick City and suburbs,5 to 12,primary-school,6
+2016,Female,truck,Limerick City and suburbs,13 to 18,leaving-cert,3
+2016,Female,truck,Limerick City and suburbs,>=19,university,8
+2016,Female,truck,Galway City and suburbs,>=15,junior-cert,31
+2016,Female,truck,Galway City and suburbs,5 to 12,primary-school,5
+2016,Female,truck,Galway City and suburbs,13 to 18,leaving-cert,8
+2016,Female,truck,Galway City and suburbs,>=19,university,3
+2016,Female,truck,Waterford City and suburbs,>=15,junior-cert,23
+2016,Female,truck,Waterford City and suburbs,5 to 12,primary-school,3
+2016,Female,truck,Waterford City and suburbs,13 to 18,leaving-cert,2
+2016,Female,truck,Waterford City and suburbs,>=19,university,0
+2016,Female,truck,"Towns 10,000 population and over",>=15,junior-cert,305
+2016,Female,truck,"Towns 10,000 population and over",5 to 12,primary-school,74
+2016,Female,truck,"Towns 10,000 population and over",13 to 18,leaving-cert,35
+2016,Female,truck,"Towns 10,000 population and over",>=19,university,11
+2016,Female,truck,"Towns 5,000 - 9,999 population",>=15,junior-cert,168
+2016,Female,truck,"Towns 5,000 - 9,999 population",5 to 12,primary-school,27
+2016,Female,truck,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,12
+2016,Female,truck,"Towns 5,000 - 9,999 population",>=19,university,4
+2016,Female,truck,"Towns 2,000 - 4,999 population",>=15,junior-cert,140
+2016,Female,truck,"Towns 2,000 - 4,999 population",5 to 12,primary-school,23
+2016,Female,truck,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,16
+2016,Female,truck,"Towns 2,000 - 4,999 population",>=19,university,7
+2016,Female,truck,"Towns 1,500 - 1,999 population",>=15,junior-cert,52
+2016,Female,truck,"Towns 1,500 - 1,999 population",5 to 12,primary-school,11
+2016,Female,truck,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,7
+2016,Female,truck,"Towns 1,500 - 1,999 population",>=19,university,0
+2016,Female,truck,"Towns 1,000 - 1,499 population",>=15,junior-cert,66
+2016,Female,truck,"Towns 1,000 - 1,499 population",5 to 12,primary-school,6
+2016,Female,truck,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,1
+2016,Female,truck,"Towns 1,000 - 1,499 population",>=19,university,2
+2016,Female,truck,Total Towns 500 - 999 population,>=15,junior-cert,85
+2016,Female,truck,Total Towns 500 - 999 population,5 to 12,primary-school,22
+2016,Female,truck,Total Towns 500 - 999 population,13 to 18,leaving-cert,6
+2016,Female,truck,Total Towns 500 - 999 population,>=19,university,3
+2016,Female,truck,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,70
+2016,Female,truck,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,7
+2016,Female,truck,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,6
+2016,Female,truck,Towns under 500 population but with at least 50 inhabited houses,>=19,university,2
+2016,Female,truck,Remainder of country,>=15,junior-cert,1338
+2016,Female,truck,Remainder of country,5 to 12,primary-school,185
+2016,Female,truck,Remainder of country,13 to 18,leaving-cert,138
+2016,Female,truck,Remainder of country,>=19,university,37
+2016,Female,truck,Dublin City and suburbs,>=15,junior-cert,107
+2016,Female,truck,Dublin City and suburbs,5 to 12,primary-school,14
+2016,Female,truck,Dublin City and suburbs,13 to 18,leaving-cert,3
+2016,Female,truck,Dublin City and suburbs,>=19,university,2
+2016,Female,truck,Cork City and suburbs,>=15,junior-cert,26
+2016,Female,truck,Cork City and suburbs,5 to 12,primary-school,5
+2016,Female,truck,Cork City and suburbs,13 to 18,leaving-cert,2
+2016,Female,truck,Cork City and suburbs,>=19,university,0
+2016,Female,truck,Limerick City and suburbs,>=15,junior-cert,10
+2016,Female,truck,Limerick City and suburbs,5 to 12,primary-school,1
+2016,Female,truck,Limerick City and suburbs,13 to 18,leaving-cert,0
+2016,Female,truck,Limerick City and suburbs,>=19,university,1
+2016,Female,truck,Galway City and suburbs,>=15,junior-cert,8
+2016,Female,truck,Galway City and suburbs,5 to 12,primary-school,0
+2016,Female,truck,Galway City and suburbs,13 to 18,leaving-cert,0
+2016,Female,truck,Galway City and suburbs,>=19,university,2
+2016,Female,truck,Waterford City and suburbs,>=15,junior-cert,5
+2016,Female,truck,Waterford City and suburbs,5 to 12,primary-school,0
+2016,Female,truck,Waterford City and suburbs,13 to 18,leaving-cert,0
+2016,Female,truck,Waterford City and suburbs,>=19,university,0
+2016,Female,truck,"Towns 10,000 population and over",>=15,junior-cert,79
+2016,Female,truck,"Towns 10,000 population and over",5 to 12,primary-school,8
+2016,Female,truck,"Towns 10,000 population and over",13 to 18,leaving-cert,4
+2016,Female,truck,"Towns 10,000 population and over",>=19,university,6
+2016,Female,truck,"Towns 5,000 - 9,999 population",>=15,junior-cert,20
+2016,Female,truck,"Towns 5,000 - 9,999 population",5 to 12,primary-school,5
+2016,Female,truck,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,0
+2016,Female,truck,"Towns 5,000 - 9,999 population",>=19,university,4
+2016,Female,truck,"Towns 2,000 - 4,999 population",>=15,junior-cert,13
+2016,Female,truck,"Towns 2,000 - 4,999 population",5 to 12,primary-school,3
+2016,Female,truck,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,2
+2016,Female,truck,"Towns 2,000 - 4,999 population",>=19,university,1
+2016,Female,truck,"Towns 1,500 - 1,999 population",>=15,junior-cert,1
+2016,Female,truck,"Towns 1,500 - 1,999 population",5 to 12,primary-school,3
+2016,Female,truck,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,0
+2016,Female,truck,"Towns 1,500 - 1,999 population",>=19,university,0
+2016,Female,truck,"Towns 1,000 - 1,499 population",>=15,junior-cert,3
+2016,Female,truck,"Towns 1,000 - 1,499 population",5 to 12,primary-school,1
+2016,Female,truck,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,3
+2016,Female,truck,"Towns 1,000 - 1,499 population",>=19,university,0
+2016,Female,truck,Total Towns 500 - 999 population,>=15,junior-cert,12
+2016,Female,truck,Total Towns 500 - 999 population,5 to 12,primary-school,0
+2016,Female,truck,Total Towns 500 - 999 population,13 to 18,leaving-cert,3
+2016,Female,truck,Total Towns 500 - 999 population,>=19,university,2
+2016,Female,truck,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,14
+2016,Female,truck,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,3
+2016,Female,truck,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,0
+2016,Female,truck,Towns under 500 population but with at least 50 inhabited houses,>=19,university,0
+2016,Female,truck,Remainder of country,>=15,junior-cert,122
+2016,Female,truck,Remainder of country,5 to 12,primary-school,23
+2016,Female,truck,Remainder of country,13 to 18,leaving-cert,16
+2016,Female,truck,Remainder of country,>=19,university,12
+2016,Female,remote,Dublin City and suburbs,>=15,junior-cert,5478
+2016,Female,remote,Dublin City and suburbs,5 to 12,primary-school,17
+2016,Female,remote,Dublin City and suburbs,13 to 18,leaving-cert,11
+2016,Female,remote,Dublin City and suburbs,>=19,university,97
+2016,Female,remote,Cork City and suburbs,>=15,junior-cert,844
+2016,Female,remote,Cork City and suburbs,5 to 12,primary-school,6
+2016,Female,remote,Cork City and suburbs,13 to 18,leaving-cert,7
+2016,Female,remote,Cork City and suburbs,>=19,university,18
+2016,Female,remote,Limerick City and suburbs,>=15,junior-cert,346
+2016,Female,remote,Limerick City and suburbs,5 to 12,primary-school,0
+2016,Female,remote,Limerick City and suburbs,13 to 18,leaving-cert,2
+2016,Female,remote,Limerick City and suburbs,>=19,university,4
+2016,Female,remote,Galway City and suburbs,>=15,junior-cert,424
+2016,Female,remote,Galway City and suburbs,5 to 12,primary-school,3
+2016,Female,remote,Galway City and suburbs,13 to 18,leaving-cert,2
+2016,Female,remote,Galway City and suburbs,>=19,university,14
+2016,Female,remote,Waterford City and suburbs,>=15,junior-cert,218
+2016,Female,remote,Waterford City and suburbs,5 to 12,primary-school,0
+2016,Female,remote,Waterford City and suburbs,13 to 18,leaving-cert,0
+2016,Female,remote,Waterford City and suburbs,>=19,university,3
+2016,Female,remote,"Towns 10,000 population and over",>=15,junior-cert,3622
+2016,Female,remote,"Towns 10,000 population and over",5 to 12,primary-school,19
+2016,Female,remote,"Towns 10,000 population and over",13 to 18,leaving-cert,9
+2016,Female,remote,"Towns 10,000 population and over",>=19,university,45
+2016,Female,remote,"Towns 5,000 - 9,999 population",>=15,junior-cert,1430
+2016,Female,remote,"Towns 5,000 - 9,999 population",5 to 12,primary-school,6
+2016,Female,remote,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,4
+2016,Female,remote,"Towns 5,000 - 9,999 population",>=19,university,20
+2016,Female,remote,"Towns 2,000 - 4,999 population",>=15,junior-cert,1203
+2016,Female,remote,"Towns 2,000 - 4,999 population",5 to 12,primary-school,7
+2016,Female,remote,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,9
+2016,Female,remote,"Towns 2,000 - 4,999 population",>=19,university,14
+2016,Female,remote,"Towns 1,500 - 1,999 population",>=15,junior-cert,431
+2016,Female,remote,"Towns 1,500 - 1,999 population",5 to 12,primary-school,2
+2016,Female,remote,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,1
+2016,Female,remote,"Towns 1,500 - 1,999 population",>=19,university,7
+2016,Female,remote,"Towns 1,000 - 1,499 population",>=15,junior-cert,533
+2016,Female,remote,"Towns 1,000 - 1,499 population",5 to 12,primary-school,2
+2016,Female,remote,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,0
+2016,Female,remote,"Towns 1,000 - 1,499 population",>=19,university,3
+2016,Female,remote,Total Towns 500 - 999 population,>=15,junior-cert,901
+2016,Female,remote,Total Towns 500 - 999 population,5 to 12,primary-school,1
+2016,Female,remote,Total Towns 500 - 999 population,13 to 18,leaving-cert,3
+2016,Female,remote,Total Towns 500 - 999 population,>=19,university,7
+2016,Female,remote,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,842
+2016,Female,remote,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,7
+2016,Female,remote,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,6
+2016,Female,remote,Towns under 500 population but with at least 50 inhabited houses,>=19,university,9
+2016,Female,remote,Remainder of country,>=15,junior-cert,13075
+2016,Female,remote,Remainder of country,5 to 12,primary-school,85
+2016,Female,remote,Remainder of country,13 to 18,leaving-cert,39
+2016,Female,remote,Remainder of country,>=19,university,108
+2016,Female,na,Dublin City and suburbs,>=15,junior-cert,14605
+2016,Female,na,Dublin City and suburbs,5 to 12,primary-school,3405
+2016,Female,na,Dublin City and suburbs,13 to 18,leaving-cert,1528
+2016,Female,na,Dublin City and suburbs,>=19,university,1070
+2016,Female,na,Cork City and suburbs,>=15,junior-cert,1771
+2016,Female,na,Cork City and suburbs,5 to 12,primary-school,485
+2016,Female,na,Cork City and suburbs,13 to 18,leaving-cert,176
+2016,Female,na,Cork City and suburbs,>=19,university,204
+2016,Female,na,Limerick City and suburbs,>=15,junior-cert,1075
+2016,Female,na,Limerick City and suburbs,5 to 12,primary-school,301
+2016,Female,na,Limerick City and suburbs,13 to 18,leaving-cert,152
+2016,Female,na,Limerick City and suburbs,>=19,university,223
+2016,Female,na,Galway City and suburbs,>=15,junior-cert,899
+2016,Female,na,Galway City and suburbs,5 to 12,primary-school,241
+2016,Female,na,Galway City and suburbs,13 to 18,leaving-cert,114
+2016,Female,na,Galway City and suburbs,>=19,university,86
+2016,Female,na,Waterford City and suburbs,>=15,junior-cert,550
+2016,Female,na,Waterford City and suburbs,5 to 12,primary-school,190
+2016,Female,na,Waterford City and suburbs,13 to 18,leaving-cert,80
+2016,Female,na,Waterford City and suburbs,>=19,university,51
+2016,Female,na,"Towns 10,000 population and over",>=15,junior-cert,6453
+2016,Female,na,"Towns 10,000 population and over",5 to 12,primary-school,2551
+2016,Female,na,"Towns 10,000 population and over",13 to 18,leaving-cert,922
+2016,Female,na,"Towns 10,000 population and over",>=19,university,519
+2016,Female,na,"Towns 5,000 - 9,999 population",>=15,junior-cert,2184
+2016,Female,na,"Towns 5,000 - 9,999 population",5 to 12,primary-school,1032
+2016,Female,na,"Towns 5,000 - 9,999 population",13 to 18,leaving-cert,278
+2016,Female,na,"Towns 5,000 - 9,999 population",>=19,university,161
+2016,Female,na,"Towns 2,000 - 4,999 population",>=15,junior-cert,1694
+2016,Female,na,"Towns 2,000 - 4,999 population",5 to 12,primary-school,717
+2016,Female,na,"Towns 2,000 - 4,999 population",13 to 18,leaving-cert,261
+2016,Female,na,"Towns 2,000 - 4,999 population",>=19,university,114
+2016,Female,na,"Towns 1,500 - 1,999 population",>=15,junior-cert,495
+2016,Female,na,"Towns 1,500 - 1,999 population",5 to 12,primary-school,207
+2016,Female,na,"Towns 1,500 - 1,999 population",13 to 18,leaving-cert,70
+2016,Female,na,"Towns 1,500 - 1,999 population",>=19,university,36
+2016,Female,na,"Towns 1,000 - 1,499 population",>=15,junior-cert,713
+2016,Female,na,"Towns 1,000 - 1,499 population",5 to 12,primary-school,279
+2016,Female,na,"Towns 1,000 - 1,499 population",13 to 18,leaving-cert,91
+2016,Female,na,"Towns 1,000 - 1,499 population",>=19,university,45
+2016,Female,na,Total Towns 500 - 999 population,>=15,junior-cert,964
+2016,Female,na,Total Towns 500 - 999 population,5 to 12,primary-school,357
+2016,Female,na,Total Towns 500 - 999 population,13 to 18,leaving-cert,134
+2016,Female,na,Total Towns 500 - 999 population,>=19,university,69
+2016,Female,na,Towns under 500 population but with at least 50 inhabited houses,>=15,junior-cert,805
+2016,Female,na,Towns under 500 population but with at least 50 inhabited houses,5 to 12,primary-school,263
+2016,Female,na,Towns under 500 population but with at least 50 inhabited houses,13 to 18,leaving-cert,96
+2016,Female,na,Towns under 500 population but with at least 50 inhabited houses,>=19,university,52
+2016,Female,na,Remainder of country,>=15,junior-cert,8862
+2016,Female,na,Remainder of country,5 to 12,primary-school,2451
+2016,Female,na,Remainder of country,13 to 18,leaving-cert,1216
+2016,Female,na,Remainder of country,>=19,university,622

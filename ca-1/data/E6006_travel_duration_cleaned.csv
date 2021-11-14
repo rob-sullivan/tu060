@@ -1,0 +1,897 @@
+year,sex,travelling_time,time_leaving_home,age,edu_level,value
+2011,Male,< ¼ hour,Before 06:30,>=15,junior-cert,17173
+2011,Male,< ¼ hour,Before 06:30,5 to 12,primary-school,44
+2011,Male,< ¼ hour,Before 06:30,13 to 18,leaving-cert,32
+2011,Male,< ¼ hour,Before 06:30,>=19,university,92
+2011,Male,< ¼ hour,06:30 - 07:00,>=15,junior-cert,17552
+2011,Male,< ¼ hour,06:30 - 07:00,5 to 12,primary-school,73
+2011,Male,< ¼ hour,06:30 - 07:00,13 to 18,leaving-cert,42
+2011,Male,< ¼ hour,06:30 - 07:00,>=19,university,126
+2011,Male,< ¼ hour,07:01 - 07:30,>=15,junior-cert,17548
+2011,Male,< ¼ hour,07:01 - 07:30,5 to 12,primary-school,418
+2011,Male,< ¼ hour,07:01 - 07:30,13 to 18,leaving-cert,345
+2011,Male,< ¼ hour,07:01 - 07:30,>=19,university,199
+2011,Male,< ¼ hour,07:31 - 08:00,>=15,junior-cert,39434
+2011,Male,< ¼ hour,07:31 - 08:00,5 to 12,primary-school,2097
+2011,Male,< ¼ hour,07:31 - 08:00,13 to 18,leaving-cert,2911
+2011,Male,< ¼ hour,07:31 - 08:00,>=19,university,583
+2011,Male,< ¼ hour,08:01 - 08:30,>=15,junior-cert,31140
+2011,Male,< ¼ hour,08:01 - 08:30,5 to 12,primary-school,19803
+2011,Male,< ¼ hour,08:01 - 08:30,13 to 18,leaving-cert,19321
+2011,Male,< ¼ hour,08:01 - 08:30,>=19,university,2160
+2011,Male,< ¼ hour,08:31 - 09:00,>=15,junior-cert,38798
+2011,Male,< ¼ hour,08:31 - 09:00,5 to 12,primary-school,89747
+2011,Male,< ¼ hour,08:31 - 09:00,13 to 18,leaving-cert,35553
+2011,Male,< ¼ hour,08:31 - 09:00,>=19,university,9543
+2011,Male,< ¼ hour,09:01 - 09:30,>=15,junior-cert,15323
+2011,Male,< ¼ hour,09:01 - 09:30,5 to 12,primary-school,55601
+2011,Male,< ¼ hour,09:01 - 09:30,13 to 18,leaving-cert,2881
+2011,Male,< ¼ hour,09:01 - 09:30,>=19,university,3612
+2011,Male,< ¼ hour,After 09:30,>=15,junior-cert,30884
+2011,Male,< ¼ hour,After 09:30,5 to 12,primary-school,314
+2011,Male,< ¼ hour,After 09:30,13 to 18,leaving-cert,541
+2011,Male,< ¼ hour,After 09:30,>=19,university,4358
+2011,Male,¼ hour - < ½ hour,Before 06:30,>=15,junior-cert,23187
+2011,Male,¼ hour - < ½ hour,Before 06:30,5 to 12,primary-school,28
+2011,Male,¼ hour - < ½ hour,Before 06:30,13 to 18,leaving-cert,36
+2011,Male,¼ hour - < ½ hour,Before 06:30,>=19,university,125
+2011,Male,¼ hour - < ½ hour,06:30 - 07:00,>=15,junior-cert,22740
+2011,Male,¼ hour - < ½ hour,06:30 - 07:00,5 to 12,primary-school,108
+2011,Male,¼ hour - < ½ hour,06:30 - 07:00,13 to 18,leaving-cert,114
+2011,Male,¼ hour - < ½ hour,06:30 - 07:00,>=19,university,247
+2011,Male,¼ hour - < ½ hour,07:01 - 07:30,>=15,junior-cert,32004
+2011,Male,¼ hour - < ½ hour,07:01 - 07:30,5 to 12,primary-school,486
+2011,Male,¼ hour - < ½ hour,07:01 - 07:30,13 to 18,leaving-cert,1372
+2011,Male,¼ hour - < ½ hour,07:01 - 07:30,>=19,university,548
+2011,Male,¼ hour - < ½ hour,07:31 - 08:00,>=15,junior-cert,49088
+2011,Male,¼ hour - < ½ hour,07:31 - 08:00,5 to 12,primary-school,3220
+2011,Male,¼ hour - < ½ hour,07:31 - 08:00,13 to 18,leaving-cert,12176
+2011,Male,¼ hour - < ½ hour,07:31 - 08:00,>=19,university,1814
+2011,Male,¼ hour - < ½ hour,08:01 - 08:30,>=15,junior-cert,45753
+2011,Male,¼ hour - < ½ hour,08:01 - 08:30,5 to 12,primary-school,20452
+2011,Male,¼ hour - < ½ hour,08:01 - 08:30,13 to 18,leaving-cert,31491
+2011,Male,¼ hour - < ½ hour,08:01 - 08:30,>=19,university,5849
+2011,Male,¼ hour - < ½ hour,08:31 - 09:00,>=15,junior-cert,37122
+2011,Male,¼ hour - < ½ hour,08:31 - 09:00,5 to 12,primary-school,28787
+2011,Male,¼ hour - < ½ hour,08:31 - 09:00,13 to 18,leaving-cert,14646
+2011,Male,¼ hour - < ½ hour,08:31 - 09:00,>=19,university,9078
+2011,Male,¼ hour - < ½ hour,09:01 - 09:30,>=15,junior-cert,13318
+2011,Male,¼ hour - < ½ hour,09:01 - 09:30,5 to 12,primary-school,5827
+2011,Male,¼ hour - < ½ hour,09:01 - 09:30,13 to 18,leaving-cert,881
+2011,Male,¼ hour - < ½ hour,09:01 - 09:30,>=19,university,3433
+2011,Male,¼ hour - < ½ hour,After 09:30,>=15,junior-cert,26989
+2011,Male,¼ hour - < ½ hour,After 09:30,5 to 12,primary-school,89
+2011,Male,¼ hour - < ½ hour,After 09:30,13 to 18,leaving-cert,350
+2011,Male,¼ hour - < ½ hour,After 09:30,>=19,university,5022
+2011,Male,½ hour - < ¾ hour,Before 06:30,>=15,junior-cert,17296
+2011,Male,½ hour - < ¾ hour,Before 06:30,5 to 12,primary-school,16
+2011,Male,½ hour - < ¾ hour,Before 06:30,13 to 18,leaving-cert,27
+2011,Male,½ hour - < ¾ hour,Before 06:30,>=19,university,138
+2011,Male,½ hour - < ¾ hour,06:30 - 07:00,>=15,junior-cert,21379
+2011,Male,½ hour - < ¾ hour,06:30 - 07:00,5 to 12,primary-school,89
+2011,Male,½ hour - < ¾ hour,06:30 - 07:00,13 to 18,leaving-cert,230
+2011,Male,½ hour - < ¾ hour,06:30 - 07:00,>=19,university,338
+2011,Male,½ hour - < ¾ hour,07:01 - 07:30,>=15,junior-cert,34242
+2011,Male,½ hour - < ¾ hour,07:01 - 07:30,5 to 12,primary-school,468
+2011,Male,½ hour - < ¾ hour,07:01 - 07:30,13 to 18,leaving-cert,2083
+2011,Male,½ hour - < ¾ hour,07:01 - 07:30,>=19,university,1086
+2011,Male,½ hour - < ¾ hour,07:31 - 08:00,>=15,junior-cert,36404
+2011,Male,½ hour - < ¾ hour,07:31 - 08:00,5 to 12,primary-school,2197
+2011,Male,½ hour - < ¾ hour,07:31 - 08:00,13 to 18,leaving-cert,10689
+2011,Male,½ hour - < ¾ hour,07:31 - 08:00,>=19,university,3281
+2011,Male,½ hour - < ¾ hour,08:01 - 08:30,>=15,junior-cert,35936
+2011,Male,½ hour - < ¾ hour,08:01 - 08:30,5 to 12,primary-school,5528
+2011,Male,½ hour - < ¾ hour,08:01 - 08:30,13 to 18,leaving-cert,9380
+2011,Male,½ hour - < ¾ hour,08:01 - 08:30,>=19,university,6038
+2011,Male,½ hour - < ¾ hour,08:31 - 09:00,>=15,junior-cert,16779
+2011,Male,½ hour - < ¾ hour,08:31 - 09:00,5 to 12,primary-school,3314
+2011,Male,½ hour - < ¾ hour,08:31 - 09:00,13 to 18,leaving-cert,1556
+2011,Male,½ hour - < ¾ hour,08:31 - 09:00,>=19,university,3386
+2011,Male,½ hour - < ¾ hour,09:01 - 09:30,>=15,junior-cert,7447
+2011,Male,½ hour - < ¾ hour,09:01 - 09:30,5 to 12,primary-school,359
+2011,Male,½ hour - < ¾ hour,09:01 - 09:30,13 to 18,leaving-cert,204
+2011,Male,½ hour - < ¾ hour,09:01 - 09:30,>=19,university,1821
+2011,Male,½ hour - < ¾ hour,After 09:30,>=15,junior-cert,15429
+2011,Male,½ hour - < ¾ hour,After 09:30,5 to 12,primary-school,18
+2011,Male,½ hour - < ¾ hour,After 09:30,13 to 18,leaving-cert,185
+2011,Male,½ hour - < ¾ hour,After 09:30,>=19,university,2823
+2011,Male,¾ hour - < 1 hour,Before 06:30,>=15,junior-cert,7050
+2011,Male,¾ hour - < 1 hour,Before 06:30,5 to 12,primary-school,7
+2011,Male,¾ hour - < 1 hour,Before 06:30,13 to 18,leaving-cert,14
+2011,Male,¾ hour - < 1 hour,Before 06:30,>=19,university,48
+2011,Male,¾ hour - < 1 hour,06:30 - 07:00,>=15,junior-cert,10208
+2011,Male,¾ hour - < 1 hour,06:30 - 07:00,5 to 12,primary-school,27
+2011,Male,¾ hour - < 1 hour,06:30 - 07:00,13 to 18,leaving-cert,136
+2011,Male,¾ hour - < 1 hour,06:30 - 07:00,>=19,university,242
+2011,Male,¾ hour - < 1 hour,07:01 - 07:30,>=15,junior-cert,12430
+2011,Male,¾ hour - < 1 hour,07:01 - 07:30,5 to 12,primary-school,168
+2011,Male,¾ hour - < 1 hour,07:01 - 07:30,13 to 18,leaving-cert,995
+2011,Male,¾ hour - < 1 hour,07:01 - 07:30,>=19,university,837
+2011,Male,¾ hour - < 1 hour,07:31 - 08:00,>=15,junior-cert,13659
+2011,Male,¾ hour - < 1 hour,07:31 - 08:00,5 to 12,primary-school,605
+2011,Male,¾ hour - < 1 hour,07:31 - 08:00,13 to 18,leaving-cert,2544
+2011,Male,¾ hour - < 1 hour,07:31 - 08:00,>=19,university,2229
+2011,Male,¾ hour - < 1 hour,08:01 - 08:30,>=15,junior-cert,10425
+2011,Male,¾ hour - < 1 hour,08:01 - 08:30,5 to 12,primary-school,728
+2011,Male,¾ hour - < 1 hour,08:01 - 08:30,13 to 18,leaving-cert,1166
+2011,Male,¾ hour - < 1 hour,08:01 - 08:30,>=19,university,2087
+2011,Male,¾ hour - < 1 hour,08:31 - 09:00,>=15,junior-cert,3823
+2011,Male,¾ hour - < 1 hour,08:31 - 09:00,5 to 12,primary-school,266
+2011,Male,¾ hour - < 1 hour,08:31 - 09:00,13 to 18,leaving-cert,158
+2011,Male,¾ hour - < 1 hour,08:31 - 09:00,>=19,university,833
+2011,Male,¾ hour - < 1 hour,09:01 - 09:30,>=15,junior-cert,1763
+2011,Male,¾ hour - < 1 hour,09:01 - 09:30,5 to 12,primary-school,67
+2011,Male,¾ hour - < 1 hour,09:01 - 09:30,13 to 18,leaving-cert,45
+2011,Male,¾ hour - < 1 hour,09:01 - 09:30,>=19,university,541
+2011,Male,¾ hour - < 1 hour,After 09:30,>=15,junior-cert,4248
+2011,Male,¾ hour - < 1 hour,After 09:30,5 to 12,primary-school,3
+2011,Male,¾ hour - < 1 hour,After 09:30,13 to 18,leaving-cert,67
+2011,Male,¾ hour - < 1 hour,After 09:30,>=19,university,836
+2011,Male,1 hour - < 1½ hours,Before 06:30,>=15,junior-cert,9601
+2011,Male,1 hour - < 1½ hours,Before 06:30,5 to 12,primary-school,10
+2011,Male,1 hour - < 1½ hours,Before 06:30,13 to 18,leaving-cert,28
+2011,Male,1 hour - < 1½ hours,Before 06:30,>=19,university,131
+2011,Male,1 hour - < 1½ hours,06:30 - 07:00,>=15,junior-cert,15047
+2011,Male,1 hour - < 1½ hours,06:30 - 07:00,5 to 12,primary-school,45
+2011,Male,1 hour - < 1½ hours,06:30 - 07:00,13 to 18,leaving-cert,227
+2011,Male,1 hour - < 1½ hours,06:30 - 07:00,>=19,university,642
+2011,Male,1 hour - < 1½ hours,07:01 - 07:30,>=15,junior-cert,12613
+2011,Male,1 hour - < 1½ hours,07:01 - 07:30,5 to 12,primary-school,191
+2011,Male,1 hour - < 1½ hours,07:01 - 07:30,13 to 18,leaving-cert,1027
+2011,Male,1 hour - < 1½ hours,07:01 - 07:30,>=19,university,1795
+2011,Male,1 hour - < 1½ hours,07:31 - 08:00,>=15,junior-cert,12988
+2011,Male,1 hour - < 1½ hours,07:31 - 08:00,5 to 12,primary-school,437
+2011,Male,1 hour - < 1½ hours,07:31 - 08:00,13 to 18,leaving-cert,1399
+2011,Male,1 hour - < 1½ hours,07:31 - 08:00,>=19,university,2657
+2011,Male,1 hour - < 1½ hours,08:01 - 08:30,>=15,junior-cert,6999
+2011,Male,1 hour - < 1½ hours,08:01 - 08:30,5 to 12,primary-school,369
+2011,Male,1 hour - < 1½ hours,08:01 - 08:30,13 to 18,leaving-cert,539
+2011,Male,1 hour - < 1½ hours,08:01 - 08:30,>=19,university,1620
+2011,Male,1 hour - < 1½ hours,08:31 - 09:00,>=15,junior-cert,2953
+2011,Male,1 hour - < 1½ hours,08:31 - 09:00,5 to 12,primary-school,187
+2011,Male,1 hour - < 1½ hours,08:31 - 09:00,13 to 18,leaving-cert,152
+2011,Male,1 hour - < 1½ hours,08:31 - 09:00,>=19,university,818
+2011,Male,1 hour - < 1½ hours,09:01 - 09:30,>=15,junior-cert,1435
+2011,Male,1 hour - < 1½ hours,09:01 - 09:30,5 to 12,primary-school,41
+2011,Male,1 hour - < 1½ hours,09:01 - 09:30,13 to 18,leaving-cert,66
+2011,Male,1 hour - < 1½ hours,09:01 - 09:30,>=19,university,466
+2011,Male,1 hour - < 1½ hours,After 09:30,>=15,junior-cert,3977
+2011,Male,1 hour - < 1½ hours,After 09:30,5 to 12,primary-school,5
+2011,Male,1 hour - < 1½ hours,After 09:30,13 to 18,leaving-cert,69
+2011,Male,1 hour - < 1½ hours,After 09:30,>=19,university,870
+2011,Male,1½ hours and over,Before 06:30,>=15,junior-cert,8642
+2011,Male,1½ hours and over,Before 06:30,5 to 12,primary-school,8
+2011,Male,1½ hours and over,Before 06:30,13 to 18,leaving-cert,50
+2011,Male,1½ hours and over,Before 06:30,>=19,university,289
+2011,Male,1½ hours and over,06:30 - 07:00,>=15,junior-cert,6498
+2011,Male,1½ hours and over,06:30 - 07:00,5 to 12,primary-school,23
+2011,Male,1½ hours and over,06:30 - 07:00,13 to 18,leaving-cert,163
+2011,Male,1½ hours and over,06:30 - 07:00,>=19,university,830
+2011,Male,1½ hours and over,07:01 - 07:30,>=15,junior-cert,4002
+2011,Male,1½ hours and over,07:01 - 07:30,5 to 12,primary-school,63
+2011,Male,1½ hours and over,07:01 - 07:30,13 to 18,leaving-cert,271
+2011,Male,1½ hours and over,07:01 - 07:30,>=19,university,970
+2011,Male,1½ hours and over,07:31 - 08:00,>=15,junior-cert,2545
+2011,Male,1½ hours and over,07:31 - 08:00,5 to 12,primary-school,80
+2011,Male,1½ hours and over,07:31 - 08:00,13 to 18,leaving-cert,211
+2011,Male,1½ hours and over,07:31 - 08:00,>=19,university,657
+2011,Male,1½ hours and over,08:01 - 08:30,>=15,junior-cert,1434
+2011,Male,1½ hours and over,08:01 - 08:30,5 to 12,primary-school,91
+2011,Male,1½ hours and over,08:01 - 08:30,13 to 18,leaving-cert,111
+2011,Male,1½ hours and over,08:01 - 08:30,>=19,university,390
+2011,Male,1½ hours and over,08:31 - 09:00,>=15,junior-cert,747
+2011,Male,1½ hours and over,08:31 - 09:00,5 to 12,primary-school,75
+2011,Male,1½ hours and over,08:31 - 09:00,13 to 18,leaving-cert,62
+2011,Male,1½ hours and over,08:31 - 09:00,>=19,university,260
+2011,Male,1½ hours and over,09:01 - 09:30,>=15,junior-cert,382
+2011,Male,1½ hours and over,09:01 - 09:30,5 to 12,primary-school,39
+2011,Male,1½ hours and over,09:01 - 09:30,13 to 18,leaving-cert,27
+2011,Male,1½ hours and over,09:01 - 09:30,>=19,university,133
+2011,Male,1½ hours and over,After 09:30,>=15,junior-cert,1582
+2011,Male,1½ hours and over,After 09:30,5 to 12,primary-school,3
+2011,Male,1½ hours and over,After 09:30,13 to 18,leaving-cert,55
+2011,Male,1½ hours and over,After 09:30,>=19,university,355
+2011,Male,na,Before 06:30,>=15,junior-cert,4280
+2011,Male,na,Before 06:30,5 to 12,primary-school,7
+2011,Male,na,Before 06:30,13 to 18,leaving-cert,20
+2011,Male,na,Before 06:30,>=19,university,47
+2011,Male,na,06:30 - 07:00,>=15,junior-cert,4383
+2011,Male,na,06:30 - 07:00,5 to 12,primary-school,25
+2011,Male,na,06:30 - 07:00,13 to 18,leaving-cert,43
+2011,Male,na,06:30 - 07:00,>=19,university,114
+2011,Male,na,07:01 - 07:30,>=15,junior-cert,4764
+2011,Male,na,07:01 - 07:30,5 to 12,primary-school,102
+2011,Male,na,07:01 - 07:30,13 to 18,leaving-cert,189
+2011,Male,na,07:01 - 07:30,>=19,university,180
+2011,Male,na,07:31 - 08:00,>=15,junior-cert,6315
+2011,Male,na,07:31 - 08:00,5 to 12,primary-school,304
+2011,Male,na,07:31 - 08:00,13 to 18,leaving-cert,740
+2011,Male,na,07:31 - 08:00,>=19,university,321
+2011,Male,na,08:01 - 08:30,>=15,junior-cert,5321
+2011,Male,na,08:01 - 08:30,5 to 12,primary-school,1323
+2011,Male,na,08:01 - 08:30,13 to 18,leaving-cert,1446
+2011,Male,na,08:01 - 08:30,>=19,university,492
+2011,Male,na,08:31 - 09:00,>=15,junior-cert,3930
+2011,Male,na,08:31 - 09:00,5 to 12,primary-school,2524
+2011,Male,na,08:31 - 09:00,13 to 18,leaving-cert,974
+2011,Male,na,08:31 - 09:00,>=19,university,519
+2011,Male,na,09:01 - 09:30,>=15,junior-cert,2363
+2011,Male,na,09:01 - 09:30,5 to 12,primary-school,1170
+2011,Male,na,09:01 - 09:30,13 to 18,leaving-cert,125
+2011,Male,na,09:01 - 09:30,>=19,university,276
+2011,Male,na,After 09:30,>=15,junior-cert,5144
+2011,Male,na,After 09:30,5 to 12,primary-school,26
+2011,Male,na,After 09:30,13 to 18,leaving-cert,36
+2011,Male,na,After 09:30,>=19,university,268
+2011,Female,< ¼ hour,Before 06:30,>=15,junior-cert,6419
+2011,Female,< ¼ hour,Before 06:30,5 to 12,primary-school,45
+2011,Female,< ¼ hour,Before 06:30,13 to 18,leaving-cert,29
+2011,Female,< ¼ hour,Before 06:30,>=19,university,55
+2011,Female,< ¼ hour,06:30 - 07:00,>=15,junior-cert,10245
+2011,Female,< ¼ hour,06:30 - 07:00,5 to 12,primary-school,70
+2011,Female,< ¼ hour,06:30 - 07:00,13 to 18,leaving-cert,26
+2011,Female,< ¼ hour,06:30 - 07:00,>=19,university,146
+2011,Female,< ¼ hour,07:01 - 07:30,>=15,junior-cert,12308
+2011,Female,< ¼ hour,07:01 - 07:30,5 to 12,primary-school,411
+2011,Female,< ¼ hour,07:01 - 07:30,13 to 18,leaving-cert,241
+2011,Female,< ¼ hour,07:01 - 07:30,>=19,university,266
+2011,Female,< ¼ hour,07:31 - 08:00,>=15,junior-cert,27013
+2011,Female,< ¼ hour,07:31 - 08:00,5 to 12,primary-school,2022
+2011,Female,< ¼ hour,07:31 - 08:00,13 to 18,leaving-cert,2866
+2011,Female,< ¼ hour,07:31 - 08:00,>=19,university,656
+2011,Female,< ¼ hour,08:01 - 08:30,>=15,junior-cert,30061
+2011,Female,< ¼ hour,08:01 - 08:30,5 to 12,primary-school,19252
+2011,Female,< ¼ hour,08:01 - 08:30,13 to 18,leaving-cert,20742
+2011,Female,< ¼ hour,08:01 - 08:30,>=19,university,2200
+2011,Female,< ¼ hour,08:31 - 09:00,>=15,junior-cert,61049
+2011,Female,< ¼ hour,08:31 - 09:00,5 to 12,primary-school,85179
+2011,Female,< ¼ hour,08:31 - 09:00,13 to 18,leaving-cert,32035
+2011,Female,< ¼ hour,08:31 - 09:00,>=19,university,10426
+2011,Female,< ¼ hour,09:01 - 09:30,>=15,junior-cert,29152
+2011,Female,< ¼ hour,09:01 - 09:30,5 to 12,primary-school,53066
+2011,Female,< ¼ hour,09:01 - 09:30,13 to 18,leaving-cert,2337
+2011,Female,< ¼ hour,09:01 - 09:30,>=19,university,4268
+2011,Female,< ¼ hour,After 09:30,>=15,junior-cert,40342
+2011,Female,< ¼ hour,After 09:30,5 to 12,primary-school,258
+2011,Female,< ¼ hour,After 09:30,13 to 18,leaving-cert,536
+2011,Female,< ¼ hour,After 09:30,>=19,university,4201
+2011,Female,¼ hour - < ½ hour,Before 06:30,>=15,junior-cert,8862
+2011,Female,¼ hour - < ½ hour,Before 06:30,5 to 12,primary-school,13
+2011,Female,¼ hour - < ½ hour,Before 06:30,13 to 18,leaving-cert,38
+2011,Female,¼ hour - < ½ hour,Before 06:30,>=19,university,137
+2011,Female,¼ hour - < ½ hour,06:30 - 07:00,>=15,junior-cert,14695
+2011,Female,¼ hour - < ½ hour,06:30 - 07:00,5 to 12,primary-school,119
+2011,Female,¼ hour - < ½ hour,06:30 - 07:00,13 to 18,leaving-cert,130
+2011,Female,¼ hour - < ½ hour,06:30 - 07:00,>=19,university,373
+2011,Female,¼ hour - < ½ hour,07:01 - 07:30,>=15,junior-cert,24880
+2011,Female,¼ hour - < ½ hour,07:01 - 07:30,5 to 12,primary-school,491
+2011,Female,¼ hour - < ½ hour,07:01 - 07:30,13 to 18,leaving-cert,1282
+2011,Female,¼ hour - < ½ hour,07:01 - 07:30,>=19,university,658
+2011,Female,¼ hour - < ½ hour,07:31 - 08:00,>=15,junior-cert,38213
+2011,Female,¼ hour - < ½ hour,07:31 - 08:00,5 to 12,primary-school,3078
+2011,Female,¼ hour - < ½ hour,07:31 - 08:00,13 to 18,leaving-cert,12813
+2011,Female,¼ hour - < ½ hour,07:31 - 08:00,>=19,university,2027
+2011,Female,¼ hour - < ½ hour,08:01 - 08:30,>=15,junior-cert,60370
+2011,Female,¼ hour - < ½ hour,08:01 - 08:30,5 to 12,primary-school,19832
+2011,Female,¼ hour - < ½ hour,08:01 - 08:30,13 to 18,leaving-cert,32130
+2011,Female,¼ hour - < ½ hour,08:01 - 08:30,>=19,university,6705
+2011,Female,¼ hour - < ½ hour,08:31 - 09:00,>=15,junior-cert,62509
+2011,Female,¼ hour - < ½ hour,08:31 - 09:00,5 to 12,primary-school,28020
+2011,Female,¼ hour - < ½ hour,08:31 - 09:00,13 to 18,leaving-cert,12507
+2011,Female,¼ hour - < ½ hour,08:31 - 09:00,>=19,university,9902
+2011,Female,¼ hour - < ½ hour,09:01 - 09:30,>=15,junior-cert,24511
+2011,Female,¼ hour - < ½ hour,09:01 - 09:30,5 to 12,primary-school,5471
+2011,Female,¼ hour - < ½ hour,09:01 - 09:30,13 to 18,leaving-cert,794
+2011,Female,¼ hour - < ½ hour,09:01 - 09:30,>=19,university,3823
+2011,Female,¼ hour - < ½ hour,After 09:30,>=15,junior-cert,32603
+2011,Female,¼ hour - < ½ hour,After 09:30,5 to 12,primary-school,68
+2011,Female,¼ hour - < ½ hour,After 09:30,13 to 18,leaving-cert,427
+2011,Female,¼ hour - < ½ hour,After 09:30,>=19,university,4530
+2011,Female,½ hour - < ¾ hour,Before 06:30,>=15,junior-cert,6717
+2011,Female,½ hour - < ¾ hour,Before 06:30,5 to 12,primary-school,8
+2011,Female,½ hour - < ¾ hour,Before 06:30,13 to 18,leaving-cert,22
+2011,Female,½ hour - < ¾ hour,Before 06:30,>=19,university,129
+2011,Female,½ hour - < ¾ hour,06:30 - 07:00,>=15,junior-cert,12698
+2011,Female,½ hour - < ¾ hour,06:30 - 07:00,5 to 12,primary-school,100
+2011,Female,½ hour - < ¾ hour,06:30 - 07:00,13 to 18,leaving-cert,232
+2011,Female,½ hour - < ¾ hour,06:30 - 07:00,>=19,university,491
+2011,Female,½ hour - < ¾ hour,07:01 - 07:30,>=15,junior-cert,22363
+2011,Female,½ hour - < ¾ hour,07:01 - 07:30,5 to 12,primary-school,430
+2011,Female,½ hour - < ¾ hour,07:01 - 07:30,13 to 18,leaving-cert,2009
+2011,Female,½ hour - < ¾ hour,07:01 - 07:30,>=19,university,1185
+2011,Female,½ hour - < ¾ hour,07:31 - 08:00,>=15,junior-cert,31110
+2011,Female,½ hour - < ¾ hour,07:31 - 08:00,5 to 12,primary-school,2031
+2011,Female,½ hour - < ¾ hour,07:31 - 08:00,13 to 18,leaving-cert,10579
+2011,Female,½ hour - < ¾ hour,07:31 - 08:00,>=19,university,3622
+2011,Female,½ hour - < ¾ hour,08:01 - 08:30,>=15,junior-cert,46160
+2011,Female,½ hour - < ¾ hour,08:01 - 08:30,5 to 12,primary-school,5321
+2011,Female,½ hour - < ¾ hour,08:01 - 08:30,13 to 18,leaving-cert,9364
+2011,Female,½ hour - < ¾ hour,08:01 - 08:30,>=19,university,6547
+2011,Female,½ hour - < ¾ hour,08:31 - 09:00,>=15,junior-cert,23058
+2011,Female,½ hour - < ¾ hour,08:31 - 09:00,5 to 12,primary-school,2910
+2011,Female,½ hour - < ¾ hour,08:31 - 09:00,13 to 18,leaving-cert,1352
+2011,Female,½ hour - < ¾ hour,08:31 - 09:00,>=19,university,3810
+2011,Female,½ hour - < ¾ hour,09:01 - 09:30,>=15,junior-cert,9325
+2011,Female,½ hour - < ¾ hour,09:01 - 09:30,5 to 12,primary-school,279
+2011,Female,½ hour - < ¾ hour,09:01 - 09:30,13 to 18,leaving-cert,222
+2011,Female,½ hour - < ¾ hour,09:01 - 09:30,>=19,university,1943
+2011,Female,½ hour - < ¾ hour,After 09:30,>=15,junior-cert,13950
+2011,Female,½ hour - < ¾ hour,After 09:30,5 to 12,primary-school,18
+2011,Female,½ hour - < ¾ hour,After 09:30,13 to 18,leaving-cert,193
+2011,Female,½ hour - < ¾ hour,After 09:30,>=19,university,2350
+2011,Female,¾ hour - < 1 hour,Before 06:30,>=15,junior-cert,2930
+2011,Female,¾ hour - < 1 hour,Before 06:30,5 to 12,primary-school,7
+2011,Female,¾ hour - < 1 hour,Before 06:30,13 to 18,leaving-cert,9
+2011,Female,¾ hour - < 1 hour,Before 06:30,>=19,university,101
+2011,Female,¾ hour - < 1 hour,06:30 - 07:00,>=15,junior-cert,6437
+2011,Female,¾ hour - < 1 hour,06:30 - 07:00,5 to 12,primary-school,21
+2011,Female,¾ hour - < 1 hour,06:30 - 07:00,13 to 18,leaving-cert,103
+2011,Female,¾ hour - < 1 hour,06:30 - 07:00,>=19,university,323
+2011,Female,¾ hour - < 1 hour,07:01 - 07:30,>=15,junior-cert,9863
+2011,Female,¾ hour - < 1 hour,07:01 - 07:30,5 to 12,primary-school,146
+2011,Female,¾ hour - < 1 hour,07:01 - 07:30,13 to 18,leaving-cert,844
+2011,Female,¾ hour - < 1 hour,07:01 - 07:30,>=19,university,956
+2011,Female,¾ hour - < 1 hour,07:31 - 08:00,>=15,junior-cert,15159
+2011,Female,¾ hour - < 1 hour,07:31 - 08:00,5 to 12,primary-school,553
+2011,Female,¾ hour - < 1 hour,07:31 - 08:00,13 to 18,leaving-cert,2571
+2011,Female,¾ hour - < 1 hour,07:31 - 08:00,>=19,university,2300
+2011,Female,¾ hour - < 1 hour,08:01 - 08:30,>=15,junior-cert,14181
+2011,Female,¾ hour - < 1 hour,08:01 - 08:30,5 to 12,primary-school,602
+2011,Female,¾ hour - < 1 hour,08:01 - 08:30,13 to 18,leaving-cert,1161
+2011,Female,¾ hour - < 1 hour,08:01 - 08:30,>=19,university,2299
+2011,Female,¾ hour - < 1 hour,08:31 - 09:00,>=15,junior-cert,4931
+2011,Female,¾ hour - < 1 hour,08:31 - 09:00,5 to 12,primary-school,228
+2011,Female,¾ hour - < 1 hour,08:31 - 09:00,13 to 18,leaving-cert,157
+2011,Female,¾ hour - < 1 hour,08:31 - 09:00,>=19,university,925
+2011,Female,¾ hour - < 1 hour,09:01 - 09:30,>=15,junior-cert,1995
+2011,Female,¾ hour - < 1 hour,09:01 - 09:30,5 to 12,primary-school,51
+2011,Female,¾ hour - < 1 hour,09:01 - 09:30,13 to 18,leaving-cert,56
+2011,Female,¾ hour - < 1 hour,09:01 - 09:30,>=19,university,577
+2011,Female,¾ hour - < 1 hour,After 09:30,>=15,junior-cert,3565
+2011,Female,¾ hour - < 1 hour,After 09:30,5 to 12,primary-school,2
+2011,Female,¾ hour - < 1 hour,After 09:30,13 to 18,leaving-cert,64
+2011,Female,¾ hour - < 1 hour,After 09:30,>=19,university,762
+2011,Female,1 hour - < 1½ hours,Before 06:30,>=15,junior-cert,3887
+2011,Female,1 hour - < 1½ hours,Before 06:30,5 to 12,primary-school,13
+2011,Female,1 hour - < 1½ hours,Before 06:30,13 to 18,leaving-cert,28
+2011,Female,1 hour - < 1½ hours,Before 06:30,>=19,university,168
+2011,Female,1 hour - < 1½ hours,06:30 - 07:00,>=15,junior-cert,7045
+2011,Female,1 hour - < 1½ hours,06:30 - 07:00,5 to 12,primary-school,33
+2011,Female,1 hour - < 1½ hours,06:30 - 07:00,13 to 18,leaving-cert,213
+2011,Female,1 hour - < 1½ hours,06:30 - 07:00,>=19,university,798
+2011,Female,1 hour - < 1½ hours,07:01 - 07:30,>=15,junior-cert,9556
+2011,Female,1 hour - < 1½ hours,07:01 - 07:30,5 to 12,primary-school,155
+2011,Female,1 hour - < 1½ hours,07:01 - 07:30,13 to 18,leaving-cert,948
+2011,Female,1 hour - < 1½ hours,07:01 - 07:30,>=19,university,1902
+2011,Female,1 hour - < 1½ hours,07:31 - 08:00,>=15,junior-cert,12758
+2011,Female,1 hour - < 1½ hours,07:31 - 08:00,5 to 12,primary-school,343
+2011,Female,1 hour - < 1½ hours,07:31 - 08:00,13 to 18,leaving-cert,1389
+2011,Female,1 hour - < 1½ hours,07:31 - 08:00,>=19,university,2806
+2011,Female,1 hour - < 1½ hours,08:01 - 08:30,>=15,junior-cert,6825
+2011,Female,1 hour - < 1½ hours,08:01 - 08:30,5 to 12,primary-school,252
+2011,Female,1 hour - < 1½ hours,08:01 - 08:30,13 to 18,leaving-cert,484
+2011,Female,1 hour - < 1½ hours,08:01 - 08:30,>=19,university,1817
+2011,Female,1 hour - < 1½ hours,08:31 - 09:00,>=15,junior-cert,2626
+2011,Female,1 hour - < 1½ hours,08:31 - 09:00,5 to 12,primary-school,147
+2011,Female,1 hour - < 1½ hours,08:31 - 09:00,13 to 18,leaving-cert,131
+2011,Female,1 hour - < 1½ hours,08:31 - 09:00,>=19,university,853
+2011,Female,1 hour - < 1½ hours,09:01 - 09:30,>=15,junior-cert,1050
+2011,Female,1 hour - < 1½ hours,09:01 - 09:30,5 to 12,primary-school,48
+2011,Female,1 hour - < 1½ hours,09:01 - 09:30,13 to 18,leaving-cert,49
+2011,Female,1 hour - < 1½ hours,09:01 - 09:30,>=19,university,486
+2011,Female,1 hour - < 1½ hours,After 09:30,>=15,junior-cert,2744
+2011,Female,1 hour - < 1½ hours,After 09:30,5 to 12,primary-school,2
+2011,Female,1 hour - < 1½ hours,After 09:30,13 to 18,leaving-cert,57
+2011,Female,1 hour - < 1½ hours,After 09:30,>=19,university,797
+2011,Female,1½ hours and over,Before 06:30,>=15,junior-cert,2756
+2011,Female,1½ hours and over,Before 06:30,5 to 12,primary-school,10
+2011,Female,1½ hours and over,Before 06:30,13 to 18,leaving-cert,49
+2011,Female,1½ hours and over,Before 06:30,>=19,university,327
+2011,Female,1½ hours and over,06:30 - 07:00,>=15,junior-cert,3217
+2011,Female,1½ hours and over,06:30 - 07:00,5 to 12,primary-school,15
+2011,Female,1½ hours and over,06:30 - 07:00,13 to 18,leaving-cert,179
+2011,Female,1½ hours and over,06:30 - 07:00,>=19,university,916
+2011,Female,1½ hours and over,07:01 - 07:30,>=15,junior-cert,2978
+2011,Female,1½ hours and over,07:01 - 07:30,5 to 12,primary-school,37
+2011,Female,1½ hours and over,07:01 - 07:30,13 to 18,leaving-cert,291
+2011,Female,1½ hours and over,07:01 - 07:30,>=19,university,1095
+2011,Female,1½ hours and over,07:31 - 08:00,>=15,junior-cert,2047
+2011,Female,1½ hours and over,07:31 - 08:00,5 to 12,primary-school,44
+2011,Female,1½ hours and over,07:31 - 08:00,13 to 18,leaving-cert,217
+2011,Female,1½ hours and over,07:31 - 08:00,>=19,university,796
+2011,Female,1½ hours and over,08:01 - 08:30,>=15,junior-cert,1001
+2011,Female,1½ hours and over,08:01 - 08:30,5 to 12,primary-school,75
+2011,Female,1½ hours and over,08:01 - 08:30,13 to 18,leaving-cert,123
+2011,Female,1½ hours and over,08:01 - 08:30,>=19,university,500
+2011,Female,1½ hours and over,08:31 - 09:00,>=15,junior-cert,535
+2011,Female,1½ hours and over,08:31 - 09:00,5 to 12,primary-school,80
+2011,Female,1½ hours and over,08:31 - 09:00,13 to 18,leaving-cert,75
+2011,Female,1½ hours and over,08:31 - 09:00,>=19,university,338
+2011,Female,1½ hours and over,09:01 - 09:30,>=15,junior-cert,259
+2011,Female,1½ hours and over,09:01 - 09:30,5 to 12,primary-school,43
+2011,Female,1½ hours and over,09:01 - 09:30,13 to 18,leaving-cert,34
+2011,Female,1½ hours and over,09:01 - 09:30,>=19,university,166
+2011,Female,1½ hours and over,After 09:30,>=15,junior-cert,873
+2011,Female,1½ hours and over,After 09:30,5 to 12,primary-school,0
+2011,Female,1½ hours and over,After 09:30,13 to 18,leaving-cert,56
+2011,Female,1½ hours and over,After 09:30,>=19,university,464
+2011,Female,na,Before 06:30,>=15,junior-cert,801
+2011,Female,na,Before 06:30,5 to 12,primary-school,17
+2011,Female,na,Before 06:30,13 to 18,leaving-cert,8
+2011,Female,na,Before 06:30,>=19,university,45
+2011,Female,na,06:30 - 07:00,>=15,junior-cert,1119
+2011,Female,na,06:30 - 07:00,5 to 12,primary-school,27
+2011,Female,na,06:30 - 07:00,13 to 18,leaving-cert,39
+2011,Female,na,06:30 - 07:00,>=19,university,93
+2011,Female,na,07:01 - 07:30,>=15,junior-cert,1478
+2011,Female,na,07:01 - 07:30,5 to 12,primary-school,78
+2011,Female,na,07:01 - 07:30,13 to 18,leaving-cert,177
+2011,Female,na,07:01 - 07:30,>=19,university,171
+2011,Female,na,07:31 - 08:00,>=15,junior-cert,1925
+2011,Female,na,07:31 - 08:00,5 to 12,primary-school,250
+2011,Female,na,07:31 - 08:00,13 to 18,leaving-cert,823
+2011,Female,na,07:31 - 08:00,>=19,university,312
+2011,Female,na,08:01 - 08:30,>=15,junior-cert,2325
+2011,Female,na,08:01 - 08:30,5 to 12,primary-school,1239
+2011,Female,na,08:01 - 08:30,13 to 18,leaving-cert,1315
+2011,Female,na,08:01 - 08:30,>=19,university,473
+2011,Female,na,08:31 - 09:00,>=15,junior-cert,2167
+2011,Female,na,08:31 - 09:00,5 to 12,primary-school,2478
+2011,Female,na,08:31 - 09:00,13 to 18,leaving-cert,861
+2011,Female,na,08:31 - 09:00,>=19,university,492
+2011,Female,na,09:01 - 09:30,>=15,junior-cert,1348
+2011,Female,na,09:01 - 09:30,5 to 12,primary-school,1115
+2011,Female,na,09:01 - 09:30,13 to 18,leaving-cert,115
+2011,Female,na,09:01 - 09:30,>=19,university,240
+2011,Female,na,After 09:30,>=15,junior-cert,2371
+2011,Female,na,After 09:30,5 to 12,primary-school,19
+2011,Female,na,After 09:30,13 to 18,leaving-cert,25
+2011,Female,na,After 09:30,>=19,university,220
+2016,Male,< ¼ hour,Before 06:30,>=15,junior-cert,20795
+2016,Male,< ¼ hour,Before 06:30,5 to 12,primary-school,59
+2016,Male,< ¼ hour,Before 06:30,13 to 18,leaving-cert,47
+2016,Male,< ¼ hour,Before 06:30,>=19,university,82
+2016,Male,< ¼ hour,06:30 - 07:00,>=15,junior-cert,20535
+2016,Male,< ¼ hour,06:30 - 07:00,5 to 12,primary-school,158
+2016,Male,< ¼ hour,06:30 - 07:00,13 to 18,leaving-cert,73
+2016,Male,< ¼ hour,06:30 - 07:00,>=19,university,188
+2016,Male,< ¼ hour,07:01 - 07:30,>=15,junior-cert,18234
+2016,Male,< ¼ hour,07:01 - 07:30,5 to 12,primary-school,855
+2016,Male,< ¼ hour,07:01 - 07:30,13 to 18,leaving-cert,475
+2016,Male,< ¼ hour,07:01 - 07:30,>=19,university,233
+2016,Male,< ¼ hour,07:31 - 08:00,>=15,junior-cert,39241
+2016,Male,< ¼ hour,07:31 - 08:00,5 to 12,primary-school,3669
+2016,Male,< ¼ hour,07:31 - 08:00,13 to 18,leaving-cert,4315
+2016,Male,< ¼ hour,07:31 - 08:00,>=19,university,801
+2016,Male,< ¼ hour,08:01 - 08:30,>=15,junior-cert,30457
+2016,Male,< ¼ hour,08:01 - 08:30,5 to 12,primary-school,27213
+2016,Male,< ¼ hour,08:01 - 08:30,13 to 18,leaving-cert,25513
+2016,Male,< ¼ hour,08:01 - 08:30,>=19,university,2185
+2016,Male,< ¼ hour,08:31 - 09:00,>=15,junior-cert,36362
+2016,Male,< ¼ hour,08:31 - 09:00,5 to 12,primary-school,98099
+2016,Male,< ¼ hour,08:31 - 09:00,13 to 18,leaving-cert,33538
+2016,Male,< ¼ hour,08:31 - 09:00,>=19,university,8629
+2016,Male,< ¼ hour,09:01 - 09:30,>=15,junior-cert,14119
+2016,Male,< ¼ hour,09:01 - 09:30,5 to 12,primary-school,51167
+2016,Male,< ¼ hour,09:01 - 09:30,13 to 18,leaving-cert,2397
+2016,Male,< ¼ hour,09:01 - 09:30,>=19,university,2830
+2016,Male,< ¼ hour,After 09:30,>=15,junior-cert,30570
+2016,Male,< ¼ hour,After 09:30,5 to 12,primary-school,300
+2016,Male,< ¼ hour,After 09:30,13 to 18,leaving-cert,326
+2016,Male,< ¼ hour,After 09:30,>=19,university,3280
+2016,Male,¼ hour - < ½ hour,Before 06:30,>=15,junior-cert,29828
+2016,Male,¼ hour - < ½ hour,Before 06:30,5 to 12,primary-school,34
+2016,Male,¼ hour - < ½ hour,Before 06:30,13 to 18,leaving-cert,43
+2016,Male,¼ hour - < ½ hour,Before 06:30,>=19,university,144
+2016,Male,¼ hour - < ½ hour,06:30 - 07:00,>=15,junior-cert,28431
+2016,Male,¼ hour - < ½ hour,06:30 - 07:00,5 to 12,primary-school,174
+2016,Male,¼ hour - < ½ hour,06:30 - 07:00,13 to 18,leaving-cert,206
+2016,Male,¼ hour - < ½ hour,06:30 - 07:00,>=19,university,305
+2016,Male,¼ hour - < ½ hour,07:01 - 07:30,>=15,junior-cert,35359
+2016,Male,¼ hour - < ½ hour,07:01 - 07:30,5 to 12,primary-school,877
+2016,Male,¼ hour - < ½ hour,07:01 - 07:30,13 to 18,leaving-cert,1959
+2016,Male,¼ hour - < ½ hour,07:01 - 07:30,>=19,university,644
+2016,Male,¼ hour - < ½ hour,07:31 - 08:00,>=15,junior-cert,50264
+2016,Male,¼ hour - < ½ hour,07:31 - 08:00,5 to 12,primary-school,4033
+2016,Male,¼ hour - < ½ hour,07:31 - 08:00,13 to 18,leaving-cert,15064
+2016,Male,¼ hour - < ½ hour,07:31 - 08:00,>=19,university,2254
+2016,Male,¼ hour - < ½ hour,08:01 - 08:30,>=15,junior-cert,47008
+2016,Male,¼ hour - < ½ hour,08:01 - 08:30,5 to 12,primary-school,23612
+2016,Male,¼ hour - < ½ hour,08:01 - 08:30,13 to 18,leaving-cert,34180
+2016,Male,¼ hour - < ½ hour,08:01 - 08:30,>=19,university,6162
+2016,Male,¼ hour - < ½ hour,08:31 - 09:00,>=15,junior-cert,35412
+2016,Male,¼ hour - < ½ hour,08:31 - 09:00,5 to 12,primary-school,28261
+2016,Male,¼ hour - < ½ hour,08:31 - 09:00,13 to 18,leaving-cert,12572
+2016,Male,¼ hour - < ½ hour,08:31 - 09:00,>=19,university,8079
+2016,Male,¼ hour - < ½ hour,09:01 - 09:30,>=15,junior-cert,12981
+2016,Male,¼ hour - < ½ hour,09:01 - 09:30,5 to 12,primary-school,4821
+2016,Male,¼ hour - < ½ hour,09:01 - 09:30,13 to 18,leaving-cert,704
+2016,Male,¼ hour - < ½ hour,09:01 - 09:30,>=19,university,2917
+2016,Male,¼ hour - < ½ hour,After 09:30,>=15,junior-cert,29579
+2016,Male,¼ hour - < ½ hour,After 09:30,5 to 12,primary-school,90
+2016,Male,¼ hour - < ½ hour,After 09:30,13 to 18,leaving-cert,269
+2016,Male,¼ hour - < ½ hour,After 09:30,>=19,university,4388
+2016,Male,½ hour - < ¾ hour,Before 06:30,>=15,junior-cert,24253
+2016,Male,½ hour - < ¾ hour,Before 06:30,5 to 12,primary-school,16
+2016,Male,½ hour - < ¾ hour,Before 06:30,13 to 18,leaving-cert,36
+2016,Male,½ hour - < ¾ hour,Before 06:30,>=19,university,161
+2016,Male,½ hour - < ¾ hour,06:30 - 07:00,>=15,junior-cert,29063
+2016,Male,½ hour - < ¾ hour,06:30 - 07:00,5 to 12,primary-school,109
+2016,Male,½ hour - < ¾ hour,06:30 - 07:00,13 to 18,leaving-cert,329
+2016,Male,½ hour - < ¾ hour,06:30 - 07:00,>=19,university,494
+2016,Male,½ hour - < ¾ hour,07:01 - 07:30,>=15,junior-cert,38761
+2016,Male,½ hour - < ¾ hour,07:01 - 07:30,5 to 12,primary-school,559
+2016,Male,½ hour - < ¾ hour,07:01 - 07:30,13 to 18,leaving-cert,2711
+2016,Male,½ hour - < ¾ hour,07:01 - 07:30,>=19,university,1357
+2016,Male,½ hour - < ¾ hour,07:31 - 08:00,>=15,junior-cert,39612
+2016,Male,½ hour - < ¾ hour,07:31 - 08:00,5 to 12,primary-school,2637
+2016,Male,½ hour - < ¾ hour,07:31 - 08:00,13 to 18,leaving-cert,11973
+2016,Male,½ hour - < ¾ hour,07:31 - 08:00,>=19,university,3708
+2016,Male,½ hour - < ¾ hour,08:01 - 08:30,>=15,junior-cert,37588
+2016,Male,½ hour - < ¾ hour,08:01 - 08:30,5 to 12,primary-school,6148
+2016,Male,½ hour - < ¾ hour,08:01 - 08:30,13 to 18,leaving-cert,9033
+2016,Male,½ hour - < ¾ hour,08:01 - 08:30,>=19,university,6183
+2016,Male,½ hour - < ¾ hour,08:31 - 09:00,>=15,junior-cert,16632
+2016,Male,½ hour - < ¾ hour,08:31 - 09:00,5 to 12,primary-school,2971
+2016,Male,½ hour - < ¾ hour,08:31 - 09:00,13 to 18,leaving-cert,1359
+2016,Male,½ hour - < ¾ hour,08:31 - 09:00,>=19,university,3213
+2016,Male,½ hour - < ¾ hour,09:01 - 09:30,>=15,junior-cert,7535
+2016,Male,½ hour - < ¾ hour,09:01 - 09:30,5 to 12,primary-school,259
+2016,Male,½ hour - < ¾ hour,09:01 - 09:30,13 to 18,leaving-cert,200
+2016,Male,½ hour - < ¾ hour,09:01 - 09:30,>=19,university,1575
+2016,Male,½ hour - < ¾ hour,After 09:30,>=15,junior-cert,17668
+2016,Male,½ hour - < ¾ hour,After 09:30,5 to 12,primary-school,16
+2016,Male,½ hour - < ¾ hour,After 09:30,13 to 18,leaving-cert,129
+2016,Male,½ hour - < ¾ hour,After 09:30,>=19,university,2515
+2016,Male,¾ hour - < 1 hour,Before 06:30,>=15,junior-cert,10116
+2016,Male,¾ hour - < 1 hour,Before 06:30,5 to 12,primary-school,8
+2016,Male,¾ hour - < 1 hour,Before 06:30,13 to 18,leaving-cert,15
+2016,Male,¾ hour - < 1 hour,Before 06:30,>=19,university,78
+2016,Male,¾ hour - < 1 hour,06:30 - 07:00,>=15,junior-cert,13456
+2016,Male,¾ hour - < 1 hour,06:30 - 07:00,5 to 12,primary-school,44
+2016,Male,¾ hour - < 1 hour,06:30 - 07:00,13 to 18,leaving-cert,164
+2016,Male,¾ hour - < 1 hour,06:30 - 07:00,>=19,university,348
+2016,Male,¾ hour - < 1 hour,07:01 - 07:30,>=15,junior-cert,15074
+2016,Male,¾ hour - < 1 hour,07:01 - 07:30,5 to 12,primary-school,221
+2016,Male,¾ hour - < 1 hour,07:01 - 07:30,13 to 18,leaving-cert,1246
+2016,Male,¾ hour - < 1 hour,07:01 - 07:30,>=19,university,1124
+2016,Male,¾ hour - < 1 hour,07:31 - 08:00,>=15,junior-cert,15389
+2016,Male,¾ hour - < 1 hour,07:31 - 08:00,5 to 12,primary-school,616
+2016,Male,¾ hour - < 1 hour,07:31 - 08:00,13 to 18,leaving-cert,2680
+2016,Male,¾ hour - < 1 hour,07:31 - 08:00,>=19,university,2297
+2016,Male,¾ hour - < 1 hour,08:01 - 08:30,>=15,junior-cert,11130
+2016,Male,¾ hour - < 1 hour,08:01 - 08:30,5 to 12,primary-school,742
+2016,Male,¾ hour - < 1 hour,08:01 - 08:30,13 to 18,leaving-cert,1114
+2016,Male,¾ hour - < 1 hour,08:01 - 08:30,>=19,university,2210
+2016,Male,¾ hour - < 1 hour,08:31 - 09:00,>=15,junior-cert,3728
+2016,Male,¾ hour - < 1 hour,08:31 - 09:00,5 to 12,primary-school,223
+2016,Male,¾ hour - < 1 hour,08:31 - 09:00,13 to 18,leaving-cert,149
+2016,Male,¾ hour - < 1 hour,08:31 - 09:00,>=19,university,745
+2016,Male,¾ hour - < 1 hour,09:01 - 09:30,>=15,junior-cert,1795
+2016,Male,¾ hour - < 1 hour,09:01 - 09:30,5 to 12,primary-school,32
+2016,Male,¾ hour - < 1 hour,09:01 - 09:30,13 to 18,leaving-cert,43
+2016,Male,¾ hour - < 1 hour,09:01 - 09:30,>=19,university,511
+2016,Male,¾ hour - < 1 hour,After 09:30,>=15,junior-cert,4920
+2016,Male,¾ hour - < 1 hour,After 09:30,5 to 12,primary-school,4
+2016,Male,¾ hour - < 1 hour,After 09:30,13 to 18,leaving-cert,52
+2016,Male,¾ hour - < 1 hour,After 09:30,>=19,university,786
+2016,Male,1 hour - < 1½ hours,Before 06:30,>=15,junior-cert,16765
+2016,Male,1 hour - < 1½ hours,Before 06:30,5 to 12,primary-school,18
+2016,Male,1 hour - < 1½ hours,Before 06:30,13 to 18,leaving-cert,39
+2016,Male,1 hour - < 1½ hours,Before 06:30,>=19,university,235
+2016,Male,1 hour - < 1½ hours,06:30 - 07:00,>=15,junior-cert,21038
+2016,Male,1 hour - < 1½ hours,06:30 - 07:00,5 to 12,primary-school,86
+2016,Male,1 hour - < 1½ hours,06:30 - 07:00,13 to 18,leaving-cert,327
+2016,Male,1 hour - < 1½ hours,06:30 - 07:00,>=19,university,1019
+2016,Male,1 hour - < 1½ hours,07:01 - 07:30,>=15,junior-cert,16565
+2016,Male,1 hour - < 1½ hours,07:01 - 07:30,5 to 12,primary-school,234
+2016,Male,1 hour - < 1½ hours,07:01 - 07:30,13 to 18,leaving-cert,1212
+2016,Male,1 hour - < 1½ hours,07:01 - 07:30,>=19,university,2296
+2016,Male,1 hour - < 1½ hours,07:31 - 08:00,>=15,junior-cert,15550
+2016,Male,1 hour - < 1½ hours,07:31 - 08:00,5 to 12,primary-school,523
+2016,Male,1 hour - < 1½ hours,07:31 - 08:00,13 to 18,leaving-cert,1482
+2016,Male,1 hour - < 1½ hours,07:31 - 08:00,>=19,university,2945
+2016,Male,1 hour - < 1½ hours,08:01 - 08:30,>=15,junior-cert,7660
+2016,Male,1 hour - < 1½ hours,08:01 - 08:30,5 to 12,primary-school,436
+2016,Male,1 hour - < 1½ hours,08:01 - 08:30,13 to 18,leaving-cert,507
+2016,Male,1 hour - < 1½ hours,08:01 - 08:30,>=19,university,1734
+2016,Male,1 hour - < 1½ hours,08:31 - 09:00,>=15,junior-cert,3286
+2016,Male,1 hour - < 1½ hours,08:31 - 09:00,5 to 12,primary-school,209
+2016,Male,1 hour - < 1½ hours,08:31 - 09:00,13 to 18,leaving-cert,173
+2016,Male,1 hour - < 1½ hours,08:31 - 09:00,>=19,university,826
+2016,Male,1 hour - < 1½ hours,09:01 - 09:30,>=15,junior-cert,1538
+2016,Male,1 hour - < 1½ hours,09:01 - 09:30,5 to 12,primary-school,62
+2016,Male,1 hour - < 1½ hours,09:01 - 09:30,13 to 18,leaving-cert,40
+2016,Male,1 hour - < 1½ hours,09:01 - 09:30,>=19,university,464
+2016,Male,1 hour - < 1½ hours,After 09:30,>=15,junior-cert,4904
+2016,Male,1 hour - < 1½ hours,After 09:30,5 to 12,primary-school,2
+2016,Male,1 hour - < 1½ hours,After 09:30,13 to 18,leaving-cert,48
+2016,Male,1 hour - < 1½ hours,After 09:30,>=19,university,909
+2016,Male,1½ hours and over,Before 06:30,>=15,junior-cert,13969
+2016,Male,1½ hours and over,Before 06:30,5 to 12,primary-school,6
+2016,Male,1½ hours and over,Before 06:30,13 to 18,leaving-cert,70
+2016,Male,1½ hours and over,Before 06:30,>=19,university,510
+2016,Male,1½ hours and over,06:30 - 07:00,>=15,junior-cert,8397
+2016,Male,1½ hours and over,06:30 - 07:00,5 to 12,primary-school,39
+2016,Male,1½ hours and over,06:30 - 07:00,13 to 18,leaving-cert,216
+2016,Male,1½ hours and over,06:30 - 07:00,>=19,university,1218
+2016,Male,1½ hours and over,07:01 - 07:30,>=15,junior-cert,4958
+2016,Male,1½ hours and over,07:01 - 07:30,5 to 12,primary-school,66
+2016,Male,1½ hours and over,07:01 - 07:30,13 to 18,leaving-cert,264
+2016,Male,1½ hours and over,07:01 - 07:30,>=19,university,1227
+2016,Male,1½ hours and over,07:31 - 08:00,>=15,junior-cert,3063
+2016,Male,1½ hours and over,07:31 - 08:00,5 to 12,primary-school,85
+2016,Male,1½ hours and over,07:31 - 08:00,13 to 18,leaving-cert,183
+2016,Male,1½ hours and over,07:31 - 08:00,>=19,university,804
+2016,Male,1½ hours and over,08:01 - 08:30,>=15,junior-cert,1578
+2016,Male,1½ hours and over,08:01 - 08:30,5 to 12,primary-school,75
+2016,Male,1½ hours and over,08:01 - 08:30,13 to 18,leaving-cert,113
+2016,Male,1½ hours and over,08:01 - 08:30,>=19,university,508
+2016,Male,1½ hours and over,08:31 - 09:00,>=15,junior-cert,752
+2016,Male,1½ hours and over,08:31 - 09:00,5 to 12,primary-school,102
+2016,Male,1½ hours and over,08:31 - 09:00,13 to 18,leaving-cert,58
+2016,Male,1½ hours and over,08:31 - 09:00,>=19,university,295
+2016,Male,1½ hours and over,09:01 - 09:30,>=15,junior-cert,374
+2016,Male,1½ hours and over,09:01 - 09:30,5 to 12,primary-school,42
+2016,Male,1½ hours and over,09:01 - 09:30,13 to 18,leaving-cert,15
+2016,Male,1½ hours and over,09:01 - 09:30,>=19,university,156
+2016,Male,1½ hours and over,After 09:30,>=15,junior-cert,1878
+2016,Male,1½ hours and over,After 09:30,5 to 12,primary-school,2
+2016,Male,1½ hours and over,After 09:30,13 to 18,leaving-cert,41
+2016,Male,1½ hours and over,After 09:30,>=19,university,401
+2016,Male,na,Before 06:30,>=15,junior-cert,5850
+2016,Male,na,Before 06:30,5 to 12,primary-school,21
+2016,Male,na,Before 06:30,13 to 18,leaving-cert,24
+2016,Male,na,Before 06:30,>=19,university,80
+2016,Male,na,06:30 - 07:00,>=15,junior-cert,6206
+2016,Male,na,06:30 - 07:00,5 to 12,primary-school,45
+2016,Male,na,06:30 - 07:00,13 to 18,leaving-cert,89
+2016,Male,na,06:30 - 07:00,>=19,university,141
+2016,Male,na,07:01 - 07:30,>=15,junior-cert,5784
+2016,Male,na,07:01 - 07:30,5 to 12,primary-school,148
+2016,Male,na,07:01 - 07:30,13 to 18,leaving-cert,294
+2016,Male,na,07:01 - 07:30,>=19,university,249
+2016,Male,na,07:31 - 08:00,>=15,junior-cert,6505
+2016,Male,na,07:31 - 08:00,5 to 12,primary-school,452
+2016,Male,na,07:31 - 08:00,13 to 18,leaving-cert,991
+2016,Male,na,07:31 - 08:00,>=19,university,425
+2016,Male,na,08:01 - 08:30,>=15,junior-cert,5395
+2016,Male,na,08:01 - 08:30,5 to 12,primary-school,1747
+2016,Male,na,08:01 - 08:30,13 to 18,leaving-cert,1776
+2016,Male,na,08:01 - 08:30,>=19,university,584
+2016,Male,na,08:31 - 09:00,>=15,junior-cert,3755
+2016,Male,na,08:31 - 09:00,5 to 12,primary-school,3120
+2016,Male,na,08:31 - 09:00,13 to 18,leaving-cert,1187
+2016,Male,na,08:31 - 09:00,>=19,university,556
+2016,Male,na,09:01 - 09:30,>=15,junior-cert,2204
+2016,Male,na,09:01 - 09:30,5 to 12,primary-school,1070
+2016,Male,na,09:01 - 09:30,13 to 18,leaving-cert,120
+2016,Male,na,09:01 - 09:30,>=19,university,248
+2016,Male,na,After 09:30,>=15,junior-cert,5260
+2016,Male,na,After 09:30,5 to 12,primary-school,33
+2016,Male,na,After 09:30,13 to 18,leaving-cert,43
+2016,Male,na,After 09:30,>=19,university,263
+2016,Female,< ¼ hour,Before 06:30,>=15,junior-cert,8430
+2016,Female,< ¼ hour,Before 06:30,5 to 12,primary-school,43
+2016,Female,< ¼ hour,Before 06:30,13 to 18,leaving-cert,36
+2016,Female,< ¼ hour,Before 06:30,>=19,university,64
+2016,Female,< ¼ hour,06:30 - 07:00,>=15,junior-cert,11818
+2016,Female,< ¼ hour,06:30 - 07:00,5 to 12,primary-school,176
+2016,Female,< ¼ hour,06:30 - 07:00,13 to 18,leaving-cert,60
+2016,Female,< ¼ hour,06:30 - 07:00,>=19,university,185
+2016,Female,< ¼ hour,07:01 - 07:30,>=15,junior-cert,12969
+2016,Female,< ¼ hour,07:01 - 07:30,5 to 12,primary-school,915
+2016,Female,< ¼ hour,07:01 - 07:30,13 to 18,leaving-cert,478
+2016,Female,< ¼ hour,07:01 - 07:30,>=19,university,272
+2016,Female,< ¼ hour,07:31 - 08:00,>=15,junior-cert,28543
+2016,Female,< ¼ hour,07:31 - 08:00,5 to 12,primary-school,3681
+2016,Female,< ¼ hour,07:31 - 08:00,13 to 18,leaving-cert,4330
+2016,Female,< ¼ hour,07:31 - 08:00,>=19,university,823
+2016,Female,< ¼ hour,08:01 - 08:30,>=15,junior-cert,34088
+2016,Female,< ¼ hour,08:01 - 08:30,5 to 12,primary-school,26299
+2016,Female,< ¼ hour,08:01 - 08:30,13 to 18,leaving-cert,25663
+2016,Female,< ¼ hour,08:01 - 08:30,>=19,university,2401
+2016,Female,< ¼ hour,08:31 - 09:00,>=15,junior-cert,58457
+2016,Female,< ¼ hour,08:31 - 09:00,5 to 12,primary-school,93625
+2016,Female,< ¼ hour,08:31 - 09:00,13 to 18,leaving-cert,30680
+2016,Female,< ¼ hour,08:31 - 09:00,>=19,university,9543
+2016,Female,< ¼ hour,09:01 - 09:30,>=15,junior-cert,24478
+2016,Female,< ¼ hour,09:01 - 09:30,5 to 12,primary-school,49250
+2016,Female,< ¼ hour,09:01 - 09:30,13 to 18,leaving-cert,1907
+2016,Female,< ¼ hour,09:01 - 09:30,>=19,university,3223
+2016,Female,< ¼ hour,After 09:30,>=15,junior-cert,37483
+2016,Female,< ¼ hour,After 09:30,5 to 12,primary-school,220
+2016,Female,< ¼ hour,After 09:30,13 to 18,leaving-cert,356
+2016,Female,< ¼ hour,After 09:30,>=19,university,3186
+2016,Female,¼ hour - < ½ hour,Before 06:30,>=15,junior-cert,12198
+2016,Female,¼ hour - < ½ hour,Before 06:30,5 to 12,primary-school,37
+2016,Female,¼ hour - < ½ hour,Before 06:30,13 to 18,leaving-cert,50
+2016,Female,¼ hour - < ½ hour,Before 06:30,>=19,university,127
+2016,Female,¼ hour - < ½ hour,06:30 - 07:00,>=15,junior-cert,18096
+2016,Female,¼ hour - < ½ hour,06:30 - 07:00,5 to 12,primary-school,166
+2016,Female,¼ hour - < ½ hour,06:30 - 07:00,13 to 18,leaving-cert,199
+2016,Female,¼ hour - < ½ hour,06:30 - 07:00,>=19,university,425
+2016,Female,¼ hour - < ½ hour,07:01 - 07:30,>=15,junior-cert,27620
+2016,Female,¼ hour - < ½ hour,07:01 - 07:30,5 to 12,primary-school,781
+2016,Female,¼ hour - < ½ hour,07:01 - 07:30,13 to 18,leaving-cert,1976
+2016,Female,¼ hour - < ½ hour,07:01 - 07:30,>=19,university,846
+2016,Female,¼ hour - < ½ hour,07:31 - 08:00,>=15,junior-cert,43338
+2016,Female,¼ hour - < ½ hour,07:31 - 08:00,5 to 12,primary-school,4227
+2016,Female,¼ hour - < ½ hour,07:31 - 08:00,13 to 18,leaving-cert,15711
+2016,Female,¼ hour - < ½ hour,07:31 - 08:00,>=19,university,2358
+2016,Female,¼ hour - < ½ hour,08:01 - 08:30,>=15,junior-cert,65503
+2016,Female,¼ hour - < ½ hour,08:01 - 08:30,5 to 12,primary-school,23000
+2016,Female,¼ hour - < ½ hour,08:01 - 08:30,13 to 18,leaving-cert,34346
+2016,Female,¼ hour - < ½ hour,08:01 - 08:30,>=19,university,6640
+2016,Female,¼ hour - < ½ hour,08:31 - 09:00,>=15,junior-cert,58010
+2016,Female,¼ hour - < ½ hour,08:31 - 09:00,5 to 12,primary-school,27604
+2016,Female,¼ hour - < ½ hour,08:31 - 09:00,13 to 18,leaving-cert,10914
+2016,Female,¼ hour - < ½ hour,08:31 - 09:00,>=19,university,8857
+2016,Female,¼ hour - < ½ hour,09:01 - 09:30,>=15,junior-cert,21423
+2016,Female,¼ hour - < ½ hour,09:01 - 09:30,5 to 12,primary-school,4368
+2016,Female,¼ hour - < ½ hour,09:01 - 09:30,13 to 18,leaving-cert,574
+2016,Female,¼ hour - < ½ hour,09:01 - 09:30,>=19,university,3232
+2016,Female,¼ hour - < ½ hour,After 09:30,>=15,junior-cert,31447
+2016,Female,¼ hour - < ½ hour,After 09:30,5 to 12,primary-school,57
+2016,Female,¼ hour - < ½ hour,After 09:30,13 to 18,leaving-cert,301
+2016,Female,¼ hour - < ½ hour,After 09:30,>=19,university,3789
+2016,Female,½ hour - < ¾ hour,Before 06:30,>=15,junior-cert,9246
+2016,Female,½ hour - < ¾ hour,Before 06:30,5 to 12,primary-school,20
+2016,Female,½ hour - < ¾ hour,Before 06:30,13 to 18,leaving-cert,45
+2016,Female,½ hour - < ¾ hour,Before 06:30,>=19,university,163
+2016,Female,½ hour - < ¾ hour,06:30 - 07:00,>=15,junior-cert,16520
+2016,Female,½ hour - < ¾ hour,06:30 - 07:00,5 to 12,primary-school,103
+2016,Female,½ hour - < ¾ hour,06:30 - 07:00,13 to 18,leaving-cert,313
+2016,Female,½ hour - < ¾ hour,06:30 - 07:00,>=19,university,640
+2016,Female,½ hour - < ¾ hour,07:01 - 07:30,>=15,junior-cert,26962
+2016,Female,½ hour - < ¾ hour,07:01 - 07:30,5 to 12,primary-school,567
+2016,Female,½ hour - < ¾ hour,07:01 - 07:30,13 to 18,leaving-cert,2818
+2016,Female,½ hour - < ¾ hour,07:01 - 07:30,>=19,university,1476
+2016,Female,½ hour - < ¾ hour,07:31 - 08:00,>=15,junior-cert,36551
+2016,Female,½ hour - < ¾ hour,07:31 - 08:00,5 to 12,primary-school,2364
+2016,Female,½ hour - < ¾ hour,07:31 - 08:00,13 to 18,leaving-cert,12130
+2016,Female,½ hour - < ¾ hour,07:31 - 08:00,>=19,university,3958
+2016,Female,½ hour - < ¾ hour,08:01 - 08:30,>=15,junior-cert,48374
+2016,Female,½ hour - < ¾ hour,08:01 - 08:30,5 to 12,primary-school,5617
+2016,Female,½ hour - < ¾ hour,08:01 - 08:30,13 to 18,leaving-cert,8735
+2016,Female,½ hour - < ¾ hour,08:01 - 08:30,>=19,university,6521
+2016,Female,½ hour - < ¾ hour,08:31 - 09:00,>=15,junior-cert,21412
+2016,Female,½ hour - < ¾ hour,08:31 - 09:00,5 to 12,primary-school,2717
+2016,Female,½ hour - < ¾ hour,08:31 - 09:00,13 to 18,leaving-cert,1186
+2016,Female,½ hour - < ¾ hour,08:31 - 09:00,>=19,university,3504
+2016,Female,½ hour - < ¾ hour,09:01 - 09:30,>=15,junior-cert,8986
+2016,Female,½ hour - < ¾ hour,09:01 - 09:30,5 to 12,primary-school,199
+2016,Female,½ hour - < ¾ hour,09:01 - 09:30,13 to 18,leaving-cert,197
+2016,Female,½ hour - < ¾ hour,09:01 - 09:30,>=19,university,1689
+2016,Female,½ hour - < ¾ hour,After 09:30,>=15,junior-cert,14559
+2016,Female,½ hour - < ¾ hour,After 09:30,5 to 12,primary-school,5
+2016,Female,½ hour - < ¾ hour,After 09:30,13 to 18,leaving-cert,164
+2016,Female,½ hour - < ¾ hour,After 09:30,>=19,university,2259
+2016,Female,¾ hour - < 1 hour,Before 06:30,>=15,junior-cert,4311
+2016,Female,¾ hour - < 1 hour,Before 06:30,5 to 12,primary-school,10
+2016,Female,¾ hour - < 1 hour,Before 06:30,13 to 18,leaving-cert,18
+2016,Female,¾ hour - < 1 hour,Before 06:30,>=19,university,92
+2016,Female,¾ hour - < 1 hour,06:30 - 07:00,>=15,junior-cert,8459
+2016,Female,¾ hour - < 1 hour,06:30 - 07:00,5 to 12,primary-school,56
+2016,Female,¾ hour - < 1 hour,06:30 - 07:00,13 to 18,leaving-cert,165
+2016,Female,¾ hour - < 1 hour,06:30 - 07:00,>=19,university,431
+2016,Female,¾ hour - < 1 hour,07:01 - 07:30,>=15,junior-cert,12479
+2016,Female,¾ hour - < 1 hour,07:01 - 07:30,5 to 12,primary-school,197
+2016,Female,¾ hour - < 1 hour,07:01 - 07:30,13 to 18,leaving-cert,1147
+2016,Female,¾ hour - < 1 hour,07:01 - 07:30,>=19,university,1177
+2016,Female,¾ hour - < 1 hour,07:31 - 08:00,>=15,junior-cert,17289
+2016,Female,¾ hour - < 1 hour,07:31 - 08:00,5 to 12,primary-school,544
+2016,Female,¾ hour - < 1 hour,07:31 - 08:00,13 to 18,leaving-cert,2596
+2016,Female,¾ hour - < 1 hour,07:31 - 08:00,>=19,university,2545
+2016,Female,¾ hour - < 1 hour,08:01 - 08:30,>=15,junior-cert,14514
+2016,Female,¾ hour - < 1 hour,08:01 - 08:30,5 to 12,primary-school,674
+2016,Female,¾ hour - < 1 hour,08:01 - 08:30,13 to 18,leaving-cert,1060
+2016,Female,¾ hour - < 1 hour,08:01 - 08:30,>=19,university,2064
+2016,Female,¾ hour - < 1 hour,08:31 - 09:00,>=15,junior-cert,4439
+2016,Female,¾ hour - < 1 hour,08:31 - 09:00,5 to 12,primary-school,195
+2016,Female,¾ hour - < 1 hour,08:31 - 09:00,13 to 18,leaving-cert,118
+2016,Female,¾ hour - < 1 hour,08:31 - 09:00,>=19,university,869
+2016,Female,¾ hour - < 1 hour,09:01 - 09:30,>=15,junior-cert,1837
+2016,Female,¾ hour - < 1 hour,09:01 - 09:30,5 to 12,primary-school,42
+2016,Female,¾ hour - < 1 hour,09:01 - 09:30,13 to 18,leaving-cert,41
+2016,Female,¾ hour - < 1 hour,09:01 - 09:30,>=19,university,505
+2016,Female,¾ hour - < 1 hour,After 09:30,>=15,junior-cert,3723
+2016,Female,¾ hour - < 1 hour,After 09:30,5 to 12,primary-school,2
+2016,Female,¾ hour - < 1 hour,After 09:30,13 to 18,leaving-cert,59
+2016,Female,¾ hour - < 1 hour,After 09:30,>=19,university,711
+2016,Female,1 hour - < 1½ hours,Before 06:30,>=15,junior-cert,5802
+2016,Female,1 hour - < 1½ hours,Before 06:30,5 to 12,primary-school,25
+2016,Female,1 hour - < 1½ hours,Before 06:30,13 to 18,leaving-cert,40
+2016,Female,1 hour - < 1½ hours,Before 06:30,>=19,university,302
+2016,Female,1 hour - < 1½ hours,06:30 - 07:00,>=15,junior-cert,10552
+2016,Female,1 hour - < 1½ hours,06:30 - 07:00,5 to 12,primary-school,78
+2016,Female,1 hour - < 1½ hours,06:30 - 07:00,13 to 18,leaving-cert,367
+2016,Female,1 hour - < 1½ hours,06:30 - 07:00,>=19,university,1162
+2016,Female,1 hour - < 1½ hours,07:01 - 07:30,>=15,junior-cert,13109
+2016,Female,1 hour - < 1½ hours,07:01 - 07:30,5 to 12,primary-school,187
+2016,Female,1 hour - < 1½ hours,07:01 - 07:30,13 to 18,leaving-cert,1154
+2016,Female,1 hour - < 1½ hours,07:01 - 07:30,>=19,university,2489
+2016,Female,1 hour - < 1½ hours,07:31 - 08:00,>=15,junior-cert,14902
+2016,Female,1 hour - < 1½ hours,07:31 - 08:00,5 to 12,primary-school,399
+2016,Female,1 hour - < 1½ hours,07:31 - 08:00,13 to 18,leaving-cert,1416
+2016,Female,1 hour - < 1½ hours,07:31 - 08:00,>=19,university,3168
+2016,Female,1 hour - < 1½ hours,08:01 - 08:30,>=15,junior-cert,7518
+2016,Female,1 hour - < 1½ hours,08:01 - 08:30,5 to 12,primary-school,305
+2016,Female,1 hour - < 1½ hours,08:01 - 08:30,13 to 18,leaving-cert,497
+2016,Female,1 hour - < 1½ hours,08:01 - 08:30,>=19,university,1858
+2016,Female,1 hour - < 1½ hours,08:31 - 09:00,>=15,junior-cert,2889
+2016,Female,1 hour - < 1½ hours,08:31 - 09:00,5 to 12,primary-school,220
+2016,Female,1 hour - < 1½ hours,08:31 - 09:00,13 to 18,leaving-cert,168
+2016,Female,1 hour - < 1½ hours,08:31 - 09:00,>=19,university,843
+2016,Female,1 hour - < 1½ hours,09:01 - 09:30,>=15,junior-cert,1306
+2016,Female,1 hour - < 1½ hours,09:01 - 09:30,5 to 12,primary-school,58
+2016,Female,1 hour - < 1½ hours,09:01 - 09:30,13 to 18,leaving-cert,35
+2016,Female,1 hour - < 1½ hours,09:01 - 09:30,>=19,university,446
+2016,Female,1 hour - < 1½ hours,After 09:30,>=15,junior-cert,3046
+2016,Female,1 hour - < 1½ hours,After 09:30,5 to 12,primary-school,3
+2016,Female,1 hour - < 1½ hours,After 09:30,13 to 18,leaving-cert,61
+2016,Female,1 hour - < 1½ hours,After 09:30,>=19,university,812
+2016,Female,1½ hours and over,Before 06:30,>=15,junior-cert,3979
+2016,Female,1½ hours and over,Before 06:30,5 to 12,primary-school,8
+2016,Female,1½ hours and over,Before 06:30,13 to 18,leaving-cert,78
+2016,Female,1½ hours and over,Before 06:30,>=19,university,592
+2016,Female,1½ hours and over,06:30 - 07:00,>=15,junior-cert,4432
+2016,Female,1½ hours and over,06:30 - 07:00,5 to 12,primary-school,30
+2016,Female,1½ hours and over,06:30 - 07:00,13 to 18,leaving-cert,244
+2016,Female,1½ hours and over,06:30 - 07:00,>=19,university,1428
+2016,Female,1½ hours and over,07:01 - 07:30,>=15,junior-cert,3761
+2016,Female,1½ hours and over,07:01 - 07:30,5 to 12,primary-school,81
+2016,Female,1½ hours and over,07:01 - 07:30,13 to 18,leaving-cert,325
+2016,Female,1½ hours and over,07:01 - 07:30,>=19,university,1537
+2016,Female,1½ hours and over,07:31 - 08:00,>=15,junior-cert,2355
+2016,Female,1½ hours and over,07:31 - 08:00,5 to 12,primary-school,59
+2016,Female,1½ hours and over,07:31 - 08:00,13 to 18,leaving-cert,198
+2016,Female,1½ hours and over,07:31 - 08:00,>=19,university,980
+2016,Female,1½ hours and over,08:01 - 08:30,>=15,junior-cert,1239
+2016,Female,1½ hours and over,08:01 - 08:30,5 to 12,primary-school,54
+2016,Female,1½ hours and over,08:01 - 08:30,13 to 18,leaving-cert,137
+2016,Female,1½ hours and over,08:01 - 08:30,>=19,university,618
+2016,Female,1½ hours and over,08:31 - 09:00,>=15,junior-cert,555
+2016,Female,1½ hours and over,08:31 - 09:00,5 to 12,primary-school,85
+2016,Female,1½ hours and over,08:31 - 09:00,13 to 18,leaving-cert,47
+2016,Female,1½ hours and over,08:31 - 09:00,>=19,university,393
+2016,Female,1½ hours and over,09:01 - 09:30,>=15,junior-cert,245
+2016,Female,1½ hours and over,09:01 - 09:30,5 to 12,primary-school,26
+2016,Female,1½ hours and over,09:01 - 09:30,13 to 18,leaving-cert,21
+2016,Female,1½ hours and over,09:01 - 09:30,>=19,university,183
+2016,Female,1½ hours and over,After 09:30,>=15,junior-cert,962
+2016,Female,1½ hours and over,After 09:30,5 to 12,primary-school,2
+2016,Female,1½ hours and over,After 09:30,13 to 18,leaving-cert,60
+2016,Female,1½ hours and over,After 09:30,>=19,university,445
+2016,Female,na,Before 06:30,>=15,junior-cert,1170
+2016,Female,na,Before 06:30,5 to 12,primary-school,22
+2016,Female,na,Before 06:30,13 to 18,leaving-cert,23
+2016,Female,na,Before 06:30,>=19,university,48
+2016,Female,na,06:30 - 07:00,>=15,junior-cert,1654
+2016,Female,na,06:30 - 07:00,5 to 12,primary-school,47
+2016,Female,na,06:30 - 07:00,13 to 18,leaving-cert,62
+2016,Female,na,06:30 - 07:00,>=19,university,164
+2016,Female,na,07:01 - 07:30,>=15,junior-cert,1808
+2016,Female,na,07:01 - 07:30,5 to 12,primary-school,122
+2016,Female,na,07:01 - 07:30,13 to 18,leaving-cert,254
+2016,Female,na,07:01 - 07:30,>=19,university,240
+2016,Female,na,07:31 - 08:00,>=15,junior-cert,2559
+2016,Female,na,07:31 - 08:00,5 to 12,primary-school,368
+2016,Female,na,07:31 - 08:00,13 to 18,leaving-cert,902
+2016,Female,na,07:31 - 08:00,>=19,university,365
+2016,Female,na,08:01 - 08:30,>=15,junior-cert,2822
+2016,Female,na,08:01 - 08:30,5 to 12,primary-school,1644
+2016,Female,na,08:01 - 08:30,13 to 18,leaving-cert,1579
+2016,Female,na,08:01 - 08:30,>=19,university,544
+2016,Female,na,08:31 - 09:00,>=15,junior-cert,2283
+2016,Female,na,08:31 - 09:00,5 to 12,primary-school,2870
+2016,Female,na,08:31 - 09:00,13 to 18,leaving-cert,953
+2016,Female,na,08:31 - 09:00,>=19,university,568
+2016,Female,na,09:01 - 09:30,>=15,junior-cert,1385
+2016,Female,na,09:01 - 09:30,5 to 12,primary-school,1036
+2016,Female,na,09:01 - 09:30,13 to 18,leaving-cert,105
+2016,Female,na,09:01 - 09:30,>=19,university,231
+2016,Female,na,After 09:30,>=15,junior-cert,2566
+2016,Female,na,After 09:30,5 to 12,primary-school,22
+2016,Female,na,After 09:30,13 to 18,leaving-cert,27
+2016,Female,na,After 09:30,>=19,university,196

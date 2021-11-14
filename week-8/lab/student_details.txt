@@ -1,0 +1,5 @@
+John Doe has student number D12345665, is enrolled on TU953 and was born on 01/02/1990
+Jane Doe has student number D44563217, is enrolled on TU256 and was born on 02/02/1979
+Lucas Rizzo has student number D12345678, is enrolled on TU256 and was born on 01/01/1960
+Bojan Bozick has student number C87654321, is enrolled on TU44 and was born on 08/08/2002
+Richard Boyd Barrett has student number D77553321, is enrolled on TU953 and was born on 01/03/1988

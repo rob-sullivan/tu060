@@ -1,0 +1,40 @@
+df['census_year'].unique()#we have two groups of census data
+groupedDf = df.groupby(df.census_year)
+df_2011 = groupedDf.get_group(2011)
+df_2016 = groupedDf.get_group(2016)
+df_2016.head()
+df['social_class'].unique()#https://www.cso.ie/en/media/csoie/census/documents/pser_appendix2.pdf
+'''
+1  Professional workers
+2  Managerial and technical
+3  Non-manual
+4  Skilled manual
+5  Semi-skilled
+6  Unskilled
+7  All others gainfully occupied and unknown
+8 All social classes
+'''
+df['means_of_travel'].unique()
+#social classes
+x = df_2016['social_class']
+y = df_2016['value']
+scale_factor = 4.3**10
+fig, ax = plt.subplots()
+plt.xticks(rotation=90)
+ax.set_ylabel("# of people")
+ymin, ymax = plt.ylim()
+plt.ylim(0, ymax * scale_factor)
+ax.bar(x,y)
+plt.tight_layout()
+plt.show()
+x_2 = df_2016['social_class']
+y_2 = df_2016['value']
+
+fig_4 = plt.figure(figsize=(6,4))
+axes_4 = fig_4.add_axes([0, 0, 1, 1])
+axes_4.set_xlabel('Temperature')
+axes_4.set_ylabel('Ice Cream Sales')
+axes_4.set_title('Ice Cream Sales vs Temperature')
+axes_4.plot(x_2, y_2)
+plt.tight_layout()
+plt.bar(x_2, y_2)

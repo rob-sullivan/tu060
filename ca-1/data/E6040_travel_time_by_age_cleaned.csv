@@ -1,0 +1,337 @@
+year,age_group,sex,travelling_time,value
+2011,15 - 19 years,Male,< ¼ hour,2266
+2011,15 - 19 years,Male,¼ hour - < ½ hour,2262
+2011,15 - 19 years,Male,½ hour - < ¾ hour,1301
+2011,15 - 19 years,Male,¾ hour - < 1 hour,328
+2011,15 - 19 years,Male,1 hour - < 1½ hours,357
+2011,15 - 19 years,Male,1½ hours and over,165
+2011,15 - 19 years,Male,Not stated,1022
+2011,15 - 19 years,Female,< ¼ hour,1771
+2011,15 - 19 years,Female,¼ hour - < ½ hour,1873
+2011,15 - 19 years,Female,½ hour - < ¾ hour,935
+2011,15 - 19 years,Female,¾ hour - < 1 hour,218
+2011,15 - 19 years,Female,1 hour - < 1½ hours,234
+2011,15 - 19 years,Female,1½ hours and over,68
+2011,15 - 19 years,Female,Not stated,815
+2011,20 - 24 years,Male,< ¼ hour,14166
+2011,20 - 24 years,Male,¼ hour - < ½ hour,15811
+2011,20 - 24 years,Male,½ hour - < ¾ hour,10429
+2011,20 - 24 years,Male,¾ hour - < 1 hour,3244
+2011,20 - 24 years,Male,1 hour - < 1½ hours,3515
+2011,20 - 24 years,Male,1½ hours and over,1429
+2011,20 - 24 years,Male,Not stated,4095
+2011,20 - 24 years,Female,< ¼ hour,17163
+2011,20 - 24 years,Female,¼ hour - < ½ hour,19967
+2011,20 - 24 years,Female,½ hour - < ¾ hour,11271
+2011,20 - 24 years,Female,¾ hour - < 1 hour,3735
+2011,20 - 24 years,Female,1 hour - < 1½ hours,3127
+2011,20 - 24 years,Female,1½ hours and over,946
+2011,20 - 24 years,Female,Not stated,3171
+2011,25 - 29 years,Male,< ¼ hour,26944
+2011,25 - 29 years,Male,¼ hour - < ½ hour,33354
+2011,25 - 29 years,Male,½ hour - < ¾ hour,23698
+2011,25 - 29 years,Male,¾ hour - < 1 hour,7456
+2011,25 - 29 years,Male,1 hour - < 1½ hours,8129
+2011,25 - 29 years,Male,1½ hours and over,3021
+2011,25 - 29 years,Male,Not stated,7615
+2011,25 - 29 years,Female,< ¼ hour,32865
+2011,25 - 29 years,Female,¼ hour - < ½ hour,42065
+2011,25 - 29 years,Female,½ hour - < ¾ hour,27361
+2011,25 - 29 years,Female,¾ hour - < 1 hour,9833
+2011,25 - 29 years,Female,1 hour - < 1½ hours,8184
+2011,25 - 29 years,Female,1½ hours and over,2332
+2011,25 - 29 years,Female,Not stated,5325
+2011,30 - 34 years,Male,< ¼ hour,31183
+2011,30 - 34 years,Male,¼ hour - < ½ hour,40300
+2011,30 - 34 years,Male,½ hour - < ¾ hour,30747
+2011,30 - 34 years,Male,¾ hour - < 1 hour,11251
+2011,30 - 34 years,Male,1 hour - < 1½ hours,11811
+2011,30 - 34 years,Male,1½ hours and over,4319
+2011,30 - 34 years,Male,Not stated,8394
+2011,30 - 34 years,Female,< ¼ hour,31521
+2011,30 - 34 years,Female,¼ hour - < ½ hour,43883
+2011,30 - 34 years,Female,½ hour - < ¾ hour,31186
+2011,30 - 34 years,Female,¾ hour - < 1 hour,12452
+2011,30 - 34 years,Female,1 hour - < 1½ hours,10228
+2011,30 - 34 years,Female,1½ hours and over,2939
+2011,30 - 34 years,Female,Not stated,5305
+2011,35 - 39 years,Male,< ¼ hour,28069
+2011,35 - 39 years,Male,¼ hour - < ½ hour,36488
+2011,35 - 39 years,Male,½ hour - < ¾ hour,29679
+2011,35 - 39 years,Male,¾ hour - < 1 hour,11141
+2011,35 - 39 years,Male,1 hour - < 1½ hours,11845
+2011,35 - 39 years,Male,1½ hours and over,4666
+2011,35 - 39 years,Male,Not stated,8442
+2011,35 - 39 years,Female,< ¼ hour,27309
+2011,35 - 39 years,Female,¼ hour - < ½ hour,36551
+2011,35 - 39 years,Female,½ hour - < ¾ hour,25942
+2011,35 - 39 years,Female,¾ hour - < 1 hour,9901
+2011,35 - 39 years,Female,1 hour - < 1½ hours,8232
+2011,35 - 39 years,Female,1½ hours and over,2470
+2011,35 - 39 years,Female,Not stated,4865
+2011,40 - 44 years,Male,< ¼ hour,26036
+2011,40 - 44 years,Male,¼ hour - < ½ hour,32669
+2011,40 - 44 years,Male,½ hour - < ¾ hour,25410
+2011,40 - 44 years,Male,¾ hour - < 1 hour,9316
+2011,40 - 44 years,Male,1 hour - < 1½ hours,9824
+2011,40 - 44 years,Male,1½ hours and over,4213
+2011,40 - 44 years,Male,Not stated,8577
+2011,40 - 44 years,Female,< ¼ hour,26381
+2011,40 - 44 years,Female,¼ hour - < ½ hour,32148
+2011,40 - 44 years,Female,½ hour - < ¾ hour,20063
+2011,40 - 44 years,Female,¾ hour - < 1 hour,7200
+2011,40 - 44 years,Female,1 hour - < 1½ hours,5558
+2011,40 - 44 years,Female,1½ hours and over,1716
+2011,40 - 44 years,Female,Not stated,4442
+2011,45 - 49 years,Male,< ¼ hour,24268
+2011,45 - 49 years,Male,¼ hour - < ½ hour,29583
+2011,45 - 49 years,Male,½ hour - < ¾ hour,21880
+2011,45 - 49 years,Male,¾ hour - < 1 hour,7701
+2011,45 - 49 years,Male,1 hour - < 1½ hours,7775
+2011,45 - 49 years,Male,1½ hours and over,3301
+2011,45 - 49 years,Male,Not stated,8200
+2011,45 - 49 years,Female,< ¼ hour,27121
+2011,45 - 49 years,Female,¼ hour - < ½ hour,31268
+2011,45 - 49 years,Female,½ hour - < ¾ hour,17938
+2011,45 - 49 years,Female,¾ hour - < 1 hour,6104
+2011,45 - 49 years,Female,1 hour - < 1½ hours,4273
+2011,45 - 49 years,Female,1½ hours and over,1307
+2011,45 - 49 years,Female,Not stated,3987
+2011,50 - 54 years,Male,< ¼ hour,21566
+2011,50 - 54 years,Male,¼ hour - < ½ hour,25580
+2011,50 - 54 years,Male,½ hour - < ¾ hour,18352
+2011,50 - 54 years,Male,¾ hour - < 1 hour,6086
+2011,50 - 54 years,Male,1 hour - < 1½ hours,5732
+2011,50 - 54 years,Male,1½ hours and over,2228
+2011,50 - 54 years,Male,Not stated,8084
+2011,50 - 54 years,Female,< ¼ hour,23606
+2011,50 - 54 years,Female,¼ hour - < ½ hour,27283
+2011,50 - 54 years,Female,½ hour - < ¾ hour,14772
+2011,50 - 54 years,Female,¾ hour - < 1 hour,4842
+2011,50 - 54 years,Female,1 hour - < 1½ hours,3377
+2011,50 - 54 years,Female,1½ hours and over,943
+2011,50 - 54 years,Female,Not stated,4076
+2011,55 - 59 years,Male,< ¼ hour,17526
+2011,55 - 59 years,Male,¼ hour - < ½ hour,19676
+2011,55 - 59 years,Male,½ hour - < ¾ hour,13698
+2011,55 - 59 years,Male,¾ hour - < 1 hour,4306
+2011,55 - 59 years,Male,1 hour - < 1½ hours,3957
+2011,55 - 59 years,Male,1½ hours and over,1481
+2011,55 - 59 years,Male,Not stated,7506
+2011,55 - 59 years,Female,< ¼ hour,17197
+2011,55 - 59 years,Female,¼ hour - < ½ hour,19704
+2011,55 - 59 years,Female,½ hour - < ¾ hour,10203
+2011,55 - 59 years,Female,¾ hour - < 1 hour,3168
+2011,55 - 59 years,Female,1 hour - < 1½ hours,2169
+2011,55 - 59 years,Female,1½ hours and over,629
+2011,55 - 59 years,Female,Not stated,3976
+2011,60 - 64 years,Male,< ¼ hour,11726
+2011,60 - 64 years,Male,¼ hour - < ½ hour,11885
+2011,60 - 64 years,Male,½ hour - < ¾ hour,8129
+2011,60 - 64 years,Male,¾ hour - < 1 hour,2322
+2011,60 - 64 years,Male,1 hour - < 1½ hours,2275
+2011,60 - 64 years,Male,1½ hours and over,861
+2011,60 - 64 years,Male,Not stated,6821
+2011,60 - 64 years,Female,< ¼ hour,9874
+2011,60 - 64 years,Female,¼ hour - < ½ hour,10481
+2011,60 - 64 years,Female,½ hour - < ¾ hour,5184
+2011,60 - 64 years,Female,¾ hour - < 1 hour,1515
+2011,60 - 64 years,Female,1 hour - < 1½ hours,1013
+2011,60 - 64 years,Female,1½ hours and over,294
+2011,60 - 64 years,Female,Not stated,3929
+2011,65 - 69 years,Male,< ¼ hour,3865
+2011,65 - 69 years,Male,¼ hour - < ½ hour,3027
+2011,65 - 69 years,Male,½ hour - < ¾ hour,2055
+2011,65 - 69 years,Male,¾ hour - < 1 hour,617
+2011,65 - 69 years,Male,1 hour - < 1½ hours,578
+2011,65 - 69 years,Male,1½ hours and over,246
+2011,65 - 69 years,Male,Not stated,3205
+2011,65 - 69 years,Female,< ¼ hour,2461
+2011,65 - 69 years,Female,¼ hour - < ½ hour,2181
+2011,65 - 69 years,Female,½ hour - < ¾ hour,1005
+2011,65 - 69 years,Female,¾ hour - < 1 hour,273
+2011,65 - 69 years,Female,1 hour - < 1½ hours,231
+2011,65 - 69 years,Female,1½ hours and over,93
+2011,65 - 69 years,Female,Not stated,1347
+2011,70 years and over,Male,< ¼ hour,2237
+2011,70 years and over,Male,¼ hour - < ½ hour,1382
+2011,70 years and over,Male,½ hour - < ¾ hour,796
+2011,70 years and over,Male,¾ hour - < 1 hour,207
+2011,70 years and over,Male,1 hour - < 1½ hours,193
+2011,70 years and over,Male,1½ hours and over,79
+2011,70 years and over,Male,Not stated,3918
+2011,70 years and over,Female,< ¼ hour,872
+2011,70 years and over,Female,¼ hour - < ½ hour,707
+2011,70 years and over,Female,½ hour - < ¾ hour,328
+2011,70 years and over,Female,¾ hour - < 1 hour,82
+2011,70 years and over,Female,1 hour - < 1½ hours,84
+2011,70 years and over,Female,1½ hours and over,18
+2011,70 years and over,Female,Not stated,1711
+2016,15 - 19 years,Male,< ¼ hour,2452
+2016,15 - 19 years,Male,¼ hour - < ½ hour,2874
+2016,15 - 19 years,Male,½ hour - < ¾ hour,1819
+2016,15 - 19 years,Male,¾ hour - < 1 hour,507
+2016,15 - 19 years,Male,1 hour - < 1½ hours,732
+2016,15 - 19 years,Male,1½ hours and over,287
+2016,15 - 19 years,Male,Not stated,1852
+2016,15 - 19 years,Female,< ¼ hour,1811
+2016,15 - 19 years,Female,¼ hour - < ½ hour,2111
+2016,15 - 19 years,Female,½ hour - < ¾ hour,1118
+2016,15 - 19 years,Female,¾ hour - < 1 hour,300
+2016,15 - 19 years,Female,1 hour - < 1½ hours,331
+2016,15 - 19 years,Female,1½ hours and over,138
+2016,15 - 19 years,Female,Not stated,1420
+2016,20 - 24 years,Male,< ¼ hour,13311
+2016,20 - 24 years,Male,¼ hour - < ½ hour,17932
+2016,20 - 24 years,Male,½ hour - < ¾ hour,12367
+2016,20 - 24 years,Male,¾ hour - < 1 hour,4154
+2016,20 - 24 years,Male,1 hour - < 1½ hours,4888
+2016,20 - 24 years,Male,1½ hours and over,2041
+2016,20 - 24 years,Male,Not stated,5721
+2016,20 - 24 years,Female,< ¼ hour,13232
+2016,20 - 24 years,Female,¼ hour - < ½ hour,17662
+2016,20 - 24 years,Female,½ hour - < ¾ hour,11372
+2016,20 - 24 years,Female,¾ hour - < 1 hour,3808
+2016,20 - 24 years,Female,1 hour - < 1½ hours,4115
+2016,20 - 24 years,Female,1½ hours and over,1307
+2016,20 - 24 years,Female,Not stated,4377
+2016,25 - 29 years,Male,< ¼ hour,21068
+2016,25 - 29 years,Male,¼ hour - < ½ hour,29402
+2016,25 - 29 years,Male,½ hour - < ¾ hour,22086
+2016,25 - 29 years,Male,¾ hour - < 1 hour,7561
+2016,25 - 29 years,Male,1 hour - < 1½ hours,8537
+2016,25 - 29 years,Male,1½ hours and over,3240
+2016,25 - 29 years,Male,Not stated,11216
+2016,25 - 29 years,Female,< ¼ hour,23301
+2016,25 - 29 years,Female,¼ hour - < ½ hour,32413
+2016,25 - 29 years,Female,½ hour - < ¾ hour,22433
+2016,25 - 29 years,Female,¾ hour - < 1 hour,8163
+2016,25 - 29 years,Female,1 hour - < 1½ hours,7383
+2016,25 - 29 years,Female,1½ hours and over,2262
+2016,25 - 29 years,Female,Not stated,7872
+2016,30 - 34 years,Male,< ¼ hour,28180
+2016,30 - 34 years,Male,¼ hour - < ½ hour,37940
+2016,30 - 34 years,Male,½ hour - < ¾ hour,30342
+2016,30 - 34 years,Male,¾ hour - < 1 hour,10743
+2016,30 - 34 years,Male,1 hour - < 1½ hours,12846
+2016,30 - 34 years,Male,1½ hours and over,4711
+2016,30 - 34 years,Male,Not stated,11001
+2016,30 - 34 years,Female,< ¼ hour,30453
+2016,30 - 34 years,Female,¼ hour - < ½ hour,41923
+2016,30 - 34 years,Female,½ hour - < ¾ hour,30261
+2016,30 - 34 years,Female,¾ hour - < 1 hour,11743
+2016,30 - 34 years,Female,1 hour - < 1½ hours,10500
+2016,30 - 34 years,Female,1½ hours and over,2883
+2016,30 - 34 years,Female,Not stated,7334
+2016,35 - 39 years,Male,< ¼ hour,30472
+2016,35 - 39 years,Male,¼ hour - < ½ hour,41180
+2016,35 - 39 years,Male,½ hour - < ¾ hour,34578
+2016,35 - 39 years,Male,¾ hour - < 1 hour,13287
+2016,35 - 39 years,Male,1 hour - < 1½ hours,15392
+2016,35 - 39 years,Male,1½ hours and over,5948
+2016,35 - 39 years,Male,Not stated,12188
+2016,35 - 39 years,Female,< ¼ hour,30427
+2016,35 - 39 years,Female,¼ hour - < ½ hour,41900
+2016,35 - 39 years,Female,½ hour - < ¾ hour,31505
+2016,35 - 39 years,Female,¾ hour - < 1 hour,12474
+2016,35 - 39 years,Female,1 hour - < 1½ hours,11342
+2016,35 - 39 years,Female,1½ hours and over,3214
+2016,35 - 39 years,Female,Not stated,7564
+2016,40 - 44 years,Male,< ¼ hour,27457
+2016,40 - 44 years,Male,¼ hour - < ½ hour,36630
+2016,40 - 44 years,Male,½ hour - < ¾ hour,31360
+2016,40 - 44 years,Male,¾ hour - < 1 hour,12025
+2016,40 - 44 years,Male,1 hour - < 1½ hours,14147
+2016,40 - 44 years,Male,1½ hours and over,6070
+2016,40 - 44 years,Male,Not stated,10504
+2016,40 - 44 years,Female,< ¼ hour,27884
+2016,40 - 44 years,Female,¼ hour - < ½ hour,37173
+2016,40 - 44 years,Female,½ hour - < ¾ hour,26001
+2016,40 - 44 years,Female,¾ hour - < 1 hour,9834
+2016,40 - 44 years,Female,1 hour - < 1½ hours,8949
+2016,40 - 44 years,Female,1½ hours and over,2662
+2016,40 - 44 years,Female,Not stated,5959
+2016,45 - 49 years,Male,< ¼ hour,25064
+2016,45 - 49 years,Male,¼ hour - < ½ hour,32473
+2016,45 - 49 years,Male,½ hour - < ¾ hour,26367
+2016,45 - 49 years,Male,¾ hour - < 1 hour,9784
+2016,45 - 49 years,Male,1 hour - < 1½ hours,11610
+2016,45 - 49 years,Male,1½ hours and over,4915
+2016,45 - 49 years,Male,Not stated,10547
+2016,45 - 49 years,Female,< ¼ hour,27251
+2016,45 - 49 years,Female,¼ hour - < ½ hour,33149
+2016,45 - 49 years,Female,½ hour - < ¾ hour,20870
+2016,45 - 49 years,Female,¾ hour - < 1 hour,7591
+2016,45 - 49 years,Female,1 hour - < 1½ hours,6333
+2016,45 - 49 years,Female,1½ hours and over,2011
+2016,45 - 49 years,Female,Not stated,5749
+2016,50 - 54 years,Male,< ¼ hour,23104
+2016,50 - 54 years,Male,¼ hour - < ½ hour,28407
+2016,50 - 54 years,Male,½ hour - < ¾ hour,21898
+2016,50 - 54 years,Male,¾ hour - < 1 hour,7899
+2016,50 - 54 years,Male,1 hour - < 1½ hours,8824
+2016,50 - 54 years,Male,1½ hours and over,3668
+2016,50 - 54 years,Male,Not stated,9559
+2016,50 - 54 years,Female,< ¼ hour,26075
+2016,50 - 54 years,Female,¼ hour - < ½ hour,30910
+2016,50 - 54 years,Female,½ hour - < ¾ hour,17661
+2016,50 - 54 years,Female,¾ hour - < 1 hour,6109
+2016,50 - 54 years,Female,1 hour - < 1½ hours,4947
+2016,50 - 54 years,Female,1½ hours and over,1497
+2016,50 - 54 years,Female,Not stated,5157
+2016,55 - 59 years,Male,< ¼ hour,19557
+2016,55 - 59 years,Male,¼ hour - < ½ hour,23087
+2016,55 - 59 years,Male,½ hour - < ¾ hour,17039
+2016,55 - 59 years,Male,¾ hour - < 1 hour,5705
+2016,55 - 59 years,Male,1 hour - < 1½ hours,5994
+2016,55 - 59 years,Male,1½ hours and over,2409
+2016,55 - 59 years,Male,Not stated,9342
+2016,55 - 59 years,Female,< ¼ hour,20720
+2016,55 - 59 years,Female,¼ hour - < ½ hour,24264
+2016,55 - 59 years,Female,½ hour - < ¾ hour,13286
+2016,55 - 59 years,Female,¾ hour - < 1 hour,4455
+2016,55 - 59 years,Female,1 hour - < 1½ hours,3332
+2016,55 - 59 years,Female,1½ hours and over,926
+2016,55 - 59 years,Female,Not stated,5272
+2016,60 - 64 years,Male,< ¼ hour,13659
+2016,60 - 64 years,Male,¼ hour - < ½ hour,14673
+2016,60 - 64 years,Male,½ hour - < ¾ hour,10431
+2016,60 - 64 years,Male,¾ hour - < 1 hour,3172
+2016,60 - 64 years,Male,1 hour - < 1½ hours,3483
+2016,60 - 64 years,Male,1½ hours and over,1332
+2016,60 - 64 years,Male,Not stated,7969
+2016,60 - 64 years,Female,< ¼ hour,12148
+2016,60 - 64 years,Female,¼ hour - < ½ hour,13961
+2016,60 - 64 years,Female,½ hour - < ¾ hour,7099
+2016,60 - 64 years,Female,¾ hour - < 1 hour,2247
+2016,60 - 64 years,Female,1 hour - < 1½ hours,1695
+2016,60 - 64 years,Female,1½ hours and over,577
+2016,60 - 64 years,Female,Not stated,4599
+2016,65 - 69 years,Male,< ¼ hour,5129
+2016,65 - 69 years,Male,¼ hour - < ½ hour,4364
+2016,65 - 69 years,Male,½ hour - < ¾ hour,2976
+2016,65 - 69 years,Male,¾ hour - < 1 hour,829
+2016,65 - 69 years,Male,1 hour - < 1½ hours,933
+2016,65 - 69 years,Male,1½ hours and over,377
+2016,65 - 69 years,Male,Not stated,3683
+2016,65 - 69 years,Female,< ¼ hour,3332
+2016,65 - 69 years,Female,¼ hour - < ½ hour,2945
+2016,65 - 69 years,Female,½ hour - < ¾ hour,1532
+2016,65 - 69 years,Female,¾ hour - < 1 hour,436
+2016,65 - 69 years,Female,1 hour - < 1½ hours,320
+2016,65 - 69 years,Female,1½ hours and over,110
+2016,65 - 69 years,Female,Not stated,1506
+2016,70 years and over,Male,< ¼ hour,2930
+2016,70 years and over,Male,¼ hour - < ½ hour,1950
+2016,70 years and over,Male,½ hour - < ¾ hour,1373
+2016,70 years and over,Male,¾ hour - < 1 hour,369
+2016,70 years and over,Male,1 hour - < 1½ hours,365
+2016,70 years and over,Male,1½ hours and over,165
+2016,70 years and over,Male,Not stated,3495
+2016,70 years and over,Female,< ¼ hour,1204
+2016,70 years and over,Female,¼ hour - < ½ hour,934
+2016,70 years and over,Female,½ hour - < ¾ hour,478
+2016,70 years and over,Female,¾ hour - < 1 hour,156
+2016,70 years and over,Female,1 hour - < 1½ hours,126
+2016,70 years and over,Female,1½ hours and over,48
+2016,70 years and over,Female,Not stated,1884
