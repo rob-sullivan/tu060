@@ -1,0 +1,769 @@
+year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
+2011,Male,0.125,6.15,15-66,working,17173
+2011,Male,0.125,6.15,5-12,at primary school,44
+2011,Male,0.125,6.15,13-18,at secondary school,32
+2011,Male,0.125,6.15,19-66,at university,92
+2011,Male,0.125,6.45,15-66,working,17552
+2011,Male,0.125,6.45,5-12,at primary school,73
+2011,Male,0.125,6.45,13-18,at secondary school,42
+2011,Male,0.125,6.45,19-66,at university,126
+2011,Male,0.125,7.15,15-66,working,17548
+2011,Male,0.125,7.15,5-12,at primary school,418
+2011,Male,0.125,7.15,13-18,at secondary school,345
+2011,Male,0.125,7.15,19-66,at university,199
+2011,Male,0.125,7.45,15-66,working,39434
+2011,Male,0.125,7.45,5-12,at primary school,2097
+2011,Male,0.125,7.45,13-18,at secondary school,2911
+2011,Male,0.125,7.45,19-66,at university,583
+2011,Male,0.125,8.15,15-66,working,31140
+2011,Male,0.125,8.15,5-12,at primary school,19803
+2011,Male,0.125,8.15,13-18,at secondary school,19321
+2011,Male,0.125,8.15,19-66,at university,2160
+2011,Male,0.125,8.45,15-66,working,38798
+2011,Male,0.125,8.45,5-12,at primary school,89747
+2011,Male,0.125,8.45,13-18,at secondary school,35553
+2011,Male,0.125,8.45,19-66,at university,9543
+2011,Male,0.125,9.15,15-66,working,15323
+2011,Male,0.125,9.15,5-12,at primary school,55601
+2011,Male,0.125,9.15,13-18,at secondary school,2881
+2011,Male,0.125,9.15,19-66,at university,3612
+2011,Male,0.125,9.45,15-66,working,30884
+2011,Male,0.125,9.45,5-12,at primary school,314
+2011,Male,0.125,9.45,13-18,at secondary school,541
+2011,Male,0.125,9.45,19-66,at university,4358
+2011,Male,0.275,6.15,15-66,working,23187
+2011,Male,0.275,6.15,5-12,at primary school,28
+2011,Male,0.275,6.15,13-18,at secondary school,36
+2011,Male,0.275,6.15,19-66,at university,125
+2011,Male,0.275,6.45,15-66,working,22740
+2011,Male,0.275,6.45,5-12,at primary school,108
+2011,Male,0.275,6.45,13-18,at secondary school,114
+2011,Male,0.275,6.45,19-66,at university,247
+2011,Male,0.275,7.15,15-66,working,32004
+2011,Male,0.275,7.15,5-12,at primary school,486
+2011,Male,0.275,7.15,13-18,at secondary school,1372
+2011,Male,0.275,7.15,19-66,at university,548
+2011,Male,0.275,7.45,15-66,working,49088
+2011,Male,0.275,7.45,5-12,at primary school,3220
+2011,Male,0.275,7.45,13-18,at secondary school,12176
+2011,Male,0.275,7.45,19-66,at university,1814
+2011,Male,0.275,8.15,15-66,working,45753
+2011,Male,0.275,8.15,5-12,at primary school,20452
+2011,Male,0.275,8.15,13-18,at secondary school,31491
+2011,Male,0.275,8.15,19-66,at university,5849
+2011,Male,0.275,8.45,15-66,working,37122
+2011,Male,0.275,8.45,5-12,at primary school,28787
+2011,Male,0.275,8.45,13-18,at secondary school,14646
+2011,Male,0.275,8.45,19-66,at university,9078
+2011,Male,0.275,9.15,15-66,working,13318
+2011,Male,0.275,9.15,5-12,at primary school,5827
+2011,Male,0.275,9.15,13-18,at secondary school,881
+2011,Male,0.275,9.15,19-66,at university,3433
+2011,Male,0.275,9.45,15-66,working,26989
+2011,Male,0.275,9.45,5-12,at primary school,89
+2011,Male,0.275,9.45,13-18,at secondary school,350
+2011,Male,0.275,9.45,19-66,at university,5022
+2011,Male,0.375,6.15,15-66,working,17296
+2011,Male,0.375,6.15,5-12,at primary school,16
+2011,Male,0.375,6.15,13-18,at secondary school,27
+2011,Male,0.375,6.15,19-66,at university,138
+2011,Male,0.375,6.45,15-66,working,21379
+2011,Male,0.375,6.45,5-12,at primary school,89
+2011,Male,0.375,6.45,13-18,at secondary school,230
+2011,Male,0.375,6.45,19-66,at university,338
+2011,Male,0.375,7.15,15-66,working,34242
+2011,Male,0.375,7.15,5-12,at primary school,468
+2011,Male,0.375,7.15,13-18,at secondary school,2083
+2011,Male,0.375,7.15,19-66,at university,1086
+2011,Male,0.375,7.45,15-66,working,36404
+2011,Male,0.375,7.45,5-12,at primary school,2197
+2011,Male,0.375,7.45,13-18,at secondary school,10689
+2011,Male,0.375,7.45,19-66,at university,3281
+2011,Male,0.375,8.15,15-66,working,35936
+2011,Male,0.375,8.15,5-12,at primary school,5528
+2011,Male,0.375,8.15,13-18,at secondary school,9380
+2011,Male,0.375,8.15,19-66,at university,6038
+2011,Male,0.375,8.45,15-66,working,16779
+2011,Male,0.375,8.45,5-12,at primary school,3314
+2011,Male,0.375,8.45,13-18,at secondary school,1556
+2011,Male,0.375,8.45,19-66,at university,3386
+2011,Male,0.375,9.15,15-66,working,7447
+2011,Male,0.375,9.15,5-12,at primary school,359
+2011,Male,0.375,9.15,13-18,at secondary school,204
+2011,Male,0.375,9.15,19-66,at university,1821
+2011,Male,0.375,9.45,15-66,working,15429
+2011,Male,0.375,9.45,5-12,at primary school,18
+2011,Male,0.375,9.45,13-18,at secondary school,185
+2011,Male,0.375,9.45,19-66,at university,2823
+2011,Male,0.525,6.15,15-66,working,7050
+2011,Male,0.525,6.15,5-12,at primary school,7
+2011,Male,0.525,6.15,13-18,at secondary school,14
+2011,Male,0.525,6.15,19-66,at university,48
+2011,Male,0.525,6.45,15-66,working,10208
+2011,Male,0.525,6.45,5-12,at primary school,27
+2011,Male,0.525,6.45,13-18,at secondary school,136
+2011,Male,0.525,6.45,19-66,at university,242
+2011,Male,0.525,7.15,15-66,working,12430
+2011,Male,0.525,7.15,5-12,at primary school,168
+2011,Male,0.525,7.15,13-18,at secondary school,995
+2011,Male,0.525,7.15,19-66,at university,837
+2011,Male,0.525,7.45,15-66,working,13659
+2011,Male,0.525,7.45,5-12,at primary school,605
+2011,Male,0.525,7.45,13-18,at secondary school,2544
+2011,Male,0.525,7.45,19-66,at university,2229
+2011,Male,0.525,8.15,15-66,working,10425
+2011,Male,0.525,8.15,5-12,at primary school,728
+2011,Male,0.525,8.15,13-18,at secondary school,1166
+2011,Male,0.525,8.15,19-66,at university,2087
+2011,Male,0.525,8.45,15-66,working,3823
+2011,Male,0.525,8.45,5-12,at primary school,266
+2011,Male,0.525,8.45,13-18,at secondary school,158
+2011,Male,0.525,8.45,19-66,at university,833
+2011,Male,0.525,9.15,15-66,working,1763
+2011,Male,0.525,9.15,5-12,at primary school,67
+2011,Male,0.525,9.15,13-18,at secondary school,45
+2011,Male,0.525,9.15,19-66,at university,541
+2011,Male,0.525,9.45,15-66,working,4248
+2011,Male,0.525,9.45,5-12,at primary school,3
+2011,Male,0.525,9.45,13-18,at secondary school,67
+2011,Male,0.525,9.45,19-66,at university,836
+2011,Male,1.25,6.15,15-66,working,9601
+2011,Male,1.25,6.15,5-12,at primary school,10
+2011,Male,1.25,6.15,13-18,at secondary school,28
+2011,Male,1.25,6.15,19-66,at university,131
+2011,Male,1.25,6.45,15-66,working,15047
+2011,Male,1.25,6.45,5-12,at primary school,45
+2011,Male,1.25,6.45,13-18,at secondary school,227
+2011,Male,1.25,6.45,19-66,at university,642
+2011,Male,1.25,7.15,15-66,working,12613
+2011,Male,1.25,7.15,5-12,at primary school,191
+2011,Male,1.25,7.15,13-18,at secondary school,1027
+2011,Male,1.25,7.15,19-66,at university,1795
+2011,Male,1.25,7.45,15-66,working,12988
+2011,Male,1.25,7.45,5-12,at primary school,437
+2011,Male,1.25,7.45,13-18,at secondary school,1399
+2011,Male,1.25,7.45,19-66,at university,2657
+2011,Male,1.25,8.15,15-66,working,6999
+2011,Male,1.25,8.15,5-12,at primary school,369
+2011,Male,1.25,8.15,13-18,at secondary school,539
+2011,Male,1.25,8.15,19-66,at university,1620
+2011,Male,1.25,8.45,15-66,working,2953
+2011,Male,1.25,8.45,5-12,at primary school,187
+2011,Male,1.25,8.45,13-18,at secondary school,152
+2011,Male,1.25,8.45,19-66,at university,818
+2011,Male,1.25,9.15,15-66,working,1435
+2011,Male,1.25,9.15,5-12,at primary school,41
+2011,Male,1.25,9.15,13-18,at secondary school,66
+2011,Male,1.25,9.15,19-66,at university,466
+2011,Male,1.25,9.45,15-66,working,3977
+2011,Male,1.25,9.45,5-12,at primary school,5
+2011,Male,1.25,9.45,13-18,at secondary school,69
+2011,Male,1.25,9.45,19-66,at university,870
+2011,Male,1.3,6.15,15-66,working,8642
+2011,Male,1.3,6.15,5-12,at primary school,8
+2011,Male,1.3,6.15,13-18,at secondary school,50
+2011,Male,1.3,6.15,19-66,at university,289
+2011,Male,1.3,6.45,15-66,working,6498
+2011,Male,1.3,6.45,5-12,at primary school,23
+2011,Male,1.3,6.45,13-18,at secondary school,163
+2011,Male,1.3,6.45,19-66,at university,830
+2011,Male,1.3,7.15,15-66,working,4002
+2011,Male,1.3,7.15,5-12,at primary school,63
+2011,Male,1.3,7.15,13-18,at secondary school,271
+2011,Male,1.3,7.15,19-66,at university,970
+2011,Male,1.3,7.45,15-66,working,2545
+2011,Male,1.3,7.45,5-12,at primary school,80
+2011,Male,1.3,7.45,13-18,at secondary school,211
+2011,Male,1.3,7.45,19-66,at university,657
+2011,Male,1.3,8.15,15-66,working,1434
+2011,Male,1.3,8.15,5-12,at primary school,91
+2011,Male,1.3,8.15,13-18,at secondary school,111
+2011,Male,1.3,8.15,19-66,at university,390
+2011,Male,1.3,8.45,15-66,working,747
+2011,Male,1.3,8.45,5-12,at primary school,75
+2011,Male,1.3,8.45,13-18,at secondary school,62
+2011,Male,1.3,8.45,19-66,at university,260
+2011,Male,1.3,9.15,15-66,working,382
+2011,Male,1.3,9.15,5-12,at primary school,39
+2011,Male,1.3,9.15,13-18,at secondary school,27
+2011,Male,1.3,9.15,19-66,at university,133
+2011,Male,1.3,9.45,15-66,working,1582
+2011,Male,1.3,9.45,5-12,at primary school,3
+2011,Male,1.3,9.45,13-18,at secondary school,55
+2011,Male,1.3,9.45,19-66,at university,355
+2011,Female,0.125,6.15,15-66,working,6419
+2011,Female,0.125,6.15,5-12,at primary school,45
+2011,Female,0.125,6.15,13-18,at secondary school,29
+2011,Female,0.125,6.15,19-66,at university,55
+2011,Female,0.125,6.45,15-66,working,10245
+2011,Female,0.125,6.45,5-12,at primary school,70
+2011,Female,0.125,6.45,13-18,at secondary school,26
+2011,Female,0.125,6.45,19-66,at university,146
+2011,Female,0.125,7.15,15-66,working,12308
+2011,Female,0.125,7.15,5-12,at primary school,411
+2011,Female,0.125,7.15,13-18,at secondary school,241
+2011,Female,0.125,7.15,19-66,at university,266
+2011,Female,0.125,7.45,15-66,working,27013
+2011,Female,0.125,7.45,5-12,at primary school,2022
+2011,Female,0.125,7.45,13-18,at secondary school,2866
+2011,Female,0.125,7.45,19-66,at university,656
+2011,Female,0.125,8.15,15-66,working,30061
+2011,Female,0.125,8.15,5-12,at primary school,19252
+2011,Female,0.125,8.15,13-18,at secondary school,20742
+2011,Female,0.125,8.15,19-66,at university,2200
+2011,Female,0.125,8.45,15-66,working,61049
+2011,Female,0.125,8.45,5-12,at primary school,85179
+2011,Female,0.125,8.45,13-18,at secondary school,32035
+2011,Female,0.125,8.45,19-66,at university,10426
+2011,Female,0.125,9.15,15-66,working,29152
+2011,Female,0.125,9.15,5-12,at primary school,53066
+2011,Female,0.125,9.15,13-18,at secondary school,2337
+2011,Female,0.125,9.15,19-66,at university,4268
+2011,Female,0.125,9.45,15-66,working,40342
+2011,Female,0.125,9.45,5-12,at primary school,258
+2011,Female,0.125,9.45,13-18,at secondary school,536
+2011,Female,0.125,9.45,19-66,at university,4201
+2011,Female,0.275,6.15,15-66,working,8862
+2011,Female,0.275,6.15,5-12,at primary school,13
+2011,Female,0.275,6.15,13-18,at secondary school,38
+2011,Female,0.275,6.15,19-66,at university,137
+2011,Female,0.275,6.45,15-66,working,14695
+2011,Female,0.275,6.45,5-12,at primary school,119
+2011,Female,0.275,6.45,13-18,at secondary school,130
+2011,Female,0.275,6.45,19-66,at university,373
+2011,Female,0.275,7.15,15-66,working,24880
+2011,Female,0.275,7.15,5-12,at primary school,491
+2011,Female,0.275,7.15,13-18,at secondary school,1282
+2011,Female,0.275,7.15,19-66,at university,658
+2011,Female,0.275,7.45,15-66,working,38213
+2011,Female,0.275,7.45,5-12,at primary school,3078
+2011,Female,0.275,7.45,13-18,at secondary school,12813
+2011,Female,0.275,7.45,19-66,at university,2027
+2011,Female,0.275,8.15,15-66,working,60370
+2011,Female,0.275,8.15,5-12,at primary school,19832
+2011,Female,0.275,8.15,13-18,at secondary school,32130
+2011,Female,0.275,8.15,19-66,at university,6705
+2011,Female,0.275,8.45,15-66,working,62509
+2011,Female,0.275,8.45,5-12,at primary school,28020
+2011,Female,0.275,8.45,13-18,at secondary school,12507
+2011,Female,0.275,8.45,19-66,at university,9902
+2011,Female,0.275,9.15,15-66,working,24511
+2011,Female,0.275,9.15,5-12,at primary school,5471
+2011,Female,0.275,9.15,13-18,at secondary school,794
+2011,Female,0.275,9.15,19-66,at university,3823
+2011,Female,0.275,9.45,15-66,working,32603
+2011,Female,0.275,9.45,5-12,at primary school,68
+2011,Female,0.275,9.45,13-18,at secondary school,427
+2011,Female,0.275,9.45,19-66,at university,4530
+2011,Female,0.375,6.15,15-66,working,6717
+2011,Female,0.375,6.15,5-12,at primary school,8
+2011,Female,0.375,6.15,13-18,at secondary school,22
+2011,Female,0.375,6.15,19-66,at university,129
+2011,Female,0.375,6.45,15-66,working,12698
+2011,Female,0.375,6.45,5-12,at primary school,100
+2011,Female,0.375,6.45,13-18,at secondary school,232
+2011,Female,0.375,6.45,19-66,at university,491
+2011,Female,0.375,7.15,15-66,working,22363
+2011,Female,0.375,7.15,5-12,at primary school,430
+2011,Female,0.375,7.15,13-18,at secondary school,2009
+2011,Female,0.375,7.15,19-66,at university,1185
+2011,Female,0.375,7.45,15-66,working,31110
+2011,Female,0.375,7.45,5-12,at primary school,2031
+2011,Female,0.375,7.45,13-18,at secondary school,10579
+2011,Female,0.375,7.45,19-66,at university,3622
+2011,Female,0.375,8.15,15-66,working,46160
+2011,Female,0.375,8.15,5-12,at primary school,5321
+2011,Female,0.375,8.15,13-18,at secondary school,9364
+2011,Female,0.375,8.15,19-66,at university,6547
+2011,Female,0.375,8.45,15-66,working,23058
+2011,Female,0.375,8.45,5-12,at primary school,2910
+2011,Female,0.375,8.45,13-18,at secondary school,1352
+2011,Female,0.375,8.45,19-66,at university,3810
+2011,Female,0.375,9.15,15-66,working,9325
+2011,Female,0.375,9.15,5-12,at primary school,279
+2011,Female,0.375,9.15,13-18,at secondary school,222
+2011,Female,0.375,9.15,19-66,at university,1943
+2011,Female,0.375,9.45,15-66,working,13950
+2011,Female,0.375,9.45,5-12,at primary school,18
+2011,Female,0.375,9.45,13-18,at secondary school,193
+2011,Female,0.375,9.45,19-66,at university,2350
+2011,Female,0.525,6.15,15-66,working,2930
+2011,Female,0.525,6.15,5-12,at primary school,7
+2011,Female,0.525,6.15,13-18,at secondary school,9
+2011,Female,0.525,6.15,19-66,at university,101
+2011,Female,0.525,6.45,15-66,working,6437
+2011,Female,0.525,6.45,5-12,at primary school,21
+2011,Female,0.525,6.45,13-18,at secondary school,103
+2011,Female,0.525,6.45,19-66,at university,323
+2011,Female,0.525,7.15,15-66,working,9863
+2011,Female,0.525,7.15,5-12,at primary school,146
+2011,Female,0.525,7.15,13-18,at secondary school,844
+2011,Female,0.525,7.15,19-66,at university,956
+2011,Female,0.525,7.45,15-66,working,15159
+2011,Female,0.525,7.45,5-12,at primary school,553
+2011,Female,0.525,7.45,13-18,at secondary school,2571
+2011,Female,0.525,7.45,19-66,at university,2300
+2011,Female,0.525,8.15,15-66,working,14181
+2011,Female,0.525,8.15,5-12,at primary school,602
+2011,Female,0.525,8.15,13-18,at secondary school,1161
+2011,Female,0.525,8.15,19-66,at university,2299
+2011,Female,0.525,8.45,15-66,working,4931
+2011,Female,0.525,8.45,5-12,at primary school,228
+2011,Female,0.525,8.45,13-18,at secondary school,157
+2011,Female,0.525,8.45,19-66,at university,925
+2011,Female,0.525,9.15,15-66,working,1995
+2011,Female,0.525,9.15,5-12,at primary school,51
+2011,Female,0.525,9.15,13-18,at secondary school,56
+2011,Female,0.525,9.15,19-66,at university,577
+2011,Female,0.525,9.45,15-66,working,3565
+2011,Female,0.525,9.45,5-12,at primary school,2
+2011,Female,0.525,9.45,13-18,at secondary school,64
+2011,Female,0.525,9.45,19-66,at university,762
+2011,Female,1.25,6.15,15-66,working,3887
+2011,Female,1.25,6.15,5-12,at primary school,13
+2011,Female,1.25,6.15,13-18,at secondary school,28
+2011,Female,1.25,6.15,19-66,at university,168
+2011,Female,1.25,6.45,15-66,working,7045
+2011,Female,1.25,6.45,5-12,at primary school,33
+2011,Female,1.25,6.45,13-18,at secondary school,213
+2011,Female,1.25,6.45,19-66,at university,798
+2011,Female,1.25,7.15,15-66,working,9556
+2011,Female,1.25,7.15,5-12,at primary school,155
+2011,Female,1.25,7.15,13-18,at secondary school,948
+2011,Female,1.25,7.15,19-66,at university,1902
+2011,Female,1.25,7.45,15-66,working,12758
+2011,Female,1.25,7.45,5-12,at primary school,343
+2011,Female,1.25,7.45,13-18,at secondary school,1389
+2011,Female,1.25,7.45,19-66,at university,2806
+2011,Female,1.25,8.15,15-66,working,6825
+2011,Female,1.25,8.15,5-12,at primary school,252
+2011,Female,1.25,8.15,13-18,at secondary school,484
+2011,Female,1.25,8.15,19-66,at university,1817
+2011,Female,1.25,8.45,15-66,working,2626
+2011,Female,1.25,8.45,5-12,at primary school,147
+2011,Female,1.25,8.45,13-18,at secondary school,131
+2011,Female,1.25,8.45,19-66,at university,853
+2011,Female,1.25,9.15,15-66,working,1050
+2011,Female,1.25,9.15,5-12,at primary school,48
+2011,Female,1.25,9.15,13-18,at secondary school,49
+2011,Female,1.25,9.15,19-66,at university,486
+2011,Female,1.25,9.45,15-66,working,2744
+2011,Female,1.25,9.45,5-12,at primary school,2
+2011,Female,1.25,9.45,13-18,at secondary school,57
+2011,Female,1.25,9.45,19-66,at university,797
+2011,Female,1.3,6.15,15-66,working,2756
+2011,Female,1.3,6.15,5-12,at primary school,10
+2011,Female,1.3,6.15,13-18,at secondary school,49
+2011,Female,1.3,6.15,19-66,at university,327
+2011,Female,1.3,6.45,15-66,working,3217
+2011,Female,1.3,6.45,5-12,at primary school,15
+2011,Female,1.3,6.45,13-18,at secondary school,179
+2011,Female,1.3,6.45,19-66,at university,916
+2011,Female,1.3,7.15,15-66,working,2978
+2011,Female,1.3,7.15,5-12,at primary school,37
+2011,Female,1.3,7.15,13-18,at secondary school,291
+2011,Female,1.3,7.15,19-66,at university,1095
+2011,Female,1.3,7.45,15-66,working,2047
+2011,Female,1.3,7.45,5-12,at primary school,44
+2011,Female,1.3,7.45,13-18,at secondary school,217
+2011,Female,1.3,7.45,19-66,at university,796
+2011,Female,1.3,8.15,15-66,working,1001
+2011,Female,1.3,8.15,5-12,at primary school,75
+2011,Female,1.3,8.15,13-18,at secondary school,123
+2011,Female,1.3,8.15,19-66,at university,500
+2011,Female,1.3,8.45,15-66,working,535
+2011,Female,1.3,8.45,5-12,at primary school,80
+2011,Female,1.3,8.45,13-18,at secondary school,75
+2011,Female,1.3,8.45,19-66,at university,338
+2011,Female,1.3,9.15,15-66,working,259
+2011,Female,1.3,9.15,5-12,at primary school,43
+2011,Female,1.3,9.15,13-18,at secondary school,34
+2011,Female,1.3,9.15,19-66,at university,166
+2011,Female,1.3,9.45,15-66,working,873
+2011,Female,1.3,9.45,5-12,at primary school,0
+2011,Female,1.3,9.45,13-18,at secondary school,56
+2011,Female,1.3,9.45,19-66,at university,464
+2016,Male,0.125,6.15,15-66,working,20795
+2016,Male,0.125,6.15,5-12,at primary school,59
+2016,Male,0.125,6.15,13-18,at secondary school,47
+2016,Male,0.125,6.15,19-66,at university,82
+2016,Male,0.125,6.45,15-66,working,20535
+2016,Male,0.125,6.45,5-12,at primary school,158
+2016,Male,0.125,6.45,13-18,at secondary school,73
+2016,Male,0.125,6.45,19-66,at university,188
+2016,Male,0.125,7.15,15-66,working,18234
+2016,Male,0.125,7.15,5-12,at primary school,855
+2016,Male,0.125,7.15,13-18,at secondary school,475
+2016,Male,0.125,7.15,19-66,at university,233
+2016,Male,0.125,7.45,15-66,working,39241
+2016,Male,0.125,7.45,5-12,at primary school,3669
+2016,Male,0.125,7.45,13-18,at secondary school,4315
+2016,Male,0.125,7.45,19-66,at university,801
+2016,Male,0.125,8.15,15-66,working,30457
+2016,Male,0.125,8.15,5-12,at primary school,27213
+2016,Male,0.125,8.15,13-18,at secondary school,25513
+2016,Male,0.125,8.15,19-66,at university,2185
+2016,Male,0.125,8.45,15-66,working,36362
+2016,Male,0.125,8.45,5-12,at primary school,98099
+2016,Male,0.125,8.45,13-18,at secondary school,33538
+2016,Male,0.125,8.45,19-66,at university,8629
+2016,Male,0.125,9.15,15-66,working,14119
+2016,Male,0.125,9.15,5-12,at primary school,51167
+2016,Male,0.125,9.15,13-18,at secondary school,2397
+2016,Male,0.125,9.15,19-66,at university,2830
+2016,Male,0.125,9.45,15-66,working,30570
+2016,Male,0.125,9.45,5-12,at primary school,300
+2016,Male,0.125,9.45,13-18,at secondary school,326
+2016,Male,0.125,9.45,19-66,at university,3280
+2016,Male,0.275,6.15,15-66,working,29828
+2016,Male,0.275,6.15,5-12,at primary school,34
+2016,Male,0.275,6.15,13-18,at secondary school,43
+2016,Male,0.275,6.15,19-66,at university,144
+2016,Male,0.275,6.45,15-66,working,28431
+2016,Male,0.275,6.45,5-12,at primary school,174
+2016,Male,0.275,6.45,13-18,at secondary school,206
+2016,Male,0.275,6.45,19-66,at university,305
+2016,Male,0.275,7.15,15-66,working,35359
+2016,Male,0.275,7.15,5-12,at primary school,877
+2016,Male,0.275,7.15,13-18,at secondary school,1959
+2016,Male,0.275,7.15,19-66,at university,644
+2016,Male,0.275,7.45,15-66,working,50264
+2016,Male,0.275,7.45,5-12,at primary school,4033
+2016,Male,0.275,7.45,13-18,at secondary school,15064
+2016,Male,0.275,7.45,19-66,at university,2254
+2016,Male,0.275,8.15,15-66,working,47008
+2016,Male,0.275,8.15,5-12,at primary school,23612
+2016,Male,0.275,8.15,13-18,at secondary school,34180
+2016,Male,0.275,8.15,19-66,at university,6162
+2016,Male,0.275,8.45,15-66,working,35412
+2016,Male,0.275,8.45,5-12,at primary school,28261
+2016,Male,0.275,8.45,13-18,at secondary school,12572
+2016,Male,0.275,8.45,19-66,at university,8079
+2016,Male,0.275,9.15,15-66,working,12981
+2016,Male,0.275,9.15,5-12,at primary school,4821
+2016,Male,0.275,9.15,13-18,at secondary school,704
+2016,Male,0.275,9.15,19-66,at university,2917
+2016,Male,0.275,9.45,15-66,working,29579
+2016,Male,0.275,9.45,5-12,at primary school,90
+2016,Male,0.275,9.45,13-18,at secondary school,269
+2016,Male,0.275,9.45,19-66,at university,4388
+2016,Male,0.375,6.15,15-66,working,24253
+2016,Male,0.375,6.15,5-12,at primary school,16
+2016,Male,0.375,6.15,13-18,at secondary school,36
+2016,Male,0.375,6.15,19-66,at university,161
+2016,Male,0.375,6.45,15-66,working,29063
+2016,Male,0.375,6.45,5-12,at primary school,109
+2016,Male,0.375,6.45,13-18,at secondary school,329
+2016,Male,0.375,6.45,19-66,at university,494
+2016,Male,0.375,7.15,15-66,working,38761
+2016,Male,0.375,7.15,5-12,at primary school,559
+2016,Male,0.375,7.15,13-18,at secondary school,2711
+2016,Male,0.375,7.15,19-66,at university,1357
+2016,Male,0.375,7.45,15-66,working,39612
+2016,Male,0.375,7.45,5-12,at primary school,2637
+2016,Male,0.375,7.45,13-18,at secondary school,11973
+2016,Male,0.375,7.45,19-66,at university,3708
+2016,Male,0.375,8.15,15-66,working,37588
+2016,Male,0.375,8.15,5-12,at primary school,6148
+2016,Male,0.375,8.15,13-18,at secondary school,9033
+2016,Male,0.375,8.15,19-66,at university,6183
+2016,Male,0.375,8.45,15-66,working,16632
+2016,Male,0.375,8.45,5-12,at primary school,2971
+2016,Male,0.375,8.45,13-18,at secondary school,1359
+2016,Male,0.375,8.45,19-66,at university,3213
+2016,Male,0.375,9.15,15-66,working,7535
+2016,Male,0.375,9.15,5-12,at primary school,259
+2016,Male,0.375,9.15,13-18,at secondary school,200
+2016,Male,0.375,9.15,19-66,at university,1575
+2016,Male,0.375,9.45,15-66,working,17668
+2016,Male,0.375,9.45,5-12,at primary school,16
+2016,Male,0.375,9.45,13-18,at secondary school,129
+2016,Male,0.375,9.45,19-66,at university,2515
+2016,Male,0.525,6.15,15-66,working,10116
+2016,Male,0.525,6.15,5-12,at primary school,8
+2016,Male,0.525,6.15,13-18,at secondary school,15
+2016,Male,0.525,6.15,19-66,at university,78
+2016,Male,0.525,6.45,15-66,working,13456
+2016,Male,0.525,6.45,5-12,at primary school,44
+2016,Male,0.525,6.45,13-18,at secondary school,164
+2016,Male,0.525,6.45,19-66,at university,348
+2016,Male,0.525,7.15,15-66,working,15074
+2016,Male,0.525,7.15,5-12,at primary school,221
+2016,Male,0.525,7.15,13-18,at secondary school,1246
+2016,Male,0.525,7.15,19-66,at university,1124
+2016,Male,0.525,7.45,15-66,working,15389
+2016,Male,0.525,7.45,5-12,at primary school,616
+2016,Male,0.525,7.45,13-18,at secondary school,2680
+2016,Male,0.525,7.45,19-66,at university,2297
+2016,Male,0.525,8.15,15-66,working,11130
+2016,Male,0.525,8.15,5-12,at primary school,742
+2016,Male,0.525,8.15,13-18,at secondary school,1114
+2016,Male,0.525,8.15,19-66,at university,2210
+2016,Male,0.525,8.45,15-66,working,3728
+2016,Male,0.525,8.45,5-12,at primary school,223
+2016,Male,0.525,8.45,13-18,at secondary school,149
+2016,Male,0.525,8.45,19-66,at university,745
+2016,Male,0.525,9.15,15-66,working,1795
+2016,Male,0.525,9.15,5-12,at primary school,32
+2016,Male,0.525,9.15,13-18,at secondary school,43
+2016,Male,0.525,9.15,19-66,at university,511
+2016,Male,0.525,9.45,15-66,working,4920
+2016,Male,0.525,9.45,5-12,at primary school,4
+2016,Male,0.525,9.45,13-18,at secondary school,52
+2016,Male,0.525,9.45,19-66,at university,786
+2016,Male,1.25,6.15,15-66,working,16765
+2016,Male,1.25,6.15,5-12,at primary school,18
+2016,Male,1.25,6.15,13-18,at secondary school,39
+2016,Male,1.25,6.15,19-66,at university,235
+2016,Male,1.25,6.45,15-66,working,21038
+2016,Male,1.25,6.45,5-12,at primary school,86
+2016,Male,1.25,6.45,13-18,at secondary school,327
+2016,Male,1.25,6.45,19-66,at university,1019
+2016,Male,1.25,7.15,15-66,working,16565
+2016,Male,1.25,7.15,5-12,at primary school,234
+2016,Male,1.25,7.15,13-18,at secondary school,1212
+2016,Male,1.25,7.15,19-66,at university,2296
+2016,Male,1.25,7.45,15-66,working,15550
+2016,Male,1.25,7.45,5-12,at primary school,523
+2016,Male,1.25,7.45,13-18,at secondary school,1482
+2016,Male,1.25,7.45,19-66,at university,2945
+2016,Male,1.25,8.15,15-66,working,7660
+2016,Male,1.25,8.15,5-12,at primary school,436
+2016,Male,1.25,8.15,13-18,at secondary school,507
+2016,Male,1.25,8.15,19-66,at university,1734
+2016,Male,1.25,8.45,15-66,working,3286
+2016,Male,1.25,8.45,5-12,at primary school,209
+2016,Male,1.25,8.45,13-18,at secondary school,173
+2016,Male,1.25,8.45,19-66,at university,826
+2016,Male,1.25,9.15,15-66,working,1538
+2016,Male,1.25,9.15,5-12,at primary school,62
+2016,Male,1.25,9.15,13-18,at secondary school,40
+2016,Male,1.25,9.15,19-66,at university,464
+2016,Male,1.25,9.45,15-66,working,4904
+2016,Male,1.25,9.45,5-12,at primary school,2
+2016,Male,1.25,9.45,13-18,at secondary school,48
+2016,Male,1.25,9.45,19-66,at university,909
+2016,Male,1.3,6.15,15-66,working,13969
+2016,Male,1.3,6.15,5-12,at primary school,6
+2016,Male,1.3,6.15,13-18,at secondary school,70
+2016,Male,1.3,6.15,19-66,at university,510
+2016,Male,1.3,6.45,15-66,working,8397
+2016,Male,1.3,6.45,5-12,at primary school,39
+2016,Male,1.3,6.45,13-18,at secondary school,216
+2016,Male,1.3,6.45,19-66,at university,1218
+2016,Male,1.3,7.15,15-66,working,4958
+2016,Male,1.3,7.15,5-12,at primary school,66
+2016,Male,1.3,7.15,13-18,at secondary school,264
+2016,Male,1.3,7.15,19-66,at university,1227
+2016,Male,1.3,7.45,15-66,working,3063
+2016,Male,1.3,7.45,5-12,at primary school,85
+2016,Male,1.3,7.45,13-18,at secondary school,183
+2016,Male,1.3,7.45,19-66,at university,804
+2016,Male,1.3,8.15,15-66,working,1578
+2016,Male,1.3,8.15,5-12,at primary school,75
+2016,Male,1.3,8.15,13-18,at secondary school,113
+2016,Male,1.3,8.15,19-66,at university,508
+2016,Male,1.3,8.45,15-66,working,752
+2016,Male,1.3,8.45,5-12,at primary school,102
+2016,Male,1.3,8.45,13-18,at secondary school,58
+2016,Male,1.3,8.45,19-66,at university,295
+2016,Male,1.3,9.15,15-66,working,374
+2016,Male,1.3,9.15,5-12,at primary school,42
+2016,Male,1.3,9.15,13-18,at secondary school,15
+2016,Male,1.3,9.15,19-66,at university,156
+2016,Male,1.3,9.45,15-66,working,1878
+2016,Male,1.3,9.45,5-12,at primary school,2
+2016,Male,1.3,9.45,13-18,at secondary school,41
+2016,Male,1.3,9.45,19-66,at university,401
+2016,Female,0.125,6.15,15-66,working,8430
+2016,Female,0.125,6.15,5-12,at primary school,43
+2016,Female,0.125,6.15,13-18,at secondary school,36
+2016,Female,0.125,6.15,19-66,at university,64
+2016,Female,0.125,6.45,15-66,working,11818
+2016,Female,0.125,6.45,5-12,at primary school,176
+2016,Female,0.125,6.45,13-18,at secondary school,60
+2016,Female,0.125,6.45,19-66,at university,185
+2016,Female,0.125,7.15,15-66,working,12969
+2016,Female,0.125,7.15,5-12,at primary school,915
+2016,Female,0.125,7.15,13-18,at secondary school,478
+2016,Female,0.125,7.15,19-66,at university,272
+2016,Female,0.125,7.45,15-66,working,28543
+2016,Female,0.125,7.45,5-12,at primary school,3681
+2016,Female,0.125,7.45,13-18,at secondary school,4330
+2016,Female,0.125,7.45,19-66,at university,823
+2016,Female,0.125,8.15,15-66,working,34088
+2016,Female,0.125,8.15,5-12,at primary school,26299
+2016,Female,0.125,8.15,13-18,at secondary school,25663
+2016,Female,0.125,8.15,19-66,at university,2401
+2016,Female,0.125,8.45,15-66,working,58457
+2016,Female,0.125,8.45,5-12,at primary school,93625
+2016,Female,0.125,8.45,13-18,at secondary school,30680
+2016,Female,0.125,8.45,19-66,at university,9543
+2016,Female,0.125,9.15,15-66,working,24478
+2016,Female,0.125,9.15,5-12,at primary school,49250
+2016,Female,0.125,9.15,13-18,at secondary school,1907
+2016,Female,0.125,9.15,19-66,at university,3223
+2016,Female,0.125,9.45,15-66,working,37483
+2016,Female,0.125,9.45,5-12,at primary school,220
+2016,Female,0.125,9.45,13-18,at secondary school,356
+2016,Female,0.125,9.45,19-66,at university,3186
+2016,Female,0.275,6.15,15-66,working,12198
+2016,Female,0.275,6.15,5-12,at primary school,37
+2016,Female,0.275,6.15,13-18,at secondary school,50
+2016,Female,0.275,6.15,19-66,at university,127
+2016,Female,0.275,6.45,15-66,working,18096
+2016,Female,0.275,6.45,5-12,at primary school,166
+2016,Female,0.275,6.45,13-18,at secondary school,199
+2016,Female,0.275,6.45,19-66,at university,425
+2016,Female,0.275,7.15,15-66,working,27620
+2016,Female,0.275,7.15,5-12,at primary school,781
+2016,Female,0.275,7.15,13-18,at secondary school,1976
+2016,Female,0.275,7.15,19-66,at university,846
+2016,Female,0.275,7.45,15-66,working,43338
+2016,Female,0.275,7.45,5-12,at primary school,4227
+2016,Female,0.275,7.45,13-18,at secondary school,15711
+2016,Female,0.275,7.45,19-66,at university,2358
+2016,Female,0.275,8.15,15-66,working,65503
+2016,Female,0.275,8.15,5-12,at primary school,23000
+2016,Female,0.275,8.15,13-18,at secondary school,34346
+2016,Female,0.275,8.15,19-66,at university,6640
+2016,Female,0.275,8.45,15-66,working,58010
+2016,Female,0.275,8.45,5-12,at primary school,27604
+2016,Female,0.275,8.45,13-18,at secondary school,10914
+2016,Female,0.275,8.45,19-66,at university,8857
+2016,Female,0.275,9.15,15-66,working,21423
+2016,Female,0.275,9.15,5-12,at primary school,4368
+2016,Female,0.275,9.15,13-18,at secondary school,574
+2016,Female,0.275,9.15,19-66,at university,3232
+2016,Female,0.275,9.45,15-66,working,31447
+2016,Female,0.275,9.45,5-12,at primary school,57
+2016,Female,0.275,9.45,13-18,at secondary school,301
+2016,Female,0.275,9.45,19-66,at university,3789
+2016,Female,0.375,6.15,15-66,working,9246
+2016,Female,0.375,6.15,5-12,at primary school,20
+2016,Female,0.375,6.15,13-18,at secondary school,45
+2016,Female,0.375,6.15,19-66,at university,163
+2016,Female,0.375,6.45,15-66,working,16520
+2016,Female,0.375,6.45,5-12,at primary school,103
+2016,Female,0.375,6.45,13-18,at secondary school,313
+2016,Female,0.375,6.45,19-66,at university,640
+2016,Female,0.375,7.15,15-66,working,26962
+2016,Female,0.375,7.15,5-12,at primary school,567
+2016,Female,0.375,7.15,13-18,at secondary school,2818
+2016,Female,0.375,7.15,19-66,at university,1476
+2016,Female,0.375,7.45,15-66,working,36551
+2016,Female,0.375,7.45,5-12,at primary school,2364
+2016,Female,0.375,7.45,13-18,at secondary school,12130
+2016,Female,0.375,7.45,19-66,at university,3958
+2016,Female,0.375,8.15,15-66,working,48374
+2016,Female,0.375,8.15,5-12,at primary school,5617
+2016,Female,0.375,8.15,13-18,at secondary school,8735
+2016,Female,0.375,8.15,19-66,at university,6521
+2016,Female,0.375,8.45,15-66,working,21412
+2016,Female,0.375,8.45,5-12,at primary school,2717
+2016,Female,0.375,8.45,13-18,at secondary school,1186
+2016,Female,0.375,8.45,19-66,at university,3504
+2016,Female,0.375,9.15,15-66,working,8986
+2016,Female,0.375,9.15,5-12,at primary school,199
+2016,Female,0.375,9.15,13-18,at secondary school,197
+2016,Female,0.375,9.15,19-66,at university,1689
+2016,Female,0.375,9.45,15-66,working,14559
+2016,Female,0.375,9.45,5-12,at primary school,5
+2016,Female,0.375,9.45,13-18,at secondary school,164
+2016,Female,0.375,9.45,19-66,at university,2259
+2016,Female,0.525,6.15,15-66,working,4311
+2016,Female,0.525,6.15,5-12,at primary school,10
+2016,Female,0.525,6.15,13-18,at secondary school,18
+2016,Female,0.525,6.15,19-66,at university,92
+2016,Female,0.525,6.45,15-66,working,8459
+2016,Female,0.525,6.45,5-12,at primary school,56
+2016,Female,0.525,6.45,13-18,at secondary school,165
+2016,Female,0.525,6.45,19-66,at university,431
+2016,Female,0.525,7.15,15-66,working,12479
+2016,Female,0.525,7.15,5-12,at primary school,197
+2016,Female,0.525,7.15,13-18,at secondary school,1147
+2016,Female,0.525,7.15,19-66,at university,1177
+2016,Female,0.525,7.45,15-66,working,17289
+2016,Female,0.525,7.45,5-12,at primary school,544
+2016,Female,0.525,7.45,13-18,at secondary school,2596
+2016,Female,0.525,7.45,19-66,at university,2545
+2016,Female,0.525,8.15,15-66,working,14514
+2016,Female,0.525,8.15,5-12,at primary school,674
+2016,Female,0.525,8.15,13-18,at secondary school,1060
+2016,Female,0.525,8.15,19-66,at university,2064
+2016,Female,0.525,8.45,15-66,working,4439
+2016,Female,0.525,8.45,5-12,at primary school,195
+2016,Female,0.525,8.45,13-18,at secondary school,118
+2016,Female,0.525,8.45,19-66,at university,869
+2016,Female,0.525,9.15,15-66,working,1837
+2016,Female,0.525,9.15,5-12,at primary school,42
+2016,Female,0.525,9.15,13-18,at secondary school,41
+2016,Female,0.525,9.15,19-66,at university,505
+2016,Female,0.525,9.45,15-66,working,3723
+2016,Female,0.525,9.45,5-12,at primary school,2
+2016,Female,0.525,9.45,13-18,at secondary school,59
+2016,Female,0.525,9.45,19-66,at university,711
+2016,Female,1.25,6.15,15-66,working,5802
+2016,Female,1.25,6.15,5-12,at primary school,25
+2016,Female,1.25,6.15,13-18,at secondary school,40
+2016,Female,1.25,6.15,19-66,at university,302
+2016,Female,1.25,6.45,15-66,working,10552
+2016,Female,1.25,6.45,5-12,at primary school,78
+2016,Female,1.25,6.45,13-18,at secondary school,367
+2016,Female,1.25,6.45,19-66,at university,1162
+2016,Female,1.25,7.15,15-66,working,13109
+2016,Female,1.25,7.15,5-12,at primary school,187
+2016,Female,1.25,7.15,13-18,at secondary school,1154
+2016,Female,1.25,7.15,19-66,at university,2489
+2016,Female,1.25,7.45,15-66,working,14902
+2016,Female,1.25,7.45,5-12,at primary school,399
+2016,Female,1.25,7.45,13-18,at secondary school,1416
+2016,Female,1.25,7.45,19-66,at university,3168
+2016,Female,1.25,8.15,15-66,working,7518
+2016,Female,1.25,8.15,5-12,at primary school,305
+2016,Female,1.25,8.15,13-18,at secondary school,497
+2016,Female,1.25,8.15,19-66,at university,1858
+2016,Female,1.25,8.45,15-66,working,2889
+2016,Female,1.25,8.45,5-12,at primary school,220
+2016,Female,1.25,8.45,13-18,at secondary school,168
+2016,Female,1.25,8.45,19-66,at university,843
+2016,Female,1.25,9.15,15-66,working,1306
+2016,Female,1.25,9.15,5-12,at primary school,58
+2016,Female,1.25,9.15,13-18,at secondary school,35
+2016,Female,1.25,9.15,19-66,at university,446
+2016,Female,1.25,9.45,15-66,working,3046
+2016,Female,1.25,9.45,5-12,at primary school,3
+2016,Female,1.25,9.45,13-18,at secondary school,61
+2016,Female,1.25,9.45,19-66,at university,812
+2016,Female,1.3,6.15,15-66,working,3979
+2016,Female,1.3,6.15,5-12,at primary school,8
+2016,Female,1.3,6.15,13-18,at secondary school,78
+2016,Female,1.3,6.15,19-66,at university,592
+2016,Female,1.3,6.45,15-66,working,4432
+2016,Female,1.3,6.45,5-12,at primary school,30
+2016,Female,1.3,6.45,13-18,at secondary school,244
+2016,Female,1.3,6.45,19-66,at university,1428
+2016,Female,1.3,7.15,15-66,working,3761
+2016,Female,1.3,7.15,5-12,at primary school,81
+2016,Female,1.3,7.15,13-18,at secondary school,325
+2016,Female,1.3,7.15,19-66,at university,1537
+2016,Female,1.3,7.45,15-66,working,2355
+2016,Female,1.3,7.45,5-12,at primary school,59
+2016,Female,1.3,7.45,13-18,at secondary school,198
+2016,Female,1.3,7.45,19-66,at university,980
+2016,Female,1.3,8.15,15-66,working,1239
+2016,Female,1.3,8.15,5-12,at primary school,54
+2016,Female,1.3,8.15,13-18,at secondary school,137
+2016,Female,1.3,8.15,19-66,at university,618
+2016,Female,1.3,8.45,15-66,working,555
+2016,Female,1.3,8.45,5-12,at primary school,85
+2016,Female,1.3,8.45,13-18,at secondary school,47
+2016,Female,1.3,8.45,19-66,at university,393
+2016,Female,1.3,9.15,15-66,working,245
+2016,Female,1.3,9.15,5-12,at primary school,26
+2016,Female,1.3,9.15,13-18,at secondary school,21
+2016,Female,1.3,9.15,19-66,at university,183
+2016,Female,1.3,9.45,15-66,working,962
+2016,Female,1.3,9.45,5-12,at primary school,2
+2016,Female,1.3,9.45,13-18,at secondary school,60
+2016,Female,1.3,9.45,19-66,at university,445

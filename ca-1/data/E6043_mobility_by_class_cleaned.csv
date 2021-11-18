@@ -9,7 +9,6 @@ year,social_class,means_of_travel,value
 2011,self-employed,truck,3791
 2011,self-employed,truck,645
 2011,self-employed,remote,10757
-2011,self-employed,all,151135
 2011,employed-managerial,walking,42355
 2011,employed-managerial,bike,13310
 2011,employed-managerial,bus,25142
@@ -20,7 +19,6 @@ year,social_class,means_of_travel,value
 2011,employed-managerial,truck,17953
 2011,employed-managerial,truck,2330
 2011,employed-managerial,remote,32896
-2011,employed-managerial,all,570805
 2011,employed-admin-workers,walking,46108
 2011,employed-admin-workers,bike,6645
 2011,employed-admin-workers,bus,27966
@@ -31,7 +29,6 @@ year,social_class,means_of_travel,value
 2011,employed-admin-workers,truck,8384
 2011,employed-admin-workers,truck,1096
 2011,employed-admin-workers,remote,19273
-2011,employed-admin-workers,all,401653
 2011,trade-workers,walking,20463
 2011,trade-workers,bike,4465
 2011,trade-workers,bus,9952
@@ -42,7 +39,6 @@ year,social_class,means_of_travel,value
 2011,trade-workers,truck,60304
 2011,trade-workers,truck,7693
 2011,trade-workers,remote,9871
-2011,trade-workers,all,277292
 2011,manual-workers,walking,29997
 2011,manual-workers,bike,6296
 2011,manual-workers,bus,11889
@@ -53,7 +49,6 @@ year,social_class,means_of_travel,value
 2011,manual-workers,truck,17354
 2011,manual-workers,truck,1857
 2011,manual-workers,remote,6768
-2011,manual-workers,all,235256
 2011,Unskilled,walking,10902
 2011,Unskilled,bike,1912
 2011,Unskilled,bus,5142
@@ -64,7 +59,6 @@ year,social_class,means_of_travel,value
 2011,Unskilled,truck,5206
 2011,Unskilled,truck,719
 2011,Unskilled,remote,720
-2011,Unskilled,all,62337
 2011,unemployed,walking,7492
 2011,unemployed,bike,1260
 2011,unemployed,bus,4515
@@ -75,7 +69,6 @@ year,social_class,means_of_travel,value
 2011,unemployed,truck,3256
 2011,unemployed,truck,430
 2011,unemployed,remote,3041
-2011,unemployed,all,79922
 2016,self-employed,walking,14702
 2016,self-employed,bike,8858
 2016,self-employed,bus,9879
@@ -86,7 +79,6 @@ year,social_class,means_of_travel,value
 2016,self-employed,truck,4141
 2016,self-employed,truck,507
 2016,self-employed,remote,12521
-2016,self-employed,all,174329
 2016,employed-managerial,walking,43840
 2016,employed-managerial,bike,19395
 2016,employed-managerial,bus,31953
@@ -97,7 +89,6 @@ year,social_class,means_of_travel,value
 2016,employed-managerial,truck,17594
 2016,employed-managerial,truck,1832
 2016,employed-managerial,remote,38186
-2016,employed-managerial,all,620658
 2016,employed-admin-workers,walking,45184
 2016,employed-admin-workers,bike,9642
 2016,employed-admin-workers,bus,31823
@@ -108,7 +99,6 @@ year,social_class,means_of_travel,value
 2016,employed-admin-workers,truck,8567
 2016,employed-admin-workers,truck,825
 2016,employed-admin-workers,remote,21995
-2016,employed-admin-workers,all,420640
 2016,trade-workers,walking,21439
 2016,trade-workers,bike,6072
 2016,trade-workers,bus,12615
@@ -119,7 +109,6 @@ year,social_class,means_of_travel,value
 2016,trade-workers,truck,65463
 2016,trade-workers,truck,5852
 2016,trade-workers,remote,11049
-2016,trade-workers,all,304861
 2016,manual-workers,walking,30680
 2016,manual-workers,bike,8273
 2016,manual-workers,bus,14116
@@ -130,7 +119,6 @@ year,social_class,means_of_travel,value
 2016,manual-workers,truck,19512
 2016,manual-workers,truck,1524
 2016,manual-workers,remote,7710
-2016,manual-workers,all,260149
 2016,Unskilled,walking,10738
 2016,Unskilled,bike,2564
 2016,Unskilled,bus,5613
@@ -141,7 +129,6 @@ year,social_class,means_of_travel,value
 2016,Unskilled,truck,6876
 2016,Unskilled,truck,664
 2016,Unskilled,remote,701
-2016,Unskilled,all,70102
 2016,unemployed,walking,8497
 2016,unemployed,bike,2033
 2016,unemployed,bus,5437
@@ -152,4 +139,3 @@ year,social_class,means_of_travel,value
 2016,unemployed,truck,3876
 2016,unemployed,truck,389
 2016,unemployed,remote,2793
-2016,unemployed,all,119989

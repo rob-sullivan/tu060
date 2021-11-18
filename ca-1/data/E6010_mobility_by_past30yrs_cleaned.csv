@@ -1,505 +1,505 @@
-year,sex,means_of_travel,age,edu_level,value
-1986,Male,walking,>=15,junior-cert,69916
-1986,Male,walking,5 to 12,primary-school,129973
-1986,Male,walking,13 to 18,leaving-cert,50585
-1986,Male,walking,>=19,university,5932
-1986,Male,bike,>=15,junior-cert,39469
-1986,Male,bike,5 to 12,primary-school,14507
-1986,Male,bike,13 to 18,leaving-cert,31522
-1986,Male,bike,>=19,university,7290
-1986,Male,bus,>=15,junior-cert,41878
-1986,Male,bus,5 to 12,primary-school,52928
-1986,Male,bus,13 to 18,leaving-cert,52597
-1986,Male,bus,>=19,university,4841
-1986,Male,train,>=15,junior-cert,9492
-1986,Male,train,5 to 12,primary-school,325
-1986,Male,train,13 to 18,leaving-cert,1660
-1986,Male,train,>=19,university,1415
-1986,Male,motorbike,>=15,junior-cert,12827
-1986,Male,motorbike,5 to 12,primary-school,0
-1986,Male,motorbike,13 to 18,leaving-cert,241
-1986,Male,motorbike,>=19,university,575
-1986,Male,car,>=15,junior-cert,308726
-1986,Male,car,5 to 12,primary-school,0
-1986,Male,car,13 to 18,leaving-cert,208
-1986,Male,car,>=19,university,1230
-1986,Male,carpool,>=15,junior-cert,34726
-1986,Male,carpool,5 to 12,primary-school,66293
-1986,Male,carpool,13 to 18,leaving-cert,16044
-1986,Male,carpool,>=19,university,2031
-1986,Male,truck,>=15,junior-cert,31142
-1986,Male,truck,5 to 12,primary-school,898
-1986,Male,truck,13 to 18,leaving-cert,426
-1986,Male,truck,>=19,university,164
-1986,Male,remote,>=15,junior-cert,159914
-1986,Male,remote,5 to 12,primary-school,507
-1986,Male,remote,13 to 18,leaving-cert,5190
-1986,Male,remote,>=19,university,861
-1986,Female,walking,>=15,junior-cert,66084
-1986,Female,walking,5 to 12,primary-school,121974
-1986,Female,walking,13 to 18,leaving-cert,54707
-1986,Female,walking,>=19,university,6359
-1986,Female,bike,>=15,junior-cert,21281
-1986,Female,bike,5 to 12,primary-school,9128
-1986,Female,bike,13 to 18,leaving-cert,19126
-1986,Female,bike,>=19,university,4639
-1986,Female,bus,>=15,junior-cert,51458
-1986,Female,bus,5 to 12,primary-school,52317
-1986,Female,bus,13 to 18,leaving-cert,62230
-1986,Female,bus,>=19,university,5665
-1986,Female,train,>=15,junior-cert,6604
-1986,Female,train,5 to 12,primary-school,311
-1986,Female,train,13 to 18,leaving-cert,1748
-1986,Female,train,>=19,university,1135
-1986,Female,motorbike,>=15,junior-cert,2787
-1986,Female,motorbike,5 to 12,primary-school,0
-1986,Female,motorbike,13 to 18,leaving-cert,59
-1986,Female,motorbike,>=19,university,191
-1986,Female,car,>=15,junior-cert,94152
-1986,Female,car,5 to 12,primary-school,0
-1986,Female,car,13 to 18,leaving-cert,165
-1986,Female,car,>=19,university,699
-1986,Female,carpool,>=15,junior-cert,55105
-1986,Female,carpool,5 to 12,primary-school,67331
-1986,Female,carpool,13 to 18,leaving-cert,20622
-1986,Female,carpool,>=19,university,1973
-1986,Female,truck,>=15,junior-cert,2212
-1986,Female,truck,5 to 12,primary-school,914
-1986,Female,truck,13 to 18,leaving-cert,403
-1986,Female,truck,>=19,university,80
-1986,Female,remote,>=15,junior-cert,26942
-1986,Female,remote,5 to 12,primary-school,431
-1986,Female,remote,13 to 18,leaving-cert,2740
-1986,Female,remote,>=19,university,397
-1991,Male,walking,>=15,junior-cert,58989
-1991,Male,walking,5 to 12,primary-school,107125
-1991,Male,walking,13 to 18,leaving-cert,46865
-1991,Male,walking,>=19,university,9024
-1991,Male,bike,>=15,junior-cert,34337
-1991,Male,bike,5 to 12,primary-school,14203
-1991,Male,bike,13 to 18,leaving-cert,30860
-1991,Male,bike,>=19,university,7612
-1991,Male,bus,>=15,junior-cert,35824
-1991,Male,bus,5 to 12,primary-school,55474
-1991,Male,bus,13 to 18,leaving-cert,57146
-1991,Male,bus,>=19,university,7880
-1991,Male,train,>=15,junior-cert,10352
-1991,Male,train,5 to 12,primary-school,438
-1991,Male,train,13 to 18,leaving-cert,2263
-1991,Male,train,>=19,university,2464
-1991,Male,motorbike,>=15,junior-cert,10463
-1991,Male,motorbike,5 to 12,primary-school,0
-1991,Male,motorbike,13 to 18,leaving-cert,293
-1991,Male,motorbike,>=19,university,523
-1991,Male,car,>=15,junior-cert,303338
-1991,Male,car,5 to 12,primary-school,0
-1991,Male,car,13 to 18,leaving-cert,396
-1991,Male,car,>=19,university,1896
-1991,Male,carpool,>=15,junior-cert,33067
-1991,Male,carpool,5 to 12,primary-school,73398
-1991,Male,carpool,13 to 18,leaving-cert,21937
-1991,Male,carpool,>=19,university,2646
-1991,Male,truck,>=15,junior-cert,41646
-1991,Male,truck,5 to 12,primary-school,1375
-1991,Male,truck,13 to 18,leaving-cert,648
-1991,Male,truck,>=19,university,241
-1991,Male,remote,>=15,junior-cert,189110
-1991,Male,remote,5 to 12,primary-school,639
-1991,Male,remote,13 to 18,leaving-cert,4099
-1991,Male,remote,>=19,university,994
-1991,Female,walking,>=15,junior-cert,67169
-1991,Female,walking,5 to 12,primary-school,101942
-1991,Female,walking,13 to 18,leaving-cert,52886
-1991,Female,walking,>=19,university,10126
-1991,Female,bike,>=15,junior-cert,15920
-1991,Female,bike,5 to 12,primary-school,8204
-1991,Female,bike,13 to 18,leaving-cert,14772
-1991,Female,bike,>=19,university,4286
-1991,Female,bus,>=15,junior-cert,51553
-1991,Female,bus,5 to 12,primary-school,54271
-1991,Female,bus,13 to 18,leaving-cert,66989
-1991,Female,bus,>=19,university,8651
-1991,Female,train,>=15,junior-cert,9482
-1991,Female,train,5 to 12,primary-school,297
-1991,Female,train,13 to 18,leaving-cert,2562
-1991,Female,train,>=19,university,2356
-1991,Female,motorbike,>=15,junior-cert,2250
-1991,Female,motorbike,5 to 12,primary-school,0
-1991,Female,motorbike,13 to 18,leaving-cert,61
-1991,Female,motorbike,>=19,university,166
-1991,Female,car,>=15,junior-cert,138955
-1991,Female,car,5 to 12,primary-school,0
-1991,Female,car,13 to 18,leaving-cert,280
-1991,Female,car,>=19,university,1363
-1991,Female,carpool,>=15,junior-cert,57932
-1991,Female,carpool,5 to 12,primary-school,73638
-1991,Female,carpool,13 to 18,leaving-cert,27145
-1991,Female,carpool,>=19,university,2740
-1991,Female,truck,>=15,junior-cert,4257
-1991,Female,truck,5 to 12,primary-school,1291
-1991,Female,truck,13 to 18,leaving-cert,594
-1991,Female,truck,>=19,university,136
-1991,Female,remote,>=15,junior-cert,36126
-1991,Female,remote,5 to 12,primary-school,513
-1991,Female,remote,13 to 18,leaving-cert,2060
-1991,Female,remote,>=19,university,560
-1996,Male,walking,>=15,junior-cert,67964
-1996,Male,walking,5 to 12,primary-school,79164
-1996,Male,walking,13 to 18,leaving-cert,48906
-1996,Male,walking,>=19,university,13491
-1996,Male,bike,>=15,junior-cert,33852
-1996,Male,bike,5 to 12,primary-school,7837
-1996,Male,bike,13 to 18,leaving-cert,21783
-1996,Male,bike,>=19,university,8217
-1996,Male,bus,>=15,junior-cert,40512
-1996,Male,bus,5 to 12,primary-school,51008
-1996,Male,bus,13 to 18,leaving-cert,67519
-1996,Male,bus,>=19,university,12781
-1996,Male,train,>=15,junior-cert,11489
-1996,Male,train,5 to 12,primary-school,306
-1996,Male,train,13 to 18,leaving-cert,2330
-1996,Male,train,>=19,university,3148
-1996,Male,motorbike,>=15,junior-cert,10874
-1996,Male,motorbike,5 to 12,primary-school,0
-1996,Male,motorbike,13 to 18,leaving-cert,238
-1996,Male,motorbike,>=19,university,569
-1996,Male,car,>=15,junior-cert,378075
-1996,Male,car,5 to 12,primary-school,0
-1996,Male,car,13 to 18,leaving-cert,636
-1996,Male,car,>=19,university,3077
-1996,Male,carpool,>=15,junior-cert,45519
-1996,Male,carpool,5 to 12,primary-school,84966
-1996,Male,carpool,13 to 18,leaving-cert,33103
-1996,Male,carpool,>=19,university,4259
-1996,Male,truck,>=15,junior-cert,51862
-1996,Male,truck,5 to 12,primary-school,1109
-1996,Male,truck,13 to 18,leaving-cert,728
-1996,Male,truck,>=19,university,325
-1996,Male,remote,>=15,junior-cert,127913
-1996,Male,remote,5 to 12,primary-school,2410
-1996,Male,remote,13 to 18,leaving-cert,4311
-1996,Male,remote,>=19,university,1193
-1996,Female,walking,>=15,junior-cert,80412
-1996,Female,walking,5 to 12,primary-school,75612
-1996,Female,walking,13 to 18,leaving-cert,53325
-1996,Female,walking,>=19,university,18067
-1996,Female,bike,>=15,junior-cert,12580
-1996,Female,bike,5 to 12,primary-school,3834
-1996,Female,bike,13 to 18,leaving-cert,6419
-1996,Female,bike,>=19,university,4486
-1996,Female,bus,>=15,junior-cert,57777
-1996,Female,bus,5 to 12,primary-school,49425
-1996,Female,bus,13 to 18,leaving-cert,75308
-1996,Female,bus,>=19,university,15256
-1996,Female,train,>=15,junior-cert,11079
-1996,Female,train,5 to 12,primary-school,208
-1996,Female,train,13 to 18,leaving-cert,2327
-1996,Female,train,>=19,university,3214
-1996,Female,motorbike,>=15,junior-cert,1290
-1996,Female,motorbike,5 to 12,primary-school,0
-1996,Female,motorbike,13 to 18,leaving-cert,37
-1996,Female,motorbike,>=19,university,156
-1996,Female,car,>=15,junior-cert,221207
-1996,Female,car,5 to 12,primary-school,0
-1996,Female,car,13 to 18,leaving-cert,463
-1996,Female,car,>=19,university,2959
-1996,Female,carpool,>=15,junior-cert,66913
-1996,Female,carpool,5 to 12,primary-school,82938
-1996,Female,carpool,13 to 18,leaving-cert,38592
-1996,Female,carpool,>=19,university,4663
-1996,Female,truck,>=15,junior-cert,3296
-1996,Female,truck,5 to 12,primary-school,1094
-1996,Female,truck,13 to 18,leaving-cert,650
-1996,Female,truck,>=19,university,227
-1996,Female,remote,>=15,junior-cert,30836
-1996,Female,remote,5 to 12,primary-school,2337
-1996,Female,remote,13 to 18,leaving-cert,2774
-1996,Female,remote,>=19,university,1119
-2002,Male,walking,>=15,junior-cert,83279
-2002,Male,walking,5 to 12,primary-school,57570
-2002,Male,walking,13 to 18,leaving-cert,40249
-2002,Male,walking,>=19,university,18273
-2002,Male,bike,>=15,junior-cert,26423
-2002,Male,bike,5 to 12,primary-school,3640
-2002,Male,bike,13 to 18,leaving-cert,10072
-2002,Male,bike,>=19,university,5516
-2002,Male,bus,>=15,junior-cert,48286
-2002,Male,bus,5 to 12,primary-school,38590
-2002,Male,bus,13 to 18,leaving-cert,57417
-2002,Male,bus,>=19,university,16507
-2002,Male,train,>=15,junior-cert,16897
-2002,Male,train,5 to 12,primary-school,262
-2002,Male,train,13 to 18,leaving-cert,2132
-2002,Male,train,>=19,university,3800
-2002,Male,motorbike,>=15,junior-cert,15122
-2002,Male,motorbike,5 to 12,primary-school,0
-2002,Male,motorbike,13 to 18,leaving-cert,1205
-2002,Male,motorbike,>=19,university,1221
-2002,Male,car,>=15,junior-cert,500004
-2002,Male,car,5 to 12,primary-school,0
-2002,Male,car,13 to 18,leaving-cert,1388
-2002,Male,car,>=19,university,8643
-2002,Male,carpool,>=15,junior-cert,52705
-2002,Male,carpool,5 to 12,primary-school,110882
-2002,Male,carpool,13 to 18,leaving-cert,42001
-2002,Male,carpool,>=19,university,5736
-2002,Male,truck,>=15,junior-cert,111891
-2002,Male,truck,5 to 12,primary-school,1049
-2002,Male,truck,13 to 18,leaving-cert,599
-2002,Male,truck,>=19,university,396
-2002,Male,remote,>=15,junior-cert,72712
-2002,Male,remote,5 to 12,primary-school,3489
-2002,Male,remote,13 to 18,leaving-cert,2595
-2002,Male,remote,>=19,university,1064
-2002,Female,walking,>=15,junior-cert,100569
-2002,Female,walking,5 to 12,primary-school,54941
-2002,Female,walking,13 to 18,leaving-cert,42367
-2002,Female,walking,>=19,university,26235
-2002,Female,bike,>=15,junior-cert,7827
-2002,Female,bike,5 to 12,primary-school,1188
-2002,Female,bike,13 to 18,leaving-cert,1046
-2002,Female,bike,>=19,university,2130
-2002,Female,bus,>=15,junior-cert,59029
-2002,Female,bus,5 to 12,primary-school,37403
-2002,Female,bus,13 to 18,leaving-cert,63138
-2002,Female,bus,>=19,university,20929
-2002,Female,train,>=15,junior-cert,16169
-2002,Female,train,5 to 12,primary-school,207
-2002,Female,train,13 to 18,leaving-cert,2215
-2002,Female,train,>=19,university,4294
-2002,Female,motorbike,>=15,junior-cert,2207
-2002,Female,motorbike,5 to 12,primary-school,0
-2002,Female,motorbike,13 to 18,leaving-cert,167
-2002,Female,motorbike,>=19,university,328
-2002,Female,car,>=15,junior-cert,387164
-2002,Female,car,5 to 12,primary-school,0
-2002,Female,car,13 to 18,leaving-cert,1176
-2002,Female,car,>=19,university,11447
-2002,Female,carpool,>=15,junior-cert,55677
-2002,Female,carpool,5 to 12,primary-school,106426
-2002,Female,carpool,13 to 18,leaving-cert,47467
-2002,Female,carpool,>=19,university,7068
-2002,Female,truck,>=15,junior-cert,3277
-2002,Female,truck,5 to 12,primary-school,953
-2002,Female,truck,13 to 18,leaving-cert,466
-2002,Female,truck,>=19,university,169
-2002,Female,remote,>=15,junior-cert,24855
-2002,Female,remote,5 to 12,primary-school,3136
-2002,Female,remote,13 to 18,leaving-cert,1864
-2002,Female,remote,>=19,university,1106
-2006,Male,walking,>=15,junior-cert,94567
-2006,Male,walking,5 to 12,primary-school,55799
-2006,Male,walking,13 to 18,leaving-cert,36416
-2006,Male,walking,>=19,university,19099
-2006,Male,bike,>=15,junior-cert,27948
-2006,Male,bike,5 to 12,primary-school,3043
-2006,Male,bike,13 to 18,leaving-cert,6856
-2006,Male,bike,>=19,university,4560
-2006,Male,bus,>=15,junior-cert,54271
-2006,Male,bus,5 to 12,primary-school,34413
-2006,Male,bus,13 to 18,leaving-cert,52639
-2006,Male,bus,>=19,university,16233
-2006,Male,train,>=15,junior-cert,28049
-2006,Male,train,5 to 12,primary-school,328
-2006,Male,train,13 to 18,leaving-cert,2673
-2006,Male,train,>=19,university,5001
-2006,Male,motorbike,>=15,junior-cert,11225
-2006,Male,motorbike,5 to 12,primary-school,0
-2006,Male,motorbike,13 to 18,leaving-cert,399
-2006,Male,motorbike,>=19,university,646
-2006,Male,car,>=15,junior-cert,580034
-2006,Male,car,5 to 12,primary-school,0
-2006,Male,car,13 to 18,leaving-cert,2668
-2006,Male,car,>=19,university,13248
-2006,Male,carpool,>=15,junior-cert,55033
-2006,Male,carpool,5 to 12,primary-school,125866
-2006,Male,carpool,13 to 18,leaving-cert,45750
-2006,Male,carpool,>=19,university,5100
-2006,Male,truck,>=15,junior-cert,143533
-2006,Male,truck,5 to 12,primary-school,797
-2006,Male,truck,13 to 18,leaving-cert,483
-2006,Male,truck,>=19,university,421
-2006,Male,remote,>=15,junior-cert,69261
-2006,Male,remote,5 to 12,primary-school,4394
-2006,Male,remote,13 to 18,leaving-cert,2020
-2006,Male,remote,>=19,university,1099
-2006,Female,walking,>=15,junior-cert,111121
-2006,Female,walking,5 to 12,primary-school,53254
-2006,Female,walking,13 to 18,leaving-cert,37930
-2006,Female,walking,>=19,university,24924
-2006,Female,bike,>=15,junior-cert,8358
-2006,Female,bike,5 to 12,primary-school,1044
-2006,Female,bike,13 to 18,leaving-cert,521
-2006,Female,bike,>=19,university,1630
-2006,Female,bus,>=15,junior-cert,60685
-2006,Female,bus,5 to 12,primary-school,32937
-2006,Female,bus,13 to 18,leaving-cert,55761
-2006,Female,bus,>=19,university,20010
-2006,Female,train,>=15,junior-cert,26893
-2006,Female,train,5 to 12,primary-school,266
-2006,Female,train,13 to 18,leaving-cert,2675
-2006,Female,train,>=19,university,5773
-2006,Female,motorbike,>=15,junior-cert,1824
-2006,Female,motorbike,5 to 12,primary-school,0
-2006,Female,motorbike,13 to 18,leaving-cert,88
-2006,Female,motorbike,>=19,university,156
-2006,Female,car,>=15,junior-cert,500412
-2006,Female,car,5 to 12,primary-school,0
-2006,Female,car,13 to 18,leaving-cert,2463
-2006,Female,car,>=19,university,19487
-2006,Female,carpool,>=15,junior-cert,49828
-2006,Female,carpool,5 to 12,primary-school,120936
-2006,Female,carpool,13 to 18,leaving-cert,50155
-2006,Female,carpool,>=19,university,6829
-2006,Female,truck,>=15,junior-cert,3502
-2006,Female,truck,5 to 12,primary-school,657
-2006,Female,truck,13 to 18,leaving-cert,359
-2006,Female,truck,>=19,university,156
-2006,Female,remote,>=15,junior-cert,36445
-2006,Female,remote,5 to 12,primary-school,3828
-2006,Female,remote,13 to 18,leaving-cert,1552
-2006,Female,remote,>=19,university,1319
-2011,Male,walking,>=15,junior-cert,73714
-2011,Male,walking,5 to 12,primary-school,59986
-2011,Male,walking,13 to 18,leaving-cert,37443
-2011,Male,walking,>=19,university,24393
-2011,Male,bike,>=15,junior-cert,29075
-2011,Male,bike,5 to 12,primary-school,4457
-2011,Male,bike,13 to 18,leaving-cert,6063
-2011,Male,bike,>=19,university,6215
-2011,Male,bus,>=15,junior-cert,38595
-2011,Male,bus,5 to 12,primary-school,31217
-2011,Male,bus,13 to 18,leaving-cert,48143
-2011,Male,bus,>=19,university,19305
-2011,Male,train,>=15,junior-cert,25652
-2011,Male,train,5 to 12,primary-school,371
-2011,Male,train,13 to 18,leaving-cert,2926
-2011,Male,train,>=19,university,6056
-2011,Male,motorbike,>=15,junior-cert,7332
-2011,Male,motorbike,5 to 12,primary-school,0
-2011,Male,motorbike,13 to 18,leaving-cert,181
-2011,Male,motorbike,>=19,university,506
-2011,Male,car,>=15,junior-cert,515813
-2011,Male,car,5 to 12,primary-school,0
-2011,Male,car,13 to 18,leaving-cert,3584
-2011,Male,car,>=19,university,24026
-2011,Male,carpool,>=15,junior-cert,25818
-2011,Male,carpool,5 to 12,primary-school,150818
-2011,Male,carpool,13 to 18,leaving-cert,61415
-2011,Male,carpool,>=19,university,7496
-2011,Male,truck,>=15,junior-cert,127831
-2011,Male,truck,5 to 12,primary-school,588
-2011,Male,truck,13 to 18,leaving-cert,498
-2011,Male,truck,>=19,university,1094
-2011,Male,remote,>=15,junior-cert,59278
-2011,Male,remote,5 to 12,primary-school,135
-2011,Male,remote,13 to 18,leaving-cert,137
-2011,Male,remote,>=19,university,239
-2011,Female,walking,>=15,junior-cert,96796
-2011,Female,walking,5 to 12,primary-school,58537
-2011,Female,walking,13 to 18,leaving-cert,36503
-2011,Female,walking,>=19,university,27566
-2011,Female,bike,>=15,junior-cert,10728
-2011,Female,bike,5 to 12,primary-school,1795
-2011,Female,bike,13 to 18,leaving-cert,529
-2011,Female,bike,>=19,university,2315
-2011,Female,bus,>=15,junior-cert,53081
-2011,Female,bus,5 to 12,primary-school,29046
-2011,Female,bus,13 to 18,leaving-cert,48010
-2011,Female,bus,>=19,university,21165
-2011,Female,train,>=15,junior-cert,27097
-2011,Female,train,5 to 12,primary-school,320
-2011,Female,train,13 to 18,leaving-cert,2714
-2011,Female,train,>=19,university,5840
-2011,Female,motorbike,>=15,junior-cert,1111
-2011,Female,motorbike,5 to 12,primary-school,0
-2011,Female,motorbike,13 to 18,leaving-cert,55
-2011,Female,motorbike,>=19,university,127
-2011,Female,car,>=15,junior-cert,551638
-2011,Female,car,5 to 12,primary-school,0
-2011,Female,car,13 to 18,leaving-cert,2755
-2011,Female,car,>=19,university,29580
-2011,Female,carpool,>=15,junior-cert,43346
-2011,Female,carpool,5 to 12,primary-school,145893
-2011,Female,carpool,13 to 18,leaving-cert,64757
-2011,Female,carpool,>=19,university,8795
-2011,Female,truck,>=15,junior-cert,3187
-2011,Female,truck,5 to 12,primary-school,490
-2011,Female,truck,13 to 18,leaving-cert,299
-2011,Female,truck,>=19,university,128
-2011,Female,remote,>=15,junior-cert,24048
-2011,Female,remote,5 to 12,primary-school,129
-2011,Female,remote,13 to 18,leaving-cert,108
-2011,Female,remote,>=19,university,353
-2016,Male,walking,>=15,junior-cert,79566
-2016,Male,walking,5 to 12,primary-school,64764
-2016,Male,walking,13 to 18,leaving-cert,37614
-2016,Male,walking,>=19,university,22484
-2016,Male,bike,>=15,junior-cert,41341
-2016,Male,bike,5 to 12,primary-school,4858
-2016,Male,bike,13 to 18,leaving-cert,6588
-2016,Male,bike,>=19,university,7323
-2016,Male,bus,>=15,junior-cert,49788
-2016,Male,bus,5 to 12,primary-school,29410
-2016,Male,bus,13 to 18,leaving-cert,49934
-2016,Male,bus,>=19,university,21441
-2016,Male,train,>=15,junior-cert,32307
-2016,Male,train,5 to 12,primary-school,383
-2016,Male,train,13 to 18,leaving-cert,2933
-2016,Male,train,>=19,university,6503
-2016,Male,motorbike,>=15,junior-cert,6740
-2016,Male,motorbike,5 to 12,primary-school,0
-2016,Male,motorbike,13 to 18,leaving-cert,97
-2016,Male,motorbike,>=19,university,336
-2016,Male,car,>=15,junior-cert,561704
-2016,Male,car,5 to 12,primary-school,0
-2016,Male,car,13 to 18,leaving-cert,2971
-2016,Male,car,>=19,university,21272
-2016,Male,carpool,>=15,junior-cert,33351
-2016,Male,carpool,5 to 12,primary-school,165890
-2016,Male,carpool,13 to 18,leaving-cert,71622
-2016,Male,carpool,>=19,university,8939
-2016,Male,truck,>=15,junior-cert,134521
-2016,Male,truck,5 to 12,primary-school,573
-2016,Male,truck,13 to 18,leaving-cert,401
-2016,Male,truck,>=19,university,726
-2016,Male,remote,>=15,junior-cert,65608
-2016,Male,remote,5 to 12,primary-school,147
-2016,Male,remote,13 to 18,leaving-cert,114
-2016,Male,remote,>=19,university,244
-2016,Female,walking,>=15,junior-cert,95514
-2016,Female,walking,5 to 12,primary-school,63454
-2016,Female,walking,13 to 18,leaving-cert,36497
-2016,Female,walking,>=19,university,26328
-2016,Female,bike,>=15,junior-cert,15496
-2016,Female,bike,5 to 12,primary-school,2468
-2016,Female,bike,13 to 18,leaving-cert,694
-2016,Female,bike,>=19,university,3355
-2016,Female,bus,>=15,junior-cert,61648
-2016,Female,bus,5 to 12,primary-school,26735
-2016,Female,bus,13 to 18,leaving-cert,49639
-2016,Female,bus,>=19,university,24502
-2016,Female,train,>=15,junior-cert,30826
-2016,Female,train,5 to 12,primary-school,318
-2016,Female,train,13 to 18,leaving-cert,2716
-2016,Female,train,>=19,university,6641
-2016,Female,motorbike,>=15,junior-cert,1250
-2016,Female,motorbike,5 to 12,primary-school,0
-2016,Female,motorbike,13 to 18,leaving-cert,63
-2016,Female,motorbike,>=19,university,79
-2016,Female,car,>=15,junior-cert,590927
-2016,Female,car,5 to 12,primary-school,0
-2016,Female,car,13 to 18,leaving-cert,2068
-2016,Female,car,>=19,university,23499
-2016,Female,carpool,>=15,junior-cert,43984
-2016,Female,carpool,5 to 12,primary-school,161149
-2016,Female,carpool,13 to 18,leaving-cert,75133
-2016,Female,carpool,>=19,university,10186
-2016,Female,truck,>=15,junior-cert,3101
-2016,Female,truck,5 to 12,primary-school,493
-2016,Female,truck,13 to 18,leaving-cert,294
-2016,Female,truck,>=19,university,118
-2016,Female,remote,>=15,junior-cert,29347
-2016,Female,remote,5 to 12,primary-school,155
-2016,Female,remote,13 to 18,leaving-cert,93
-2016,Female,remote,>=19,university,349
+year,sex,means_of_travel,age_range,edu_status,value
+1986,Male,walking,15-66,working,69916
+1986,Male,walking,5-12,at primary school,129973
+1986,Male,walking,13-18,at secondary school,50585
+1986,Male,walking,19-66,at university,5932
+1986,Male,bike,15-66,working,39469
+1986,Male,bike,5-12,at primary school,14507
+1986,Male,bike,13-18,at secondary school,31522
+1986,Male,bike,19-66,at university,7290
+1986,Male,bus,15-66,working,41878
+1986,Male,bus,5-12,at primary school,52928
+1986,Male,bus,13-18,at secondary school,52597
+1986,Male,bus,19-66,at university,4841
+1986,Male,train,15-66,working,9492
+1986,Male,train,5-12,at primary school,325
+1986,Male,train,13-18,at secondary school,1660
+1986,Male,train,19-66,at university,1415
+1986,Male,motorbike,15-66,working,12827
+1986,Male,motorbike,5-12,at primary school,0
+1986,Male,motorbike,13-18,at secondary school,241
+1986,Male,motorbike,19-66,at university,575
+1986,Male,car,15-66,working,308726
+1986,Male,car,5-12,at primary school,0
+1986,Male,car,13-18,at secondary school,208
+1986,Male,car,19-66,at university,1230
+1986,Male,carpool,15-66,working,34726
+1986,Male,carpool,5-12,at primary school,66293
+1986,Male,carpool,13-18,at secondary school,16044
+1986,Male,carpool,19-66,at university,2031
+1986,Male,truck,15-66,working,31142
+1986,Male,truck,5-12,at primary school,898
+1986,Male,truck,13-18,at secondary school,426
+1986,Male,truck,19-66,at university,164
+1986,Male,remote,15-66,working,159914
+1986,Male,remote,5-12,at primary school,507
+1986,Male,remote,13-18,at secondary school,5190
+1986,Male,remote,19-66,at university,861
+1986,Female,walking,15-66,working,66084
+1986,Female,walking,5-12,at primary school,121974
+1986,Female,walking,13-18,at secondary school,54707
+1986,Female,walking,19-66,at university,6359
+1986,Female,bike,15-66,working,21281
+1986,Female,bike,5-12,at primary school,9128
+1986,Female,bike,13-18,at secondary school,19126
+1986,Female,bike,19-66,at university,4639
+1986,Female,bus,15-66,working,51458
+1986,Female,bus,5-12,at primary school,52317
+1986,Female,bus,13-18,at secondary school,62230
+1986,Female,bus,19-66,at university,5665
+1986,Female,train,15-66,working,6604
+1986,Female,train,5-12,at primary school,311
+1986,Female,train,13-18,at secondary school,1748
+1986,Female,train,19-66,at university,1135
+1986,Female,motorbike,15-66,working,2787
+1986,Female,motorbike,5-12,at primary school,0
+1986,Female,motorbike,13-18,at secondary school,59
+1986,Female,motorbike,19-66,at university,191
+1986,Female,car,15-66,working,94152
+1986,Female,car,5-12,at primary school,0
+1986,Female,car,13-18,at secondary school,165
+1986,Female,car,19-66,at university,699
+1986,Female,carpool,15-66,working,55105
+1986,Female,carpool,5-12,at primary school,67331
+1986,Female,carpool,13-18,at secondary school,20622
+1986,Female,carpool,19-66,at university,1973
+1986,Female,truck,15-66,working,2212
+1986,Female,truck,5-12,at primary school,914
+1986,Female,truck,13-18,at secondary school,403
+1986,Female,truck,19-66,at university,80
+1986,Female,remote,15-66,working,26942
+1986,Female,remote,5-12,at primary school,431
+1986,Female,remote,13-18,at secondary school,2740
+1986,Female,remote,19-66,at university,397
+1991,Male,walking,15-66,working,58989
+1991,Male,walking,5-12,at primary school,107125
+1991,Male,walking,13-18,at secondary school,46865
+1991,Male,walking,19-66,at university,9024
+1991,Male,bike,15-66,working,34337
+1991,Male,bike,5-12,at primary school,14203
+1991,Male,bike,13-18,at secondary school,30860
+1991,Male,bike,19-66,at university,7612
+1991,Male,bus,15-66,working,35824
+1991,Male,bus,5-12,at primary school,55474
+1991,Male,bus,13-18,at secondary school,57146
+1991,Male,bus,19-66,at university,7880
+1991,Male,train,15-66,working,10352
+1991,Male,train,5-12,at primary school,438
+1991,Male,train,13-18,at secondary school,2263
+1991,Male,train,19-66,at university,2464
+1991,Male,motorbike,15-66,working,10463
+1991,Male,motorbike,5-12,at primary school,0
+1991,Male,motorbike,13-18,at secondary school,293
+1991,Male,motorbike,19-66,at university,523
+1991,Male,car,15-66,working,303338
+1991,Male,car,5-12,at primary school,0
+1991,Male,car,13-18,at secondary school,396
+1991,Male,car,19-66,at university,1896
+1991,Male,carpool,15-66,working,33067
+1991,Male,carpool,5-12,at primary school,73398
+1991,Male,carpool,13-18,at secondary school,21937
+1991,Male,carpool,19-66,at university,2646
+1991,Male,truck,15-66,working,41646
+1991,Male,truck,5-12,at primary school,1375
+1991,Male,truck,13-18,at secondary school,648
+1991,Male,truck,19-66,at university,241
+1991,Male,remote,15-66,working,189110
+1991,Male,remote,5-12,at primary school,639
+1991,Male,remote,13-18,at secondary school,4099
+1991,Male,remote,19-66,at university,994
+1991,Female,walking,15-66,working,67169
+1991,Female,walking,5-12,at primary school,101942
+1991,Female,walking,13-18,at secondary school,52886
+1991,Female,walking,19-66,at university,10126
+1991,Female,bike,15-66,working,15920
+1991,Female,bike,5-12,at primary school,8204
+1991,Female,bike,13-18,at secondary school,14772
+1991,Female,bike,19-66,at university,4286
+1991,Female,bus,15-66,working,51553
+1991,Female,bus,5-12,at primary school,54271
+1991,Female,bus,13-18,at secondary school,66989
+1991,Female,bus,19-66,at university,8651
+1991,Female,train,15-66,working,9482
+1991,Female,train,5-12,at primary school,297
+1991,Female,train,13-18,at secondary school,2562
+1991,Female,train,19-66,at university,2356
+1991,Female,motorbike,15-66,working,2250
+1991,Female,motorbike,5-12,at primary school,0
+1991,Female,motorbike,13-18,at secondary school,61
+1991,Female,motorbike,19-66,at university,166
+1991,Female,car,15-66,working,138955
+1991,Female,car,5-12,at primary school,0
+1991,Female,car,13-18,at secondary school,280
+1991,Female,car,19-66,at university,1363
+1991,Female,carpool,15-66,working,57932
+1991,Female,carpool,5-12,at primary school,73638
+1991,Female,carpool,13-18,at secondary school,27145
+1991,Female,carpool,19-66,at university,2740
+1991,Female,truck,15-66,working,4257
+1991,Female,truck,5-12,at primary school,1291
+1991,Female,truck,13-18,at secondary school,594
+1991,Female,truck,19-66,at university,136
+1991,Female,remote,15-66,working,36126
+1991,Female,remote,5-12,at primary school,513
+1991,Female,remote,13-18,at secondary school,2060
+1991,Female,remote,19-66,at university,560
+1996,Male,walking,15-66,working,67964
+1996,Male,walking,5-12,at primary school,79164
+1996,Male,walking,13-18,at secondary school,48906
+1996,Male,walking,19-66,at university,13491
+1996,Male,bike,15-66,working,33852
+1996,Male,bike,5-12,at primary school,7837
+1996,Male,bike,13-18,at secondary school,21783
+1996,Male,bike,19-66,at university,8217
+1996,Male,bus,15-66,working,40512
+1996,Male,bus,5-12,at primary school,51008
+1996,Male,bus,13-18,at secondary school,67519
+1996,Male,bus,19-66,at university,12781
+1996,Male,train,15-66,working,11489
+1996,Male,train,5-12,at primary school,306
+1996,Male,train,13-18,at secondary school,2330
+1996,Male,train,19-66,at university,3148
+1996,Male,motorbike,15-66,working,10874
+1996,Male,motorbike,5-12,at primary school,0
+1996,Male,motorbike,13-18,at secondary school,238
+1996,Male,motorbike,19-66,at university,569
+1996,Male,car,15-66,working,378075
+1996,Male,car,5-12,at primary school,0
+1996,Male,car,13-18,at secondary school,636
+1996,Male,car,19-66,at university,3077
+1996,Male,carpool,15-66,working,45519
+1996,Male,carpool,5-12,at primary school,84966
+1996,Male,carpool,13-18,at secondary school,33103
+1996,Male,carpool,19-66,at university,4259
+1996,Male,truck,15-66,working,51862
+1996,Male,truck,5-12,at primary school,1109
+1996,Male,truck,13-18,at secondary school,728
+1996,Male,truck,19-66,at university,325
+1996,Male,remote,15-66,working,127913
+1996,Male,remote,5-12,at primary school,2410
+1996,Male,remote,13-18,at secondary school,4311
+1996,Male,remote,19-66,at university,1193
+1996,Female,walking,15-66,working,80412
+1996,Female,walking,5-12,at primary school,75612
+1996,Female,walking,13-18,at secondary school,53325
+1996,Female,walking,19-66,at university,18067
+1996,Female,bike,15-66,working,12580
+1996,Female,bike,5-12,at primary school,3834
+1996,Female,bike,13-18,at secondary school,6419
+1996,Female,bike,19-66,at university,4486
+1996,Female,bus,15-66,working,57777
+1996,Female,bus,5-12,at primary school,49425
+1996,Female,bus,13-18,at secondary school,75308
+1996,Female,bus,19-66,at university,15256
+1996,Female,train,15-66,working,11079
+1996,Female,train,5-12,at primary school,208
+1996,Female,train,13-18,at secondary school,2327
+1996,Female,train,19-66,at university,3214
+1996,Female,motorbike,15-66,working,1290
+1996,Female,motorbike,5-12,at primary school,0
+1996,Female,motorbike,13-18,at secondary school,37
+1996,Female,motorbike,19-66,at university,156
+1996,Female,car,15-66,working,221207
+1996,Female,car,5-12,at primary school,0
+1996,Female,car,13-18,at secondary school,463
+1996,Female,car,19-66,at university,2959
+1996,Female,carpool,15-66,working,66913
+1996,Female,carpool,5-12,at primary school,82938
+1996,Female,carpool,13-18,at secondary school,38592
+1996,Female,carpool,19-66,at university,4663
+1996,Female,truck,15-66,working,3296
+1996,Female,truck,5-12,at primary school,1094
+1996,Female,truck,13-18,at secondary school,650
+1996,Female,truck,19-66,at university,227
+1996,Female,remote,15-66,working,30836
+1996,Female,remote,5-12,at primary school,2337
+1996,Female,remote,13-18,at secondary school,2774
+1996,Female,remote,19-66,at university,1119
+2002,Male,walking,15-66,working,83279
+2002,Male,walking,5-12,at primary school,57570
+2002,Male,walking,13-18,at secondary school,40249
+2002,Male,walking,19-66,at university,18273
+2002,Male,bike,15-66,working,26423
+2002,Male,bike,5-12,at primary school,3640
+2002,Male,bike,13-18,at secondary school,10072
+2002,Male,bike,19-66,at university,5516
+2002,Male,bus,15-66,working,48286
+2002,Male,bus,5-12,at primary school,38590
+2002,Male,bus,13-18,at secondary school,57417
+2002,Male,bus,19-66,at university,16507
+2002,Male,train,15-66,working,16897
+2002,Male,train,5-12,at primary school,262
+2002,Male,train,13-18,at secondary school,2132
+2002,Male,train,19-66,at university,3800
+2002,Male,motorbike,15-66,working,15122
+2002,Male,motorbike,5-12,at primary school,0
+2002,Male,motorbike,13-18,at secondary school,1205
+2002,Male,motorbike,19-66,at university,1221
+2002,Male,car,15-66,working,500004
+2002,Male,car,5-12,at primary school,0
+2002,Male,car,13-18,at secondary school,1388
+2002,Male,car,19-66,at university,8643
+2002,Male,carpool,15-66,working,52705
+2002,Male,carpool,5-12,at primary school,110882
+2002,Male,carpool,13-18,at secondary school,42001
+2002,Male,carpool,19-66,at university,5736
+2002,Male,truck,15-66,working,111891
+2002,Male,truck,5-12,at primary school,1049
+2002,Male,truck,13-18,at secondary school,599
+2002,Male,truck,19-66,at university,396
+2002,Male,remote,15-66,working,72712
+2002,Male,remote,5-12,at primary school,3489
+2002,Male,remote,13-18,at secondary school,2595
+2002,Male,remote,19-66,at university,1064
+2002,Female,walking,15-66,working,100569
+2002,Female,walking,5-12,at primary school,54941
+2002,Female,walking,13-18,at secondary school,42367
+2002,Female,walking,19-66,at university,26235
+2002,Female,bike,15-66,working,7827
+2002,Female,bike,5-12,at primary school,1188
+2002,Female,bike,13-18,at secondary school,1046
+2002,Female,bike,19-66,at university,2130
+2002,Female,bus,15-66,working,59029
+2002,Female,bus,5-12,at primary school,37403
+2002,Female,bus,13-18,at secondary school,63138
+2002,Female,bus,19-66,at university,20929
+2002,Female,train,15-66,working,16169
+2002,Female,train,5-12,at primary school,207
+2002,Female,train,13-18,at secondary school,2215
+2002,Female,train,19-66,at university,4294
+2002,Female,motorbike,15-66,working,2207
+2002,Female,motorbike,5-12,at primary school,0
+2002,Female,motorbike,13-18,at secondary school,167
+2002,Female,motorbike,19-66,at university,328
+2002,Female,car,15-66,working,387164
+2002,Female,car,5-12,at primary school,0
+2002,Female,car,13-18,at secondary school,1176
+2002,Female,car,19-66,at university,11447
+2002,Female,carpool,15-66,working,55677
+2002,Female,carpool,5-12,at primary school,106426
+2002,Female,carpool,13-18,at secondary school,47467
+2002,Female,carpool,19-66,at university,7068
+2002,Female,truck,15-66,working,3277
+2002,Female,truck,5-12,at primary school,953
+2002,Female,truck,13-18,at secondary school,466
+2002,Female,truck,19-66,at university,169
+2002,Female,remote,15-66,working,24855
+2002,Female,remote,5-12,at primary school,3136
+2002,Female,remote,13-18,at secondary school,1864
+2002,Female,remote,19-66,at university,1106
+2006,Male,walking,15-66,working,94567
+2006,Male,walking,5-12,at primary school,55799
+2006,Male,walking,13-18,at secondary school,36416
+2006,Male,walking,19-66,at university,19099
+2006,Male,bike,15-66,working,27948
+2006,Male,bike,5-12,at primary school,3043
+2006,Male,bike,13-18,at secondary school,6856
+2006,Male,bike,19-66,at university,4560
+2006,Male,bus,15-66,working,54271
+2006,Male,bus,5-12,at primary school,34413
+2006,Male,bus,13-18,at secondary school,52639
+2006,Male,bus,19-66,at university,16233
+2006,Male,train,15-66,working,28049
+2006,Male,train,5-12,at primary school,328
+2006,Male,train,13-18,at secondary school,2673
+2006,Male,train,19-66,at university,5001
+2006,Male,motorbike,15-66,working,11225
+2006,Male,motorbike,5-12,at primary school,0
+2006,Male,motorbike,13-18,at secondary school,399
+2006,Male,motorbike,19-66,at university,646
+2006,Male,car,15-66,working,580034
+2006,Male,car,5-12,at primary school,0
+2006,Male,car,13-18,at secondary school,2668
+2006,Male,car,19-66,at university,13248
+2006,Male,carpool,15-66,working,55033
+2006,Male,carpool,5-12,at primary school,125866
+2006,Male,carpool,13-18,at secondary school,45750
+2006,Male,carpool,19-66,at university,5100
+2006,Male,truck,15-66,working,143533
+2006,Male,truck,5-12,at primary school,797
+2006,Male,truck,13-18,at secondary school,483
+2006,Male,truck,19-66,at university,421
+2006,Male,remote,15-66,working,69261
+2006,Male,remote,5-12,at primary school,4394
+2006,Male,remote,13-18,at secondary school,2020
+2006,Male,remote,19-66,at university,1099
+2006,Female,walking,15-66,working,111121
+2006,Female,walking,5-12,at primary school,53254
+2006,Female,walking,13-18,at secondary school,37930
+2006,Female,walking,19-66,at university,24924
+2006,Female,bike,15-66,working,8358
+2006,Female,bike,5-12,at primary school,1044
+2006,Female,bike,13-18,at secondary school,521
+2006,Female,bike,19-66,at university,1630
+2006,Female,bus,15-66,working,60685
+2006,Female,bus,5-12,at primary school,32937
+2006,Female,bus,13-18,at secondary school,55761
+2006,Female,bus,19-66,at university,20010
+2006,Female,train,15-66,working,26893
+2006,Female,train,5-12,at primary school,266
+2006,Female,train,13-18,at secondary school,2675
+2006,Female,train,19-66,at university,5773
+2006,Female,motorbike,15-66,working,1824
+2006,Female,motorbike,5-12,at primary school,0
+2006,Female,motorbike,13-18,at secondary school,88
+2006,Female,motorbike,19-66,at university,156
+2006,Female,car,15-66,working,500412
+2006,Female,car,5-12,at primary school,0
+2006,Female,car,13-18,at secondary school,2463
+2006,Female,car,19-66,at university,19487
+2006,Female,carpool,15-66,working,49828
+2006,Female,carpool,5-12,at primary school,120936
+2006,Female,carpool,13-18,at secondary school,50155
+2006,Female,carpool,19-66,at university,6829
+2006,Female,truck,15-66,working,3502
+2006,Female,truck,5-12,at primary school,657
+2006,Female,truck,13-18,at secondary school,359
+2006,Female,truck,19-66,at university,156
+2006,Female,remote,15-66,working,36445
+2006,Female,remote,5-12,at primary school,3828
+2006,Female,remote,13-18,at secondary school,1552
+2006,Female,remote,19-66,at university,1319
+2011,Male,walking,15-66,working,73714
+2011,Male,walking,5-12,at primary school,59986
+2011,Male,walking,13-18,at secondary school,37443
+2011,Male,walking,19-66,at university,24393
+2011,Male,bike,15-66,working,29075
+2011,Male,bike,5-12,at primary school,4457
+2011,Male,bike,13-18,at secondary school,6063
+2011,Male,bike,19-66,at university,6215
+2011,Male,bus,15-66,working,38595
+2011,Male,bus,5-12,at primary school,31217
+2011,Male,bus,13-18,at secondary school,48143
+2011,Male,bus,19-66,at university,19305
+2011,Male,train,15-66,working,25652
+2011,Male,train,5-12,at primary school,371
+2011,Male,train,13-18,at secondary school,2926
+2011,Male,train,19-66,at university,6056
+2011,Male,motorbike,15-66,working,7332
+2011,Male,motorbike,5-12,at primary school,0
+2011,Male,motorbike,13-18,at secondary school,181
+2011,Male,motorbike,19-66,at university,506
+2011,Male,car,15-66,working,515813
+2011,Male,car,5-12,at primary school,0
+2011,Male,car,13-18,at secondary school,3584
+2011,Male,car,19-66,at university,24026
+2011,Male,carpool,15-66,working,25818
+2011,Male,carpool,5-12,at primary school,150818
+2011,Male,carpool,13-18,at secondary school,61415
+2011,Male,carpool,19-66,at university,7496
+2011,Male,truck,15-66,working,127831
+2011,Male,truck,5-12,at primary school,588
+2011,Male,truck,13-18,at secondary school,498
+2011,Male,truck,19-66,at university,1094
+2011,Male,remote,15-66,working,59278
+2011,Male,remote,5-12,at primary school,135
+2011,Male,remote,13-18,at secondary school,137
+2011,Male,remote,19-66,at university,239
+2011,Female,walking,15-66,working,96796
+2011,Female,walking,5-12,at primary school,58537
+2011,Female,walking,13-18,at secondary school,36503
+2011,Female,walking,19-66,at university,27566
+2011,Female,bike,15-66,working,10728
+2011,Female,bike,5-12,at primary school,1795
+2011,Female,bike,13-18,at secondary school,529
+2011,Female,bike,19-66,at university,2315
+2011,Female,bus,15-66,working,53081
+2011,Female,bus,5-12,at primary school,29046
+2011,Female,bus,13-18,at secondary school,48010
+2011,Female,bus,19-66,at university,21165
+2011,Female,train,15-66,working,27097
+2011,Female,train,5-12,at primary school,320
+2011,Female,train,13-18,at secondary school,2714
+2011,Female,train,19-66,at university,5840
+2011,Female,motorbike,15-66,working,1111
+2011,Female,motorbike,5-12,at primary school,0
+2011,Female,motorbike,13-18,at secondary school,55
+2011,Female,motorbike,19-66,at university,127
+2011,Female,car,15-66,working,551638
+2011,Female,car,5-12,at primary school,0
+2011,Female,car,13-18,at secondary school,2755
+2011,Female,car,19-66,at university,29580
+2011,Female,carpool,15-66,working,43346
+2011,Female,carpool,5-12,at primary school,145893
+2011,Female,carpool,13-18,at secondary school,64757
+2011,Female,carpool,19-66,at university,8795
+2011,Female,truck,15-66,working,3187
+2011,Female,truck,5-12,at primary school,490
+2011,Female,truck,13-18,at secondary school,299
+2011,Female,truck,19-66,at university,128
+2011,Female,remote,15-66,working,24048
+2011,Female,remote,5-12,at primary school,129
+2011,Female,remote,13-18,at secondary school,108
+2011,Female,remote,19-66,at university,353
+2016,Male,walking,15-66,working,79566
+2016,Male,walking,5-12,at primary school,64764
+2016,Male,walking,13-18,at secondary school,37614
+2016,Male,walking,19-66,at university,22484
+2016,Male,bike,15-66,working,41341
+2016,Male,bike,5-12,at primary school,4858
+2016,Male,bike,13-18,at secondary school,6588
+2016,Male,bike,19-66,at university,7323
+2016,Male,bus,15-66,working,49788
+2016,Male,bus,5-12,at primary school,29410
+2016,Male,bus,13-18,at secondary school,49934
+2016,Male,bus,19-66,at university,21441
+2016,Male,train,15-66,working,32307
+2016,Male,train,5-12,at primary school,383
+2016,Male,train,13-18,at secondary school,2933
+2016,Male,train,19-66,at university,6503
+2016,Male,motorbike,15-66,working,6740
+2016,Male,motorbike,5-12,at primary school,0
+2016,Male,motorbike,13-18,at secondary school,97
+2016,Male,motorbike,19-66,at university,336
+2016,Male,car,15-66,working,561704
+2016,Male,car,5-12,at primary school,0
+2016,Male,car,13-18,at secondary school,2971
+2016,Male,car,19-66,at university,21272
+2016,Male,carpool,15-66,working,33351
+2016,Male,carpool,5-12,at primary school,165890
+2016,Male,carpool,13-18,at secondary school,71622
+2016,Male,carpool,19-66,at university,8939
+2016,Male,truck,15-66,working,134521
+2016,Male,truck,5-12,at primary school,573
+2016,Male,truck,13-18,at secondary school,401
+2016,Male,truck,19-66,at university,726
+2016,Male,remote,15-66,working,65608
+2016,Male,remote,5-12,at primary school,147
+2016,Male,remote,13-18,at secondary school,114
+2016,Male,remote,19-66,at university,244
+2016,Female,walking,15-66,working,95514
+2016,Female,walking,5-12,at primary school,63454
+2016,Female,walking,13-18,at secondary school,36497
+2016,Female,walking,19-66,at university,26328
+2016,Female,bike,15-66,working,15496
+2016,Female,bike,5-12,at primary school,2468
+2016,Female,bike,13-18,at secondary school,694
+2016,Female,bike,19-66,at university,3355
+2016,Female,bus,15-66,working,61648
+2016,Female,bus,5-12,at primary school,26735
+2016,Female,bus,13-18,at secondary school,49639
+2016,Female,bus,19-66,at university,24502
+2016,Female,train,15-66,working,30826
+2016,Female,train,5-12,at primary school,318
+2016,Female,train,13-18,at secondary school,2716
+2016,Female,train,19-66,at university,6641
+2016,Female,motorbike,15-66,working,1250
+2016,Female,motorbike,5-12,at primary school,0
+2016,Female,motorbike,13-18,at secondary school,63
+2016,Female,motorbike,19-66,at university,79
+2016,Female,car,15-66,working,590927
+2016,Female,car,5-12,at primary school,0
+2016,Female,car,13-18,at secondary school,2068
+2016,Female,car,19-66,at university,23499
+2016,Female,carpool,15-66,working,43984
+2016,Female,carpool,5-12,at primary school,161149
+2016,Female,carpool,13-18,at secondary school,75133
+2016,Female,carpool,19-66,at university,10186
+2016,Female,truck,15-66,working,3101
+2016,Female,truck,5-12,at primary school,493
+2016,Female,truck,13-18,at secondary school,294
+2016,Female,truck,19-66,at university,118
+2016,Female,remote,15-66,working,29347
+2016,Female,remote,5-12,at primary school,155
+2016,Female,remote,13-18,at secondary school,93
+2016,Female,remote,19-66,at university,349

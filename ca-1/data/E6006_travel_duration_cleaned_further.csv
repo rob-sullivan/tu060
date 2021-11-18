@@ -1,8 +1,4 @@
 year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
-2011,Male,0.125,-1.0,15-66,working,209852
-2011,Male,0.125,-1.0,5-12,at primary school,168826
-2011,Male,0.125,-1.0,13-18,at secondary school,61830
-2011,Male,0.125,-1.0,19-66,at university,20799
 2011,Male,0.125,6.15,15-66,working,17173
 2011,Male,0.125,6.15,5-12,at primary school,44
 2011,Male,0.125,6.15,13-18,at secondary school,32
@@ -35,14 +31,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2011,Male,0.125,9.45,5-12,at primary school,314
 2011,Male,0.125,9.45,13-18,at secondary school,541
 2011,Male,0.125,9.45,19-66,at university,4358
-2011,Male,0.125,-1.0,15-66,working,2000
-2011,Male,0.125,-1.0,5-12,at primary school,729
-2011,Male,0.125,-1.0,13-18,at secondary school,204
-2011,Male,0.125,-1.0,19-66,at university,126
-2011,Male,0.275,-1.0,15-66,working,252017
-2011,Male,0.275,-1.0,5-12,at primary school,59239
-2011,Male,0.275,-1.0,13-18,at secondary school,61254
-2011,Male,0.275,-1.0,19-66,at university,26243
 2011,Male,0.275,6.15,15-66,working,23187
 2011,Male,0.275,6.15,5-12,at primary school,28
 2011,Male,0.275,6.15,13-18,at secondary school,36
@@ -75,14 +63,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2011,Male,0.275,9.45,5-12,at primary school,89
 2011,Male,0.275,9.45,13-18,at secondary school,350
 2011,Male,0.275,9.45,19-66,at university,5022
-2011,Male,0.275,-1.0,15-66,working,1816
-2011,Male,0.275,-1.0,5-12,at primary school,242
-2011,Male,0.275,-1.0,13-18,at secondary school,188
-2011,Male,0.275,-1.0,19-66,at university,127
-2011,Male,0.375,-1.0,15-66,working,186174
-2011,Male,0.375,-1.0,5-12,at primary school,12036
-2011,Male,0.375,-1.0,13-18,at secondary school,24423
-2011,Male,0.375,-1.0,19-66,at university,19020
 2011,Male,0.375,6.15,15-66,working,17296
 2011,Male,0.375,6.15,5-12,at primary school,16
 2011,Male,0.375,6.15,13-18,at secondary school,27
@@ -115,14 +95,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2011,Male,0.375,9.45,5-12,at primary school,18
 2011,Male,0.375,9.45,13-18,at secondary school,185
 2011,Male,0.375,9.45,19-66,at university,2823
-2011,Male,0.375,-1.0,15-66,working,1262
-2011,Male,0.375,-1.0,5-12,at primary school,47
-2011,Male,0.375,-1.0,13-18,at secondary school,69
-2011,Male,0.375,-1.0,19-66,at university,109
-2011,Male,0.525,-1.0,15-66,working,63975
-2011,Male,0.525,-1.0,5-12,at primary school,1881
-2011,Male,0.525,-1.0,13-18,at secondary school,5144
-2011,Male,0.525,-1.0,19-66,at university,7696
 2011,Male,0.525,6.15,15-66,working,7050
 2011,Male,0.525,6.15,5-12,at primary school,7
 2011,Male,0.525,6.15,13-18,at secondary school,14
@@ -155,14 +127,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2011,Male,0.525,9.45,5-12,at primary school,3
 2011,Male,0.525,9.45,13-18,at secondary school,67
 2011,Male,0.525,9.45,19-66,at university,836
-2011,Male,0.525,-1.0,15-66,working,369
-2011,Male,0.525,-1.0,5-12,at primary school,10
-2011,Male,0.525,-1.0,13-18,at secondary school,19
-2011,Male,0.525,-1.0,19-66,at university,43
-2011,Male,1.25,-1.0,15-66,working,65991
-2011,Male,1.25,-1.0,5-12,at primary school,1293
-2011,Male,1.25,-1.0,13-18,at secondary school,3524
-2011,Male,1.25,-1.0,19-66,at university,9048
 2011,Male,1.25,6.15,15-66,working,9601
 2011,Male,1.25,6.15,5-12,at primary school,10
 2011,Male,1.25,6.15,13-18,at secondary school,28
@@ -195,14 +159,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2011,Male,1.25,9.45,5-12,at primary school,5
 2011,Male,1.25,9.45,13-18,at secondary school,69
 2011,Male,1.25,9.45,19-66,at university,870
-2011,Male,1.25,-1.0,15-66,working,378
-2011,Male,1.25,-1.0,5-12,at primary school,8
-2011,Male,1.25,-1.0,13-18,at secondary school,17
-2011,Male,1.25,-1.0,19-66,at university,49
-2011,Male,1.3,-1.0,15-66,working,26009
-2011,Male,1.3,-1.0,5-12,at primary school,384
-2011,Male,1.3,-1.0,13-18,at secondary school,963
-2011,Male,1.3,-1.0,19-66,at university,3936
 2011,Male,1.3,6.15,15-66,working,8642
 2011,Male,1.3,6.15,5-12,at primary school,8
 2011,Male,1.3,6.15,13-18,at secondary school,50
@@ -235,14 +191,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2011,Male,1.3,9.45,5-12,at primary school,3
 2011,Male,1.3,9.45,13-18,at secondary school,55
 2011,Male,1.3,9.45,19-66,at university,355
-2011,Male,1.3,-1.0,15-66,working,177
-2011,Male,1.3,-1.0,5-12,at primary school,2
-2011,Male,1.3,-1.0,13-18,at secondary school,13
-2011,Male,1.3,-1.0,19-66,at university,52
-2011,Female,0.125,-1.0,15-66,working,218141
-2011,Female,0.125,-1.0,5-12,at primary school,160967
-2011,Female,0.125,-1.0,13-18,at secondary school,58986
-2011,Female,0.125,-1.0,19-66,at university,22323
 2011,Female,0.125,6.15,15-66,working,6419
 2011,Female,0.125,6.15,5-12,at primary school,45
 2011,Female,0.125,6.15,13-18,at secondary school,29
@@ -275,14 +223,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2011,Female,0.125,9.45,5-12,at primary school,258
 2011,Female,0.125,9.45,13-18,at secondary school,536
 2011,Female,0.125,9.45,19-66,at university,4201
-2011,Female,0.125,-1.0,15-66,working,1552
-2011,Female,0.125,-1.0,5-12,at primary school,664
-2011,Female,0.125,-1.0,13-18,at secondary school,174
-2011,Female,0.125,-1.0,19-66,at university,105
-2011,Female,0.275,-1.0,15-66,working,268111
-2011,Female,0.275,-1.0,5-12,at primary school,57370
-2011,Female,0.275,-1.0,13-18,at secondary school,60268
-2011,Female,0.275,-1.0,19-66,at university,28271
 2011,Female,0.275,6.15,15-66,working,8862
 2011,Female,0.275,6.15,5-12,at primary school,13
 2011,Female,0.275,6.15,13-18,at secondary school,38
@@ -315,14 +255,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2011,Female,0.275,9.45,5-12,at primary school,68
 2011,Female,0.275,9.45,13-18,at secondary school,427
 2011,Female,0.275,9.45,19-66,at university,4530
-2011,Female,0.275,-1.0,15-66,working,1468
-2011,Female,0.275,-1.0,5-12,at primary school,278
-2011,Female,0.275,-1.0,13-18,at secondary school,147
-2011,Female,0.275,-1.0,19-66,at university,116
-2011,Female,0.375,-1.0,15-66,working,166188
-2011,Female,0.375,-1.0,5-12,at primary school,11140
-2011,Female,0.375,-1.0,13-18,at secondary school,24036
-2011,Female,0.375,-1.0,19-66,at university,20165
 2011,Female,0.375,6.15,15-66,working,6717
 2011,Female,0.375,6.15,5-12,at primary school,8
 2011,Female,0.375,6.15,13-18,at secondary school,22
@@ -355,14 +287,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2011,Female,0.375,9.45,5-12,at primary school,18
 2011,Female,0.375,9.45,13-18,at secondary school,193
 2011,Female,0.375,9.45,19-66,at university,2350
-2011,Female,0.375,-1.0,15-66,working,807
-2011,Female,0.375,-1.0,5-12,at primary school,43
-2011,Female,0.375,-1.0,13-18,at secondary school,63
-2011,Female,0.375,-1.0,19-66,at university,88
-2011,Female,0.525,-1.0,15-66,working,59323
-2011,Female,0.525,-1.0,5-12,at primary school,1623
-2011,Female,0.525,-1.0,13-18,at secondary school,4982
-2011,Female,0.525,-1.0,19-66,at university,8270
 2011,Female,0.525,6.15,15-66,working,2930
 2011,Female,0.525,6.15,5-12,at primary school,7
 2011,Female,0.525,6.15,13-18,at secondary school,9
@@ -395,14 +319,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2011,Female,0.525,9.45,5-12,at primary school,2
 2011,Female,0.525,9.45,13-18,at secondary school,64
 2011,Female,0.525,9.45,19-66,at university,762
-2011,Female,0.525,-1.0,15-66,working,262
-2011,Female,0.525,-1.0,5-12,at primary school,13
-2011,Female,0.525,-1.0,13-18,at secondary school,17
-2011,Female,0.525,-1.0,19-66,at university,27
-2011,Female,1.25,-1.0,15-66,working,46710
-2011,Female,1.25,-1.0,5-12,at primary school,1001
-2011,Female,1.25,-1.0,13-18,at secondary school,3315
-2011,Female,1.25,-1.0,19-66,at university,9663
 2011,Female,1.25,6.15,15-66,working,3887
 2011,Female,1.25,6.15,5-12,at primary school,13
 2011,Female,1.25,6.15,13-18,at secondary school,28
@@ -435,14 +351,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2011,Female,1.25,9.45,5-12,at primary school,2
 2011,Female,1.25,9.45,13-18,at secondary school,57
 2011,Female,1.25,9.45,19-66,at university,797
-2011,Female,1.25,-1.0,15-66,working,219
-2011,Female,1.25,-1.0,5-12,at primary school,8
-2011,Female,1.25,-1.0,13-18,at secondary school,16
-2011,Female,1.25,-1.0,19-66,at university,36
-2011,Female,1.3,-1.0,15-66,working,13755
-2011,Female,1.3,-1.0,5-12,at primary school,309
-2011,Female,1.3,-1.0,13-18,at secondary school,1034
-2011,Female,1.3,-1.0,19-66,at university,4648
 2011,Female,1.3,6.15,15-66,working,2756
 2011,Female,1.3,6.15,5-12,at primary school,10
 2011,Female,1.3,6.15,13-18,at secondary school,49
@@ -475,14 +383,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2011,Female,1.3,9.45,5-12,at primary school,0
 2011,Female,1.3,9.45,13-18,at secondary school,56
 2011,Female,1.3,9.45,19-66,at university,464
-2011,Female,1.3,-1.0,15-66,working,89
-2011,Female,1.3,-1.0,5-12,at primary school,5
-2011,Female,1.3,-1.0,13-18,at secondary school,10
-2011,Female,1.3,-1.0,19-66,at university,46
-2016,Male,0.125,-1.0,15-66,working,212383
-2016,Male,0.125,-1.0,5-12,at primary school,182391
-2016,Male,0.125,-1.0,13-18,at secondary school,66896
-2016,Male,0.125,-1.0,19-66,at university,18346
 2016,Male,0.125,6.15,15-66,working,20795
 2016,Male,0.125,6.15,5-12,at primary school,59
 2016,Male,0.125,6.15,13-18,at secondary school,47
@@ -515,14 +415,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2016,Male,0.125,9.45,5-12,at primary school,300
 2016,Male,0.125,9.45,13-18,at secondary school,326
 2016,Male,0.125,9.45,19-66,at university,3280
-2016,Male,0.125,-1.0,15-66,working,2070
-2016,Male,0.125,-1.0,5-12,at primary school,871
-2016,Male,0.125,-1.0,13-18,at secondary school,212
-2016,Male,0.125,-1.0,19-66,at university,118
-2016,Male,0.275,-1.0,15-66,working,270912
-2016,Male,0.275,-1.0,5-12,at primary school,62247
-2016,Male,0.275,-1.0,13-18,at secondary school,65196
-2016,Male,0.275,-1.0,19-66,at university,25016
 2016,Male,0.275,6.15,15-66,working,29828
 2016,Male,0.275,6.15,5-12,at primary school,34
 2016,Male,0.275,6.15,13-18,at secondary school,43
@@ -555,14 +447,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2016,Male,0.275,9.45,5-12,at primary school,90
 2016,Male,0.275,9.45,13-18,at secondary school,269
 2016,Male,0.275,9.45,19-66,at university,4388
-2016,Male,0.275,-1.0,15-66,working,2050
-2016,Male,0.275,-1.0,5-12,at primary school,345
-2016,Male,0.275,-1.0,13-18,at secondary school,199
-2016,Male,0.275,-1.0,19-66,at university,123
-2016,Male,0.375,-1.0,15-66,working,212636
-2016,Male,0.375,-1.0,5-12,at primary school,12794
-2016,Male,0.375,-1.0,13-18,at secondary school,25853
-2016,Male,0.375,-1.0,19-66,at university,19295
 2016,Male,0.375,6.15,15-66,working,24253
 2016,Male,0.375,6.15,5-12,at primary school,16
 2016,Male,0.375,6.15,13-18,at secondary school,36
@@ -595,14 +479,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2016,Male,0.375,9.45,5-12,at primary school,16
 2016,Male,0.375,9.45,13-18,at secondary school,129
 2016,Male,0.375,9.45,19-66,at university,2515
-2016,Male,0.375,-1.0,15-66,working,1524
-2016,Male,0.375,-1.0,5-12,at primary school,79
-2016,Male,0.375,-1.0,13-18,at secondary school,83
-2016,Male,0.375,-1.0,19-66,at university,89
-2016,Male,0.525,-1.0,15-66,working,76035
-2016,Male,0.525,-1.0,5-12,at primary school,1899
-2016,Male,0.525,-1.0,13-18,at secondary school,5482
-2016,Male,0.525,-1.0,19-66,at university,8142
 2016,Male,0.525,6.15,15-66,working,10116
 2016,Male,0.525,6.15,5-12,at primary school,8
 2016,Male,0.525,6.15,13-18,at secondary school,15
@@ -635,14 +511,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2016,Male,0.525,9.45,5-12,at primary school,4
 2016,Male,0.525,9.45,13-18,at secondary school,52
 2016,Male,0.525,9.45,19-66,at university,786
-2016,Male,0.525,-1.0,15-66,working,427
-2016,Male,0.525,-1.0,5-12,at primary school,9
-2016,Male,0.525,-1.0,13-18,at secondary school,19
-2016,Male,0.525,-1.0,19-66,at university,43
-2016,Male,1.25,-1.0,15-66,working,87751
-2016,Male,1.25,-1.0,5-12,at primary school,1590
-2016,Male,1.25,-1.0,13-18,at secondary school,3852
-2016,Male,1.25,-1.0,19-66,at university,10483
 2016,Male,1.25,6.15,15-66,working,16765
 2016,Male,1.25,6.15,5-12,at primary school,18
 2016,Male,1.25,6.15,13-18,at secondary school,39
@@ -675,14 +543,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2016,Male,1.25,9.45,5-12,at primary school,2
 2016,Male,1.25,9.45,13-18,at secondary school,48
 2016,Male,1.25,9.45,19-66,at university,909
-2016,Male,1.25,-1.0,15-66,working,445
-2016,Male,1.25,-1.0,5-12,at primary school,20
-2016,Male,1.25,-1.0,13-18,at secondary school,24
-2016,Male,1.25,-1.0,19-66,at university,55
-2016,Male,1.3,-1.0,15-66,working,35163
-2016,Male,1.3,-1.0,5-12,at primary school,420
-2016,Male,1.3,-1.0,13-18,at secondary school,974
-2016,Male,1.3,-1.0,19-66,at university,5167
 2016,Male,1.3,6.15,15-66,working,13969
 2016,Male,1.3,6.15,5-12,at primary school,6
 2016,Male,1.3,6.15,13-18,at secondary school,70
@@ -715,14 +575,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2016,Male,1.3,9.45,5-12,at primary school,2
 2016,Male,1.3,9.45,13-18,at secondary school,41
 2016,Male,1.3,9.45,19-66,at university,401
-2016,Male,1.3,-1.0,15-66,working,194
-2016,Male,1.3,-1.0,5-12,at primary school,3
-2016,Male,1.3,-1.0,13-18,at secondary school,14
-2016,Male,1.3,-1.0,19-66,at university,48
-2016,Female,0.125,-1.0,15-66,working,217838
-2016,Female,0.125,-1.0,5-12,at primary school,175008
-2016,Female,0.125,-1.0,13-18,at secondary school,63709
-2016,Female,0.125,-1.0,19-66,at university,19799
 2016,Female,0.125,6.15,15-66,working,8430
 2016,Female,0.125,6.15,5-12,at primary school,43
 2016,Female,0.125,6.15,13-18,at secondary school,36
@@ -755,14 +607,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2016,Female,0.125,9.45,5-12,at primary school,220
 2016,Female,0.125,9.45,13-18,at secondary school,356
 2016,Female,0.125,9.45,19-66,at university,3186
-2016,Female,0.125,-1.0,15-66,working,1572
-2016,Female,0.125,-1.0,5-12,at primary school,799
-2016,Female,0.125,-1.0,13-18,at secondary school,199
-2016,Female,0.125,-1.0,19-66,at university,102
-2016,Female,0.275,-1.0,15-66,working,279345
-2016,Female,0.275,-1.0,5-12,at primary school,60544
-2016,Female,0.275,-1.0,13-18,at secondary school,64234
-2016,Female,0.275,-1.0,19-66,at university,26391
 2016,Female,0.275,6.15,15-66,working,12198
 2016,Female,0.275,6.15,5-12,at primary school,37
 2016,Female,0.275,6.15,13-18,at secondary school,50
@@ -795,14 +639,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2016,Female,0.275,9.45,5-12,at primary school,57
 2016,Female,0.275,9.45,13-18,at secondary school,301
 2016,Female,0.275,9.45,19-66,at university,3789
-2016,Female,0.275,-1.0,15-66,working,1710
-2016,Female,0.275,-1.0,5-12,at primary school,304
-2016,Female,0.275,-1.0,13-18,at secondary school,163
-2016,Female,0.275,-1.0,19-66,at university,117
-2016,Female,0.375,-1.0,15-66,working,183616
-2016,Female,0.375,-1.0,5-12,at primary school,11667
-2016,Female,0.375,-1.0,13-18,at secondary school,25658
-2016,Female,0.375,-1.0,19-66,at university,20324
 2016,Female,0.375,6.15,15-66,working,9246
 2016,Female,0.375,6.15,5-12,at primary school,20
 2016,Female,0.375,6.15,13-18,at secondary school,45
@@ -835,14 +671,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2016,Female,0.375,9.45,5-12,at primary school,5
 2016,Female,0.375,9.45,13-18,at secondary school,164
 2016,Female,0.375,9.45,19-66,at university,2259
-2016,Female,0.375,-1.0,15-66,working,1006
-2016,Female,0.375,-1.0,5-12,at primary school,75
-2016,Female,0.375,-1.0,13-18,at secondary school,70
-2016,Female,0.375,-1.0,19-66,at university,114
-2016,Female,0.525,-1.0,15-66,working,67316
-2016,Female,0.525,-1.0,5-12,at primary school,1724
-2016,Female,0.525,-1.0,13-18,at secondary school,5218
-2016,Female,0.525,-1.0,19-66,at university,8438
 2016,Female,0.525,6.15,15-66,working,4311
 2016,Female,0.525,6.15,5-12,at primary school,10
 2016,Female,0.525,6.15,13-18,at secondary school,18
@@ -875,14 +703,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2016,Female,0.525,9.45,5-12,at primary school,2
 2016,Female,0.525,9.45,13-18,at secondary school,59
 2016,Female,0.525,9.45,19-66,at university,711
-2016,Female,0.525,-1.0,15-66,working,265
-2016,Female,0.525,-1.0,5-12,at primary school,4
-2016,Female,0.525,-1.0,13-18,at secondary school,14
-2016,Female,0.525,-1.0,19-66,at university,44
-2016,Female,1.25,-1.0,15-66,working,59373
-2016,Female,1.25,-1.0,5-12,at primary school,1280
-2016,Female,1.25,-1.0,13-18,at secondary school,3762
-2016,Female,1.25,-1.0,19-66,at university,11142
 2016,Female,1.25,6.15,15-66,working,5802
 2016,Female,1.25,6.15,5-12,at primary school,25
 2016,Female,1.25,6.15,13-18,at secondary school,40
@@ -915,14 +735,6 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2016,Female,1.25,9.45,5-12,at primary school,3
 2016,Female,1.25,9.45,13-18,at secondary school,61
 2016,Female,1.25,9.45,19-66,at university,812
-2016,Female,1.25,-1.0,15-66,working,249
-2016,Female,1.25,-1.0,5-12,at primary school,5
-2016,Female,1.25,-1.0,13-18,at secondary school,24
-2016,Female,1.25,-1.0,19-66,at university,62
-2016,Female,1.3,-1.0,15-66,working,17635
-2016,Female,1.3,-1.0,5-12,at primary school,350
-2016,Female,1.3,-1.0,13-18,at secondary school,1124
-2016,Female,1.3,-1.0,19-66,at university,6233
 2016,Female,1.3,6.15,15-66,working,3979
 2016,Female,1.3,6.15,5-12,at primary school,8
 2016,Female,1.3,6.15,13-18,at secondary school,78
@@ -955,7 +767,3 @@ year,sex,travelling_time,time_leaving_home,age_range,edu_status,value
 2016,Female,1.3,9.45,5-12,at primary school,2
 2016,Female,1.3,9.45,13-18,at secondary school,60
 2016,Female,1.3,9.45,19-66,at university,445
-2016,Female,1.3,-1.0,15-66,working,107
-2016,Female,1.3,-1.0,5-12,at primary school,5
-2016,Female,1.3,-1.0,13-18,at secondary school,14
-2016,Female,1.3,-1.0,19-66,at university,57
