@@ -1,0 +1,55 @@
+---
+title: "Introduction & Research Question"
+output:
+  html_document:
+    df_print: paged
+---
+
+                       |     
+-----------------------|-----------------
+**Name:**              | Robert O'Sullivan
+**Student id:**        | C08345457
+**Programme code:**    | TU060
+
+The work presented here is my own and any material or ideas sourced elsewhere have been referenced and cited in the text. I have familiarised myself with the university's stance on plagiarism. I understand that in TU Dublin plagiarism is treated as a serious offence that may result in severe penalties inclusive of expulsion.
+```{=html}
+<img width=200 src="signature.png">
+```
+
+
+ 
+
+## Table of contents
+
+Provide the table of contents with links here. A sample link to the descriptive analysis page is given.
+
+[1. Introduction & Research Question](index.html)
+[2. Data Collection & Preparation](dcprep.html)
+
+
+ 
+
+## Introduction
+Navigation of this report is done via the table of content header links above. Code used will be embeded within this website report.
+
+This report is a detailed analysis of the student performance dataset collected by (Cortez, et al, 2008). Its purpose is to demonstrate a systematic and in-depth understanding of concepts, methods and data analysis methodology.
+
+The report will follow a standard methodology that covers the entire span of data analysis methodology that is applicable to the dataset. Correct methods will be selected for different context. Any choices made throughout the report will be justified and any difficulties or limitations will be discussed. Application of selected methods will be discussed, interpreted and critically evaluated. Conclusions will be drawn from the outcomes of our analysis and domain-level implications of outcomes will be synthesised. The report will adhere to NFQ Level 9 standard (QQI, 2018) such as knowledge kind requirement: "a critical awareness of current problems and/or new insights, generally informed by the forefront of a field of learning". Academic Referencing will be placed at the end of this document and any references made can throughout the document can be found there in detail.
+
+## Statement of research question
+
+Data mining methods allows several interesting questions for the Higher Education domain to be answered.
+
+(Luan J., 2002, Minaei-Bidgoli et al. 2003):
+
+1. Who are the students taking most credit hours? Who is likely to return for more classes?
+2. What type of courses can be offered to attract more students?
+3. What are the main reasons for student transfers?
+4. Is is possible to predict student performance?
+5. What are the factors that affect student achievement?
+
+In this report data mining methods will be applied to to the the student performance dataset with the goals of answering the following two research questions:
+
+1. foo
+2. bar
+

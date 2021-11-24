@@ -1,0 +1,9 @@
+name: "PSI Assignment"
+navbar:
+  title: "PSI Assignment"
+  left:
+    - text: "Home page"
+      href: index.html
+    - text: "Data Collect & Preparation"
+      href: dcprep.html
+    

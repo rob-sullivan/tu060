@@ -1,0 +1,13 @@
+name: "PSI Assignment"
+navbar:
+  title: "PSI Assignment"
+  left:
+    - text: "Home page"
+      href: index.html
+    - text: "First page"
+      href: a_page.html
+    - text: "Research Question"
+      href: rqh.html
+    - text: "Descriptions"
+      href: desc.html
+    

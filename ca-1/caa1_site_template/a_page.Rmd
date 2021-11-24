@@ -1,0 +1,23 @@
+---
+title: "First page"
+output:
+  html_document:
+    df_print: paged
+---
+
+This will be one of the pages of your analysis website. Replace this text with your own. 
+
+Also, create the other pages you wish to include.
+
+# Here is a plot
+
+```{r}
+
+plot(c(1, 2, 3, 4, 5), c(10, 12, 14, 11, 9))
+
+```
+
+```{r}
+
+```
+

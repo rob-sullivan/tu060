@@ -1,5 +1,5 @@
 #P2a_inference
-#ex1
+#ex1 - confidence interval
 #problem 200ml bottle
   #n observations = 100
   # mean = 200
@@ -39,7 +39,7 @@ hp
 #if h0: mu >= 150
 #if h1: mu < 150
 
-#upper rail test
+#upper tail test
 #if h0: mu <= 500k
 #if h1: mu > 500k
 

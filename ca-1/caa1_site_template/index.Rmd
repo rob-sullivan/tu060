@@ -1,0 +1,33 @@
+---
+title: "Home page"
+output:
+  html_document:
+    df_print: paged
+---
+
+                       |     
+-----------------------|-----------------
+**Name:**              | Robert O'Sullivan
+**Student id:**        | C08345457
+**Programme code:**    | TU060
+
+The work presented here is my own and any material or ideas sourced elsewhere have been referenced and cited in the text. I have familiarised myself with the university's stance on plagiarism. I understand that in TU Dublin plagiarism is treated as a serious offence that may result in severe penalties inclusive of expulsion.
+```{=html}
+<img width=200 src="signature.png">
+```
+
+
+ 
+
+## Table of contents
+
+Provide the table of contents with links here. A sample link to the descriptive analysis page is given.
+
+[A heading](a_page.html)
+
+
+ 
+
+## Introduction
+
+Here provide any instructions on how your website should be navigated and/or other information that you think your reader needs.
