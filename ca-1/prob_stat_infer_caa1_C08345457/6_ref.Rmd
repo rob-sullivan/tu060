@@ -1,0 +1,12 @@
+---
+title: "6. References"
+output:
+  html_document:
+    df_print: paged
+---
+
+1. (Cortez, et al, 2008)
+2. (Luan J., 2002, Minaei-Bidgoli et al. 2003)
+3. (Brownlee, 2020): https://machinelearningmastery.com/data-sampling-methods-for-imbalanced-classification/
+4. (Chawla et al, 2002) https://arxiv.org/pdf/1106.1813.pdf
+

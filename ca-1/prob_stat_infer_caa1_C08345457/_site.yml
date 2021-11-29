@@ -2,8 +2,20 @@ name: "PSI Assignment"
 navbar:
   title: "PSI Assignment"
   left:
-    - text: "Home page"
-      href: index.html
-    - text: "Data Collect & Preparation"
-      href: dcprep.html
+    - text: "0 Introduction"
+      href: 0_index.html
+    - text: "1 Statement of Research Question"
+      href: 1_sorq.html
+    - text: "2. Data Collection & Preparation"
+      href: 2_dcprep.html
+    - text: "3. Data Description"
+      href: 3_dd.html
+    - text: "4. Data Exploration"
+      href: 4_de.html
+    - text: "5. Predictive Modelling"
+      href: 5_pm.html
+    - text: "6. References"
+      href: 6_ref.html
+    - text: "7. Appendix: R Code"
+      href: 7_rcode.html
     

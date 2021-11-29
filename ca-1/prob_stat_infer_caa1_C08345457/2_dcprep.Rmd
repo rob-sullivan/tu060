@@ -1,0 +1,17 @@
+---
+title: "2. Data Collection & Preparation"
+output:
+  html_document:
+    df_print: paged
+---
+
+According to (Cortez, et al), the student performance dataset was collected to develop a method of predicting student achievement and if possible identify the key variables that affect their educational success or failure. In this section we study and discuss how this was carried out. We note any sampling concerns (validity, reliability etc.) as they become apparent and preparation steps, within the constraints of available information.
+
+## How Data was collected
+The dataset was collected from two Portuguese secondary schools by two different methods; using existing reports containing student marks and conducting a 37 question, single page questionnaires, completed by 788 students. The questionnaire was meant to complement the student mark report which contained scare information such as grades and number of absences were available. The questionnaire gave viability on socioeconomic and school related attributes.
+
+## Sampling Concerns (Imbalanced Class Distribution)
+Standard machine learning models like linear regression, decision trees and k-nearest neighbors do not perform well on imbalanced datasets. They assume a normally distributed and balanced dataset. If a class imbalance exists where observations in the dataset are not equal it could impact performance of the model or the model could deem the minority attributes not important and ignore them. According to (Brownlee, 2020) it is not uncommon to have a severe skewed class distribution. However the minority that the machine learning model will ignore is exactly what we are looking for. Everything else is considered the normal case where as the minority represent the diagnostic, fault, fraud or in our case poor performing students. The dataset we will use contains 382 observations split between two schools; Mousinho da Silveira (MS) school (40 observations) and Gabriel Pereira (GP) school (342). We have a concern for sampling this dataset and may need to resolve later. 
+
+## Preparation Steps To Resolve Sampling Concerns
+To resolve sampling concerns, there are many techniques we can employ to solve imbalanced datasets like simple random oversampling of the minority. We will use Synthetic Minority Oversampling Technique (SMOTE) created by (Chawla et al, 2002) which takes each minority sample and introduce synthetic examples along the lines that join randomly selected k minority class nearest neighbours.

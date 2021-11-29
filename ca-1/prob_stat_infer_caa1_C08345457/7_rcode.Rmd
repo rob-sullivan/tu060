@@ -1,0 +1,1673 @@
+---
+title: "7. Appendix: R Code"
+output:
+  html_document:
+    df_print: paged
+---
+We install, where applicable, then import our libraries.
+```{r}
+#install then import our libraries
+#install.packages('tidyverse') # we use this to do things like graphing
+#install.packages("moments") 
+library(tidyverse)
+library(reshape) #for boxplot preparation
+library(moments) #for skew and kurtosis
+```
+
+We import our csv file dataset as a dataframe called grades
+```{r}
+grades <- read.csv(file = 'dataset.csv')
+```
+
+We get the shape of our data. There are 53 columns with 382 rows. Since we have a lot of data we will look at utilising tables to explain and describe our data. We will also look at possible stacked bar charts, where applicable. WWe only have less than 400 rows of data meaning data transformation methods will have to be chosen carefully.
+```{r}
+dim(grades)
+```
+Now we look at the start and end of the dataset. We have two sub datasets one for each school and for each subject. we could split our dataset later to drill down. We have basic information on each student then attributes that may affect their grades in to two subjects; Maths and the Portuguese language.
+```{r}
+head(grades)
+```
+
+We don't see any null values from our initial observation.
+```{r}
+tail(grades)
+```
+
+Below we see that our data consists of 23 characters and 28 integers, we will convert the characters to factors. For integers we will leave them the way they are. R uses the numeric data type as a default, this means a variable could contain a 1 or a 1.0 decimal place. By specifying that the variables are integers R is saying it will treat them as whole numbers. The reason we are doing all this is to avail of R's functionality for manipulating variables. Factors have more categorical options and features than characters, which are, to R just strings of text.
+```{r}
+sapply(grades, class)
+```
+
+We will loop through our columns and convert character columns into factors. When we are finished we will check our result to ensure it worked.
+```{r}
+#this loop says for each column in our dataset grades, if the column is of character type then convert it to a factor.
+for (i in colnames(grades)){
+  if(class(grades[[i]])=="character"){
+    grades[[i]] <- as.factor(grades[[i]])
+  }
+}
+sapply(grades, class) # We see below that it has worked.
+```
+We want to create a summary table to examine our data but we have too many attributes so we will split our dataset up and examine the groups.
+
+```{r}
+#we first split the dataset into two sub groups for each school.
+schools <- split(grades, grades$school)
+
+# now we split into 3 sub groups for student, maths and language
+#Student: eg. sex, age, address, famsize, Pstatus, Medu, Fedu, Mjob, Fjob, reason, nursery internet
+
+# Maths .m, mG 
+maths_tag1 <- ".m"
+maths_tag2 <- "mG"
+
+# Portuguese .p, pG
+lang_tag1 <- ".p"
+lang_tag2 <- "pG"
+
+
+#first school
+school1_names = names(schools$GP)
+school1_student_names <- vector()
+school1_maths_names <-vector()
+school1_langs_names <-vector()
+
+for (i in school1_names){
+  #print(i)
+  if(!(i=="school"))
+    {
+    math1 <- grepl(maths_tag1, i, fixed=TRUE)
+    lang1 <- grepl(lang_tag1, i, fixed=TRUE)
+    
+    math2 <- grepl(maths_tag2, i, fixed=TRUE)
+    lang2 <- grepl(lang_tag2, i, fixed=TRUE)
+    
+    #we could improve the below statements with an OR condition
+    if(math1){
+      school1_maths_names <- append(school1_maths_names, i)
+    }
+    else if(math2){
+      school1_maths_names <- append(school1_maths_names, i)
+    }
+    else if(lang1){
+      school1_langs_names <- append(school1_langs_names, i)
+    }
+    else if(lang2){
+      school1_langs_names <- append(school1_langs_names, i)
+    }
+    else{
+        school1_student_names <- append(school1_student_names, i)
+    }
+  }
+}
+
+#second school
+school2_names = names(schools$MS)
+school2_student_names <- vector()
+school2_maths_names <-vector()
+school2_langs_names <-vector()
+
+for (i in school2_names){
+  #print(i)
+  if(!(i=="school"))
+    {
+    math1 <- grepl(maths_tag1, i, fixed=TRUE)
+    lang1 <- grepl(lang_tag1, i, fixed=TRUE)
+    
+    math2 <- grepl(maths_tag2, i, fixed=TRUE)
+    lang2 <- grepl(lang_tag2, i, fixed=TRUE)
+    
+    #we could improve the below statements with an OR condition
+    if(math1){
+      school2_maths_names <- append(school2_maths_names, i)
+    }
+    else if(math2){
+      school2_maths_names <- append(school2_maths_names, i)
+    }
+    else if(lang1){
+      school2_langs_names <- append(school2_langs_names, i)
+    }
+    else if(lang2){
+      school2_langs_names <- append(school2_langs_names, i)
+    }
+    else{
+        school2_student_names <- append(school2_student_names, i)
+    }
+  }
+}
+
+```
+
+We first examine our school variable. This relates to the survey carried out in two different schools. We can see that there is 88% less observations in Mousinho da Silveira (MS) school (40 observations) vs Gabriel Pereira (GP) school (342).
+```{r}
+summary(grades$school)
+```
+## School 1: Students
+Now we examine our students from school 1
+```{r}
+students = grades[school1_student_names]
+summary(students)
+```
+To understand outliers with our student data we calculate the skew and kurtosis
+```{r}
+student_title <- c('age', 'Medu', 'Fedu')
+student_skew <- c(skewness(students$age), skewness(students$Medu), skewness(students$Fedu))
+student_kurtosis <- c(kurtosis(students$age), kurtosis(students$Medu), kurtosis(students$Fedu))
+
+
+data <- data.frame(student_title, student_skew, student_kurtosis)
+colnames(data)[1] <- "Attributes"
+colnames(data)[2] <- "Skewness"
+colnames(data)[3] <- "Kurtosis"
+head(data)
+```
+
+To visualise these two tables we create a bar plot of all our categorical variables then histograms, QQ plots and grouped boxplot of our numeric variables.
+```{r}
+# we create our barchart dataset
+student_attributes = c(rep("sex", 2), 
+           rep("address",2), 
+           rep("famsize",2), 
+           rep("Pstatus",2), 
+           rep("Mjob", 5), 
+           rep("Fjob",5),
+           rep("reason",4),
+           rep("nursery",2), 
+           rep('internet',2)
+           )
+labels = c('F','M', 
+           'R','U', 
+           'GT3', 'LE3', 
+           'A','T',
+           'at_home','health','other','services','teacher',
+           'at_home','health','other','services','teacher',
+           'course','home','other','reputation',
+           'no', 'yes',
+           'no','yes'
+           )
+number_of = c(sum(students$sex == 'F'),
+              sum(students$sex == 'M'),
+              sum(students$address == 'R'),
+              sum(students$address == 'U'),
+              sum(students$famsize == 'GT3'),
+              sum(students$famsize == 'LE3'),
+              sum(students$Pstatus == 'A'),
+              sum(students$Pstatus == 'T'),
+              sum(students$Mjob == 'at_home'),
+              sum(students$Mjob == 'health'), 
+              sum(students$Mjob == 'other'),
+              sum(students$Mjob == 'services'),
+              sum(students$Fjob == 'teacher'),
+              sum(students$Fjob == 'at_home'),
+              sum(students$Fjob == 'health'), 
+              sum(students$Fjob == 'other'),
+              sum(students$Fjob == 'services'),
+              sum(students$Fjob == 'teacher'),
+              sum(students$reason == 'course'), 
+              sum(students$reason == 'home'),
+              sum(students$reason == 'other'),
+              sum(students$reason == 'reputation'),
+              sum(students$nursery == 'no'),
+              sum(students$nursery == 'yes'),
+              sum(students$internet == 'no'),
+              sum(students$internet == 'yes'))
+
+data <- data.frame(student_attributes,labels,number_of)
+# Now we generate our stacked barchart
+ggplot(data,
+       alpha=factor(number_of),
+       aes(fill=labels, y=number_of, x=student_attributes)) + 
+  geom_bar(position="stack", stat="identity") + 
+  xlab("Student Categorical Attributes") + ylab("Frequency") +
+  labs(title="School 1: Overview of Student Categorical Attributes") +
+  theme(legend.position = "bottom") +
+  scale_fill_discrete(breaks=labels)
+```
+```{r}
+#ref https://www.ucd.ie/ecomodel/Resources/QQplots_WebVersion.html
+par(mfrow=c(3,3))
+
+#hist
+x <- students$age
+age_his<-hist(x, breaks=6, col="dodgerblue1", xlab="Students",
+        main="Age Histogram with Normal Curve")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(age_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on the plot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="age Boxplot")
+
+#hist
+x <- students$Medu
+Medu_his<-hist(x, breaks=4, col="dodgerblue1", xlab="Students",
+        main="Medu Histogram with Normal Curve")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="Medu Boxplot")
+
+#hist
+x <- students$Fedu
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="Fedu Histogram with Normal Curve")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="Fedu Boxplot")
+```
+
+## School 1: Maths
+Now we examine math related attributes for students from school 1
+```{r}
+maths = grades[school1_maths_names]
+summary(maths)
+```
+
+To understand outliers with our math data we calculate the skew and kurtosis
+```{r}
+math_title <- c('traveltime.m', 
+                'studytime.m', 
+                'failures.m',
+                'famrel.m', 
+                'freetime.m', 
+                'goout.m',
+                'Dalc.m', 
+                'Walc.m', 
+                'health.m', 
+                'absences.m',
+                'mG1', 
+                'mG2', 
+                'mG3'
+                )
+math_skew <- c(skewness(maths$traveltime.m), 
+               skewness(maths$studytime.m), 
+               skewness(maths$failures.m), 
+               skewness(maths$famrel.m),
+               skewness(maths$freetime.m), 
+               skewness(maths$goout.m),
+               skewness(maths$Dalc.m),
+               skewness(maths$Walc.m), 
+               skewness(maths$health.m),
+               skewness(maths$absences.m), 
+               skewness(maths$mG1),
+               skewness(maths$mG2), 
+               skewness(maths$mG3))
+math_kurtosis <- c(kurtosis(maths$traveltime.m), 
+                   kurtosis(maths$studytime.m), 
+                   kurtosis(maths$failures.m), 
+                   kurtosis(maths$famrel.m),
+                   kurtosis(maths$freetime.m), 
+                   kurtosis(maths$goout.m),
+                   kurtosis(maths$Dalc.m),
+                   kurtosis(maths$Walc.m), 
+                   kurtosis(maths$health.m),
+                   kurtosis(maths$absences.m), 
+                   kurtosis(maths$mG1),
+                   kurtosis(maths$mG2), 
+                   kurtosis(maths$mG3))
+
+data <- data.frame(math_title, math_skew, math_kurtosis)
+colnames(data)[1] <- "Attributes"
+colnames(data)[2] <- "Skewness"
+colnames(data)[3] <- "Kurtosis"
+head(data,13)
+```
+
+To visualise these two tables we create a bar plot of all our categorical variables then histograms, QQ plots and grouped boxplot of our numeric variables.
+```{r}
+# we create our barchart dataset
+math_attributes = c(rep("guardian.m", 3), 
+           rep("schoolsup.m",2), 
+           rep("famsup.m",2), 
+           rep("paid.m",2), 
+           rep("activities.m", 2), 
+           rep("higher.m",2),
+           rep("romantic.m",2)
+           )
+labels = c('father','mother', 'other',
+           'no', 'yes',
+           'no','yes',
+           'no', 'yes',
+           'no','yes',
+           'no', 'yes',
+           'no','yes'
+           )
+number_of = c(sum(maths$guardian.m == 'father'),
+              sum(maths$guardian.m == 'mother'),
+              sum(maths$guardian.m == 'other'),
+              sum(maths$schoolsup.m == 'no'),
+              sum(maths$schoolsup.m == 'yes'),
+              sum(maths$famsup.m == 'no'),
+              sum(maths$famsup.m == 'yes'),
+              sum(maths$paid.m == 'no'),
+              sum(maths$paid.m == 'yes'),
+              sum(maths$activities.m == 'no'),
+              sum(maths$activities.m == 'yes'),
+              sum(maths$higher.m == 'no'),
+              sum(maths$higher.m == 'yes'),
+              sum(maths$romantic.m == 'no'),
+              sum(maths$romantic.m == 'yes')
+              )
+
+data <- data.frame(math_attributes,labels,number_of)
+# Now we generate our stacked barchart
+ggplot(data,
+       alpha=factor(number_of),
+       aes(fill=labels, y=number_of, x=math_attributes)) + 
+  geom_bar(position="stack", stat="identity") + 
+  xlab("School 1: Maths Categorical Attributes") + ylab("Frequency") +
+  labs(title="Overview of Maths Categorical Attributes") +
+  theme(legend.position = "bottom") +
+  scale_fill_discrete(breaks=labels)
+```
+```{r}
+#ref https://www.ucd.ie/ecomodel/Resources/QQplots_WebVersion.html
+par(mfrow=c(5,3), mar=c(1.7,1.7,1.7,1.7))
+#hist
+x <- maths$traveltime.m
+age_his<-hist(x, breaks=6, col="dodgerblue1", xlab="Students",
+        main="School 1: Travel Time")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(age_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on the plot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="traveltime.m")
+
+#hist
+x <- maths$studytime.m
+Medu_his<-hist(x, breaks=4, col="dodgerblue1", xlab="Students",
+        main="School 1: Study Time")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="studytime.m")
+
+#hist
+x <- maths$failures.m
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Failures")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="failures.m")
+
+#hist
+x <- maths$famrel.m
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Family Relationship")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="famrel.m")
+
+#hist
+x <- maths$freetime.m
+age_his<-hist(x, breaks=6, col="dodgerblue1", xlab="Students",
+        main="School 1: Free Time")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(age_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on the plot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="freetime.m")
+
+#hist
+x <- maths$goout.m
+Medu_his<-hist(x, breaks=4, col="dodgerblue1", xlab="Students",
+        main="School 1: Going Out")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="goout.m")
+
+#hist
+x <- maths$Dalc.m
+Medu_his<-hist(x, breaks=4, col="dodgerblue1", xlab="Students",
+        main="School 1: Weekday Alcohol")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="Dalc.m")
+
+#hist
+x <- maths$Walc.m
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Weekend Alcohol")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="Walc.m")
+
+#hist
+x <- maths$health.m
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Health")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="health.m")
+
+#hist
+x <- maths$absences.m
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Absences")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="absences.m")
+
+#hist
+x <- maths$mG1
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Math Score 1")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="mG1")
+
+#hist
+x <- maths$mG2
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Math Score 2")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="mG2")
+
+#hist
+x <- maths$mG3
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Math Score 3")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="mG3")
+```
+
+## School 1: Portuguese Language
+To conclude with school 1 we look at Portuguese related attributes for students of school 1
+```{r}
+langs = grades[school1_langs_names]
+summary(langs)
+```
+To understand outliers with our student data we calculate the skew and kurtosis
+```{r}
+lang_title <- c('traveltime.p', 
+                'studytime.p', 
+                'failures.p',
+                'famrel.p', 
+                'freetime.p', 
+                'goout.p',
+                'Dalc.p', 
+                'Walc.p', 
+                'health.p', 
+                'absences.p',
+                'pG1', 
+                'pG2', 
+                'pG3'
+                )
+lang_skew <- c(skewness(langs$traveltime.p),
+               skewness(langs$studytime.p), 
+               skewness(langs$failures.p), 
+               skewness(langs$famrel.p),
+               skewness(langs$freetime.p), 
+               skewness(langs$goout.p),
+               skewness(langs$Dalc.p),
+               skewness(langs$Walc.p), 
+               skewness(langs$health.p),
+               skewness(langs$absences.p), 
+               skewness(langs$pG1),
+               skewness(langs$pG2), 
+               skewness(langs$pG3))
+lang_kurtosis <- c(kurtosis(langs$traveltime.p), 
+                   kurtosis(langs$studytime.p), 
+                   kurtosis(langs$failures.p), 
+                   kurtosis(langs$famrel.p),
+                   kurtosis(langs$freetime.p), 
+                   kurtosis(langs$goout.p),
+                   kurtosis(langs$Dalc.p),
+                   kurtosis(langs$Walc.p), 
+                   kurtosis(langs$health.p),
+                   kurtosis(langs$absences.p), 
+                   kurtosis(langs$pG1),
+                   kurtosis(langs$pG2), 
+                   kurtosis(langs$pG3))
+
+data <- data.frame(lang_title, lang_skew, lang_kurtosis)
+colnames(data)[1] <- "Attributes"
+colnames(data)[2] <- "Skewness"
+colnames(data)[3] <- "Kurtosis"
+head(data,13)
+```
+
+To visualise these two tables we create a bar plot of all our categorical variables then histograms, QQ plots and grouped boxplot of our numeric variables.
+```{r}
+# we create our barchart dataset
+math_attributes = c(rep("guardian.m", 3), 
+           rep("schoolsup.m",2), 
+           rep("famsup.m",2), 
+           rep("paid.m",2), 
+           rep("activities.m", 2), 
+           rep("higher.m",2),
+           rep("romantic.m",2)
+           )
+labels = c('father','mother', 'other',
+           'no', 'yes',
+           'no','yes',
+           'no', 'yes',
+           'no','yes',
+           'no', 'yes',
+           'no','yes'
+           )
+number_of = c(sum(maths$guardian.m == 'father'),
+              sum(maths$guardian.m == 'mother'),
+              sum(maths$guardian.m == 'other'),
+              sum(maths$schoolsup.m == 'no'),
+              sum(maths$schoolsup.m == 'yes'),
+              sum(maths$famsup.m == 'no'),
+              sum(maths$famsup.m == 'yes'),
+              sum(maths$paid.m == 'no'),
+              sum(maths$paid.m == 'yes'),
+              sum(maths$activities.m == 'no'),
+              sum(maths$activities.m == 'yes'),
+              sum(maths$higher.m == 'no'),
+              sum(maths$higher.m == 'yes'),
+              sum(maths$romantic.m == 'no'),
+              sum(maths$romantic.m == 'yes')
+              )
+
+data <- data.frame(math_attributes,labels,number_of)
+# Now we generate our stacked barchart
+ggplot(data,
+       alpha=factor(number_of),
+       aes(fill=labels, y=number_of, x=math_attributes)) + 
+  geom_bar(position="stack", stat="identity") + 
+  xlab("School 1: Maths Categorical Attributes") + ylab("Frequency") +
+  labs(title="Overview of Maths Categorical Attributes") +
+  theme(legend.position = "bottom") +
+  scale_fill_discrete(breaks=labels)
+```
+```{r}
+#ref https://www.ucd.ie/ecomodel/Resources/QQplots_WebVersion.html
+par(mfrow=c(5,3), mar=c(1.7,1.7,1.7,1.7))
+#hist
+x <- langs$traveltime.p
+age_his<-hist(x, breaks=6, col="dodgerblue1", xlab="Students",
+        main="School 1: Travel Time")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(age_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on the plot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="traveltime.p")
+
+#hist
+x <- langs$studytime.p
+Medu_his<-hist(x, breaks=4, col="dodgerblue1", xlab="Students",
+        main="School 1: Study Time")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="studytime.p")
+
+#hist
+x <- langs$failures.p
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Failures")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="failures.p")
+
+#hist
+x <- langs$famrel.p
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Family Relationship")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="famrel.p")
+
+#hist
+x <- langs$freetime.p
+age_his<-hist(x, breaks=6, col="dodgerblue1", xlab="Students",
+        main="School 1: Free Time")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(age_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on the plot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="age")
+
+#hist
+x <- langs$goout.p
+Medu_his<-hist(x, breaks=4, col="dodgerblue1", xlab="Students",
+        main="School 1: Going Out")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="goout.p")
+
+#hist
+x <- langs$Dalc.p
+Medu_his<-hist(x, breaks=4, col="dodgerblue1", xlab="Students",
+        main="School 1: Weekday Alcohol")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="Dalc.p")
+
+#hist
+x <- langs$Walc.p
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Weekend Alcohol")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="Walc.p")
+
+#hist
+x <- langs$health.p
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Health")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="health.p")
+
+#hist
+x <- langs$absences.p
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Absences")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="absences.p")
+
+#hist
+x <- langs$pG1
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Language Score 1")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="pG1")
+
+#hist
+x <- langs$pG2
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Language Score 2")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="pG2")
+
+#hist
+x <- langs$pG3
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Language Score 3")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="pG3")
+```
+
+## School 2: Students
+Now we examine our students from school 1
+```{r}
+students = grades[school2_student_names]
+summary(students)
+```
+To understand outliers with our student data we calculate the skew and kurtosis
+```{r}
+student_title <- c('age', 'Medu', 'Fedu')
+student_skew <- c(skewness(students$age), skewness(students$Medu), skewness(students$Fedu))
+student_kurtosis <- c(kurtosis(students$age), kurtosis(students$Medu), kurtosis(students$Fedu))
+
+
+data <- data.frame(student_title, student_skew, student_kurtosis)
+colnames(data)[1] <- "Attributes"
+colnames(data)[2] <- "Skewness"
+colnames(data)[3] <- "Kurtosis"
+head(data)
+```
+
+To visualise these two tables we create a bar plot of all our categorical variables then histograms, QQ plots and grouped boxplot of our numeric variables.
+```{r}
+# we create our barchart dataset
+student_attributes = c(rep("sex", 2), 
+           rep("address",2), 
+           rep("famsize",2), 
+           rep("Pstatus",2), 
+           rep("Mjob", 5), 
+           rep("Fjob",5),
+           rep("reason",4),
+           rep("nursery",2), 
+           rep('internet',2)
+           )
+labels = c('F','M', 
+           'R','U', 
+           'GT3', 'LE3', 
+           'A','T',
+           'at_home','health','other','services','teacher',
+           'at_home','health','other','services','teacher',
+           'course','home','other','reputation',
+           'no', 'yes',
+           'no','yes'
+           )
+number_of = c(sum(students$sex == 'F'),
+              sum(students$sex == 'M'),
+              sum(students$address == 'R'),
+              sum(students$address == 'U'),
+              sum(students$famsize == 'GT3'),
+              sum(students$famsize == 'LE3'),
+              sum(students$Pstatus == 'A'),
+              sum(students$Pstatus == 'T'),
+              sum(students$Mjob == 'at_home'),
+              sum(students$Mjob == 'health'), 
+              sum(students$Mjob == 'other'),
+              sum(students$Mjob == 'services'),
+              sum(students$Fjob == 'teacher'),
+              sum(students$Fjob == 'at_home'),
+              sum(students$Fjob == 'health'), 
+              sum(students$Fjob == 'other'),
+              sum(students$Fjob == 'services'),
+              sum(students$Fjob == 'teacher'),
+              sum(students$reason == 'course'), 
+              sum(students$reason == 'home'),
+              sum(students$reason == 'other'),
+              sum(students$reason == 'reputation'),
+              sum(students$nursery == 'no'),
+              sum(students$nursery == 'yes'),
+              sum(students$internet == 'no'),
+              sum(students$internet == 'yes'))
+
+data <- data.frame(student_attributes,labels,number_of)
+# Now we generate our stacked barchart
+ggplot(data,
+       alpha=factor(number_of),
+       aes(fill=labels, y=number_of, x=student_attributes)) + 
+  geom_bar(position="stack", stat="identity") + 
+  xlab("Student Categorical Attributes") + ylab("Frequency") +
+  labs(title="School 2: Overview of Student Categorical Attributes") +
+  theme(legend.position = "bottom") +
+  scale_fill_discrete(breaks=labels)
+```
+```{r}
+#ref https://www.ucd.ie/ecomodel/Resources/QQplots_WebVersion.html
+par(mfrow=c(3,3))
+
+#hist
+x <- students$age
+age_his<-hist(x, breaks=6, col="dodgerblue1", xlab="Students",
+        main="School 2 Age")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(age_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on the plot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="age Boxplot")
+
+#hist
+x <- students$Medu
+Medu_his<-hist(x, breaks=4, col="dodgerblue1", xlab="Students",
+        main="Medu")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="Medu Boxplot")
+
+#hist
+x <- students$Fedu
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="Fedu Histogram with Normal Curve")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="Fedu Boxplot")
+```
+
+## School 1: Maths
+Now we examine math related attributes for students from school 1
+```{r}
+maths = grades[school2_maths_names]
+summary(maths)
+```
+
+To understand outliers with our math data we calculate the skew and kurtosis
+```{r}
+math_title <- c('traveltime.m', 
+                'studytime.m', 
+                'failures.m',
+                'famrel.m', 
+                'freetime.m', 
+                'goout.m',
+                'Dalc.m', 
+                'Walc.m', 
+                'health.m', 
+                'absences.m',
+                'mG1', 
+                'mG2', 
+                'mG3'
+                )
+math_skew <- c(skewness(maths$traveltime.m), 
+               skewness(maths$studytime.m), 
+               skewness(maths$failures.m), 
+               skewness(maths$famrel.m),
+               skewness(maths$freetime.m), 
+               skewness(maths$goout.m),
+               skewness(maths$Dalc.m),
+               skewness(maths$Walc.m), 
+               skewness(maths$health.m),
+               skewness(maths$absences.m), 
+               skewness(maths$mG1),
+               skewness(maths$mG2), 
+               skewness(maths$mG3))
+math_kurtosis <- c(kurtosis(maths$traveltime.m), 
+                   kurtosis(maths$studytime.m), 
+                   kurtosis(maths$failures.m), 
+                   kurtosis(maths$famrel.m),
+                   kurtosis(maths$freetime.m), 
+                   kurtosis(maths$goout.m),
+                   kurtosis(maths$Dalc.m),
+                   kurtosis(maths$Walc.m), 
+                   kurtosis(maths$health.m),
+                   kurtosis(maths$absences.m), 
+                   kurtosis(maths$mG1),
+                   kurtosis(maths$mG2), 
+                   kurtosis(maths$mG3))
+
+data <- data.frame(math_title, math_skew, math_kurtosis)
+colnames(data)[1] <- "Attributes"
+colnames(data)[2] <- "Skewness"
+colnames(data)[3] <- "Kurtosis"
+head(data,13)
+```
+
+To visualise these two tables we create a bar plot of all our categorical variables then histograms, QQ plots and grouped boxplot of our numeric variables.
+```{r}
+# we create our barchart dataset
+math_attributes = c(rep("guardian.m", 3), 
+           rep("schoolsup.m",2), 
+           rep("famsup.m",2), 
+           rep("paid.m",2), 
+           rep("activities.m", 2), 
+           rep("higher.m",2),
+           rep("romantic.m",2)
+           )
+labels = c('father','mother', 'other',
+           'no', 'yes',
+           'no','yes',
+           'no', 'yes',
+           'no','yes',
+           'no', 'yes',
+           'no','yes'
+           )
+number_of = c(sum(maths$guardian.m == 'father'),
+              sum(maths$guardian.m == 'mother'),
+              sum(maths$guardian.m == 'other'),
+              sum(maths$schoolsup.m == 'no'),
+              sum(maths$schoolsup.m == 'yes'),
+              sum(maths$famsup.m == 'no'),
+              sum(maths$famsup.m == 'yes'),
+              sum(maths$paid.m == 'no'),
+              sum(maths$paid.m == 'yes'),
+              sum(maths$activities.m == 'no'),
+              sum(maths$activities.m == 'yes'),
+              sum(maths$higher.m == 'no'),
+              sum(maths$higher.m == 'yes'),
+              sum(maths$romantic.m == 'no'),
+              sum(maths$romantic.m == 'yes')
+              )
+
+data <- data.frame(math_attributes,labels,number_of)
+# Now we generate our stacked barchart
+ggplot(data,
+       alpha=factor(number_of),
+       aes(fill=labels, y=number_of, x=math_attributes)) + 
+  geom_bar(position="stack", stat="identity") + 
+  xlab("School 2: Maths Categorical Attributes") + ylab("Frequency") +
+  labs(title="Overview of Maths Categorical Attributes") +
+  theme(legend.position = "bottom") +
+  scale_fill_discrete(breaks=labels)
+```
+```{r}
+#ref https://www.ucd.ie/ecomodel/Resources/QQplots_WebVersion.html
+par(mfrow=c(5,3), mar=c(1.7,1.7,1.7,1.7))
+#hist
+x <- maths$traveltime.m
+age_his<-hist(x, breaks=6, col="dodgerblue1", xlab="Students",
+        main="School 1: Travel Time")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(age_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on the plot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="traveltime.m")
+
+#hist
+x <- maths$studytime.m
+Medu_his<-hist(x, breaks=4, col="dodgerblue1", xlab="Students",
+        main="School 1: Study Time")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="studytime.m")
+
+#hist
+x <- maths$failures.m
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Failures")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="failures.m")
+
+#hist
+x <- maths$famrel.m
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Family Relationship")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="famrel.m")
+
+#hist
+x <- maths$freetime.m
+age_his<-hist(x, breaks=6, col="dodgerblue1", xlab="Students",
+        main="School 1: Free Time")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(age_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on the plot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="freetime.m")
+
+#hist
+x <- maths$goout.m
+Medu_his<-hist(x, breaks=4, col="dodgerblue1", xlab="Students",
+        main="School 1: Going Out")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="goout.m")
+
+#hist
+x <- maths$Dalc.m
+Medu_his<-hist(x, breaks=4, col="dodgerblue1", xlab="Students",
+        main="School 1: Weekday Alcohol")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="Dalc.m")
+
+#hist
+x <- maths$Walc.m
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Weekend Alcohol")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="Walc.m")
+
+#hist
+x <- maths$health.m
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Health")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="health.m")
+
+#hist
+x <- maths$absences.m
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Absences")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="absences.m")
+
+#hist
+x <- maths$mG1
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Math Score 1")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="mG1")
+
+#hist
+x <- maths$mG2
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Math Score 2")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="mG2")
+
+#hist
+x <- maths$mG3
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 1: Math Score 3")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="mG3")
+```
+
+## School 1: Portuguese Language
+To conclude with school 1 we look at Portuguese related attributes for students of school 1
+```{r}
+langs = grades[school1_langs_names]
+summary(langs)
+```
+To understand outliers with our student data we calculate the skew and kurtosis
+```{r}
+lang_title <- c('traveltime.p', 
+                'studytime.p', 
+                'failures.p',
+                'famrel.p', 
+                'freetime.p', 
+                'goout.p',
+                'Dalc.p', 
+                'Walc.p', 
+                'health.p', 
+                'absences.p',
+                'pG1', 
+                'pG2', 
+                'pG3'
+                )
+lang_skew <- c(skewness(langs$traveltime.p),
+               skewness(langs$studytime.p), 
+               skewness(langs$failures.p), 
+               skewness(langs$famrel.p),
+               skewness(langs$freetime.p), 
+               skewness(langs$goout.p),
+               skewness(langs$Dalc.p),
+               skewness(langs$Walc.p), 
+               skewness(langs$health.p),
+               skewness(langs$absences.p), 
+               skewness(langs$pG1),
+               skewness(langs$pG2), 
+               skewness(langs$pG3))
+lang_kurtosis <- c(kurtosis(langs$traveltime.p), 
+                   kurtosis(langs$studytime.p), 
+                   kurtosis(langs$failures.p), 
+                   kurtosis(langs$famrel.p),
+                   kurtosis(langs$freetime.p), 
+                   kurtosis(langs$goout.p),
+                   kurtosis(langs$Dalc.p),
+                   kurtosis(langs$Walc.p), 
+                   kurtosis(langs$health.p),
+                   kurtosis(langs$absences.p), 
+                   kurtosis(langs$pG1),
+                   kurtosis(langs$pG2), 
+                   kurtosis(langs$pG3))
+
+data <- data.frame(lang_title, lang_skew, lang_kurtosis)
+colnames(data)[1] <- "Attributes"
+colnames(data)[2] <- "Skewness"
+colnames(data)[3] <- "Kurtosis"
+head(data,13)
+```
+
+To visualise these two tables we create a bar plot of all our categorical variables then histograms, QQ plots and grouped boxplot of our numeric variables.
+```{r}
+# we create our barchart dataset
+lang_attributes = c(rep("guardian.p", 3), 
+           rep("schoolsup.p",2), 
+           rep("famsup.p",2), 
+           rep("paid.p",2), 
+           rep("activities.p", 2), 
+           rep("higher.p",2),
+           rep("romantic.p",2)
+           )
+labels = c('father','mother', 'other',
+           'no', 'yes',
+           'no','yes',
+           'no', 'yes',
+           'no','yes',
+           'no', 'yes',
+           'no','yes'
+           )
+number_of = c(sum(langs$guardian.p == 'father'),
+              sum(langs$guardian.p == 'mother'),
+              sum(langs$guardian.p == 'other'),
+              sum(langs$schoolsup.p == 'no'),
+              sum(langs$schoolsup.p == 'yes'),
+              sum(langs$famsup.p == 'no'),
+              sum(langs$famsup.p == 'yes'),
+              sum(langs$paid.p == 'no'),
+              sum(langs$paid.p == 'yes'),
+              sum(langs$activities.p == 'no'),
+              sum(langs$activities.p == 'yes'),
+              sum(langs$higher.p == 'no'),
+              sum(langs$higher.p == 'yes'),
+              sum(langs$romantic.p == 'no'),
+              sum(langs$romantic.p == 'yes')
+              )
+
+data <- data.frame(lang_attributes,labels,number_of)
+# Now we generate our stacked barchart
+ggplot(data,
+       alpha=factor(number_of),
+       aes(fill=labels, y=number_of, x=lang_attributes)) + 
+  geom_bar(position="stack", stat="identity") + 
+  xlab("Language Categorical Attributes") + ylab("Frequency") +
+  labs(title="School 2: Overview of Maths Categorical Attributes") +
+  theme(legend.position = "bottom") +
+  scale_fill_discrete(breaks=labels)
+```
+```{r}
+#ref https://www.ucd.ie/ecomodel/Resources/QQplots_WebVersion.html
+par(mfrow=c(5,3), mar=c(1.7,1.7,1.7,1.7))
+#hist
+x <- langs$traveltime.p
+age_his<-hist(x, breaks=6, col="dodgerblue1", xlab="Students",
+        main="School 2: Travel Time")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(age_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on the plot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="traveltime.p")
+
+#hist
+x <- langs$studytime.p
+Medu_his<-hist(x, breaks=4, col="dodgerblue1", xlab="Students",
+        main="School 2: Study Time")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="studytime.p")
+
+#hist
+x <- langs$failures.p
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 2: Failures")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="failures.p")
+
+#hist
+x <- langs$famrel.p
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 2: Family Relationship")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="famrel.p")
+
+#hist
+x <- langs$freetime.p
+age_his<-hist(x, breaks=6, col="dodgerblue1", xlab="Students",
+        main="School 2: Free Time")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(age_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on the plot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="age")
+
+#hist
+x <- langs$goout.p
+Medu_his<-hist(x, breaks=4, col="dodgerblue1", xlab="Students",
+        main="School 2: Going Out")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="goout.p")
+
+#hist
+x <- langs$Dalc.p
+Medu_his<-hist(x, breaks=4, col="dodgerblue1", xlab="Students",
+        main="School 2: Weekday Alcohol")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="Dalc.p")
+
+#hist
+x <- langs$Walc.p
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 2: Weekend Alcohol")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="Walc.p")
+
+#hist
+x <- langs$health.p
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 2: Health")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="health.p")
+
+#hist
+x <- langs$absences.p
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 2: Absences")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="absences.p")
+
+#hist
+x <- langs$pG1
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 2: Language Score 1")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="pG1")
+
+#hist
+x <- langs$pG2
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 2: Language Score 2")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="pG2")
+
+#hist
+x <- langs$pG3
+Fedu_his<-hist(x, breaks=5, col="dodgerblue1", xlab="Students",
+        main="School 2: Language Score 3")
+xfit<-seq(min(x),max(x),length=20)
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit <- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col="red", lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main="pG3")
+```

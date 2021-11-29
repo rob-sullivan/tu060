@@ -1,0 +1,20 @@
+---
+title: "1. Statement of Research Question"
+output:
+  html_document:
+    df_print: paged
+---
+## Statement of research question
+
+Data mining methods allows several interesting questions for the Higher Education domain to be answered, according to (Luan J., 2002, Minaei-Bidgoli et al. 2003):
+1. Who are the students taking most credit hours? Who is likely to return for more classes?
+2. What type of courses can be offered to attract more students?
+3. What are the main reasons for student transfers?
+4. Is is possible to predict student performance?
+5. What are the factors that affect student achievement?
+
+(Cortez, et al, 2008) tried to answer the last two. In this report, data mining methods will be applied to the student performance dataset with the goals of answering the following two research questions:
+
+1. What levels in a subset of factors indicate that a student requires early intervention before exam failure?
+2. Is it possible to predict which students will fail their exams?
+

@@ -1,0 +1,70 @@
+---
+title: "3. Data Description"
+output:
+  html_document:
+    df_print: paged
+---
+
+After reviewing "Using Data Mining to Predict Secondary School Student Performance” by (Cortez, et al, 2018), the following attributes were in table below were studied. [Appendix 1: R Code](7_rcode.html) was used to construct tables, graphs and charts in an effort to do descriptive statistics.
+
+## Attribute Types
+
+### School Attribute
+* **school**: Mousinho da Silveira (**MS**) & Gabriel Pereira (**GP**), <span style="color:blue">dichotomous (binary)</span>
+
+### Student Attributes
+* **sex**: [**F**emale / **M**ale], <span style="color:blue">dichotomous (binary)</span>,
+* **age**: Age of the student [**years old**], numeric
+* **address**: Living in [**R**ural] area or [**U**rban], <span style="color:purple">categorical (nominal)</span>, should be dichotomous (binary)
+* **Pstatus**: if parents are [**T**ogether] or [**A**part], <span style="color:purple">categorical (nominal)</span>, should be dichotomous (binary)
+* **Medu**: mother's education level [**0-4**], <span style="color:green">categorical (ordinal)</span>,
+* **Mjob**: mother's job [**teacher, health care related, civil service, home, other**], <span style="color:purple">categorical (nominal)</span>, 
+* **Fedu**: father's education level [**0-4**], <span style="color:green">categorical (ordinal)</span>,
+* **Fjob**: father's job [**teacher, health care related, civil service, home, other**], <span style="color:purple">categorical (nominal)</span>,
+* **reason**: reason for choosing the school [**close to home, school reputation, course preference or other**],
+* **nursery**: attended a nursery school [**Y/N**], <span style="color:blue">dichotomous (binary)</span>,
+* **internet**: internet access is at home [**Y/N**], <span style="color:blue">dichotomous (binary)</span>,
+
+### Maths & Language Attributes
+* **guardian**: mother, father or other are the student's guardian, <span style="color:green">categorical (ordinal)</span>,
+* **traveltime**: home to school travel time [**1-4**], <span style="color:red">numeric</span>, (based on categorical (ordinal) as numeric),
+* **studytime**: amount of time per week spent studying [**1-4**], <span style="color:red">numeric</span>, (based on categorical (ordinal) as numeric)
+* **failures**: past number of class failures [**1-4**], <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),
+* **schoolsup**: school provides extra educational support [**Y/N**], <span style="color:blue">dichotomous (binary)</span>,
+* **famsup**: family provides extra educational support [**Y/N**], <span style="color:blue">dichotomous (binary)</span>,
+* **paidclass**: student gets grinds [**Y/N**], <span style="color:blue">dichotomous (binary)</span>,
+* **activities**: student takes extra-curricular activities, <span style="color:blue">dichotomous (binary)</span>,
+* **higher**: wants to go onto higher education [**Y/N**], <span style="color:blue">dichotomous (binary)</span>,
+* **famsize**: family size (binary: ≤3 or >3), <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),
+* **romantic**: with a romantic relationship [**Y/N**], <span style="color:blue">dichotomous (binary)</span>,
+* **famrel**: quality of family relationships, <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),
+* **freetime**: free time after school, <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),
+* **goout**: going out with friends, <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),
+* **Dalc**: workday alcohol consumption, <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),
+* **Walc**: weekend alcohol consumption, <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),
+* **health**: current health of students, <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),
+* **absences**: school absences, <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),
+* **G1**: first period score for maths and Portuguese language, <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),
+* **G2**: second period score for maths and Portuguese language,<span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),
+* **G3**: final period score for maths and Portuguese language, <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),
+
+### Nominal Variables
+* Nominal variables like 'Mjob', 'Fjob', 'guardian' and 'reason' are categorical that have no order to them. These variables will be displayed in a pie chart, bar chart or stacked bar chart where applicable. 
+* 'Mjob', 'Fjob'relate to the profession of the student's parents. According to (Cortez et al, 2018) they are "teacher, health care related, civil services (e.g. administrative or police), at home or other". These professions types seem very narrow and don't include Arts and entertainment, Business administration or Industrial and manufacturing which may skew values. 
+* 'guardian' relates to the student's guardian. The only values it holds are mother, father and other. There is no explanation if this indicates whether the parents are still together, separated or if one has passed away. (Hovens et al. 2009) investigated the association between childhood life events, childhood trauma and the presence of anxiety, depressive disorders in adulthood. They included the adverse life event of divorce of parents, early parental loss and ‘placed in care’. It is unfortunate that in (Cortez, et al, 2018) paper, this was not considered. (Tiet et All, 1998) found children at risk of higher levels of adverse life events were more resilient if they had a better family function, more adults in the household and closer parental monitoring. This would suggest an interesting dependent variable to compare with student grades. 
+* 'reason' relates to the reason to choose this school. Options are "close to home, school reputation, course preference or other". This seems vague to whether it is asking why the parents chose the school, why the student likes the school or why the student would recommend the school to others. One of (Cortez, et al, 2018) research question relates to "What are the main reasons for student transfers" and in their conclusion seem to suggest 'reason to choose school' affects student performance but state that more research is required to understand. This seems to suggest 'reason' relates to why a student transferred to the school.
+
+## Orginal Variables
+
+asdasd
+
+### Binary
+asdasda
+
+
+## Numerical Variable
+
+sadasd
+
+
+ activities: it is not clear if this relates to the subject or not.
