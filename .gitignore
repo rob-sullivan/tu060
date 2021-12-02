@@ -13,7 +13,7 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 
 .ipynb_checkpoints
-
+*RData
 *.Rproj
 .Rhistory
 
