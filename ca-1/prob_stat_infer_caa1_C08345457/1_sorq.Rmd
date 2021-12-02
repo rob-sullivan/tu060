@@ -6,7 +6,7 @@ output:
 ---
 ## Statement of research question
 
-Data mining methods allows several interesting questions for the Higher Education domain to be answered, according to (Luan J., 2002, Minaei-Bidgoli et al. 2003):
+Data mining methods allows several interesting questions for the Higher Education domain to be answered, according to (Luan J., 2002) and (Minaei-Bidgoli et al. 2003) the following are interesting questions:
 1. Who are the students taking most credit hours? Who is likely to return for more classes?
 2. What type of courses can be offered to attract more students?
 3. What are the main reasons for student transfers?
@@ -15,6 +15,6 @@ Data mining methods allows several interesting questions for the Higher Educatio
 
 (Cortez, et al, 2008) tried to answer the last two. In this report, data mining methods will be applied to the student performance dataset with the goals of answering the following two research questions:
 
-1. What levels in a subset of factors indicate that a student requires early intervention before exam failure?
-2. Is it possible to predict which students will fail their exams?
+1. What levels indicate, in a subset of attributes, that a student requires early intervention before exam failure?
+2. Is it possible to predict which students will fail their exams, if so what is the level of accuracy?
 

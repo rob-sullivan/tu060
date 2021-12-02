@@ -20,8 +20,6 @@ The work presented here is my own and any material or ideas sourced elsewhere ha
 
 ## Table of contents
 
-Provide the table of contents with links here. A sample link to the descriptive analysis page is given.
-
 1. [Statement of Research Question](1_sprq.html)
 2. [Data Collection & Preparation](2_dcprep.html)
 3. [Data Description](3_dd.html)
@@ -29,7 +27,6 @@ Provide the table of contents with links here. A sample link to the descriptive 
 5. [Predictive Modelling](5_pm.html)
 6. [References](6_ref.html)
 7. [Appendix 1: R Code](7_rcode.html)
-
 
  
 

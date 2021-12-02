@@ -5,7 +5,7 @@ output:
     df_print: paged
 ---
 
-After reviewing "Using Data Mining to Predict Secondary School Student Performance” by (Cortez, et al, 2018), the following attributes were in table below were studied. [Appendix 1: R Code](7_rcode.html) was used to construct tables, graphs and charts in an effort to do descriptive statistics.
+After reviewing "Using Data Mining to Predict Secondary School Student Performance” by (Cortez, et al, 2018), the following attributes listed below were studied. [Appendix 1: R Code](7_rcode.html) was used to construct summary tables, graphs and charts in an effort to do descriptive statistics.
 
 ## Attribute Types
 
@@ -48,23 +48,23 @@ After reviewing "Using Data Mining to Predict Secondary School Student Performan
 * **G2**: second period score for maths and Portuguese language,<span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),
 * **G3**: final period score for maths and Portuguese language, <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),
 
-### Nominal Variables
+### Nominal Categorical Variables
 * Nominal variables like 'Mjob', 'Fjob', 'guardian' and 'reason' are categorical that have no order to them. These variables will be displayed in a pie chart, bar chart or stacked bar chart where applicable. 
 * 'Mjob', 'Fjob'relate to the profession of the student's parents. According to (Cortez et al, 2018) they are "teacher, health care related, civil services (e.g. administrative or police), at home or other". These professions types seem very narrow and don't include Arts and entertainment, Business administration or Industrial and manufacturing which may skew values. 
 * 'guardian' relates to the student's guardian. The only values it holds are mother, father and other. There is no explanation if this indicates whether the parents are still together, separated or if one has passed away. (Hovens et al. 2009) investigated the association between childhood life events, childhood trauma and the presence of anxiety, depressive disorders in adulthood. They included the adverse life event of divorce of parents, early parental loss and ‘placed in care’. It is unfortunate that in (Cortez, et al, 2018) paper, this was not considered. (Tiet et All, 1998) found children at risk of higher levels of adverse life events were more resilient if they had a better family function, more adults in the household and closer parental monitoring. This would suggest an interesting dependent variable to compare with student grades. 
 * 'reason' relates to the reason to choose this school. Options are "close to home, school reputation, course preference or other". This seems vague to whether it is asking why the parents chose the school, why the student likes the school or why the student would recommend the school to others. One of (Cortez, et al, 2018) research question relates to "What are the main reasons for student transfers" and in their conclusion seem to suggest 'reason to choose school' affects student performance but state that more research is required to understand. This seems to suggest 'reason' relates to why a student transferred to the school.
 
-## Orginal Variables
+## Ordinal Categorical Variables
 
 asdasd
 
-### Binary
+### Binary Variables
 asdasda
+
+activities: it is not clear if this relates to the subject or not.
 
 
 ## Numerical Variable
 
 sadasd
 
-
- activities: it is not clear if this relates to the subject or not.
