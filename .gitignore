@@ -15,7 +15,7 @@
 .ipynb_checkpoints
 *RData
 *.Rproj
-.Rhistory
+*Rhistory
 
 *.userprefs
 # Mono auto generated files

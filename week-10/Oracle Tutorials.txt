@@ -1,0 +1,35 @@
+Part 1 - Get your Information in Order
+https://blogs.oracle.com/oraclemagazine/post/get-your-information-in-order
+
+Part 2 - Modeling and Accessing Relational Data
+https://blogs.oracle.com/oraclemagazine/post/modeling-and-accessing-relational-data
+
+Part 3 - Getting Answers with Select
+https://blogs.oracle.com/oraclemagazine/post/getting-answers-with-select
+
+Part 4 - Why Where Matters
+https://blogs.oracle.com/oraclemagazine/post/why-where-matters
+
+Part 5 - An Order of Sorts
+https://blogs.oracle.com/oraclemagazine/post/an-order-of-sorts
+
+Part 6 - A Function of Character
+https://blogs.oracle.com/oraclemagazine/post/a-function-of-character
+
+Part 7 - From Floor to Ceiling and Other Functional Cases
+https://blogs.oracle.com/oraclemagazine/post/from-floor-to-ceiling-and-other-functional-cases
+
+Part 8 - Selecting a Type that is Right for You
+https://blogs.oracle.com/oraclemagazine/post/selecting-a-type-that-is-right-for-you
+
+Part 9 - Having Sums Averages and Other Grouped Data
+https://blogs.oracle.com/oraclemagazine/post/having-sums-averages-and-other-grouped-data
+
+Part 10 - A window into the world of Analytic Functions
+https://blogs.oracle.com/oraclemagazine/post/a-window-into-the-world-of-analytic-functions
+
+Part 11 - Leading Ranks and Lagging Percentages - Analytic Functions Continued
+https://blogs.oracle.com/oraclemagazine/post/leading-ranks-and-lagging-percentages-analytic-functions-continued
+
+Part 12 - Pivotal Access to Your Data
+https://blogs.oracle.com/oraclemagazine/post/pivotal-access-to-your-data-analytic-functions-concluded
