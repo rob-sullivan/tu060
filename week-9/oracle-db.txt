@@ -1,0 +1,4 @@
+podman run -p 1521:1521 -e ORACLE_PASSWORD=password gvenzl/oracle-xe
+/opt/sqldeveloper$ ./sqldeveloper.sh 
+
+c08345457
