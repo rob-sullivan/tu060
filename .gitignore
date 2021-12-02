@@ -11,7 +11,7 @@
 *.sln.docstates
 .venv/
 *.Rproj
-.RData
+*RData
 .ipynb_checkpoints
 .Rhistory
 # User-specific files (MonoDevelop/Xamarin Studio)
