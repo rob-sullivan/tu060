@@ -6,16 +6,16 @@
 # User-specific files
 *.rsuser
 *.suo
-*.user
+#*.user
 *.userosscache
 *.sln.docstates
 .venv/
 # User-specific files (MonoDevelop/Xamarin Studio)
 
-.ipynb_checkpoints
-*RData
-*.Rproj
-*Rhistory
+#.ipynb_checkpoints
+#*RData
+#*.Rproj
+#*Rhistory
 
 *.userprefs
 # Mono auto generated files
@@ -353,4 +353,4 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
-.Rproj.user
+#.Rproj.user
