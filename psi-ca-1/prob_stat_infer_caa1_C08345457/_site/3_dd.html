@@ -11,7 +11,7 @@
 
 
 
-<title>Data Collection &amp; Preparation</title>
+<title>3. Data Description</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -244,13 +244,28 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Home page</a>
+  <a href="index.html">0 Introduction</a>
 </li>
 <li>
-  <a href="dcprep.html">Data Collect &amp; Preparation</a>
+  <a href="1_sorq.html">1 Statement of Research Question</a>
 </li>
 <li>
-  <a href="app1_rcode.html">Appendix 1 - R Code</a>
+  <a href="2_dcprep.html">2. Data Collection &amp; Preparation</a>
+</li>
+<li>
+  <a href="3_dd.html">3. Data Description</a>
+</li>
+<li>
+  <a href="4_de.html">4. Data Exploration</a>
+</li>
+<li>
+  <a href="5_pm.html">5. Predictive Modelling</a>
+</li>
+<li>
+  <a href="6_ref.html">6. References</a>
+</li>
+<li>
+  <a href="7_rcode.html">7. Appendix: R Code</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -264,85 +279,1296 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Data Collection &amp; Preparation</h1>
+<h1 class="title toc-ignore">3. Data Description</h1>
 
 </div>
 
 
-<div id="data-description" class="section level2">
-<h2>Data Description</h2>
-<p>After reviewing “Using Data Mining to Predict Secondary School Student Performance” by (Cortez, et al, 2018), the following attributes were in table below were studied. <a href="7_rcode.html">Appendix 1: R Code</a> was used to construct tables, graphs and charts in an effort to do descriptive statistics.</p>
-<p>Mousinho da Silveira (MS) school (40 observations) vs Gabriel Pereira (GP)</p>
-<div id="school-attribute" class="section level3">
-<h3>School Attribute</h3>
+<p>We installed, where applicable, then import our R libraries. We then imported our csv file dataset as a dataframe called grades</p>
+<div id="data-cleaning-fixing-data-types" class="section level2">
+<h2>Data Cleaning: Fixing Data Types</h2>
+<p>Below we see that our data consists of 23 characters and 28 integers, we will convert the characters to factors. For integers we will leave them the way they are. R uses the numeric data type as a default, this means a variable could contain a 1 or a 1.0 decimal place. By specifying that the variables are integers R is saying it will treat them as whole numbers. The reason we are doing all this is to avail of R’s functionality for manipulating variables. Factors have more categorical options and features than characters, which are, to R just strings of text.</p>
+<pre><code>##       school          sex          age      address      famsize      Pstatus 
+##  &quot;character&quot;  &quot;character&quot;    &quot;integer&quot;  &quot;character&quot;  &quot;character&quot;  &quot;character&quot; 
+##         Medu         Fedu         Mjob         Fjob       reason      nursery 
+##    &quot;integer&quot;    &quot;integer&quot;  &quot;character&quot;  &quot;character&quot;  &quot;character&quot;  &quot;character&quot; 
+##     internet   guardian.m traveltime.m  studytime.m   failures.m  schoolsup.m 
+##  &quot;character&quot;  &quot;character&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;  &quot;character&quot; 
+##     famsup.m       paid.m activities.m     higher.m   romantic.m     famrel.m 
+##  &quot;character&quot;  &quot;character&quot;  &quot;character&quot;  &quot;character&quot;  &quot;character&quot;    &quot;integer&quot; 
+##   freetime.m      goout.m       Dalc.m       Walc.m     health.m   absences.m 
+##    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot; 
+##          mG1          mG2          mG3   guardian.p traveltime.p  studytime.p 
+##    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;  &quot;character&quot;    &quot;integer&quot;    &quot;integer&quot; 
+##   failures.p  schoolsup.p     famsup.p       paid.p activities.p     higher.p 
+##    &quot;integer&quot;  &quot;character&quot;  &quot;character&quot;  &quot;character&quot;  &quot;character&quot;  &quot;character&quot; 
+##   romantic.p     famrel.p   freetime.p      goout.p       Dalc.p       Walc.p 
+##  &quot;character&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot; 
+##     health.p   absences.p          pG1          pG2          pG3 
+##    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;</code></pre>
+<p>We will loop through our columns and convert character columns into factors. When we are finished we will check our result to ensure it worked.</p>
+<pre><code>##       school          sex          age      address      famsize      Pstatus 
+##     &quot;factor&quot;     &quot;factor&quot;    &quot;integer&quot;     &quot;factor&quot;     &quot;factor&quot;     &quot;factor&quot; 
+##         Medu         Fedu         Mjob         Fjob       reason      nursery 
+##    &quot;integer&quot;    &quot;integer&quot;     &quot;factor&quot;     &quot;factor&quot;     &quot;factor&quot;     &quot;factor&quot; 
+##     internet   guardian.m traveltime.m  studytime.m   failures.m  schoolsup.m 
+##     &quot;factor&quot;     &quot;factor&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;     &quot;factor&quot; 
+##     famsup.m       paid.m activities.m     higher.m   romantic.m     famrel.m 
+##     &quot;factor&quot;     &quot;factor&quot;     &quot;factor&quot;     &quot;factor&quot;     &quot;factor&quot;    &quot;integer&quot; 
+##   freetime.m      goout.m       Dalc.m       Walc.m     health.m   absences.m 
+##    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot; 
+##          mG1          mG2          mG3   guardian.p traveltime.p  studytime.p 
+##    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;     &quot;factor&quot;    &quot;integer&quot;    &quot;integer&quot; 
+##   failures.p  schoolsup.p     famsup.p       paid.p activities.p     higher.p 
+##    &quot;integer&quot;     &quot;factor&quot;     &quot;factor&quot;     &quot;factor&quot;     &quot;factor&quot;     &quot;factor&quot; 
+##   romantic.p     famrel.p   freetime.p      goout.p       Dalc.p       Walc.p 
+##     &quot;factor&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot; 
+##     health.p   absences.p          pG1          pG2          pG3 
+##    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;</code></pre>
+</div>
+<div id="data-cleaning-data-subsetting" class="section level2">
+<h2>Data Cleaning: Data Subsetting</h2>
+<p>We want to create a summary table to examine our data but we have too many attributes so we will split our dataset up and examine the groups. The idea here is that we will test each group of variables against our grades to see which ones we will keep for our predictive model.</p>
+</div>
+<div id="gabriel-pereira-gp-mousinho-da-silveira-ms" class="section level2">
+<h2>Gabriel Pereira (GP) &amp; Mousinho da Silveira (MS)</h2>
+<p>Our dataset relates to a survey carried out in two different schools. There is 88% less observations in Mousinho da Silveira (MS) school (40 observations) vs Gabriel Pereira (GP) school (342).</p>
+<pre><code>## [1] 382  53</code></pre>
+<pre><code>##  GP  MS 
+## 342  40</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["school"],"name":[1],"type":["fct"],"align":["left"]},{"label":["sex"],"name":[2],"type":["fct"],"align":["left"]},{"label":["age"],"name":[3],"type":["int"],"align":["right"]},{"label":["address"],"name":[4],"type":["fct"],"align":["left"]},{"label":["famsize"],"name":[5],"type":["fct"],"align":["left"]},{"label":["Pstatus"],"name":[6],"type":["fct"],"align":["left"]},{"label":["Medu"],"name":[7],"type":["int"],"align":["right"]},{"label":["Fedu"],"name":[8],"type":["int"],"align":["right"]},{"label":["Mjob"],"name":[9],"type":["fct"],"align":["left"]},{"label":["Fjob"],"name":[10],"type":["fct"],"align":["left"]},{"label":["reason"],"name":[11],"type":["fct"],"align":["left"]},{"label":["nursery"],"name":[12],"type":["fct"],"align":["left"]},{"label":["internet"],"name":[13],"type":["fct"],"align":["left"]},{"label":["guardian.m"],"name":[14],"type":["fct"],"align":["left"]},{"label":["traveltime.m"],"name":[15],"type":["int"],"align":["right"]},{"label":["studytime.m"],"name":[16],"type":["int"],"align":["right"]},{"label":["failures.m"],"name":[17],"type":["int"],"align":["right"]},{"label":["schoolsup.m"],"name":[18],"type":["fct"],"align":["left"]},{"label":["famsup.m"],"name":[19],"type":["fct"],"align":["left"]},{"label":["paid.m"],"name":[20],"type":["fct"],"align":["left"]},{"label":["activities.m"],"name":[21],"type":["fct"],"align":["left"]},{"label":["higher.m"],"name":[22],"type":["fct"],"align":["left"]},{"label":["romantic.m"],"name":[23],"type":["fct"],"align":["left"]},{"label":["famrel.m"],"name":[24],"type":["int"],"align":["right"]},{"label":["freetime.m"],"name":[25],"type":["int"],"align":["right"]},{"label":["goout.m"],"name":[26],"type":["int"],"align":["right"]},{"label":["Dalc.m"],"name":[27],"type":["int"],"align":["right"]},{"label":["Walc.m"],"name":[28],"type":["int"],"align":["right"]},{"label":["health.m"],"name":[29],"type":["int"],"align":["right"]},{"label":["absences.m"],"name":[30],"type":["int"],"align":["right"]},{"label":["mG1"],"name":[31],"type":["int"],"align":["right"]},{"label":["mG2"],"name":[32],"type":["int"],"align":["right"]},{"label":["mG3"],"name":[33],"type":["int"],"align":["right"]},{"label":["guardian.p"],"name":[34],"type":["fct"],"align":["left"]},{"label":["traveltime.p"],"name":[35],"type":["int"],"align":["right"]},{"label":["studytime.p"],"name":[36],"type":["int"],"align":["right"]},{"label":["failures.p"],"name":[37],"type":["int"],"align":["right"]},{"label":["schoolsup.p"],"name":[38],"type":["fct"],"align":["left"]},{"label":["famsup.p"],"name":[39],"type":["fct"],"align":["left"]},{"label":["paid.p"],"name":[40],"type":["fct"],"align":["left"]},{"label":["activities.p"],"name":[41],"type":["fct"],"align":["left"]},{"label":["higher.p"],"name":[42],"type":["fct"],"align":["left"]},{"label":["romantic.p"],"name":[43],"type":["fct"],"align":["left"]},{"label":["famrel.p"],"name":[44],"type":["int"],"align":["right"]},{"label":["freetime.p"],"name":[45],"type":["int"],"align":["right"]},{"label":["goout.p"],"name":[46],"type":["int"],"align":["right"]},{"label":["Dalc.p"],"name":[47],"type":["int"],"align":["right"]},{"label":["Walc.p"],"name":[48],"type":["int"],"align":["right"]},{"label":["health.p"],"name":[49],"type":["int"],"align":["right"]},{"label":["absences.p"],"name":[50],"type":["int"],"align":["right"]},{"label":["pG1"],"name":[51],"type":["int"],"align":["right"]},{"label":["pG2"],"name":[52],"type":["int"],"align":["right"]},{"label":["pG3"],"name":[53],"type":["int"],"align":["right"]}],"data":[{"1":"GP","2":"F","3":"15","4":"R","5":"GT3","6":"T","7":"1","8":"1","9":"at_home","10":"other","11":"home","12":"yes","13":"yes","14":"mother","15":"2","16":"4","17":"1","18":"yes","19":"yes","20":"yes","21":"yes","22":"yes","23":"no","24":"3","25":"1","26":"2","27":"1","28":"1","29":"1","30":"2","31":"7","32":"10","33":"10","34":"mother","35":"2","36":"4","37":"0","38":"yes","39":"yes","40":"yes","41":"yes","42":"yes","43":"no","44":"3","45":"1","46":"2","47":"1","48":"1","49":"1","50":"4","51":"13","52":"13","53":"13","_rn_":"1"},{"1":"GP","2":"F","3":"15","4":"R","5":"GT3","6":"T","7":"1","8":"1","9":"other","10":"other","11":"reputation","12":"no","13":"yes","14":"mother","15":"1","16":"2","17":"2","18":"yes","19":"yes","20":"no","21":"no","22":"yes","23":"yes","24":"3","25":"3","26":"4","27":"2","28":"4","29":"5","30":"2","31":"8","32":"6","33":"5","34":"mother","35":"1","36":"2","37":"0","38":"yes","39":"yes","40":"no","41":"no","42":"yes","43":"yes","44":"3","45":"3","46":"4","47":"2","48":"4","49":"5","50":"2","51":"13","52":"11","53":"11","_rn_":"2"},{"1":"GP","2":"F","3":"15","4":"R","5":"GT3","6":"T","7":"2","8":"2","9":"at_home","10":"other","11":"reputation","12":"yes","13":"no","14":"mother","15":"1","16":"1","17":"0","18":"yes","19":"yes","20":"yes","21":"yes","22":"yes","23":"no","24":"4","25":"3","26":"1","27":"1","28":"1","29":"2","30":"8","31":"14","32":"13","33":"13","34":"mother","35":"1","36":"1","37":"0","38":"yes","39":"yes","40":"no","41":"yes","42":"yes","43":"no","44":"4","45":"3","46":"1","47":"1","48":"1","49":"2","50":"8","51":"14","52":"13","53":"12","_rn_":"3"},{"1":"GP","2":"F","3":"15","4":"R","5":"GT3","6":"T","7":"2","8":"4","9":"services","10":"health","11":"course","12":"yes","13":"yes","14":"mother","15":"1","16":"3","17":"0","18":"yes","19":"yes","20":"yes","21":"yes","22":"yes","23":"no","24":"4","25":"3","26":"2","27":"1","28":"1","29":"5","30":"2","31":"10","32":"9","33":"8","34":"mother","35":"1","36":"3","37":"0","38":"yes","39":"yes","40":"no","41":"yes","42":"yes","43":"no","44":"4","45":"3","46":"2","47":"1","48":"1","49":"5","50":"2","51":"10","52":"11","53":"10","_rn_":"4"},{"1":"GP","2":"F","3":"15","4":"R","5":"GT3","6":"T","7":"3","8":"3","9":"services","10":"services","11":"reputation","12":"yes","13":"yes","14":"other","15":"2","16":"3","17":"2","18":"no","19":"yes","20":"yes","21":"yes","22":"yes","23":"yes","24":"4","25":"2","26":"1","27":"2","28":"3","29":"3","30":"8","31":"10","32":"10","33":"10","34":"other","35":"2","36":"3","37":"0","38":"no","39":"yes","40":"yes","41":"yes","42":"yes","43":"yes","44":"4","45":"2","46":"1","47":"2","48":"3","49":"3","50":"2","51":"13","52":"13","53":"13","_rn_":"5"},{"1":"GP","2":"F","3":"15","4":"R","5":"GT3","6":"T","7":"3","8":"4","9":"services","10":"health","11":"course","12":"yes","13":"yes","14":"mother","15":"1","16":"3","17":"0","18":"yes","19":"yes","20":"yes","21":"yes","22":"yes","23":"no","24":"4","25":"3","26":"2","27":"1","28":"1","29":"5","30":"2","31":"12","32":"12","33":"11","34":"mother","35":"1","36":"3","37":"0","38":"yes","39":"yes","40":"no","41":"yes","42":"yes","43":"no","44":"4","45":"3","46":"2","47":"1","48":"1","49":"5","50":"2","51":"11","52":"12","53":"12","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["school"],"name":[1],"type":["fct"],"align":["left"]},{"label":["sex"],"name":[2],"type":["fct"],"align":["left"]},{"label":["age"],"name":[3],"type":["int"],"align":["right"]},{"label":["address"],"name":[4],"type":["fct"],"align":["left"]},{"label":["famsize"],"name":[5],"type":["fct"],"align":["left"]},{"label":["Pstatus"],"name":[6],"type":["fct"],"align":["left"]},{"label":["Medu"],"name":[7],"type":["int"],"align":["right"]},{"label":["Fedu"],"name":[8],"type":["int"],"align":["right"]},{"label":["Mjob"],"name":[9],"type":["fct"],"align":["left"]},{"label":["Fjob"],"name":[10],"type":["fct"],"align":["left"]},{"label":["reason"],"name":[11],"type":["fct"],"align":["left"]},{"label":["nursery"],"name":[12],"type":["fct"],"align":["left"]},{"label":["internet"],"name":[13],"type":["fct"],"align":["left"]},{"label":["guardian.m"],"name":[14],"type":["fct"],"align":["left"]},{"label":["traveltime.m"],"name":[15],"type":["int"],"align":["right"]},{"label":["studytime.m"],"name":[16],"type":["int"],"align":["right"]},{"label":["failures.m"],"name":[17],"type":["int"],"align":["right"]},{"label":["schoolsup.m"],"name":[18],"type":["fct"],"align":["left"]},{"label":["famsup.m"],"name":[19],"type":["fct"],"align":["left"]},{"label":["paid.m"],"name":[20],"type":["fct"],"align":["left"]},{"label":["activities.m"],"name":[21],"type":["fct"],"align":["left"]},{"label":["higher.m"],"name":[22],"type":["fct"],"align":["left"]},{"label":["romantic.m"],"name":[23],"type":["fct"],"align":["left"]},{"label":["famrel.m"],"name":[24],"type":["int"],"align":["right"]},{"label":["freetime.m"],"name":[25],"type":["int"],"align":["right"]},{"label":["goout.m"],"name":[26],"type":["int"],"align":["right"]},{"label":["Dalc.m"],"name":[27],"type":["int"],"align":["right"]},{"label":["Walc.m"],"name":[28],"type":["int"],"align":["right"]},{"label":["health.m"],"name":[29],"type":["int"],"align":["right"]},{"label":["absences.m"],"name":[30],"type":["int"],"align":["right"]},{"label":["mG1"],"name":[31],"type":["int"],"align":["right"]},{"label":["mG2"],"name":[32],"type":["int"],"align":["right"]},{"label":["mG3"],"name":[33],"type":["int"],"align":["right"]},{"label":["guardian.p"],"name":[34],"type":["fct"],"align":["left"]},{"label":["traveltime.p"],"name":[35],"type":["int"],"align":["right"]},{"label":["studytime.p"],"name":[36],"type":["int"],"align":["right"]},{"label":["failures.p"],"name":[37],"type":["int"],"align":["right"]},{"label":["schoolsup.p"],"name":[38],"type":["fct"],"align":["left"]},{"label":["famsup.p"],"name":[39],"type":["fct"],"align":["left"]},{"label":["paid.p"],"name":[40],"type":["fct"],"align":["left"]},{"label":["activities.p"],"name":[41],"type":["fct"],"align":["left"]},{"label":["higher.p"],"name":[42],"type":["fct"],"align":["left"]},{"label":["romantic.p"],"name":[43],"type":["fct"],"align":["left"]},{"label":["famrel.p"],"name":[44],"type":["int"],"align":["right"]},{"label":["freetime.p"],"name":[45],"type":["int"],"align":["right"]},{"label":["goout.p"],"name":[46],"type":["int"],"align":["right"]},{"label":["Dalc.p"],"name":[47],"type":["int"],"align":["right"]},{"label":["Walc.p"],"name":[48],"type":["int"],"align":["right"]},{"label":["health.p"],"name":[49],"type":["int"],"align":["right"]},{"label":["absences.p"],"name":[50],"type":["int"],"align":["right"]},{"label":["pG1"],"name":[51],"type":["int"],"align":["right"]},{"label":["pG2"],"name":[52],"type":["int"],"align":["right"]},{"label":["pG3"],"name":[53],"type":["int"],"align":["right"]}],"data":[{"1":"MS","2":"M","3":"18","4":"U","5":"LE3","6":"T","7":"1","8":"1","9":"other","10":"services","11":"home","12":"no","13":"yes","14":"father","15":"2","16":"1","17":"0","18":"no","19":"no","20":"no","21":"no","22":"yes","23":"yes","24":"3","25":"3","26":"2","27":"1","28":"2","29":"3","30":"4","31":"10","32":"10","33":"10","34":"father","35":"2","36":"1","37":"0","38":"no","39":"no","40":"no","41":"no","42":"yes","43":"yes","44":"3","45":"3","46":"2","47":"1","48":"2","49":"3","50":"2","51":"14","52":"13","53":"14","_rn_":"377"},{"1":"MS","2":"M","3":"18","4":"U","5":"LE3","6":"T","7":"1","8":"3","9":"at_home","10":"services","11":"course","12":"yes","13":"yes","14":"mother","15":"1","16":"1","17":"1","18":"no","19":"no","20":"no","21":"no","22":"no","23":"yes","24":"4","25":"3","26":"3","27":"2","28":"3","29":"3","30":"7","31":"8","32":"7","33":"8","34":"mother","35":"1","36":"1","37":"0","38":"no","39":"no","40":"no","41":"no","42":"no","43":"yes","44":"4","45":"3","46":"3","47":"2","48":"3","49":"3","50":"0","51":"9","52":"10","53":"9","_rn_":"378"},{"1":"MS","2":"M","3":"18","4":"U","5":"LE3","6":"T","7":"4","8":"4","9":"teacher","10":"services","11":"other","12":"yes","13":"yes","14":"mother","15":"2","16":"3","17":"0","18":"no","19":"no","20":"yes","21":"no","22":"yes","23":"yes","24":"4","25":"2","26":"2","27":"2","28":"2","29":"5","30":"0","31":"13","32":"13","33":"13","34":"mother","35":"2","36":"3","37":"0","38":"no","39":"no","40":"no","41":"no","42":"yes","43":"yes","44":"4","45":"2","46":"2","47":"2","48":"2","49":"5","50":"0","51":"15","52":"16","53":"16","_rn_":"379"},{"1":"MS","2":"M","3":"19","4":"R","5":"GT3","6":"T","7":"1","8":"1","9":"other","10":"other","11":"home","12":"yes","13":"yes","14":"other","15":"3","16":"1","17":"1","18":"no","19":"yes","20":"no","21":"no","22":"yes","23":"no","24":"4","25":"4","26":"4","27":"3","28":"3","29":"5","30":"4","31":"8","32":"8","33":"8","34":"other","35":"3","36":"1","37":"1","38":"no","39":"yes","40":"no","41":"no","42":"yes","43":"no","44":"4","45":"4","46":"4","47":"3","48":"3","49":"5","50":"4","51":"8","52":"9","53":"10","_rn_":"380"},{"1":"MS","2":"M","3":"19","4":"R","5":"GT3","6":"T","7":"1","8":"1","9":"other","10":"services","11":"home","12":"yes","13":"yes","14":"other","15":"3","16":"2","17":"3","18":"no","19":"no","20":"no","21":"no","22":"yes","23":"no","24":"5","25":"4","26":"4","27":"3","28":"3","29":"2","30":"8","31":"8","32":"7","33":"8","34":"other","35":"3","36":"2","37":"1","38":"no","39":"no","40":"no","41":"no","42":"yes","43":"no","44":"5","45":"4","46":"4","47":"3","48":"3","49":"2","50":"8","51":"10","52":"9","53":"11","_rn_":"381"},{"1":"MS","2":"M","3":"19","4":"R","5":"GT3","6":"T","7":"1","8":"1","9":"other","10":"services","11":"other","12":"yes","13":"no","14":"mother","15":"2","16":"1","17":"1","18":"no","19":"no","20":"no","21":"no","22":"yes","23":"no","24":"4","25":"3","26":"2","27":"1","28":"3","29":"5","30":"0","31":"6","32":"5","33":"0","34":"mother","35":"2","36":"1","37":"1","38":"no","39":"no","40":"no","41":"no","42":"yes","43":"no","44":"4","45":"3","46":"2","47":"1","48":"3","49":"5","50":"0","51":"5","52":"8","53":"0","_rn_":"382"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>As mentioned previously in Part 2 <a href="2_dcprep.html">Data Collection &amp; Preparation</a>, we wanted a summary table to examine our data but we had too many attributes so we split our dataset up into groups for examination. These groups again were:</p>
+<ol style="list-style-type: decimal">
+<li>General Student Information,</li>
+<li>Maths Student Information,</li>
+<li>Portuguese Language Student Information,</li>
+</ol>
+<p>Using the Summary function in R we examine students of Gabriel Pereira (GP) school and Mousinho da Silveira (MS) school. To understand outliers with our data we calculated the skew and kurtosis. Finally to visualise these two tables we create a bar plot of all our categorical variables then histograms, QQ plots and grouped boxplot of our numeric variables.</p>
+</div>
+<div id="gabriel-pereira-gp-all-students" class="section level2">
+<h2>Gabriel Pereira (GP): All Students</h2>
+<p>Now we examine our students from GP school</p>
+<pre><code>##  sex          age        address famsize   Pstatus      Medu      
+##  F:175   Min.   :15.00   R: 59   GT3:250   A: 37   Min.   :0.000  
+##  M:167   1st Qu.:16.00   U:283   LE3: 92   T:305   1st Qu.:2.000  
+##          Median :16.00                             Median :3.000  
+##          Mean   :16.44                             Mean   :2.854  
+##          3rd Qu.:17.00                             3rd Qu.:4.000  
+##          Max.   :22.00                             Max.   :4.000  
+##       Fedu             Mjob           Fjob            reason    nursery  
+##  Min.   :0.000   at_home : 45   at_home : 13   course    :123   no : 61  
+##  1st Qu.:2.000   health  : 32   health  : 17   home      :100   yes:281  
+##  Median :3.000   other   :120   other   :193   other     : 26            
+##  Mean   :2.594   services: 89   services: 90   reputation: 93            
+##  3rd Qu.:4.000   teacher : 56   teacher : 29                             
+##  Max.   :4.000                                                           
+##  internet 
+##  no : 48  
+##  yes:294  
+##           
+##           
+##           
+## </code></pre>
+<figure style="text-align: center;">
+  <figcaption>Fig.1 - Statistical summary table of Students of Gabriel Pereira (GP) school</figcaption>
+</figure> <br />
+<p>We generate GP Student Descriptive Statistics such as mean, variance and standard deviation. We also see what percentage are greater than a standard deviation of 1.96 and 3.29.</p>
+<pre><code>## [1] &quot;GP Student Age Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##  16.00000000  16.44444444   0.06173316   0.12142574   1.30335614   1.14164624 
+##     coef.var 
+##   0.06942443</code></pre>
+<pre><code>## [1] &quot;% values with z-score &gt; 1.96&quot;</code></pre>
+<pre><code>## [1] 2.631579</code></pre>
+<pre><code>## [1] &quot;% values with z-score &gt; 3.29&quot;</code></pre>
+<pre><code>## [1] 0.2923977</code></pre>
+<pre><code>## [1] &quot;GP Student Mother&#39;s Education Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   3.00000000   2.85380117   0.05743349   0.11296853   1.12812334   1.06213151 
+##     coef.var 
+##   0.37218133</code></pre>
+<pre><code>## [1] &quot;% values with z-score &gt; 1.96&quot;</code></pre>
+<pre><code>## [1] 0.877193</code></pre>
+<pre><code>## [1] &quot;% values with z-score &gt; 3.29&quot;</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Student Father&#39;s Education Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   3.00000000   2.59356725   0.05889415   0.11584156   1.18623416   1.08914377 
+##     coef.var 
+##   0.41994044</code></pre>
+<pre><code>## [1] &quot;% values with z-score &gt; 1.96&quot;</code></pre>
+<pre><code>## [1] 0.5847953</code></pre>
+<pre><code>## [1] &quot;% values with z-score &gt; 3.29&quot;</code></pre>
+<pre><code>## [1] 0</code></pre>
+<figure style="text-align: center;">
+  <figcaption>Fig.1a - Descriptive Statistics table of Students of Gabriel Pereira (GP) school</figcaption>
+</figure> <br />
+To understand outliers with our student data we calculate the skew and kurtosis
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Attributes"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Skewness"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Kurtosis"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"age","2":"0.6106367","3":"3.653016","_rn_":"1"},{"1":"Medu","2":"-0.4269860","3":"2.081384","_rn_":"2"},{"1":"Fedu","2":"-0.1246263","3":"1.825993","_rn_":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<figure style="text-align: center;">
+  <figcaption>Fig.2 - Skew & Kurtosis table of Students of Gabriel Pereira (GP) school</figcaption>
+</figure> <br />
+<p>To visualise these two tables we create a bar plot of all our categorical variables then histograms, QQ plots and grouped boxplot of our numeric variables. <img src="3_dd_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<figure style="text-align: center;">
+  <figcaption>Fig.3 - Stacked bar chart of Students of Gabriel Pereira (GP) school</figcaption>
+</figure> <br />
+<p><img src="3_dd_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<figure style="text-align: center;">
+  <figcaption>Fig.4 - Histograms, Box plots & QQ plots of Students of Gabriel Pereira (GP) school</figcaption>
+</figure> <br />
+<p>We repeat the same process for the rest of the school, then we do the same for MS school.</p>
+</div>
+<div id="gabriel-pereira-gp-maths-students" class="section level2">
+<h2>Gabriel Pereira (GP): Maths Students</h2>
+<pre><code>##   guardian.m   traveltime.m    studytime.m      failures.m     schoolsup.m
+##  father: 80   Min.   :1.000   Min.   :1.000   Min.   :0.0000   no :291    
+##  mother:248   1st Qu.:1.000   1st Qu.:1.000   1st Qu.:0.0000   yes: 51    
+##  other : 14   Median :1.000   Median :2.000   Median :0.0000              
+##               Mean   :1.383   Mean   :2.058   Mean   :0.2895              
+##               3rd Qu.:2.000   3rd Qu.:2.000   3rd Qu.:0.0000              
+##               Max.   :4.000   Max.   :4.000   Max.   :3.0000              
+##  famsup.m  paid.m    activities.m higher.m  romantic.m    famrel.m    
+##  no :120   no :183   no :156      no : 16   no :237    Min.   :1.000  
+##  yes:222   yes:159   yes:186      yes:326   yes:105    1st Qu.:4.000  
+##                                                        Median :4.000  
+##                                                        Mean   :3.968  
+##                                                        3rd Qu.:5.000  
+##                                                        Max.   :5.000  
+##    freetime.m       goout.m          Dalc.m         Walc.m         health.m    
+##  Min.   :1.000   Min.   :1.000   Min.   :1.00   Min.   :1.000   Min.   :1.000  
+##  1st Qu.:3.000   1st Qu.:2.000   1st Qu.:1.00   1st Qu.:1.000   1st Qu.:3.000  
+##  Median :3.000   Median :3.000   Median :1.00   Median :2.000   Median :4.000  
+##  Mean   :3.222   Mean   :3.123   Mean   :1.45   Mean   :2.263   Mean   :3.608  
+##  3rd Qu.:4.000   3rd Qu.:4.000   3rd Qu.:2.00   3rd Qu.:3.000   3rd Qu.:5.000  
+##  Max.   :5.000   Max.   :5.000   Max.   :5.00   Max.   :5.000   Max.   :5.000  
+##    absences.m         mG1            mG2             mG3       
+##  Min.   : 0.00   Min.   : 3.0   Min.   : 0.00   Min.   : 0.00  
+##  1st Qu.: 0.00   1st Qu.: 8.0   1st Qu.: 9.00   1st Qu.: 8.00  
+##  Median : 4.00   Median :10.5   Median :11.00   Median :11.00  
+##  Mean   : 5.52   Mean   :10.9   Mean   :10.79   Mean   :10.49  
+##  3rd Qu.: 8.00   3rd Qu.:13.0   3rd Qu.:13.00   3rd Qu.:14.00  
+##  Max.   :75.00   Max.   :19.0   Max.   :19.00   Max.   :20.00</code></pre>
+<figure style="text-align: center;">
+  <figcaption>Fig.5 - Statistical summary table of Maths at Gabriel Pereira (GP) school</figcaption>
+</figure> <br />
+<pre><code>## [1] &quot;GP Math traveltime.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   1.00000000   1.38304094   0.03596181   0.07073491   0.44229219   0.66505052 
+##     coef.var 
+##   0.48086105</code></pre>
+<pre><code>## [1] 6.140351</code></pre>
+<pre><code>## [1] 2.046784</code></pre>
+<pre><code>## [1] &quot;GP Student studytime.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   2.00000000   2.05847953   0.04637670   0.09122043   0.73557305   0.85765555 
+##     coef.var 
+##   0.41664517</code></pre>
+<pre><code>## [1] 7.894737</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Math failures.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   0.00000000   0.28947368   0.04018680   0.07904524   0.55232289   0.74318429 
+##     coef.var 
+##   2.56736391</code></pre>
+<pre><code>## [1] 7.894737</code></pre>
+<pre><code>## [1] 4.678363</code></pre>
+<pre><code>## [1] &quot;GP Math famrel.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   4.00000000   3.96783626   0.04799545   0.09440443   0.78781876   0.88759155 
+##     coef.var 
+##   0.22369662</code></pre>
+<pre><code>## [1] 6.140351</code></pre>
+<pre><code>## [1] 1.754386</code></pre>
+<pre><code>## [1] &quot;GP Math freetime.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   3.00000000   3.22222222   0.05263634   0.10353280   0.94753992   0.97341662 
+##     coef.var 
+##   0.30209481</code></pre>
+<pre><code>## [1] 4.385965</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Math goout.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    3.0000000    3.1228070    0.0612029    0.1203827    1.2810619    1.1318400 
+##     coef.var 
+##    0.3624432</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Math famrel.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   4.00000000   3.96783626   0.04799545   0.09440443   0.78781876   0.88759155 
+##     coef.var 
+##   0.22369662</code></pre>
+<pre><code>## [1] 6.140351</code></pre>
+<pre><code>## [1] 1.754386</code></pre>
+<pre><code>## [1] &quot;GP Math Dalc.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   1.00000000   1.45029240   0.04672893   0.09191324   0.74678877   0.86416941 
+##     coef.var 
+##   0.59585875</code></pre>
+<pre><code>## [1] 4.093567</code></pre>
+<pre><code>## [1] 2.339181</code></pre>
+<pre><code>## [1] &quot;GP Math Walc.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   2.00000000   2.26315789   0.07066251   0.13898927   1.70767094   1.30677884 
+##     coef.var 
+##   0.57741391</code></pre>
+<pre><code>## [1] 7.602339</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Math health.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   4.00000000   3.60818713   0.07497132   0.14746447   1.92227882   1.38646270 
+##     coef.var 
+##   0.38425465</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Math absences.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    4.0000000    5.5204678    0.4269376    0.8397628   62.3382895    7.8954601 
+##     coef.var 
+##    1.4302158</code></pre>
+<pre><code>## [1] 3.80117</code></pre>
+<pre><code>## [1] 0.877193</code></pre>
+<pre><code>## [1] &quot;GP Math mG1 Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   10.5000000   10.8976608    0.1804488    0.3549329   11.1361235    3.3370831 
+##     coef.var 
+##    0.3062201</code></pre>
+<pre><code>## [1] 3.216374</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Math mG2 Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   11.0000000   10.7894737    0.2087265    0.4105536   14.8998302    3.8600298 
+##     coef.var 
+##    0.3577589</code></pre>
+<pre><code>## [1] 4.678363</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Math mG3 Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   11.0000000   10.4941520    0.2533494    0.4983243   21.9515786    4.6852512 
+##     coef.var 
+##    0.4464631</code></pre>
+<pre><code>## [1] 10.23392</code></pre>
+<pre><code>## [1] 0</code></pre>
+<figure style="text-align: center;">
+  <img src="images/4b.png" alt="fig 5b" style="width:100%">
+  <figcaption>Fig.5b - Descriptive Statistics table of Maths at Gabriel Pereira (GP) school</figcaption>
+</figure> <br />
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Attributes"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Skewness"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Kurtosis"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"traveltime.m","2":"1.9016800","3":"6.630958","_rn_":"1"},{"1":"studytime.m","2":"0.6420809","3":"2.927660","_rn_":"2"},{"1":"failures.m","2":"2.6983556","3":"9.325095","_rn_":"3"},{"1":"famrel.m","2":"-0.9200644","3":"4.033387","_rn_":"4"},{"1":"freetime.m","2":"-0.1310587","3":"2.764861","_rn_":"5"},{"1":"goout.m","2":"0.1223887","3":"2.173373","_rn_":"6"},{"1":"Dalc.m","2":"2.3516868","3":"8.698287","_rn_":"7"},{"1":"Walc.m","2":"0.6659839","3":"2.236743","_rn_":"8"},{"1":"health.m","2":"-0.5586074","3":"2.042138","_rn_":"9"},{"1":"absences.m","2":"3.9744512","3":"28.188713","_rn_":"10"},{"1":"mG1","2":"0.2563065","3":"2.289156","_rn_":"11"},{"1":"mG2","2":"-0.4582354","3":"3.630615","_rn_":"12"},{"1":"mG3","2":"-0.7185927","3":"3.287612","_rn_":"13"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<figure style="text-align: center;">
+  <img src="images/5a.png" alt="fig 6a" style="width:100%">
+  <img src="images/5b.png" alt="fig 6b" style="width:100%">
+  <figcaption>Fig.6 - Skew & Kurtosis table of Maths at Gabriel Pereira (GP) school</figcaption>
+</figure> <br />
+<p><img src="3_dd_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<figure style="text-align: center;">
+  <figcaption>Fig.7 - Stacked bar chart of Maths at Gabriel Pereira (GP) school</figcaption>
+</figure> <br />
+<p><img src="3_dd_files/figure-html/unnamed-chunk-18-1.png" width="672" /><img src="3_dd_files/figure-html/unnamed-chunk-18-2.png" width="672" /><img src="3_dd_files/figure-html/unnamed-chunk-18-3.png" width="672" /></p>
+<figure style="text-align: center;">
+  <figcaption>Fig.8 - Histograms, Box plots & QQ plots of Maths at Gabriel Pereira (GP) school</figcaption>
+</figure> <br />
+</div>
+<div id="gabriel-pereira-gp-portuguese-language-students" class="section level2">
+<h2>Gabriel Pereira (GP): Portuguese Language Students</h2>
+<pre><code>##   guardian.p   traveltime.p    studytime.p      failures.p     schoolsup.p
+##  father: 80   Min.   :1.000   Min.   :1.000   Min.   :0.0000   no :292    
+##  mother:248   1st Qu.:1.000   1st Qu.:1.000   1st Qu.:0.0000   yes: 50    
+##  other : 14   Median :1.000   Median :2.000   Median :0.0000              
+##               Mean   :1.383   Mean   :2.064   Mean   :0.1287              
+##               3rd Qu.:2.000   3rd Qu.:2.000   3rd Qu.:0.0000              
+##               Max.   :4.000   Max.   :4.000   Max.   :3.0000              
+##  famsup.p  paid.p    activities.p higher.p  romantic.p    famrel.p    
+##  no :119   no :320   no :157      no : 16   no :236    Min.   :1.000  
+##  yes:223   yes: 22   yes:185      yes:326   yes:106    1st Qu.:4.000  
+##                                                        Median :4.000  
+##                                                        Mean   :3.965  
+##                                                        3rd Qu.:5.000  
+##                                                        Max.   :5.000  
+##    freetime.p       goout.p         Dalc.p         Walc.p         health.p    
+##  Min.   :1.000   Min.   :1.00   Min.   :1.00   Min.   :1.000   Min.   :1.000  
+##  1st Qu.:3.000   1st Qu.:2.00   1st Qu.:1.00   1st Qu.:1.000   1st Qu.:3.000  
+##  Median :3.000   Median :3.00   Median :1.00   Median :2.000   Median :4.000  
+##  Mean   :3.222   Mean   :3.12   Mean   :1.45   Mean   :2.272   Mean   :3.605  
+##  3rd Qu.:4.000   3rd Qu.:4.00   3rd Qu.:2.00   3rd Qu.:3.000   3rd Qu.:5.000  
+##  Max.   :5.000   Max.   :5.00   Max.   :5.00   Max.   :5.000   Max.   :5.000  
+##    absences.p          pG1             pG2             pG3      
+##  Min.   : 0.000   Min.   : 0.00   Min.   : 7.00   Min.   : 0.0  
+##  1st Qu.: 0.000   1st Qu.:11.00   1st Qu.:11.00   1st Qu.:11.0  
+##  Median : 2.000   Median :12.00   Median :12.00   Median :13.0  
+##  Mean   : 3.775   Mean   :12.26   Mean   :12.34   Mean   :12.7  
+##  3rd Qu.: 6.000   3rd Qu.:14.00   3rd Qu.:14.00   3rd Qu.:14.0  
+##  Max.   :32.000   Max.   :18.00   Max.   :19.00   Max.   :19.0</code></pre>
+<figure style="text-align: center;">
+  <figcaption>Fig.9 - Statistical summary table of Portuguese at Gabriel Pereira (GP) school</figcaption>
+</figure> <br />
+<pre><code>## [1] &quot;GP Lang traveltime.p Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   1.00000000   1.38304094   0.03596181   0.07073491   0.44229219   0.66505052 
+##     coef.var 
+##   0.48086105</code></pre>
+<pre><code>## [1] 6.140351</code></pre>
+<pre><code>## [1] 2.046784</code></pre>
+<pre><code>## [1] &quot;GP Lang studytime.p Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   2.00000000   2.06432749   0.04635399   0.09117575   0.73485277   0.85723554 
+##     coef.var 
+##   0.41526141</code></pre>
+<pre><code>## [1] 7.894737</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Lang failures.p Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   0.00000000   0.12865497   0.02783222   0.05474445   0.26492429   0.51470796 
+##     coef.var 
+##   4.00068461</code></pre>
+<pre><code>## [1] 3.508772</code></pre>
+<pre><code>## [1] 3.508772</code></pre>
+<pre><code>## [1] &quot;GP Lang famrel.p Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   4.00000000   3.96491228   0.04790002   0.09421672   0.78468900   0.88582673 
+##     coef.var 
+##   0.22341648</code></pre>
+<pre><code>## [1] 6.140351</code></pre>
+<pre><code>## [1] 1.754386</code></pre>
+<pre><code>## [1] &quot;GP Lang freetime.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    3.0000000    3.2222222    0.0527990    0.1038527    0.9534050    0.9764246 
+##     coef.var 
+##    0.3030283</code></pre>
+<pre><code>## [1] 4.385965</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Lang goout.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   3.00000000   3.11988304   0.06156906   0.12110297   1.29643635   1.13861159 
+##     coef.var 
+##   0.36495329</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Lang famrel.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   4.00000000   3.96491228   0.04790002   0.09421672   0.78468900   0.88582673 
+##     coef.var 
+##   0.22341648</code></pre>
+<pre><code>## [1] 6.140351</code></pre>
+<pre><code>## [1] 1.754386</code></pre>
+<pre><code>## [1] &quot;GP Lang Dalc.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   1.00000000   1.45029240   0.04672893   0.09191324   0.74678877   0.86416941 
+##     coef.var 
+##   0.59585875</code></pre>
+<pre><code>## [1] 4.093567</code></pre>
+<pre><code>## [1] 2.339181</code></pre>
+<pre><code>## [1] &quot;GP Lang Walc.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   2.00000000   2.27192982   0.07074708   0.13915562   1.71176107   1.30834287 
+##     coef.var 
+##   0.57587292</code></pre>
+<pre><code>## [1] 7.602339</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Lang health.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   4.00000000   3.60526316   0.07521188   0.14793765   1.93463497   1.39091156 
+##     coef.var 
+##   0.38580029</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Lang absences.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    2.0000000    3.7748538    0.2751578    0.5412203   25.8934421    5.0885599 
+##     coef.var 
+##    1.3480151</code></pre>
+<pre><code>## [1] 7.309941</code></pre>
+<pre><code>## [1] 1.754386</code></pre>
+<pre><code>## [1] &quot;GP Lang pG1 Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   12.0000000   12.2573099    0.1302782    0.2562501    5.8045652    2.4092665 
+##     coef.var 
+##    0.1965575</code></pre>
+<pre><code>## [1] 6.140351</code></pre>
+<pre><code>## [1] 0.2923977</code></pre>
+<pre><code>## [1] &quot;GP Lang pG2 Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   12.0000000   12.3362573    0.1272474    0.2502886    5.5376258    2.3532161 
+##     coef.var 
+##    0.1907561</code></pre>
+<pre><code>## [1] 6.140351</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Lang pG3 Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   13.0000000   12.6988304    0.1415892    0.2784982    6.8562450    2.6184432 
+##     coef.var 
+##    0.2061956</code></pre>
+<pre><code>## [1] 4.97076</code></pre>
+<pre><code>## [1] 0.5847953</code></pre>
+<figure style="text-align: center;">
+  <figcaption>Fig.9 - Descriptive Statistics table of Portuguese at Gabriel Pereira (GP) school</figcaption>
+</figure> <br />
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Attributes"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Skewness"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Kurtosis"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"traveltime.p","2":"1.9016800","3":"6.630958","_rn_":"1"},{"1":"studytime.p","2":"0.6319491","3":"2.913295","_rn_":"2"},{"1":"failures.p","2":"4.4454614","3":"22.826696","_rn_":"3"},{"1":"famrel.p","2":"-0.9203032","3":"4.047970","_rn_":"4"},{"1":"freetime.p","2":"-0.1151290","3":"2.760908","_rn_":"5"},{"1":"goout.p","2":"0.1221888","3":"2.175759","_rn_":"6"},{"1":"Dalc.p","2":"2.3516868","3":"8.698287","_rn_":"7"},{"1":"Walc.p","2":"0.6529684","3":"2.214838","_rn_":"8"},{"1":"health.p","2":"-0.5486766","3":"2.019657","_rn_":"9"},{"1":"absences.p","2":"2.1226297","3":"8.712106","_rn_":"10"},{"1":"pG1","2":"-0.1662706","3":"4.240427","_rn_":"11"},{"1":"pG2","2":"0.3049487","3":"2.833375","_rn_":"12"},{"1":"pG3","2":"-0.5364503","3":"5.101665","_rn_":"13"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<figure style="text-align: center;">
+  <figcaption>Fig.10 - Skew & Kurtosis table of Portuguese at Gabriel Pereira (GP) school</figcaption>
+</figure> <br />
+<p><img src="3_dd_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<figure style="text-align: center;">
+  <figcaption>Fig.11 - Stacked bar chart of Portuguese at Gabriel Pereira (GP) school</figcaption>
+</figure> <br />
+<p><img src="3_dd_files/figure-html/unnamed-chunk-23-1.png" width="672" /><img src="3_dd_files/figure-html/unnamed-chunk-23-2.png" width="672" /><img src="3_dd_files/figure-html/unnamed-chunk-23-3.png" width="672" /></p>
+<figure style="text-align: center;">
+  <figcaption>Fig.12 - Histograms, Box plots & QQ plots of Portuguese at Gabriel Pereira (GP) school</figcaption>
+</figure> <br />
+</div>
+<div id="mousinho-da-silveira-ms-all-students" class="section level2">
+<h2>Mousinho da Silveira (MS): All Students</h2>
+<pre><code>##  sex         age       address famsize  Pstatus      Medu           Fedu      
+##  F:23   Min.   :17.0   R:22    GT3:28   A: 1    Min.   :1.00   Min.   :1.000  
+##  M:17   1st Qu.:17.0   U:18    LE3:12   T:39    1st Qu.:1.00   1st Qu.:1.000  
+##         Median :18.0                            Median :2.50   Median :2.000  
+##         Mean   :17.8                            Mean   :2.40   Mean   :2.325  
+##         3rd Qu.:18.0                            3rd Qu.:3.25   3rd Qu.:3.000  
+##         Max.   :19.0                            Max.   :4.00   Max.   :4.000  
+##        Mjob          Fjob           reason   nursery  internet
+##  at_home : 8   at_home : 3   course    :17   no :11   no :10  
+##  health  : 1   health  : 0   home      :10   yes:29   yes:30  
+##  other   :18   other   :18   other     : 8                    
+##  services: 7   services:17   reputation: 5                    
+##  teacher : 6   teacher : 2                                    
+## </code></pre>
+<figure style="text-align: center;">
+  <figcaption>Fig.13 - Statistical summary table of Students of Mousinho da Silveira (MS) school</figcaption>
+</figure> <br />
+<pre><code>## [1] &quot;MS Student Age Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##  18.00000000  17.80000000   0.09607689   0.19433386   0.36923077   0.60764362 
+##     coef.var 
+##   0.03413728</code></pre>
+<pre><code>## [1] 10</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;MS Student Mother&#39;s Education Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    2.5000000    2.4000000    0.1921538    0.3886677    1.4769231    1.2152872 
+##     coef.var 
+##    0.5063697</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;MS Student Father&#39;s Education Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    2.0000000    2.3250000    0.1804109    0.3649154    1.3019231    1.1410184 
+##     coef.var 
+##    0.4907606</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] 0</code></pre>
+<figure style="text-align: center;">
+  <figcaption>Fig.13a - Descriptive Statistics table of Students of Mousinho da Silveira (MS) school</figcaption>
+</figure> <br />
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Attributes"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Skewness"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Kurtosis"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"age","2":"0.1111111","3":"2.555556","_rn_":"1"},{"1":"Medu","2":"0.0625000","3":"1.456019","_rn_":"2"},{"1":"Fedu","2":"0.1769250","3":"1.632480","_rn_":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<figure style="text-align: center;">
+  <figcaption>Fig.14 - Skew & Kurtosis table of Students of Mousinho da Silveira (MS) school</figcaption>
+</figure> <br />
+<p><img src="3_dd_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<figure style="text-align: center;">
+  <figcaption>Fig.15 - Stacked bar chart of Students of Mousinho da Silveira (MS) school</figcaption>
+</figure> <br />
+<p><img src="3_dd_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<figure style="text-align: center;">
+  <figcaption>Fig.16 - Histograms, Box plots & QQ plots of Students of Mousinho da Silveira (MS) school</figcaption>
+</figure> <br />
+</div>
+<div id="mousinho-da-silveira-ms-maths-students" class="section level2">
+<h2>Mousinho da Silveira (MS): Maths Students</h2>
+<pre><code>##   guardian.m  traveltime.m   studytime.m      failures.m   schoolsup.m famsup.m
+##  father:11   Min.   :1.00   Min.   :1.000   Min.   :0.00   no :40      no :24  
+##  mother:27   1st Qu.:1.00   1st Qu.:1.000   1st Qu.:0.00   yes: 0      yes:16  
+##  other : 2   Median :2.00   Median :2.000   Median :0.00                       
+##              Mean   :1.95   Mean   :1.825   Mean   :0.30                       
+##              3rd Qu.:2.00   3rd Qu.:2.000   3rd Qu.:0.25                       
+##              Max.   :4.00   Max.   :3.000   Max.   :3.00                       
+##  paid.m   activities.m higher.m romantic.m    famrel.m      freetime.m   
+##  no :22   no :25       no : 2   no :24     Min.   :1.00   Min.   :1.000  
+##  yes:18   yes:15       yes:38   yes:16     1st Qu.:3.00   1st Qu.:2.750  
+##                                            Median :4.00   Median :3.000  
+##                                            Mean   :3.70   Mean   :3.225  
+##                                            3rd Qu.:4.25   3rd Qu.:4.000  
+##                                            Max.   :5.00   Max.   :5.000  
+##     goout.m          Dalc.m          Walc.m         health.m    
+##  Min.   :1.000   Min.   :1.000   Min.   :1.000   Min.   :1.000  
+##  1st Qu.:2.000   1st Qu.:1.000   1st Qu.:2.000   1st Qu.:2.000  
+##  Median :3.000   Median :1.000   Median :2.000   Median :3.000  
+##  Mean   :3.025   Mean   :1.675   Mean   :2.425   Mean   :3.325  
+##  3rd Qu.:4.000   3rd Qu.:2.000   3rd Qu.:3.000   3rd Qu.:5.000  
+##  Max.   :5.000   Max.   :5.000   Max.   :5.000   Max.   :5.000  
+##    absences.m         mG1             mG2             mG3        
+##  Min.   : 0.00   Min.   : 6.00   Min.   : 5.00   Min.   : 0.000  
+##  1st Qu.: 0.00   1st Qu.: 7.75   1st Qu.: 7.00   1st Qu.: 8.000  
+##  Median : 2.00   Median :10.50   Median :10.00   Median :10.000  
+##  Mean   : 3.60   Mean   :10.55   Mean   :10.05   Mean   : 9.475  
+##  3rd Qu.: 4.25   3rd Qu.:13.00   3rd Qu.:12.25   3rd Qu.:12.250  
+##  Max.   :17.00   Max.   :19.00   Max.   :18.00   Max.   :19.000</code></pre>
+<figure style="text-align: center;">
+  <figcaption>Fig.17 - Statistical summary table of Maths at Mousinho da Silveira (MS) school</figcaption>
+</figure> <br />
+<pre><code>## [1] &quot;MS Math traveltime.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    2.0000000    1.9500000    0.1184840    0.2396565    0.5615385    0.7493587 
+##     coef.var 
+##    0.3842865</code></pre>
+<pre><code>## [1] 2.5</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;MS Student studytime.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    2.0000000    1.8250000    0.1125890    0.2277327    0.5070513    0.7120753 
+##     coef.var 
+##    0.3901783</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;MS Math failures.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   0.00000000   0.30000000   0.09607689   0.19433386   0.36923077   0.60764362 
+##     coef.var 
+##   2.02547873</code></pre>
+<pre><code>## [1] 2.5</code></pre>
+<pre><code>## [1] 2.5</code></pre>
+<pre><code>## [1] &quot;MS Math famrel.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    4.0000000    3.7000000    0.1832750    0.3707088    1.3435897    1.1591332 
+##     coef.var 
+##    0.3132792</code></pre>
+<pre><code>## [1] 7.5</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;MS Math freetime.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    3.0000000    3.2250000    0.1771842    0.3583888    1.2557692    1.1206111 
+##     coef.var 
+##    0.3474763</code></pre>
+<pre><code>## [1] 7.5</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;MS Math goout.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    3.0000000    3.0250000    0.1807658    0.3656334    1.3070513    1.1432634 
+##     coef.var 
+##    0.3779383</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;MS Math famrel.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    4.0000000    3.7000000    0.1832750    0.3707088    1.3435897    1.1591332 
+##     coef.var 
+##    0.3132792</code></pre>
+<pre><code>## [1] 7.5</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;MS Math Dalc.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    1.0000000    1.6750000    0.1655895    0.3349363    1.0967949    1.0472797 
+##     coef.var 
+##    0.6252416</code></pre>
+<pre><code>## [1] 7.5</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;MS Math Walc.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    2.0000000    2.4250000    0.1675139    0.3388288    1.1224359    1.0594508 
+##     coef.var 
+##    0.4368869</code></pre>
+<pre><code>## [1] 2.5</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;MS Math health.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    3.0000000    3.3250000    0.2385520    0.4825169    2.2762821    1.5087352 
+##     coef.var 
+##    0.4537550</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;MS Math absences.m Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    2.0000000    3.6000000    0.6996336    1.4151425   19.5794872    4.4248714 
+##     coef.var 
+##    1.2291310</code></pre>
+<pre><code>## [1] 7.5</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;MS Math mG1 Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   10.5000000   10.5500000    0.5500000    1.1124800   12.1000000    3.4785054 
+##     coef.var 
+##    0.3297162</code></pre>
+<pre><code>## [1] 5</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;MS Math mG2 Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   10.0000000   10.0500000    0.5638126    1.1404186   12.7153846    3.5658638 
+##     coef.var 
+##    0.3548123</code></pre>
+<pre><code>## [1] 2.5</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;MS Math mG3 Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   10.0000000    9.4750000    0.7372745    1.4912785   21.7429487    4.6629335 
+##     coef.var 
+##    0.4921302</code></pre>
+<pre><code>## [1] 15</code></pre>
+<pre><code>## [1] 0</code></pre>
+<figure style="text-align: center;">
+  <figcaption>Fig.17a - Descriptive Statistics table of Maths at Mousinho da Silveira (MS) school</figcaption>
+</figure> <br />
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Attributes"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Skewness"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Kurtosis"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"traveltime.m","2":"0.44987447","3":"2.929818","_rn_":"1"},{"1":"studytime.m","2":"0.25864562","3":"2.030039","_rn_":"2"},{"1":"failures.m","2":"2.54166667","3":"10.715278","_rn_":"3"},{"1":"famrel.m","2":"-0.89638035","3":"3.130179","_rn_":"4"},{"1":"freetime.m","2":"-0.23091694","3":"2.389505","_rn_":"5"},{"1":"goout.m","2":"-0.04907049","3":"2.264291","_rn_":"6"},{"1":"Dalc.m","2":"1.49384930","3":"4.401757","_rn_":"7"},{"1":"Walc.m","2":"0.26458120","3":"2.372471","_rn_":"8"},{"1":"health.m","2":"-0.24898273","3":"1.680497","_rn_":"9"},{"1":"absences.m","2":"1.39820739","3":"4.303711","_rn_":"10"},{"1":"mG1","2":"0.44341330","3":"2.487171","_rn_":"11"},{"1":"mG2","2":"0.14410091","3":"2.214446","_rn_":"12"},{"1":"mG3","2":"-0.62229937","3":"3.124258","_rn_":"13"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<figure style="text-align: center;">
+  <figcaption>Fig.18 - Skew & Kurtosis table of Maths at Mousinho da Silveira (MS) school</figcaption>
+</figure> <br />
+<p><img src="3_dd_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<figure style="text-align: center;">
+  <figcaption>Fig.19 - Stacked bar chart of Maths at Mousinho da Silveira (MS) school</figcaption>
+</figure> <br />
+<p><img src="3_dd_files/figure-html/unnamed-chunk-33-1.png" width="672" /><img src="3_dd_files/figure-html/unnamed-chunk-33-2.png" width="672" /><img src="3_dd_files/figure-html/unnamed-chunk-33-3.png" width="672" /></p>
+<figure style="text-align: center;">
+  <figcaption>Fig.20 - Histograms, Box plots & QQ plots of Maths at Mousinho da Silveira (MS) school</figcaption>
+</figure> <br />
+</div>
+<div id="mousinho-da-silveira-ms-portuguese-language-students" class="section level2">
+<h2>Mousinho da Silveira (MS): Portuguese Language Students</h2>
+<pre><code>##   guardian.p  traveltime.p    studytime.p      failures.p   schoolsup.p
+##  father:11   Min.   :1.000   Min.   :1.000   Min.   :0.00   no :40     
+##  mother:27   1st Qu.:1.000   1st Qu.:1.000   1st Qu.:0.00   yes: 0     
+##  other : 2   Median :2.000   Median :2.000   Median :0.00              
+##              Mean   :1.975   Mean   :1.825   Mean   :0.25              
+##              3rd Qu.:2.000   3rd Qu.:2.000   3rd Qu.:0.00              
+##              Max.   :4.000   Max.   :3.000   Max.   :2.00              
+##  famsup.p paid.p   activities.p higher.p romantic.p    famrel.p   
+##  no :24   no :36   no :25       no : 2   no :23     Min.   :1.00  
+##  yes:16   yes: 4   yes:15       yes:38   yes:17     1st Qu.:3.00  
+##                                                     Median :4.00  
+##                                                     Mean   :3.75  
+##                                                     3rd Qu.:4.25  
+##                                                     Max.   :5.00  
+##    freetime.p     goout.p        Dalc.p        Walc.p        health.p    
+##  Min.   :1.0   Min.   :1.0   Min.   :1.0   Min.   :1.00   Min.   :1.000  
+##  1st Qu.:3.0   1st Qu.:2.0   1st Qu.:1.0   1st Qu.:2.00   1st Qu.:2.000  
+##  Median :3.0   Median :3.0   Median :1.0   Median :2.00   Median :3.000  
+##  Mean   :3.3   Mean   :3.1   Mean   :1.7   Mean   :2.45   Mean   :3.325  
+##  3rd Qu.:4.0   3rd Qu.:4.0   3rd Qu.:2.0   3rd Qu.:3.00   3rd Qu.:5.000  
+##  Max.   :5.0   Max.   :5.0   Max.   :5.0   Max.   :5.00   Max.   :5.000  
+##    absences.p        pG1             pG2            pG3       
+##  Min.   : 0.0   Min.   : 5.00   Min.   : 5.0   Min.   : 0.00  
+##  1st Qu.: 0.0   1st Qu.: 8.00   1st Qu.: 9.0   1st Qu.: 9.00  
+##  Median : 3.0   Median :10.00   Median :11.0   Median :11.00  
+##  Mean   : 2.8   Mean   :10.88   Mean   :11.4   Mean   :10.95  
+##  3rd Qu.: 4.0   3rd Qu.:14.00   3rd Qu.:14.0   3rd Qu.:14.25  
+##  Max.   :10.0   Max.   :19.00   Max.   :18.0   Max.   :19.00</code></pre>
+<figure style="text-align: center;">
+  <figcaption>Fig.21 - Statistical summary table of Portuguese at Mousinho da Silveira (MS) school</figcaption>
+</figure> <br />
+<pre><code>## [1] &quot;GP Lang traveltime.p Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    2.0000000    1.9750000    0.1213572    0.2454681    0.5891026    0.7675302 
+##     coef.var 
+##    0.3886229</code></pre>
+<pre><code>## [1] 2.5</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Lang studytime.p Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    2.0000000    1.8250000    0.1125890    0.2277327    0.5070513    0.7120753 
+##     coef.var 
+##    0.3901783</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Lang failures.p Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   0.00000000   0.25000000   0.07803681   0.15784435   0.24358974   0.49354812 
+##     coef.var 
+##   1.97419247</code></pre>
+<pre><code>## [1] 2.5</code></pre>
+<pre><code>## [1] 2.5</code></pre>
+<pre><code>## [1] &quot;GP Lang famrel.p Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    4.0000000    3.7500000    0.1707825    0.3454402    1.1666667    1.0801234 
+##     coef.var 
+##    0.2880329</code></pre>
+<pre><code>## [1] 5</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Lang freetime.p Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    3.0000000    3.3000000    0.1687055    0.3412390    1.1384615    1.0669871 
+##     coef.var 
+##    0.3233294</code></pre>
+<pre><code>## [1] 5</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Lang goout.p Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    3.0000000    3.1000000    0.1746792    0.3533220    1.2205128    1.1047682 
+##     coef.var 
+##    0.3563768</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Lang famrel.p Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    4.0000000    3.7500000    0.1707825    0.3454402    1.1666667    1.0801234 
+##     coef.var 
+##    0.2880329</code></pre>
+<pre><code>## [1] 7.5</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Lang Dalc.p Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    1.0000000    1.7000000    0.1648620    0.3334649    1.0871795    1.0426790 
+##     coef.var 
+##    0.6133406</code></pre>
+<pre><code>## [1] 7.5</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Lang Walc.p Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    2.0000000    2.4500000    0.1638871    0.3314929    1.0743590    1.0365129 
+##     coef.var 
+##    0.4230665</code></pre>
+<pre><code>## [1] 2.5</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Lang health.p Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    3.0000000    3.3250000    0.2385520    0.4825169    2.2762821    1.5087352 
+##     coef.var 
+##    0.4537550</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Lang absences.p Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    3.0000000    2.8000000    0.4431820    0.8964201    7.8564103    2.8029289 
+##     coef.var 
+##    1.0010460</code></pre>
+<pre><code>## [1] 2.5</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Lang pG1 Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   10.0000000   10.8750000    0.5325164    1.0771161   11.3429487    3.3679294 
+##     coef.var 
+##    0.3096947</code></pre>
+<pre><code>## [1] 2.5</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Lang pG2 Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   11.0000000   11.4000000    0.5073814    1.0262758   10.2974359    3.2089618 
+##     coef.var 
+##    0.2814879</code></pre>
+<pre><code>## [1] 5</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] &quot;GP Lang pG3 Descriptive Statistics&quot;</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   11.0000000   10.9500000    0.7415766    1.4999803   21.9974359    4.6901424 
+##     coef.var 
+##    0.4283235</code></pre>
+<pre><code>## [1] 10</code></pre>
+<pre><code>## [1] 0</code></pre>
+<figure style="text-align: center;">
+  <figcaption>Fig.21a - Descriptive Statistics table of Portuguese at Mousinho da Silveira (MS) school</figcaption>
+</figure> <br />
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Attributes"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Skewness"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Kurtosis"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"traveltime.p","2":"0.38615199","3":"2.696687","_rn_":"1"},{"1":"studytime.p","2":"0.25864562","3":"2.030039","_rn_":"2"},{"1":"failures.p","2":"1.78196240","3":"5.332410","_rn_":"3"},{"1":"famrel.p","2":"-0.85003509","3":"3.275571","_rn_":"4"},{"1":"freetime.p","2":"-0.23600685","3":"2.454103","_rn_":"5"},{"1":"goout.p","2":"-0.08319617","3":"2.310359","_rn_":"6"},{"1":"Dalc.p","2":"1.44868203","3":"4.331346","_rn_":"7"},{"1":"Walc.p","2":"0.27493040","3":"2.465906","_rn_":"8"},{"1":"health.p","2":"-0.24898273","3":"1.680497","_rn_":"9"},{"1":"absences.p","2":"0.67470565","3":"2.626359","_rn_":"10"},{"1":"pG1","2":"0.46016412","3":"2.285182","_rn_":"11"},{"1":"pG2","2":"0.38154570","3":"2.327495","_rn_":"12"},{"1":"pG3","2":"-0.87572575","3":"3.775760","_rn_":"13"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<figure style="text-align: center;">
+  <figcaption>Fig.22 - Skew & Kurtosis table of Portuguese at Mousinho da Silveira (MS) school</figcaption>
+</figure> <br />
+<p><img src="3_dd_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<figure style="text-align: center;">
+  <figcaption>Fig.23 - Stacked bar chart of Portuguese at Mousinho da Silveira (MS) school</figcaption>
+</figure> <br />
+<p><img src="3_dd_files/figure-html/unnamed-chunk-38-1.png" width="672" /><img src="3_dd_files/figure-html/unnamed-chunk-38-2.png" width="672" /><img src="3_dd_files/figure-html/unnamed-chunk-38-3.png" width="672" /></p>
+<figure style="text-align: center;">
+  <figcaption>Fig.24 - Histograms, Box plots & QQ plots of Portuguese at Gabriel Pereira (GP) school</figcaption>
+</figure> <br />
+</div>
+<div id="summary-of-central-tendency-characterisation" class="section level2">
+<h2>Summary of Central Tendency Characterisation</h2>
 <ul>
-<li><strong>school</strong>: Mousinho da Silveira (<strong>MS</strong>) &amp; Gabriel Pereira (<strong>GP</strong>), <span style="color:blue">dichotomous (binary)</span></li>
+<li>As we mentioned in part 2 <a href="2_dcprep.html">Data Collection &amp; Preparation</a>, in order for us to do variable relationship tests we need our data to be absence of outliers, normally distributed and homoskedasticity (i.e no skewness).</li>
+</ul>
+<div id="students-age-parents-education-gp" class="section level3">
+<h3>Student’s Age &amp; Parent’s Education (GP)</h3>
+<ul>
+<li>Age, Mother &amp; Father’s education are within 2 standard deviations (within +/-3.27),</li>
+<li>We have more than 80 observations so we can use Student’s t-test instead of Welch’s test when doing hypothesis tests to find the relationship between variables.</li>
+<li>Skewness is within +/-0.5 so is fairly symmetrical.</li>
+<li>Both Mother &amp; Father’s education have a kurtosis less than 3 so the data has a platykurtic distribution (Moderately Spread Out). Age however has kurtosis &gt;3.0, leptokurtic distribution(tall+thin). We may remove lower education from the dataset to normalise.</li>
 </ul>
 </div>
-<div id="student-attributes" class="section level3">
-<h3>Student Attributes</h3>
+<div id="math-language-students-gp" class="section level3">
+<h3>Math &amp; Language Students (GP)</h3>
 <ul>
-<li><strong>sex</strong>: [<strong>F</strong>emale / <strong>M</strong>ale], <span style="color:blue">dichotomous (binary)</span>,</li>
-<li><strong>age</strong>: Age of the student [<strong>years old</strong>], numeric</li>
-<li><strong>address</strong>: Living in [<strong>R</strong>ural] area or [<strong>U</strong>rban], <span style="color:purple">categorical (nominal)</span>, should be dichotomous (binary)</li>
-<li><strong>Pstatus</strong>: if parents are [<strong>T</strong>ogether] or [<strong>A</strong>part], <span style="color:purple">categorical (nominal)</span>, should be dichotomous (binary)</li>
-<li><strong>Medu</strong>: mother’s education level [<strong>0-4</strong>], <span style="color:green">categorical (ordinal)</span>,</li>
-<li><strong>Mjob</strong>: mother’s job [<strong>teacher, health care related, civil service, home, other</strong>], <span style="color:purple">categorical (nominal)</span>,</li>
-<li><strong>Fedu</strong>: father’s education level [<strong>0-4</strong>], <span style="color:green">categorical (ordinal)</span>,</li>
-<li><strong>Fjob</strong>: father’s job [<strong>teacher, health care related, civil service, home, other</strong>], <span style="color:purple">categorical (nominal)</span>,</li>
-<li><strong>reason</strong>: reason for choosing the school [<strong>close to home, school reputation, course preference or other</strong>],</li>
-<li><strong>nursery</strong>: attended a nursery school [<strong>Y/N</strong>], <span style="color:blue">dichotomous (binary)</span>,</li>
-<li><strong>internet</strong>: internet access is at home [<strong>Y/N</strong>], <span style="color:blue">dichotomous (binary)</span>,</li>
+<li>traveltime.m, studytime.m, failures.m, famrel.m, goout.m, Dalc.m, Walc.m and health.m are within 2 standard deviations (within +/-3.27).</li>
+<li>absences.m, mG1 to mG3 are more than 2 standard deviations with absences the most troublesome at 7.63 standard deviations. We will have to use a Welch’s test for these.</li>
+<li>freetime.m, goout.m and mG1 to mG2 are fairly symmetrical. studytime.m, famrel.m are moderately skewed. failures.m and absences.m are heavily skewed.</li>
+<li>studytime.m have mesokurtic distribution(similar to normal distribution), traveltime.m, famrel.m, failures.m, Dalc.m, absences.m and mG1 are leptokurtic distribution(tall+thin), freetime.m, goout.m, Walc.m, health.m, mG2 and mG3 have platykurtic distribution(Moderately Spread Out)</li>
+<li>Mother’s job is missing some values and may required SMOTE to increase sample size.</li>
+<li>Language students have similar standard deviations. failures.p is heavily skewed. with a leptokurtic distribution(tall+thin).</li>
 </ul>
 </div>
-<div id="maths-language-attributes" class="section level3">
-<h3>Maths &amp; Language Attributes</h3>
+<div id="students-age-parents-education-ms" class="section level3">
+<h3>Student’s Age &amp; Parent’s Education (MS)</h3>
 <ul>
-<li><strong>guardian</strong>: mother, father or other are the student’s guardian, <span style="color:green">categorical (ordinal)</span>,</li>
-<li><strong>traveltime</strong>: home to school travel time [<strong>1-4</strong>], <span style="color:red">numeric</span>, (based on categorical (ordinal) as numeric),</li>
-<li><strong>studytime</strong>: amount of time per week spent studying [<strong>1-4</strong>], <span style="color:red">numeric</span>, (based on categorical (ordinal) as numeric)</li>
-<li><strong>failures</strong>: past number of class failures [<strong>1-4</strong>], <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),</li>
-<li><strong>schoolsup</strong>: school provides extra educational support [<strong>Y/N</strong>], <span style="color:blue">dichotomous (binary)</span>,</li>
-<li><strong>famsup</strong>: family provides extra educational support [<strong>Y/N</strong>], <span style="color:blue">dichotomous (binary)</span>,</li>
-<li><strong>paidclass</strong>: student gets grinds [<strong>Y/N</strong>], <span style="color:blue">dichotomous (binary)</span>,</li>
-<li><strong>activities</strong>: student takes extra-curricular activities, <span style="color:blue">dichotomous (binary)</span>,</li>
-<li><strong>higher</strong>: wants to go onto higher education [<strong>Y/N</strong>], <span style="color:blue">dichotomous (binary)</span>,</li>
-<li><strong>famsize</strong>: family size (binary: ≤3 or &gt;3), <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),</li>
-<li><strong>romantic</strong>: with a romantic relationship [<strong>Y/N</strong>], <span style="color:blue">dichotomous (binary)</span>,</li>
-<li><strong>famrel</strong>: quality of family relationships, <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),</li>
-<li><strong>freetime</strong>: free time after school, <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),</li>
-<li><strong>goout</strong>: going out with friends, <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),</li>
-<li><strong>Dalc</strong>: workday alcohol consumption, <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),</li>
-<li><strong>Walc</strong>: weekend alcohol consumption, <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),</li>
-<li><strong>health</strong>: current health of students, <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),</li>
-<li><strong>absences</strong>: school absences, <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),</li>
-<li><strong>G1</strong>: first period score for maths and Portuguese language, <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),</li>
-<li><strong>G2</strong>: second period score for maths and Portuguese language,<span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),</li>
-<li><strong>G3</strong>: final period score for maths and Portuguese language, <span style="color:red">numeric</span>,(based on categorical (ordinal) as numeric),</li>
+<li>todo</li>
 </ul>
 </div>
-<div id="nominal-variables" class="section level3">
-<h3>Nominal Variables</h3>
+<div id="math-language-students-gp-1" class="section level3">
+<h3>Math &amp; Language Students (GP)</h3>
 <ul>
-<li>Nominal variables like ‘Mjob’, ‘Fjob’, ‘guardian’ and ‘reason’ are categorical that have no order to them. These variables will be displayed in a pie chart, bar chart or stacked bar chart where applicable.</li>
-<li>‘Mjob’, ’Fjob’relate to the profession of the student’s parents. According to (Cortez et al, 2018) they are “teacher, health care related, civil services (e.g. administrative or police), at home or other”. These professions types seem very narrow and don’t include Arts and entertainment, Business administration or Industrial and manufacturing which may skew values.</li>
-<li>‘guardian’ relates to the student’s guardian. The only values it holds are mother, father and other. There is no explanation if this indicates whether the parents are still together, separated or if one has passed away. (Hovens et al. 2009) investigated the association between childhood life events, childhood trauma and the presence of anxiety, depressive disorders in adulthood. They included the adverse life event of divorce of parents, early parental loss and ‘placed in care’. It is unfortunate that in (Cortez, et al, 2018) paper, this was not considered. (Tiet et All, 1998) found children at risk of higher levels of adverse life events were more resilient if they had a better family function, more adults in the household and closer parental monitoring. This would suggest an interesting dependent variable to compare with student grades.</li>
-<li>‘reason’ relates to the reason to choose this school. Options are “close to home, school reputation, course preference or other”. This seems vague to whether it is asking why the parents chose the school, why the student likes the school or why the student would recommend the school to others. One of (Cortez, et al, 2018) research question relates to “What are the main reasons for student transfers” and in their conclusion seem to suggest ‘reason to choose school’ affects student performance but state that more research is required to understand. This seems to suggest ‘reason’ relates to why a student transferred to the school.</li>
+<li>todo</li>
 </ul>
 </div>
 </div>
-<div id="orginal-variables" class="section level2">
-<h2>Orginal Variables</h2>
-<p>asdasd</p>
-<div id="binary" class="section level3">
-<h3>Binary</h3>
-<p>asdasda</p>
+<div id="summary-of-general-data" class="section level1">
+<h1>Summary of General Data</h1>
+<ul>
+<li>More students attend Gabriel Pereira (GP) school than Mousinho da Silveira (MS) school. Won’t be an issue for our regression modelling.</li>
+</ul>
+<div id="gabriel-pereira-gp-school-students" class="section level2">
+<h2>Gabriel Pereira (GP) School Students</h2>
+<ul>
+<li>Gabriel Pereira (GP) has 7.3% more girls than boys</li>
+<li>The youngest in Gabriel Pereira school is 15 years old and the oldest is 22.Age of students in GP seem to cluster around the median age of 17 years old.</li>
+<li>79% of GP students live in the town/city.</li>
+<li>73% of GP students come from big families (greater than 3 siblings)</li>
+<li>90% of GP students’ parents are still together.</li>
+<li>Most parents of GP students have a primary education with more Mothers having a higher education than fathers.</li>
+<li>Only 13% of GP student mothers are homemakers, the majority (36%) work in the private sector.</li>
+<li>More fathers of GP students work in the private sector (55%) with only 8% working as teachers compared to 16% of mothers working as teachers.</li>
+<li>37% attended Gabriel Pereira because of the courses GP offer while 29% chose it because it’s closer to home.</li>
+<li>Over 80% of GP students attended some kind of preschool and have internet in the home.</li>
+<li>Only 52% do after school activities.</li>
+<li>Over 62% have family support</li>
+<li>72% of students have their mother down as guardian</li>
+<li>95% want to go onto higher education (e.g university)</li>
+<li>Only 53% take paid grinds</li>
+<li>68% are in a romantic relationship</li>
+<li>Over 87% do not get any school support</li>
+<li>Most missed 3 days of school for maths with language students only missing 2 days of school</li>
+<li>Most math students score between 10 and 11 which is a pass. Language students scored higher than maths between 12 and 13.</li>
+</ul>
+</div>
+<div id="mousinho-da-silveira-ms-school-students" class="section level2">
+<h2>Mousinho da Silveira (MS) School Students</h2>
+<ul>
+<li>More Females than males</li>
+<li>Between 17 to 19</li>
+<li>Most live in rural area</li>
+<li>Have large families</li>
+<li>Most parents are still together</li>
+<li>Most parents didn’t go to college</li>
+<li>Most mothers are not teachers</li>
+<li>Most fathers work either in service industry or other</li>
+<li>Most picked the school because of its course or close to home</li>
+<li>Most students went to a preschool</li>
+<li>Most have internet.</li>
+</ul>
+<div id="summary-of-correlations" class="section level3">
+<h3>Summary of Correlations</h3>
+<p>We use pearson’s correlation to identify attributes to use for data exploration predictive modelling. Since we have so many attributes we use a heatmap to visualise the correlations. We encoded our categorical variables first.</p>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["school"],"name":[1],"type":["int"],"align":["right"]},{"label":["sex"],"name":[2],"type":["int"],"align":["right"]},{"label":["age"],"name":[3],"type":["int"],"align":["right"]},{"label":["address"],"name":[4],"type":["int"],"align":["right"]},{"label":["famsize"],"name":[5],"type":["int"],"align":["right"]},{"label":["Pstatus"],"name":[6],"type":["int"],"align":["right"]},{"label":["Medu"],"name":[7],"type":["int"],"align":["right"]},{"label":["Fedu"],"name":[8],"type":["int"],"align":["right"]},{"label":["Mjob"],"name":[9],"type":["int"],"align":["right"]},{"label":["Fjob"],"name":[10],"type":["int"],"align":["right"]},{"label":["reason"],"name":[11],"type":["int"],"align":["right"]},{"label":["nursery"],"name":[12],"type":["int"],"align":["right"]},{"label":["internet"],"name":[13],"type":["int"],"align":["right"]},{"label":["guardian.m"],"name":[14],"type":["int"],"align":["right"]},{"label":["traveltime.m"],"name":[15],"type":["int"],"align":["right"]},{"label":["studytime.m"],"name":[16],"type":["int"],"align":["right"]},{"label":["failures.m"],"name":[17],"type":["int"],"align":["right"]},{"label":["schoolsup.m"],"name":[18],"type":["int"],"align":["right"]},{"label":["famsup.m"],"name":[19],"type":["int"],"align":["right"]},{"label":["paid.m"],"name":[20],"type":["int"],"align":["right"]},{"label":["activities.m"],"name":[21],"type":["int"],"align":["right"]},{"label":["higher.m"],"name":[22],"type":["int"],"align":["right"]},{"label":["romantic.m"],"name":[23],"type":["int"],"align":["right"]},{"label":["famrel.m"],"name":[24],"type":["int"],"align":["right"]},{"label":["freetime.m"],"name":[25],"type":["int"],"align":["right"]},{"label":["goout.m"],"name":[26],"type":["int"],"align":["right"]},{"label":["Dalc.m"],"name":[27],"type":["int"],"align":["right"]},{"label":["Walc.m"],"name":[28],"type":["int"],"align":["right"]},{"label":["health.m"],"name":[29],"type":["int"],"align":["right"]},{"label":["absences.m"],"name":[30],"type":["int"],"align":["right"]},{"label":["mG1"],"name":[31],"type":["int"],"align":["right"]},{"label":["mG2"],"name":[32],"type":["int"],"align":["right"]},{"label":["mG3"],"name":[33],"type":["int"],"align":["right"]},{"label":["guardian.p"],"name":[34],"type":["int"],"align":["right"]},{"label":["traveltime.p"],"name":[35],"type":["int"],"align":["right"]},{"label":["studytime.p"],"name":[36],"type":["int"],"align":["right"]},{"label":["failures.p"],"name":[37],"type":["int"],"align":["right"]},{"label":["schoolsup.p"],"name":[38],"type":["int"],"align":["right"]},{"label":["famsup.p"],"name":[39],"type":["int"],"align":["right"]},{"label":["paid.p"],"name":[40],"type":["int"],"align":["right"]},{"label":["activities.p"],"name":[41],"type":["int"],"align":["right"]},{"label":["higher.p"],"name":[42],"type":["int"],"align":["right"]},{"label":["romantic.p"],"name":[43],"type":["int"],"align":["right"]},{"label":["famrel.p"],"name":[44],"type":["int"],"align":["right"]},{"label":["freetime.p"],"name":[45],"type":["int"],"align":["right"]},{"label":["goout.p"],"name":[46],"type":["int"],"align":["right"]},{"label":["Dalc.p"],"name":[47],"type":["int"],"align":["right"]},{"label":["Walc.p"],"name":[48],"type":["int"],"align":["right"]},{"label":["health.p"],"name":[49],"type":["int"],"align":["right"]},{"label":["absences.p"],"name":[50],"type":["int"],"align":["right"]},{"label":["pG1"],"name":[51],"type":["int"],"align":["right"]},{"label":["pG2"],"name":[52],"type":["int"],"align":["right"]},{"label":["pG3"],"name":[53],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"1","3":"15","4":"1","5":"1","6":"2","7":"1","8":"1","9":"1","10":"3","11":"2","12":"2","13":"2","14":"2","15":"2","16":"4","17":"1","18":"2","19":"2","20":"2","21":"2","22":"2","23":"1","24":"3","25":"1","26":"2","27":"1","28":"1","29":"1","30":"2","31":"7","32":"10","33":"10","34":"2","35":"2","36":"4","37":"0","38":"2","39":"2","40":"2","41":"2","42":"2","43":"1","44":"3","45":"1","46":"2","47":"1","48":"1","49":"1","50":"4","51":"13","52":"13","53":"13","_rn_":"1"},{"1":"1","2":"1","3":"15","4":"1","5":"1","6":"2","7":"1","8":"1","9":"3","10":"3","11":"4","12":"1","13":"2","14":"2","15":"1","16":"2","17":"2","18":"2","19":"2","20":"1","21":"1","22":"2","23":"2","24":"3","25":"3","26":"4","27":"2","28":"4","29":"5","30":"2","31":"8","32":"6","33":"5","34":"2","35":"1","36":"2","37":"0","38":"2","39":"2","40":"1","41":"1","42":"2","43":"2","44":"3","45":"3","46":"4","47":"2","48":"4","49":"5","50":"2","51":"13","52":"11","53":"11","_rn_":"2"},{"1":"1","2":"1","3":"15","4":"1","5":"1","6":"2","7":"2","8":"2","9":"1","10":"3","11":"4","12":"2","13":"1","14":"2","15":"1","16":"1","17":"0","18":"2","19":"2","20":"2","21":"2","22":"2","23":"1","24":"4","25":"3","26":"1","27":"1","28":"1","29":"2","30":"8","31":"14","32":"13","33":"13","34":"2","35":"1","36":"1","37":"0","38":"2","39":"2","40":"1","41":"2","42":"2","43":"1","44":"4","45":"3","46":"1","47":"1","48":"1","49":"2","50":"8","51":"14","52":"13","53":"12","_rn_":"3"},{"1":"1","2":"1","3":"15","4":"1","5":"1","6":"2","7":"2","8":"4","9":"4","10":"2","11":"1","12":"2","13":"2","14":"2","15":"1","16":"3","17":"0","18":"2","19":"2","20":"2","21":"2","22":"2","23":"1","24":"4","25":"3","26":"2","27":"1","28":"1","29":"5","30":"2","31":"10","32":"9","33":"8","34":"2","35":"1","36":"3","37":"0","38":"2","39":"2","40":"1","41":"2","42":"2","43":"1","44":"4","45":"3","46":"2","47":"1","48":"1","49":"5","50":"2","51":"10","52":"11","53":"10","_rn_":"4"},{"1":"1","2":"1","3":"15","4":"1","5":"1","6":"2","7":"3","8":"3","9":"4","10":"4","11":"4","12":"2","13":"2","14":"3","15":"2","16":"3","17":"2","18":"1","19":"2","20":"2","21":"2","22":"2","23":"2","24":"4","25":"2","26":"1","27":"2","28":"3","29":"3","30":"8","31":"10","32":"10","33":"10","34":"3","35":"2","36":"3","37":"0","38":"1","39":"2","40":"2","41":"2","42":"2","43":"2","44":"4","45":"2","46":"1","47":"2","48":"3","49":"3","50":"2","51":"13","52":"13","53":"13","_rn_":"5"},{"1":"1","2":"1","3":"15","4":"1","5":"1","6":"2","7":"3","8":"4","9":"4","10":"2","11":"1","12":"2","13":"2","14":"2","15":"1","16":"3","17":"0","18":"2","19":"2","20":"2","21":"2","22":"2","23":"1","24":"4","25":"3","26":"2","27":"1","28":"1","29":"5","30":"2","31":"12","32":"12","33":"11","34":"2","35":"1","36":"3","37":"0","38":"2","39":"2","40":"1","41":"2","42":"2","43":"1","44":"4","45":"3","46":"2","47":"1","48":"1","49":"5","50":"2","51":"11","52":"12","53":"12","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<div id="maths-students" class="section level4">
+<h4>Maths Students</h4>
+<pre><code>##              school   sex   age address famsize Pstatus  Medu  Fedu  Mjob  Fjob
+## school            1 -0.04  0.35   -0.28    0.02    0.09 -0.13 -0.08 -0.05  0.02
+## sex              NA  1.00 -0.02   -0.01    0.09    0.02  0.10  0.05  0.21  0.08
+## age              NA    NA  1.00   -0.16    0.01    0.05 -0.12 -0.13 -0.06  0.00
+## address          NA    NA    NA    1.00    0.06   -0.07  0.14  0.07  0.12 -0.01
+## famsize          NA    NA    NA      NA    1.00   -0.15 -0.02 -0.05  0.07 -0.09
+## Pstatus          NA    NA    NA      NA      NA    1.00 -0.13 -0.08 -0.05  0.03
+## Medu             NA    NA    NA      NA      NA      NA  1.00  0.65  0.46  0.17
+## Fedu             NA    NA    NA      NA      NA      NA    NA  1.00  0.27  0.21
+## Mjob             NA    NA    NA      NA      NA      NA    NA    NA  1.00  0.23
+## Fjob             NA    NA    NA      NA      NA      NA    NA    NA    NA  1.00
+## reason           NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## nursery          NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## internet         NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## guardian.m       NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## traveltime.m     NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## studytime.m      NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## failures.m       NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## schoolsup.m      NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## famsup.m         NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## paid.m           NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## activities.m     NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## higher.m         NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## romantic.m       NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## famrel.m         NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## freetime.m       NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## goout.m          NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## Dalc.m           NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## Walc.m           NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## health.m         NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## absences.m       NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## mG1              NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## mG2              NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## mG3              NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+##              reason nursery internet guardian.m traveltime.m studytime.m
+## school        -0.06   -0.08    -0.09      -0.02         0.25       -0.08
+## sex           -0.08    0.00     0.07      -0.05         0.06       -0.29
+## age           -0.03   -0.03    -0.08       0.15         0.10       -0.01
+## address       -0.06    0.08     0.21      -0.05        -0.34       -0.02
+## famsize       -0.01    0.11     0.05      -0.01         0.06       -0.06
+## Pstatus       -0.03   -0.07     0.03      -0.11         0.04        0.03
+## Medu           0.11    0.18     0.19       0.01        -0.21        0.05
+## Fedu           0.03    0.13     0.13      -0.11        -0.19        0.00
+## Mjob          -0.01    0.09     0.25       0.00        -0.11       -0.02
+## Fjob          -0.02   -0.02     0.05      -0.08         0.04       -0.08
+## reason         1.00    0.04     0.02      -0.02        -0.06        0.15
+## nursery          NA    1.00    -0.02      -0.03        -0.04        0.08
+## internet         NA      NA     1.00      -0.02        -0.11        0.04
+## guardian.m       NA      NA       NA       1.00         0.01       -0.02
+## traveltime.m     NA      NA       NA         NA         1.00       -0.10
+## studytime.m      NA      NA       NA         NA           NA        1.00
+## failures.m       NA      NA       NA         NA           NA          NA
+## schoolsup.m      NA      NA       NA         NA           NA          NA
+## famsup.m         NA      NA       NA         NA           NA          NA
+## paid.m           NA      NA       NA         NA           NA          NA
+## activities.m     NA      NA       NA         NA           NA          NA
+## higher.m         NA      NA       NA         NA           NA          NA
+## romantic.m       NA      NA       NA         NA           NA          NA
+## famrel.m         NA      NA       NA         NA           NA          NA
+## freetime.m       NA      NA       NA         NA           NA          NA
+## goout.m          NA      NA       NA         NA           NA          NA
+## Dalc.m           NA      NA       NA         NA           NA          NA
+## Walc.m           NA      NA       NA         NA           NA          NA
+## health.m         NA      NA       NA         NA           NA          NA
+## absences.m       NA      NA       NA         NA           NA          NA
+## mG1              NA      NA       NA         NA           NA          NA
+## mG2              NA      NA       NA         NA           NA          NA
+## mG3              NA      NA       NA         NA           NA          NA
+##              failures.m schoolsup.m famsup.m paid.m activities.m higher.m
+## school             0.00       -0.13    -0.16  -0.01        -0.10     0.00
+## sex                0.05       -0.15    -0.16  -0.13         0.11    -0.16
+## age                0.15       -0.24    -0.12  -0.03        -0.07    -0.23
+## address           -0.05        0.03     0.01   0.03        -0.06     0.04
+## famsize           -0.03       -0.03    -0.09   0.01        -0.02     0.00
+## Pstatus            0.00       -0.05     0.01   0.06         0.09    -0.03
+## Medu              -0.23       -0.06     0.15   0.13         0.11     0.14
+## Fedu              -0.25        0.02     0.17   0.08         0.12     0.16
+## Mjob              -0.09       -0.04     0.04   0.07         0.10     0.04
+## Fjob               0.00       -0.03    -0.04  -0.05         0.02    -0.05
+## reason            -0.07        0.02     0.08   0.14         0.10     0.06
+## nursery           -0.05        0.05     0.05   0.09         0.01     0.02
+## internet          -0.01       -0.03     0.08   0.14         0.07    -0.03
+## guardian.m         0.06       -0.05     0.00   0.06        -0.02    -0.04
+## traveltime.m       0.11        0.00    -0.03  -0.06         0.00    -0.05
+## studytime.m       -0.20        0.03     0.16   0.16         0.10     0.18
+## failures.m         1.00        0.02    -0.02  -0.20        -0.06    -0.37
+## schoolsup.m          NA        1.00     0.08  -0.03         0.05     0.01
+## famsup.m             NA          NA     1.00   0.27        -0.02     0.08
+## paid.m               NA          NA       NA   1.00        -0.02     0.18
+## activities.m         NA          NA       NA     NA         1.00     0.11
+## higher.m             NA          NA       NA     NA           NA     1.00
+## romantic.m           NA          NA       NA     NA           NA       NA
+## famrel.m             NA          NA       NA     NA           NA       NA
+## freetime.m           NA          NA       NA     NA           NA       NA
+## goout.m              NA          NA       NA     NA           NA       NA
+## Dalc.m               NA          NA       NA     NA           NA       NA
+## Walc.m               NA          NA       NA     NA           NA       NA
+## health.m             NA          NA       NA     NA           NA       NA
+## absences.m           NA          NA       NA     NA           NA       NA
+## mG1                  NA          NA       NA     NA           NA       NA
+## mG2                  NA          NA       NA     NA           NA       NA
+## mG3                  NA          NA       NA     NA           NA       NA
+##              romantic.m famrel.m freetime.m goout.m Dalc.m Walc.m health.m
+## school             0.06    -0.09       0.00   -0.03   0.08   0.04    -0.06
+## sex               -0.07     0.07       0.22    0.06   0.25   0.26     0.14
+## age                0.13     0.03       0.00    0.16   0.13   0.15    -0.06
+## address            0.00     0.02       0.04    0.07  -0.11  -0.10    -0.02
+## famsize            0.04    -0.02       0.03    0.02   0.09   0.09    -0.06
+## Pstatus           -0.06     0.04       0.06    0.02  -0.02   0.03     0.05
+## Medu               0.04     0.01       0.04    0.07   0.04  -0.01    -0.04
+## Fedu               0.02     0.01      -0.01    0.03   0.02   0.00     0.02
+## Mjob              -0.07     0.05       0.11   -0.01   0.07   0.00     0.07
+## Fjob               0.00     0.02      -0.05    0.00   0.08   0.06     0.01
+## reason             0.01     0.00      -0.04   -0.04  -0.02  -0.01    -0.17
+## nursery            0.03     0.01      -0.01   -0.02  -0.09  -0.12    -0.04
+## internet           0.08     0.08       0.10    0.10   0.07   0.04    -0.07
+## guardian.m         0.04     0.01       0.03    0.08   0.00   0.00    -0.05
+## traveltime.m       0.00    -0.02      -0.03    0.03   0.16   0.14     0.01
+## studytime.m        0.03     0.04      -0.13   -0.05  -0.19  -0.25    -0.08
+## failures.m         0.05    -0.07       0.09    0.13   0.13   0.14     0.08
+## schoolsup.m       -0.09     0.01      -0.03   -0.05  -0.02  -0.12    -0.04
+## famsup.m           0.02     0.00       0.01   -0.01  -0.02  -0.08     0.05
+## paid.m             0.02    -0.01      -0.08    0.01   0.07   0.08    -0.09
+## activities.m       0.03     0.06       0.09    0.03  -0.07  -0.04     0.03
+## higher.m          -0.14     0.04      -0.05   -0.04  -0.09  -0.09    -0.05
+## romantic.m         1.00    -0.07       0.02    0.01   0.06   0.02     0.04
+## famrel.m             NA     1.00       0.16    0.08  -0.09  -0.12     0.10
+## freetime.m           NA       NA       1.00    0.29   0.20   0.13     0.07
+## goout.m              NA       NA         NA    1.00   0.26   0.42    -0.03
+## Dalc.m               NA       NA         NA      NA   1.00   0.65     0.06
+## Walc.m               NA       NA         NA      NA     NA   1.00     0.07
+## health.m             NA       NA         NA      NA     NA     NA     1.00
+## absences.m           NA       NA         NA      NA     NA     NA       NA
+## mG1                  NA       NA         NA      NA     NA     NA       NA
+## mG2                  NA       NA         NA      NA     NA     NA       NA
+## mG3                  NA       NA         NA      NA     NA     NA       NA
+##              absences.m   mG1   mG2   mG3
+## school            -0.08 -0.03 -0.06 -0.07
+## sex               -0.06  0.12  0.12  0.12
+## age                0.13 -0.12 -0.18 -0.19
+## address           -0.04  0.06  0.12  0.09
+## famsize            0.06  0.09  0.11  0.11
+## Pstatus           -0.16 -0.01 -0.04 -0.05
+## Medu               0.11  0.23  0.22  0.21
+## Fedu               0.03  0.22  0.18  0.16
+## Mjob               0.05  0.11  0.11  0.11
+## Fjob               0.02  0.08  0.08  0.05
+## reason             0.08  0.10  0.12  0.13
+## nursery            0.02  0.09  0.07  0.05
+## internet           0.10  0.07  0.11  0.09
+## guardian.m         0.09 -0.10 -0.12 -0.08
+## traveltime.m      -0.01 -0.10 -0.16 -0.13
+## studytime.m       -0.07  0.15  0.13  0.09
+## failures.m         0.02 -0.39 -0.38 -0.38
+## schoolsup.m        0.03 -0.21 -0.12 -0.08
+## famsup.m           0.00 -0.08 -0.07 -0.05
+## paid.m             0.02  0.04  0.10  0.10
+## activities.m       0.02  0.07  0.08  0.04
+## higher.m          -0.03  0.23  0.22  0.23
+## romantic.m         0.12 -0.05 -0.13 -0.14
+## famrel.m          -0.06  0.03 -0.01  0.07
+## freetime.m        -0.05  0.01 -0.01  0.02
+## goout.m            0.08 -0.13 -0.16 -0.11
+## Dalc.m             0.15 -0.08 -0.05 -0.04
+## Walc.m             0.21 -0.10 -0.07 -0.03
+## health.m          -0.02 -0.07 -0.10 -0.06
+## absences.m         1.00 -0.06 -0.04  0.03
+## mG1                  NA  1.00  0.86  0.81
+## mG2                  NA    NA  1.00  0.90
+## mG3                  NA    NA    NA  1.00</code></pre>
+<p><img src="3_dd_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<figure style="text-align: center;">
+  <figcaption>Fig.25 - Pearson's Correlation Coefficient Heatmap for Maths</figcaption>
+</figure> <br />
+</div>
+<div id="portuguese-language-students" class="section level4">
+<h4>Portuguese Language Students</h4>
+<pre><code>##              school   sex   age address famsize Pstatus  Medu  Fedu  Mjob  Fjob
+## school            1 -0.04  0.35   -0.28    0.02    0.09 -0.13 -0.08 -0.05  0.02
+## sex              NA  1.00 -0.02   -0.01    0.09    0.02  0.10  0.05  0.21  0.08
+## age              NA    NA  1.00   -0.16    0.01    0.05 -0.12 -0.13 -0.06  0.00
+## address          NA    NA    NA    1.00    0.06   -0.07  0.14  0.07  0.12 -0.01
+## famsize          NA    NA    NA      NA    1.00   -0.15 -0.02 -0.05  0.07 -0.09
+## Pstatus          NA    NA    NA      NA      NA    1.00 -0.13 -0.08 -0.05  0.03
+## Medu             NA    NA    NA      NA      NA      NA  1.00  0.65  0.46  0.17
+## Fedu             NA    NA    NA      NA      NA      NA    NA  1.00  0.27  0.21
+## Mjob             NA    NA    NA      NA      NA      NA    NA    NA  1.00  0.23
+## Fjob             NA    NA    NA      NA      NA      NA    NA    NA    NA  1.00
+## reason           NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## nursery          NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## internet         NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## guardian.p       NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## traveltime.p     NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## studytime.p      NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## failures.p       NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## schoolsup.p      NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## famsup.p         NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## paid.p           NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## activities.p     NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## higher.p         NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## romantic.p       NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## famrel.p         NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## freetime.p       NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## goout.p          NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## Dalc.p           NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## Walc.p           NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## health.p         NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## absences.p       NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## pG1              NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## pG2              NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## pG3              NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+##              reason nursery internet guardian.p traveltime.p studytime.p
+## school        -0.06   -0.08    -0.09      -0.02         0.26       -0.09
+## sex           -0.08    0.00     0.07      -0.05         0.05       -0.29
+## age           -0.03   -0.03    -0.08       0.15         0.11       -0.01
+## address       -0.06    0.08     0.21      -0.05        -0.34       -0.02
+## famsize       -0.01    0.11     0.05      -0.01         0.06       -0.06
+## Pstatus       -0.03   -0.07     0.03      -0.11         0.04        0.04
+## Medu           0.11    0.18     0.19       0.01        -0.21        0.05
+## Fedu           0.03    0.13     0.13      -0.11        -0.19        0.00
+## Mjob          -0.01    0.09     0.25       0.00        -0.11       -0.02
+## Fjob          -0.02   -0.02     0.05      -0.08         0.03       -0.08
+## reason         1.00    0.04     0.02      -0.02        -0.06        0.15
+## nursery          NA    1.00    -0.02      -0.03        -0.04        0.09
+## internet         NA      NA     1.00      -0.02        -0.12        0.05
+## guardian.p       NA      NA       NA       1.00         0.01       -0.02
+## traveltime.p     NA      NA       NA         NA         1.00       -0.10
+## studytime.p      NA      NA       NA         NA           NA        1.00
+## failures.p       NA      NA       NA         NA           NA          NA
+## schoolsup.p      NA      NA       NA         NA           NA          NA
+## famsup.p         NA      NA       NA         NA           NA          NA
+## paid.p           NA      NA       NA         NA           NA          NA
+## activities.p     NA      NA       NA         NA           NA          NA
+## higher.p         NA      NA       NA         NA           NA          NA
+## romantic.p       NA      NA       NA         NA           NA          NA
+## famrel.p         NA      NA       NA         NA           NA          NA
+## freetime.p       NA      NA       NA         NA           NA          NA
+## goout.p          NA      NA       NA         NA           NA          NA
+## Dalc.p           NA      NA       NA         NA           NA          NA
+## Walc.p           NA      NA       NA         NA           NA          NA
+## health.p         NA      NA       NA         NA           NA          NA
+## absences.p       NA      NA       NA         NA           NA          NA
+## pG1              NA      NA       NA         NA           NA          NA
+## pG2              NA      NA       NA         NA           NA          NA
+## pG3              NA      NA       NA         NA           NA          NA
+##              failures.p schoolsup.p famsup.p paid.p activities.p higher.p
+## school             0.07       -0.13    -0.16   0.04        -0.10     0.00
+## sex                0.13       -0.14    -0.15   0.11         0.11    -0.16
+## age                0.26       -0.25    -0.13  -0.06        -0.07    -0.23
+## address           -0.04        0.03     0.01  -0.09        -0.06     0.04
+## famsize           -0.04       -0.03    -0.10  -0.03        -0.02     0.00
+## Pstatus            0.06       -0.05     0.01  -0.01         0.09    -0.03
+## Medu              -0.20       -0.05     0.16   0.11         0.11     0.14
+## Fedu              -0.21        0.03     0.18   0.11         0.11     0.16
+## Mjob              -0.09       -0.04     0.05  -0.01         0.10     0.04
+## Fjob              -0.02       -0.02    -0.04   0.02         0.01    -0.05
+## reason            -0.08        0.02     0.07  -0.10         0.10     0.06
+## nursery           -0.05        0.05     0.06   0.02         0.01     0.02
+## internet          -0.13       -0.03     0.08   0.03         0.06    -0.03
+## guardian.p         0.11       -0.05     0.00   0.07        -0.02    -0.04
+## traveltime.p       0.11        0.00    -0.03  -0.02         0.01    -0.05
+## studytime.p       -0.20        0.03     0.15  -0.02         0.11     0.19
+## failures.p         1.00        0.04    -0.04   0.13        -0.02    -0.32
+## schoolsup.p          NA        1.00     0.09   0.05         0.04     0.01
+## famsup.p             NA          NA     1.00   0.10        -0.02     0.08
+## paid.p               NA          NA       NA   1.00         0.07     0.01
+## activities.p         NA          NA       NA     NA         1.00     0.11
+## higher.p             NA          NA       NA     NA           NA     1.00
+## romantic.p           NA          NA       NA     NA           NA       NA
+## famrel.p             NA          NA       NA     NA           NA       NA
+## freetime.p           NA          NA       NA     NA           NA       NA
+## goout.p              NA          NA       NA     NA           NA       NA
+## Dalc.p               NA          NA       NA     NA           NA       NA
+## Walc.p               NA          NA       NA     NA           NA       NA
+## health.p             NA          NA       NA     NA           NA       NA
+## absences.p           NA          NA       NA     NA           NA       NA
+## pG1                  NA          NA       NA     NA           NA       NA
+## pG2                  NA          NA       NA     NA           NA       NA
+## pG3                  NA          NA       NA     NA           NA       NA
+##              romantic.p famrel.p freetime.p goout.p Dalc.p Walc.p health.p
+## school             0.08    -0.07       0.02   -0.01   0.09   0.04    -0.06
+## sex               -0.08     0.07       0.21    0.06   0.24   0.25     0.14
+## age                0.13     0.03       0.02    0.17   0.13   0.16    -0.07
+## address            0.00     0.02       0.04    0.08  -0.10  -0.09    -0.02
+## famsize            0.03    -0.03       0.02    0.01   0.09   0.09    -0.05
+## Pstatus           -0.05     0.05       0.06    0.02  -0.02   0.03     0.05
+## Medu               0.04     0.01       0.01    0.05   0.04  -0.02    -0.03
+## Fedu               0.02     0.01      -0.03    0.01   0.01   0.00     0.02
+## Mjob              -0.06     0.05       0.11   -0.02   0.07   0.01     0.07
+## Fjob               0.00     0.02      -0.06    0.00   0.08   0.06     0.01
+## reason             0.00    -0.01      -0.05   -0.04  -0.02  -0.02    -0.17
+## nursery            0.03     0.01      -0.01   -0.01  -0.09  -0.12    -0.04
+## internet           0.07     0.06       0.08    0.08   0.06   0.04    -0.07
+## guardian.p         0.05     0.02       0.03    0.08   0.00   0.00    -0.05
+## traveltime.p       0.00    -0.02      -0.01    0.04   0.16   0.14     0.01
+## studytime.p        0.03     0.04      -0.13   -0.05  -0.19  -0.25    -0.08
+## failures.p        -0.02    -0.03       0.11    0.06   0.19   0.16     0.07
+## schoolsup.p       -0.08     0.00      -0.04   -0.06  -0.02  -0.11    -0.04
+## famsup.p           0.01     0.00      -0.01   -0.03  -0.02  -0.09     0.06
+## paid.p             0.01     0.07       0.00   -0.02   0.10   0.04     0.08
+## activities.p       0.03     0.06       0.10    0.04  -0.07  -0.04     0.02
+## higher.p          -0.14     0.04      -0.05   -0.04  -0.09  -0.08    -0.05
+## romantic.p         1.00    -0.07       0.02    0.00   0.05   0.02     0.05
+## famrel.p             NA     1.00       0.14    0.05  -0.10  -0.13     0.10
+## freetime.p           NA       NA       1.00    0.29   0.20   0.13     0.07
+## goout.p              NA       NA         NA    1.00   0.26   0.40    -0.03
+## Dalc.p               NA       NA         NA      NA   1.00   0.64     0.06
+## Walc.p               NA       NA         NA      NA     NA   1.00     0.08
+## health.p             NA       NA         NA      NA     NA     NA     1.00
+## absences.p           NA       NA         NA      NA     NA     NA       NA
+## pG1                  NA       NA         NA      NA     NA     NA       NA
+## pG2                  NA       NA         NA      NA     NA     NA       NA
+## pG3                  NA       NA         NA      NA     NA     NA       NA
+##              absences.p   pG1   pG2   pG3
+## school            -0.06 -0.17 -0.12 -0.18
+## sex               -0.01 -0.18 -0.19 -0.20
+## age                0.09 -0.11 -0.04 -0.07
+## address           -0.02  0.18  0.19  0.19
+## famsize           -0.01  0.09  0.06  0.04
+## Pstatus           -0.06 -0.02 -0.06 -0.08
+## Medu               0.02  0.21  0.22  0.20
+## Fedu               0.02  0.16  0.18  0.17
+## Mjob               0.02  0.08  0.05  0.06
+## Fjob              -0.02  0.03  0.02 -0.02
+## reason             0.02  0.13  0.12  0.09
+## nursery            0.00  0.05  0.07  0.07
+## internet           0.06  0.08  0.04  0.09
+## guardian.p         0.09 -0.08 -0.05 -0.02
+## traveltime.p       0.01 -0.19 -0.19 -0.16
+## studytime.p       -0.17  0.27  0.28  0.28
+## failures.p         0.08 -0.30 -0.31 -0.34
+## schoolsup.p       -0.05 -0.19 -0.14 -0.14
+## famsup.p           0.02  0.08  0.06  0.09
+## paid.p            -0.03 -0.14 -0.12 -0.13
+## activities.p      -0.07  0.09  0.10  0.12
+## higher.p          -0.13  0.29  0.31  0.31
+## romantic.p         0.04 -0.04 -0.07 -0.05
+## famrel.p          -0.05 -0.01  0.02  0.04
+## freetime.p         0.01 -0.09 -0.11 -0.11
+## goout.p            0.15 -0.09 -0.13 -0.13
+## Dalc.p             0.15 -0.25 -0.27 -0.28
+## Walc.p             0.16 -0.19 -0.22 -0.23
+## health.p           0.03 -0.15 -0.19 -0.18
+## absences.p         1.00 -0.16 -0.20 -0.14
+## pG1                  NA  1.00  0.89  0.82
+## pG2                  NA    NA  1.00  0.89
+## pG3                  NA    NA    NA  1.00</code></pre>
+<p><img src="3_dd_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<figure style="text-align: center;">
+  <figcaption>Fig.26 - Pearson's Correlation Coefficient Heatmap for Portuguese Language</figcaption>
+</figure> <br />
+<ul>
+<li>The correlation coefficient has values between -1 and 1:
+<ul>
+<li>A value closer to 0 implies weaker correlation (zero implies no correlation)</li>
+<li>Value closer to 1 implies strong positive correlation</li>
+<li>Value closer to -1 implies strong negative correlation</li>
+</ul></li>
+<li>Negative correlations are in blue color and positive correlations in red.</li>
+</ul>
+<p>Again our two main questions are:</p>
+<ol style="list-style-type: decimal">
+<li>What levels indicate, in a subset of attributes, that a student requires early intervention before exam failure?</li>
+<li>Is it possible to predict which students will fail their exams, if so what is the level of accuracy?</li>
+</ol>
+<p>However we can use the heatmap above to start selecting attributes to answer data exploration questions in the next section such as:</p>
+<ol style="list-style-type: decimal">
+<li>What do good students look like?</li>
+<li>What do bad students look like?</li>
+<li>Is a mother’s education level important to student’s grades?</li>
+<li>Is a mother’s job important to student’s grades?</li>
+<li>Will high alcohol consumption reduce grades?</li>
+<li>Do students who spend more time studying get better grades</li>
+<li>Does relationship status reduce grades?</li>
+<li>What features do we need to select for predictive modelling</li>
+</ol>
 </div>
 </div>
-<div id="numerical-variable" class="section level2">
-<h2>Numerical Variable</h2>
-<p>sadasd</p>
-<p>activities: it is not clear if this relates to the subject or not.</p>
+</div>
 </div>
 
 

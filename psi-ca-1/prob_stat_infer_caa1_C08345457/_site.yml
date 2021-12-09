@@ -3,7 +3,7 @@ navbar:
   title: "PSI Assignment"
   left:
     - text: "0 Introduction"
-      href: 0_index.html
+      href: index.html
     - text: "1 Statement of Research Question"
       href: 1_sorq.html
     - text: "2. Data Collection & Preparation"

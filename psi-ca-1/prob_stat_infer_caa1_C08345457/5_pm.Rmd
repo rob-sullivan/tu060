@@ -5,5 +5,104 @@ output:
     df_print: paged
 ---
 
+```{r, echo=FALSE}
+#These are our variables of interest - the nine continuous variables
+# Import Dataset
+library(stats)
+library(ggplot2)
+library(foreign) #To work with SPSS data
+library(lm.beta) #Will allow us to isolate the beta co-efficients
+library(stargazer)#For formatting outputs/tables
+library(semTools)
 
+#Read in the file
+students <- read.csv(file = 'dataset.csv', header=TRUE)
+varsint<-c("school",
+           "Walc.m",
+           "mG3"
+           )
 
+regression <- students[varsint]#subset with our variables
+```
+
+### Check for normal distribution of Maths Score
+```{r}
+
+# We create a histogram
+gg <- ggplot(regression, aes(x=mG3))
+gg <- gg+ggtitle("Histogram for Maths Exam Scores")
+
+#label of the x axis
+gg <- gg + labs(x="Maths Scores")
+
+#style
+gg <- gg + geom_histogram(binwidth=0.1, colour="black", aes(y=..density.., fill=..count..))
+gg <- gg + scale_fill_gradient("Count", low="#DCDCDC", high="#7C7C7C")
+#adding a normal curve, pass descriptive stats and handle any missing values
+gg <- gg + stat_function(fun=dnorm, color="red",args=list(mean=mean(regression$mG3, na.rm=TRUE), sd=sd(regression$mG3, na.rm=TRUE)))
+
+#display the graph
+gg
+```
+
+```{r}
+#Create a qqplot
+qqnorm(regression$mG3, main="QQ Plot of math exam results")
+qqline(regression$mG3, col=2) #show a line on the plot
+```
+
+```{r}
+#Get summary statistics
+mean(regression$mG3)
+sd(regression$mG3)
+length(regression$mG3)
+```
+
+```{r}
+#Check skew and kurtosis to decide how to proceed, divide to see size of problem
+tpskew<-semTools::skew(regression$mG3)
+tpkurt<-semTools::kurtosis(regression$mG3)
+print(paste("Skew: ", tpskew[1]/tpskew[2]))
+print(paste("Kurt: ", tpkurt[1]/tpkurt[2]))
+```
+
+### Now check for normal distribution of Weekend Alcohol Consumption
+```{r}
+
+# We create a histogram
+gg <- ggplot(regression, aes(x=Walc.m))
+gg <- gg+ggtitle("Histogram for Maths Exam Scores")
+
+#label of the x axis
+gg <- gg + labs(x="Maths Scores")
+
+#style
+gg <- gg + geom_histogram(binwidth=0.1, colour="black", aes(y=..density.., fill=..count..))
+gg <- gg + scale_fill_gradient("Count", low="#DCDCDC", high="#7C7C7C")
+#adding a normal curve, pass descriptive stats and handle any missing values
+gg <- gg + stat_function(fun=dnorm, color="red",args=list(mean=mean(regression$Walc.m, na.rm=TRUE), sd=sd(regression$Walc.m, na.rm=TRUE)))
+
+#display the graph
+gg
+```
+
+```{r}
+#Create a qqplot
+qqnorm(regression$Walc.m, main="QQ Plot of math exam results")
+qqline(regression$Walc.m, col=2) #show a line on the plot
+```
+
+```{r}
+#Get summary statistics
+mean(regression$Walc.m)
+sd(regression$Walc.m)
+length(regression$Walc.m)
+```
+
+```{r}
+#Check skew and kurtosis to decide how to proceed, divide to see size of problem
+tpskew<-semTools::skew(regression$Walc.m)
+tpkurt<-semTools::kurtosis(regression$Walc.m)
+print(paste("Skew: ", tpskew[1]/tpskew[2]))
+print(paste("Kurt: ", tpkurt[1]/tpkurt[2]))
+```

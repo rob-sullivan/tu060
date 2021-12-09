@@ -1,0 +1,163 @@
+---
+title: "Probability and Statistics Week 7 Introducing regression"
+output: 
+  html_document:
+    df_print: paged
+editor_options:
+  chunk_output_type: console
+---
+
+#  This is an accompaniment to the lecture week 6.
+## It addresses linear regression
+## It includes all the examples used in the lecture
+
+### Preliminaries
+```{r}
+needed_packages <- c("foreign", "stats", "lm.beta", "stargazer", "ggplot2")                      
+# Extract not installed packages
+not_installed <- needed_packages[!(needed_packages %in% installed.packages()[ , "Package"])]    
+# Install not installed packages
+if(length(not_installed)) install.packages(not_installed) 
+
+library(stats)
+library(ggplot2)
+library(foreign) #To work with SPSS data
+library(lm.beta) #Will allow us to isolate the beta co-efficients
+library(stargazer)#For formatting outputs/tables
+library(semTools)
+```
+
+```{r}
+#We are using our exam result dataset - regression.sav
+#This contains a sub-sample from a much larger study undertaken by Goldstein, H., Rasbash, J., Yang, M., Woodhouse, G., et al. (1993) A multilevel analysis of school examination results, Oxford Review of Education, 19, pp. 425-433. 
+
+#Read in the file
+regression <- foreign::read.spss("Regression.sav", use.value.labels=TRUE, max.value.labels=Inf, to.data.frame=TRUE)
+
+```
+### Descriptives and visuals for normexam
+```{r normexam-normality assessment}
+
+#We will allocate the histogram to a variable to allow use to manipulate it
+gg <- ggplot(regression, aes(x=normexam))
+gg <- gg+ggtitle("Figure 1 - Histogram for Normalised Exam Results Age 16")
+
+#Change the label of the x axis
+gg <- gg + labs(x="Normalised Exam Results Age 16")
+
+#manage binwidth and colours
+gg <- gg + geom_histogram(binwidth=0.1, colour="black", aes(y=..density.., fill=..count..))
+gg <- gg + scale_fill_gradient("Count", low="#DCDCDC", high="#7C7C7C")
+#adding a normal curve
+#use stat_function to compute a normalised score for each value of normexam
+#pass the mean and standard deviation
+#use the na.rm parameter to say how missing values are handled
+gg <- gg + stat_function(fun=dnorm, color="red",args=list(mean=mean(regression$normexam, na.rm=TRUE), sd=sd(regression$normexam, na.rm=TRUE)))
+
+#to display the graph request the contents of the variable be shown
+gg
+
+#Create a qqplot
+qqnorm(regression$normexam, main="Figure 2 - QQ Plot for Normalised Exam Results Age 16")
+qqline(regression$normexam, col=2) #show a line on the plot
+
+
+#Get summary statistics - we know it the variable is normal so we will go ahead with it
+mean(regression$normexam)
+sd(regression$normexam)
+length(regression$normexam)
+
+#We can make our decision based on the value of the standardised score for skew and kurtosis
+#We divide the skew statistic by the standard error to get the standardised score
+#This will indicate if we have a problem
+tpskew<-semTools::skew(regression$normexam)
+tpkurt<-semTools::kurtosis(regression$normexam)
+tpskew[1]/tpskew[2]
+
+tpkurt[1]/tpkurt[2]
+
+#We don't need to standardise the scores as they are already standardised
+
+
+```
+### Descriptives and visuals for standlrt
+```{r standlrt-normality assessment}
+
+#We will allocate the histogram to a variable to allow use to manipulate it
+gg <- ggplot(regression, aes(x=standlrt))
+gg <- gg+ggtitle("Figure 1 - Histogram for Students Standardised Score on LRT Age 11")
+
+#Change the label of the x axis
+gg <- gg + labs(x="Students' Standardised Score on LRT  Age 11")
+
+#manage binwidth and colours
+gg <- gg + geom_histogram(binwidth=0.1, colour="black", aes(y=..density.., fill=..count..))
+gg <- gg + scale_fill_gradient("Count", low="#DCDCDC", high="#7C7C7C")
+#adding a normal curve
+#use stat_function to compute a normalised score for each value of normexam
+#pass the mean and standard deviation
+#use the na.rm parameter to say how missing values are handled
+gg <- gg + stat_function(fun=dnorm, color="red",args=list(mean=mean(regression$standlrt, na.rm=TRUE), sd=sd(regression$standlrt, na.rm=TRUE)))
+
+#to display the graph request the contents of the variable be shown
+gg
+
+#Create a qqplot
+qqnorm(regression$standlrt, main="Figure 2 - QQ Plot for Students' Standardised Scores on LRT Age 11")
+qqline(regression$standlrt, col=2) #show a line on the plot
+
+
+#Get summary statistics - we know it the variable is normal so we will go ahead with it
+mean(regression$standlrt)
+sd(regression$standlrt)
+length(regression$standlrt)
+
+#We can make our decision based on the value of the standardised score for skew and kurtosis
+#We divide the skew statistic by the standard error to get the standardised score
+#This will indicate if we have a problem
+tpskew<-semTools::skew(regression$normexam)
+tpkurt<-semTools::kurtosis(regression$normexam)
+tpskew[1]/tpskew[2]
+
+tpkurt[1]/tpkurt[2]
+
+```
+#### Explore releationship between normexam and standlrt
+```{r}
+
+#Simple scatterplot of standlrt and normexm
+#aes(x,y)
+scatter <- ggplot2::ggplot(regression, aes(standlrt, normexam))
+#Add a regression line
+scatter + geom_point() + geom_smooth(method = "lm", colour = "Red", se = F) + labs(x = "Students score on LRT Age 11", y = "Normalised Exam Score Age 16") 
+
+#Note: When running this in RStudio the output will appear un the Plots tab on the right hand side, if not visible click the Plots tab
+
+
+#Pearson Correlation
+stats::cor.test(regression$standlrt, regression$normexam, method='pearson')
+```
+
+### Simple Linear Regression -NormExam predicted by Standlrt
+### Note: This is equivalent to doing a Pearson correlation
+```{r }
+model1<-lm(regression$normexam~regression$standlrt)
+anova(model1)
+summary(model1)
+lm.beta::lm.beta(model1)
+stargazer(model1, type="text") #Tidy output of all the required stats
+```
+
+
+### Multuplie Linear Regression - Normexam preducted by Standlrt including dummy variable for gender to investigate a differential effect by gender - variable girl
+```{r}
+#Note: R automatically recodes categorical to be dummy variable 0 = reference (boy), 1 category of interest (girl)
+model2<-lm(regression$normexam~regression$standlrt+regression$girl)
+anova(model2)
+summary(model2)
+stargazer(model2, type="text") #Tidy output of all the required stats
+lm.beta(model2)
+stargazer(model1, model2, type="text") #Quick model comparison
+```
+### Remember that for the categorical variable the possible values are 0 and 1 - it will be dummy coded in the model. 1 is the value of the category of interest, 0 reference category.
+

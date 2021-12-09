@@ -13,7 +13,7 @@ Data mining methods allows several interesting questions for the Higher Educatio
 4. Is is possible to predict student performance?
 5. What are the factors that affect student achievement?
 
-(Cortez, et al, 2008) tried to answer the last two. In this report, data mining methods will be applied to the student performance dataset with the goals of answering the following two research questions:
+(Cortez, et al, 2008) tried to answer the last two. In this report, statistical methods will be applied to the student performance dataset with the goals of answering the following two research questions:
 
 1. What levels indicate, in a subset of attributes, that a student requires early intervention before exam failure?
 2. Is it possible to predict which students will fail their exams, if so what is the level of accuracy?

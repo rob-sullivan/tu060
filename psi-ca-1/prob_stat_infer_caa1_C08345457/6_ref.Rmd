@@ -5,8 +5,16 @@ output:
     df_print: paged
 ---
 
-1. (Cortez, et al, 2008)
-2. (Luan J., 2002, Minaei-Bidgoli et al. 2003)
-3. (Brownlee, 2020): https://machinelearningmastery.com/data-sampling-methods-for-imbalanced-classification/
-4. (Chawla et al, 2002) https://arxiv.org/pdf/1106.1813.pdf
+* (Cortez, et al, 2008)
+* (QQI, 2018)
+* (Luan J., 2002, 
+* (Minaei-Bidgoli et al. 2003)
+* (Nantais, 2019): https://towardsdatascience.com/internal-validity-in-data-science-c44c1a2f194f
+* (Hovens et al. 2009)
+* (Tiet et All, 1998)
+* (Brownlee, 2020): https://machinelearningmastery.com/data-sampling-methods-for-imbalanced-classification/
+* (Chawla et al, 2002) https://arxiv.org/pdf/1106.1813.pdf
+* (Shetye, 2019) https://towardsdatascience.com/feature-selection-with-pandas-e3690ad8504b
+
+harvard ref style req..
 

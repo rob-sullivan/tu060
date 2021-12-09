@@ -1,0 +1,3259 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>7. Appendix: R Code</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">PSI Assignment</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="0_index.html">0 Introduction</a>
+</li>
+<li>
+  <a href="1_sorq.html">1 Statement of Research Question</a>
+</li>
+<li>
+  <a href="2_dcprep.html">2. Data Collection &amp; Preparation</a>
+</li>
+<li>
+  <a href="3_dd.html">3. Data Description</a>
+</li>
+<li>
+  <a href="4_de.html">4. Data Exploration</a>
+</li>
+<li>
+  <a href="5_pm.html">5. Predictive Modelling</a>
+</li>
+<li>
+  <a href="6_ref.html">6. References</a>
+</li>
+<li>
+  <a href="7_rcode.html">7. Appendix: R Code</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">7. Appendix: R Code</h1>
+
+</div>
+
+
+<p>We install, where applicable, then import our libraries.</p>
+<pre class="r"><code>#install then import our libraries
+#install.packages(&#39;tidyverse&#39;) # we use this to do things like graphing
+#install.packages(&quot;moments&quot;) 
+library(tidyverse, warn.conflict=F)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.4     ✓ dplyr   1.0.7
+## ✓ tidyr   1.1.4     ✓ stringr 1.4.0
+## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(pastecs) #descriptive statistic library</code></pre>
+<pre><code>## 
+## Attaching package: &#39;pastecs&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
+## 
+##     first, last</code></pre>
+<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
+## 
+##     extract</code></pre>
+<pre class="r"><code>#library(reshape) #for boxplot preparation
+library(moments) #for skew and kurtosis
+library(reshape2)#for boxplot preparation</code></pre>
+<pre><code>## 
+## Attaching package: &#39;reshape2&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
+## 
+##     smiths</code></pre>
+<pre class="r"><code>library(knitr)</code></pre>
+<p>We import our csv file dataset as a dataframe called grades</p>
+<pre class="r"><code>grades &lt;- read.csv(file = &#39;dataset.csv&#39;)</code></pre>
+<p>We get the shape of our data. There are 53 columns with 382 rows. Since we have a lot of data we will look at utilising tables to explain and describe our data. We will also look at possible stacked bar charts, where applicable. WWe only have less than 400 rows of data meaning data transformation methods will have to be chosen carefully.</p>
+<pre class="r"><code>dim(grades)</code></pre>
+<pre><code>## [1] 382  53</code></pre>
+<p>Now we look at the start and end of the dataset. We have two sub datasets, one for each school and one for each subject. we could split our dataset later to drill down. We have basic information on each student then attributes that may affect their grades in to two subjects; Maths and the Portuguese language.</p>
+<pre class="r"><code>head(grades)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["school"],"name":[1],"type":["chr"],"align":["left"]},{"label":["sex"],"name":[2],"type":["chr"],"align":["left"]},{"label":["age"],"name":[3],"type":["int"],"align":["right"]},{"label":["address"],"name":[4],"type":["chr"],"align":["left"]},{"label":["famsize"],"name":[5],"type":["chr"],"align":["left"]},{"label":["Pstatus"],"name":[6],"type":["chr"],"align":["left"]},{"label":["Medu"],"name":[7],"type":["int"],"align":["right"]},{"label":["Fedu"],"name":[8],"type":["int"],"align":["right"]},{"label":["Mjob"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Fjob"],"name":[10],"type":["chr"],"align":["left"]},{"label":["reason"],"name":[11],"type":["chr"],"align":["left"]},{"label":["nursery"],"name":[12],"type":["chr"],"align":["left"]},{"label":["internet"],"name":[13],"type":["chr"],"align":["left"]},{"label":["guardian.m"],"name":[14],"type":["chr"],"align":["left"]},{"label":["traveltime.m"],"name":[15],"type":["int"],"align":["right"]},{"label":["studytime.m"],"name":[16],"type":["int"],"align":["right"]},{"label":["failures.m"],"name":[17],"type":["int"],"align":["right"]},{"label":["schoolsup.m"],"name":[18],"type":["chr"],"align":["left"]},{"label":["famsup.m"],"name":[19],"type":["chr"],"align":["left"]},{"label":["paid.m"],"name":[20],"type":["chr"],"align":["left"]},{"label":["activities.m"],"name":[21],"type":["chr"],"align":["left"]},{"label":["higher.m"],"name":[22],"type":["chr"],"align":["left"]},{"label":["romantic.m"],"name":[23],"type":["chr"],"align":["left"]},{"label":["famrel.m"],"name":[24],"type":["int"],"align":["right"]},{"label":["freetime.m"],"name":[25],"type":["int"],"align":["right"]},{"label":["goout.m"],"name":[26],"type":["int"],"align":["right"]},{"label":["Dalc.m"],"name":[27],"type":["int"],"align":["right"]},{"label":["Walc.m"],"name":[28],"type":["int"],"align":["right"]},{"label":["health.m"],"name":[29],"type":["int"],"align":["right"]},{"label":["absences.m"],"name":[30],"type":["int"],"align":["right"]},{"label":["mG1"],"name":[31],"type":["int"],"align":["right"]},{"label":["mG2"],"name":[32],"type":["int"],"align":["right"]},{"label":["mG3"],"name":[33],"type":["int"],"align":["right"]},{"label":["guardian.p"],"name":[34],"type":["chr"],"align":["left"]},{"label":["traveltime.p"],"name":[35],"type":["int"],"align":["right"]},{"label":["studytime.p"],"name":[36],"type":["int"],"align":["right"]},{"label":["failures.p"],"name":[37],"type":["int"],"align":["right"]},{"label":["schoolsup.p"],"name":[38],"type":["chr"],"align":["left"]},{"label":["famsup.p"],"name":[39],"type":["chr"],"align":["left"]},{"label":["paid.p"],"name":[40],"type":["chr"],"align":["left"]},{"label":["activities.p"],"name":[41],"type":["chr"],"align":["left"]},{"label":["higher.p"],"name":[42],"type":["chr"],"align":["left"]},{"label":["romantic.p"],"name":[43],"type":["chr"],"align":["left"]},{"label":["famrel.p"],"name":[44],"type":["int"],"align":["right"]},{"label":["freetime.p"],"name":[45],"type":["int"],"align":["right"]},{"label":["goout.p"],"name":[46],"type":["int"],"align":["right"]},{"label":["Dalc.p"],"name":[47],"type":["int"],"align":["right"]},{"label":["Walc.p"],"name":[48],"type":["int"],"align":["right"]},{"label":["health.p"],"name":[49],"type":["int"],"align":["right"]},{"label":["absences.p"],"name":[50],"type":["int"],"align":["right"]},{"label":["pG1"],"name":[51],"type":["int"],"align":["right"]},{"label":["pG2"],"name":[52],"type":["int"],"align":["right"]},{"label":["pG3"],"name":[53],"type":["int"],"align":["right"]}],"data":[{"1":"GP","2":"F","3":"15","4":"R","5":"GT3","6":"T","7":"1","8":"1","9":"at_home","10":"other","11":"home","12":"yes","13":"yes","14":"mother","15":"2","16":"4","17":"1","18":"yes","19":"yes","20":"yes","21":"yes","22":"yes","23":"no","24":"3","25":"1","26":"2","27":"1","28":"1","29":"1","30":"2","31":"7","32":"10","33":"10","34":"mother","35":"2","36":"4","37":"0","38":"yes","39":"yes","40":"yes","41":"yes","42":"yes","43":"no","44":"3","45":"1","46":"2","47":"1","48":"1","49":"1","50":"4","51":"13","52":"13","53":"13","_rn_":"1"},{"1":"GP","2":"F","3":"15","4":"R","5":"GT3","6":"T","7":"1","8":"1","9":"other","10":"other","11":"reputation","12":"no","13":"yes","14":"mother","15":"1","16":"2","17":"2","18":"yes","19":"yes","20":"no","21":"no","22":"yes","23":"yes","24":"3","25":"3","26":"4","27":"2","28":"4","29":"5","30":"2","31":"8","32":"6","33":"5","34":"mother","35":"1","36":"2","37":"0","38":"yes","39":"yes","40":"no","41":"no","42":"yes","43":"yes","44":"3","45":"3","46":"4","47":"2","48":"4","49":"5","50":"2","51":"13","52":"11","53":"11","_rn_":"2"},{"1":"GP","2":"F","3":"15","4":"R","5":"GT3","6":"T","7":"2","8":"2","9":"at_home","10":"other","11":"reputation","12":"yes","13":"no","14":"mother","15":"1","16":"1","17":"0","18":"yes","19":"yes","20":"yes","21":"yes","22":"yes","23":"no","24":"4","25":"3","26":"1","27":"1","28":"1","29":"2","30":"8","31":"14","32":"13","33":"13","34":"mother","35":"1","36":"1","37":"0","38":"yes","39":"yes","40":"no","41":"yes","42":"yes","43":"no","44":"4","45":"3","46":"1","47":"1","48":"1","49":"2","50":"8","51":"14","52":"13","53":"12","_rn_":"3"},{"1":"GP","2":"F","3":"15","4":"R","5":"GT3","6":"T","7":"2","8":"4","9":"services","10":"health","11":"course","12":"yes","13":"yes","14":"mother","15":"1","16":"3","17":"0","18":"yes","19":"yes","20":"yes","21":"yes","22":"yes","23":"no","24":"4","25":"3","26":"2","27":"1","28":"1","29":"5","30":"2","31":"10","32":"9","33":"8","34":"mother","35":"1","36":"3","37":"0","38":"yes","39":"yes","40":"no","41":"yes","42":"yes","43":"no","44":"4","45":"3","46":"2","47":"1","48":"1","49":"5","50":"2","51":"10","52":"11","53":"10","_rn_":"4"},{"1":"GP","2":"F","3":"15","4":"R","5":"GT3","6":"T","7":"3","8":"3","9":"services","10":"services","11":"reputation","12":"yes","13":"yes","14":"other","15":"2","16":"3","17":"2","18":"no","19":"yes","20":"yes","21":"yes","22":"yes","23":"yes","24":"4","25":"2","26":"1","27":"2","28":"3","29":"3","30":"8","31":"10","32":"10","33":"10","34":"other","35":"2","36":"3","37":"0","38":"no","39":"yes","40":"yes","41":"yes","42":"yes","43":"yes","44":"4","45":"2","46":"1","47":"2","48":"3","49":"3","50":"2","51":"13","52":"13","53":"13","_rn_":"5"},{"1":"GP","2":"F","3":"15","4":"R","5":"GT3","6":"T","7":"3","8":"4","9":"services","10":"health","11":"course","12":"yes","13":"yes","14":"mother","15":"1","16":"3","17":"0","18":"yes","19":"yes","20":"yes","21":"yes","22":"yes","23":"no","24":"4","25":"3","26":"2","27":"1","28":"1","29":"5","30":"2","31":"12","32":"12","33":"11","34":"mother","35":"1","36":"3","37":"0","38":"yes","39":"yes","40":"no","41":"yes","42":"yes","43":"no","44":"4","45":"3","46":"2","47":"1","48":"1","49":"5","50":"2","51":"11","52":"12","53":"12","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>We don’t see any null values from our initial observation.</p>
+<pre class="r"><code>tail(grades)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["school"],"name":[1],"type":["chr"],"align":["left"]},{"label":["sex"],"name":[2],"type":["chr"],"align":["left"]},{"label":["age"],"name":[3],"type":["int"],"align":["right"]},{"label":["address"],"name":[4],"type":["chr"],"align":["left"]},{"label":["famsize"],"name":[5],"type":["chr"],"align":["left"]},{"label":["Pstatus"],"name":[6],"type":["chr"],"align":["left"]},{"label":["Medu"],"name":[7],"type":["int"],"align":["right"]},{"label":["Fedu"],"name":[8],"type":["int"],"align":["right"]},{"label":["Mjob"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Fjob"],"name":[10],"type":["chr"],"align":["left"]},{"label":["reason"],"name":[11],"type":["chr"],"align":["left"]},{"label":["nursery"],"name":[12],"type":["chr"],"align":["left"]},{"label":["internet"],"name":[13],"type":["chr"],"align":["left"]},{"label":["guardian.m"],"name":[14],"type":["chr"],"align":["left"]},{"label":["traveltime.m"],"name":[15],"type":["int"],"align":["right"]},{"label":["studytime.m"],"name":[16],"type":["int"],"align":["right"]},{"label":["failures.m"],"name":[17],"type":["int"],"align":["right"]},{"label":["schoolsup.m"],"name":[18],"type":["chr"],"align":["left"]},{"label":["famsup.m"],"name":[19],"type":["chr"],"align":["left"]},{"label":["paid.m"],"name":[20],"type":["chr"],"align":["left"]},{"label":["activities.m"],"name":[21],"type":["chr"],"align":["left"]},{"label":["higher.m"],"name":[22],"type":["chr"],"align":["left"]},{"label":["romantic.m"],"name":[23],"type":["chr"],"align":["left"]},{"label":["famrel.m"],"name":[24],"type":["int"],"align":["right"]},{"label":["freetime.m"],"name":[25],"type":["int"],"align":["right"]},{"label":["goout.m"],"name":[26],"type":["int"],"align":["right"]},{"label":["Dalc.m"],"name":[27],"type":["int"],"align":["right"]},{"label":["Walc.m"],"name":[28],"type":["int"],"align":["right"]},{"label":["health.m"],"name":[29],"type":["int"],"align":["right"]},{"label":["absences.m"],"name":[30],"type":["int"],"align":["right"]},{"label":["mG1"],"name":[31],"type":["int"],"align":["right"]},{"label":["mG2"],"name":[32],"type":["int"],"align":["right"]},{"label":["mG3"],"name":[33],"type":["int"],"align":["right"]},{"label":["guardian.p"],"name":[34],"type":["chr"],"align":["left"]},{"label":["traveltime.p"],"name":[35],"type":["int"],"align":["right"]},{"label":["studytime.p"],"name":[36],"type":["int"],"align":["right"]},{"label":["failures.p"],"name":[37],"type":["int"],"align":["right"]},{"label":["schoolsup.p"],"name":[38],"type":["chr"],"align":["left"]},{"label":["famsup.p"],"name":[39],"type":["chr"],"align":["left"]},{"label":["paid.p"],"name":[40],"type":["chr"],"align":["left"]},{"label":["activities.p"],"name":[41],"type":["chr"],"align":["left"]},{"label":["higher.p"],"name":[42],"type":["chr"],"align":["left"]},{"label":["romantic.p"],"name":[43],"type":["chr"],"align":["left"]},{"label":["famrel.p"],"name":[44],"type":["int"],"align":["right"]},{"label":["freetime.p"],"name":[45],"type":["int"],"align":["right"]},{"label":["goout.p"],"name":[46],"type":["int"],"align":["right"]},{"label":["Dalc.p"],"name":[47],"type":["int"],"align":["right"]},{"label":["Walc.p"],"name":[48],"type":["int"],"align":["right"]},{"label":["health.p"],"name":[49],"type":["int"],"align":["right"]},{"label":["absences.p"],"name":[50],"type":["int"],"align":["right"]},{"label":["pG1"],"name":[51],"type":["int"],"align":["right"]},{"label":["pG2"],"name":[52],"type":["int"],"align":["right"]},{"label":["pG3"],"name":[53],"type":["int"],"align":["right"]}],"data":[{"1":"MS","2":"M","3":"18","4":"U","5":"LE3","6":"T","7":"1","8":"1","9":"other","10":"services","11":"home","12":"no","13":"yes","14":"father","15":"2","16":"1","17":"0","18":"no","19":"no","20":"no","21":"no","22":"yes","23":"yes","24":"3","25":"3","26":"2","27":"1","28":"2","29":"3","30":"4","31":"10","32":"10","33":"10","34":"father","35":"2","36":"1","37":"0","38":"no","39":"no","40":"no","41":"no","42":"yes","43":"yes","44":"3","45":"3","46":"2","47":"1","48":"2","49":"3","50":"2","51":"14","52":"13","53":"14","_rn_":"377"},{"1":"MS","2":"M","3":"18","4":"U","5":"LE3","6":"T","7":"1","8":"3","9":"at_home","10":"services","11":"course","12":"yes","13":"yes","14":"mother","15":"1","16":"1","17":"1","18":"no","19":"no","20":"no","21":"no","22":"no","23":"yes","24":"4","25":"3","26":"3","27":"2","28":"3","29":"3","30":"7","31":"8","32":"7","33":"8","34":"mother","35":"1","36":"1","37":"0","38":"no","39":"no","40":"no","41":"no","42":"no","43":"yes","44":"4","45":"3","46":"3","47":"2","48":"3","49":"3","50":"0","51":"9","52":"10","53":"9","_rn_":"378"},{"1":"MS","2":"M","3":"18","4":"U","5":"LE3","6":"T","7":"4","8":"4","9":"teacher","10":"services","11":"other","12":"yes","13":"yes","14":"mother","15":"2","16":"3","17":"0","18":"no","19":"no","20":"yes","21":"no","22":"yes","23":"yes","24":"4","25":"2","26":"2","27":"2","28":"2","29":"5","30":"0","31":"13","32":"13","33":"13","34":"mother","35":"2","36":"3","37":"0","38":"no","39":"no","40":"no","41":"no","42":"yes","43":"yes","44":"4","45":"2","46":"2","47":"2","48":"2","49":"5","50":"0","51":"15","52":"16","53":"16","_rn_":"379"},{"1":"MS","2":"M","3":"19","4":"R","5":"GT3","6":"T","7":"1","8":"1","9":"other","10":"other","11":"home","12":"yes","13":"yes","14":"other","15":"3","16":"1","17":"1","18":"no","19":"yes","20":"no","21":"no","22":"yes","23":"no","24":"4","25":"4","26":"4","27":"3","28":"3","29":"5","30":"4","31":"8","32":"8","33":"8","34":"other","35":"3","36":"1","37":"1","38":"no","39":"yes","40":"no","41":"no","42":"yes","43":"no","44":"4","45":"4","46":"4","47":"3","48":"3","49":"5","50":"4","51":"8","52":"9","53":"10","_rn_":"380"},{"1":"MS","2":"M","3":"19","4":"R","5":"GT3","6":"T","7":"1","8":"1","9":"other","10":"services","11":"home","12":"yes","13":"yes","14":"other","15":"3","16":"2","17":"3","18":"no","19":"no","20":"no","21":"no","22":"yes","23":"no","24":"5","25":"4","26":"4","27":"3","28":"3","29":"2","30":"8","31":"8","32":"7","33":"8","34":"other","35":"3","36":"2","37":"1","38":"no","39":"no","40":"no","41":"no","42":"yes","43":"no","44":"5","45":"4","46":"4","47":"3","48":"3","49":"2","50":"8","51":"10","52":"9","53":"11","_rn_":"381"},{"1":"MS","2":"M","3":"19","4":"R","5":"GT3","6":"T","7":"1","8":"1","9":"other","10":"services","11":"other","12":"yes","13":"no","14":"mother","15":"2","16":"1","17":"1","18":"no","19":"no","20":"no","21":"no","22":"yes","23":"no","24":"4","25":"3","26":"2","27":"1","28":"3","29":"5","30":"0","31":"6","32":"5","33":"0","34":"mother","35":"2","36":"1","37":"1","38":"no","39":"no","40":"no","41":"no","42":"yes","43":"no","44":"4","45":"3","46":"2","47":"1","48":"3","49":"5","50":"0","51":"5","52":"8","53":"0","_rn_":"382"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Below we see that our data consists of 23 characters and 28 integers, we will convert the characters to factors. For integers we will leave them the way they are. R uses the numeric data type as a default, this means a variable could contain a 1 or a 1.0 decimal place. By specifying that the variables are integers R is saying it will treat them as whole numbers. The reason we are doing all this is to avail of R’s functionality for manipulating variables. Factors have more categorical options and features than characters, which are, to R just strings of text.</p>
+<pre class="r"><code>sapply(grades, class)</code></pre>
+<pre><code>##       school          sex          age      address      famsize      Pstatus 
+##  &quot;character&quot;  &quot;character&quot;    &quot;integer&quot;  &quot;character&quot;  &quot;character&quot;  &quot;character&quot; 
+##         Medu         Fedu         Mjob         Fjob       reason      nursery 
+##    &quot;integer&quot;    &quot;integer&quot;  &quot;character&quot;  &quot;character&quot;  &quot;character&quot;  &quot;character&quot; 
+##     internet   guardian.m traveltime.m  studytime.m   failures.m  schoolsup.m 
+##  &quot;character&quot;  &quot;character&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;  &quot;character&quot; 
+##     famsup.m       paid.m activities.m     higher.m   romantic.m     famrel.m 
+##  &quot;character&quot;  &quot;character&quot;  &quot;character&quot;  &quot;character&quot;  &quot;character&quot;    &quot;integer&quot; 
+##   freetime.m      goout.m       Dalc.m       Walc.m     health.m   absences.m 
+##    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot; 
+##          mG1          mG2          mG3   guardian.p traveltime.p  studytime.p 
+##    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;  &quot;character&quot;    &quot;integer&quot;    &quot;integer&quot; 
+##   failures.p  schoolsup.p     famsup.p       paid.p activities.p     higher.p 
+##    &quot;integer&quot;  &quot;character&quot;  &quot;character&quot;  &quot;character&quot;  &quot;character&quot;  &quot;character&quot; 
+##   romantic.p     famrel.p   freetime.p      goout.p       Dalc.p       Walc.p 
+##  &quot;character&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot; 
+##     health.p   absences.p          pG1          pG2          pG3 
+##    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;</code></pre>
+<p>We will loop through our columns and convert character columns into factors. When we are finished we will check our result to ensure it worked.</p>
+<pre class="r"><code>#this loop says for each column in our dataset grades, if the column is of character type then convert it to a factor.
+for (i in colnames(grades)){
+  if(class(grades[[i]])==&quot;character&quot;){
+    grades[[i]] &lt;- as.factor(grades[[i]])
+  }
+}
+sapply(grades, class) # We see below that it has worked.</code></pre>
+<pre><code>##       school          sex          age      address      famsize      Pstatus 
+##     &quot;factor&quot;     &quot;factor&quot;    &quot;integer&quot;     &quot;factor&quot;     &quot;factor&quot;     &quot;factor&quot; 
+##         Medu         Fedu         Mjob         Fjob       reason      nursery 
+##    &quot;integer&quot;    &quot;integer&quot;     &quot;factor&quot;     &quot;factor&quot;     &quot;factor&quot;     &quot;factor&quot; 
+##     internet   guardian.m traveltime.m  studytime.m   failures.m  schoolsup.m 
+##     &quot;factor&quot;     &quot;factor&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;     &quot;factor&quot; 
+##     famsup.m       paid.m activities.m     higher.m   romantic.m     famrel.m 
+##     &quot;factor&quot;     &quot;factor&quot;     &quot;factor&quot;     &quot;factor&quot;     &quot;factor&quot;    &quot;integer&quot; 
+##   freetime.m      goout.m       Dalc.m       Walc.m     health.m   absences.m 
+##    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot; 
+##          mG1          mG2          mG3   guardian.p traveltime.p  studytime.p 
+##    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;     &quot;factor&quot;    &quot;integer&quot;    &quot;integer&quot; 
+##   failures.p  schoolsup.p     famsup.p       paid.p activities.p     higher.p 
+##    &quot;integer&quot;     &quot;factor&quot;     &quot;factor&quot;     &quot;factor&quot;     &quot;factor&quot;     &quot;factor&quot; 
+##   romantic.p     famrel.p   freetime.p      goout.p       Dalc.p       Walc.p 
+##     &quot;factor&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot; 
+##     health.p   absences.p          pG1          pG2          pG3 
+##    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;    &quot;integer&quot;</code></pre>
+<p>We want to create a summary table to examine our data but we have too many attributes so we will split our dataset up and examine the groups. The idea here is that we will test each group of variables against our grades to see which ones we will keep for our predictive model.</p>
+<pre class="r"><code>#we first split the dataset into two sub groups for each school.
+schools &lt;- split(grades, grades$school)
+
+# now we split into 3 sub groups for student, maths and language
+#Student: eg. sex, age, address, famsize, Pstatus, Medu, Fedu, Mjob, Fjob, reason, nursery internet
+
+# Maths .m, mG 
+maths_tag1 &lt;- &quot;.m&quot;
+maths_tag2 &lt;- &quot;mG&quot;
+
+# Portuguese .p, pG
+lang_tag1 &lt;- &quot;.p&quot;
+lang_tag2 &lt;- &quot;pG&quot;
+
+
+#first school
+school1_names = names(schools$GP)
+school1_student_names &lt;- vector()
+school1_maths_names &lt;-vector()
+school1_langs_names &lt;-vector()
+
+for (i in school1_names){
+  #print(i)
+  if(!(i==&quot;school&quot;))
+    {
+    math1 &lt;- grepl(maths_tag1, i, fixed=TRUE)
+    lang1 &lt;- grepl(lang_tag1, i, fixed=TRUE)
+    
+    math2 &lt;- grepl(maths_tag2, i, fixed=TRUE)
+    lang2 &lt;- grepl(lang_tag2, i, fixed=TRUE)
+    
+    #we could improve the below statements with an OR condition
+    if(math1){
+      school1_maths_names &lt;- append(school1_maths_names, i)
+    }
+    else if(math2){
+      school1_maths_names &lt;- append(school1_maths_names, i)
+    }
+    else if(lang1){
+      school1_langs_names &lt;- append(school1_langs_names, i)
+    }
+    else if(lang2){
+      school1_langs_names &lt;- append(school1_langs_names, i)
+    }
+    else{
+        school1_student_names &lt;- append(school1_student_names, i)
+    }
+  }
+}
+
+#second school
+school2_names = names(schools$MS)
+school2_student_names &lt;- vector()
+school2_maths_names &lt;-vector()
+school2_langs_names &lt;-vector()
+
+for (i in school2_names){
+  #print(i)
+  if(!(i==&quot;school&quot;))
+    {
+    math1 &lt;- grepl(maths_tag1, i, fixed=TRUE)
+    lang1 &lt;- grepl(lang_tag1, i, fixed=TRUE)
+    
+    math2 &lt;- grepl(maths_tag2, i, fixed=TRUE)
+    lang2 &lt;- grepl(lang_tag2, i, fixed=TRUE)
+    
+    #we could improve the below statements with an OR condition
+    if(math1){
+      school2_maths_names &lt;- append(school2_maths_names, i)
+    }
+    else if(math2){
+      school2_maths_names &lt;- append(school2_maths_names, i)
+    }
+    else if(lang1){
+      school2_langs_names &lt;- append(school2_langs_names, i)
+    }
+    else if(lang2){
+      school2_langs_names &lt;- append(school2_langs_names, i)
+    }
+    else{
+        school2_student_names &lt;- append(school2_student_names, i)
+    }
+  }
+}</code></pre>
+<p>We first examine our school variable. This relates to the survey carried out in two different schools. We can see that there is 88% less observations in Mousinho da Silveira (MS) school (40 observations) vs Gabriel Pereira (GP) school (342).</p>
+<pre class="r"><code>summary(grades$school)</code></pre>
+<pre><code>##  GP  MS 
+## 342  40</code></pre>
+<div id="school-1-gabriel-pereira-gp" class="section level2">
+<h2>School 1: Gabriel Pereira (GP)</h2>
+<p>Now we examine our students from GP school</p>
+<pre class="r"><code>students = grades[school1_student_names]
+summary(students)</code></pre>
+<pre><code>##  sex          age        address famsize   Pstatus      Medu      
+##  F:198   Min.   :15.00   R: 81   GT3:278   A: 38   Min.   :0.000  
+##  M:184   1st Qu.:16.00   U:301   LE3:104   T:344   1st Qu.:2.000  
+##          Median :17.00                             Median :3.000  
+##          Mean   :16.59                             Mean   :2.806  
+##          3rd Qu.:17.00                             3rd Qu.:4.000  
+##          Max.   :22.00                             Max.   :4.000  
+##       Fedu             Mjob           Fjob            reason    nursery  
+##  Min.   :0.000   at_home : 53   at_home : 16   course    :140   no : 72  
+##  1st Qu.:2.000   health  : 33   health  : 17   home      :110   yes:310  
+##  Median :3.000   other   :138   other   :211   other     : 34            
+##  Mean   :2.565   services: 96   services:107   reputation: 98            
+##  3rd Qu.:4.000   teacher : 62   teacher : 31                             
+##  Max.   :4.000                                                           
+##  internet 
+##  no : 58  
+##  yes:324  
+##           
+##           
+##           
+## </code></pre>
+<p>We generate GP Student Descriptive Statistics such as mean, variance and standard deviation.s</p>
+<pre class="r"><code>print(&quot;GP Student Age Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Student Age Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(students$age, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##  17.00000000  16.58638743   0.06003995   0.11805115   1.37703206   1.17347009 
+##     coef.var 
+##   0.07074899</code></pre>
+<pre class="r"><code>zage&lt;- abs(scale(students$age))
+
+FSA::perc(as.numeric(zage), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 3.403141</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zage), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0.2617801</code></pre>
+<pre class="r"><code>print(&quot;GP Student Mother&#39;s Education Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Student Mother&#39;s Education Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(students$Medu, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   3.00000000   2.80628272   0.05558407   0.10928995   1.18022289   1.08638064 
+##     coef.var 
+##   0.38712444</code></pre>
+<pre class="r"><code>zMedu&lt;- abs(scale(students$Medu))
+
+FSA::perc(as.numeric(zMedu), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0.7853403</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zMedu), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Student Father&#39;s Education Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Student Father&#39;s Education Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(students$Fedu, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   3.00000000   2.56544503   0.05608853   0.11028181   1.20174245   1.09624014 
+##     coef.var 
+##   0.42730993</code></pre>
+<pre class="r"><code>zFedu&lt;- abs(scale(students$Fedu))
+
+FSA::perc(as.numeric(zFedu), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0.5235602</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zFedu), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<p>To understand outliers with our student data we calculate the skew and kurtosis</p>
+<pre class="r"><code>student_title &lt;- c(&#39;age&#39;, &#39;Medu&#39;, &#39;Fedu&#39;)
+student_skew &lt;- c(skewness(students$age), skewness(students$Medu), skewness(students$Fedu))
+student_kurtosis &lt;- c(kurtosis(students$age), kurtosis(students$Medu), kurtosis(students$Fedu))
+
+
+data &lt;- data.frame(student_title, student_skew, student_kurtosis)
+colnames(data)[1] &lt;- &quot;Attributes&quot;
+colnames(data)[2] &lt;- &quot;Skewness&quot;
+colnames(data)[3] &lt;- &quot;Kurtosis&quot;
+head(data)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Attributes"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Skewness"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Kurtosis"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"age","2":"0.39689830","3":"3.080954","_rn_":"1"},{"1":"Medu","2":"-0.38514449","3":"1.973527","_rn_":"2"},{"1":"Fedu","2":"-0.09526141","3":"1.790475","_rn_":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>To visualise these two tables we create a bar plot of all our categorical variables then histograms, QQ plots and grouped boxplot of our numeric variables.</p>
+<pre class="r"><code># we create our barchart dataset
+student_attributes = c(rep(&quot;sex&quot;, 2), 
+           rep(&quot;address&quot;,2), 
+           rep(&quot;famsize&quot;,2), 
+           rep(&quot;Pstatus&quot;,2), 
+           rep(&quot;Mjob&quot;, 5), 
+           rep(&quot;Fjob&quot;,5),
+           rep(&quot;reason&quot;,4),
+           rep(&quot;nursery&quot;,2), 
+           rep(&#39;internet&#39;,2)
+           )
+labels1 = c(&#39;F&#39;,&#39;M&#39;, 
+           &#39;R&#39;,&#39;U&#39;, 
+           &#39;GT3&#39;, &#39;LE3&#39;, 
+           &#39;A&#39;,&#39;T&#39;,
+           &#39;at_home&#39;,&#39;health&#39;,&#39;other&#39;,&#39;services&#39;,&#39;teacher&#39;,
+           &#39;at_home&#39;,&#39;health&#39;,&#39;other&#39;,&#39;services&#39;,&#39;teacher&#39;,
+           &#39;course&#39;,&#39;home&#39;,&#39;other&#39;,&#39;reputation&#39;,
+           &#39;no&#39;, &#39;yes&#39;,
+           &#39;no&#39;,&#39;yes&#39;
+           )
+number_of = c(sum(students$sex == &#39;F&#39;),
+              sum(students$sex == &#39;M&#39;),
+              sum(students$address == &#39;R&#39;),
+              sum(students$address == &#39;U&#39;),
+              sum(students$famsize == &#39;GT3&#39;),
+              sum(students$famsize == &#39;LE3&#39;),
+              sum(students$Pstatus == &#39;A&#39;),
+              sum(students$Pstatus == &#39;T&#39;),
+              sum(students$Mjob == &#39;at_home&#39;),
+              sum(students$Mjob == &#39;health&#39;), 
+              sum(students$Mjob == &#39;other&#39;),
+              sum(students$Mjob == &#39;services&#39;),
+              sum(students$Fjob == &#39;teacher&#39;),
+              sum(students$Fjob == &#39;at_home&#39;),
+              sum(students$Fjob == &#39;health&#39;), 
+              sum(students$Fjob == &#39;other&#39;),
+              sum(students$Fjob == &#39;services&#39;),
+              sum(students$Fjob == &#39;teacher&#39;),
+              sum(students$reason == &#39;course&#39;), 
+              sum(students$reason == &#39;home&#39;),
+              sum(students$reason == &#39;other&#39;),
+              sum(students$reason == &#39;reputation&#39;),
+              sum(students$nursery == &#39;no&#39;),
+              sum(students$nursery == &#39;yes&#39;),
+              sum(students$internet == &#39;no&#39;),
+              sum(students$internet == &#39;yes&#39;))
+
+data &lt;- data.frame(student_attributes,labels1,number_of)
+# Now we generate our stacked barchart
+ggplot(data,
+       alpha=factor(number_of),
+       aes(fill=labels1, y=number_of, x=student_attributes)) + 
+  geom_bar(position=&quot;stack&quot;, stat=&quot;identity&quot;) + 
+  xlab(&quot;Student Categorical Attributes&quot;) + ylab(&quot;Frequency&quot;) +
+  labs(title=&quot;GP: Overview of Student Categorical Attributes&quot;) +
+  theme(legend.position = &quot;bottom&quot;) +
+  scale_fill_discrete(breaks=labels1)</code></pre>
+<p><img src="7_rcode_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>#ref https://www.ucd.ie/ecomodel/Resources/QQplots_WebVersion.html
+par(mfrow=c(3,3))
+
+#hist
+x &lt;- students$age
+age_his&lt;-hist(x, breaks=6, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Age&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(age_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on the plot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;age Boxplot&quot;)
+
+#hist
+x &lt;- students$Medu
+Medu_his&lt;-hist(x, breaks=4, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Medu&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;Medu Boxplot&quot;)
+
+#hist
+x &lt;- students$Fedu
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Fedu&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;Fedu Boxplot&quot;)</code></pre>
+<p><img src="7_rcode_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="school-1-gabriel-pereira-gp-maths" class="section level2">
+<h2>School 1: Gabriel Pereira (GP) Maths</h2>
+<p>Now we examine math related attributes for students from school 1</p>
+<pre class="r"><code>maths = grades[school1_maths_names]
+summary(maths)</code></pre>
+<pre><code>##   guardian.m   traveltime.m    studytime.m      failures.m     schoolsup.m
+##  father: 91   Min.   :1.000   Min.   :1.000   Min.   :0.0000   no :331    
+##  mother:275   1st Qu.:1.000   1st Qu.:1.000   1st Qu.:0.0000   yes: 51    
+##  other : 16   Median :1.000   Median :2.000   Median :0.0000              
+##               Mean   :1.442   Mean   :2.034   Mean   :0.2906              
+##               3rd Qu.:2.000   3rd Qu.:2.000   3rd Qu.:0.0000              
+##               Max.   :4.000   Max.   :4.000   Max.   :3.0000              
+##  famsup.m  paid.m    activities.m higher.m  romantic.m    famrel.m   
+##  no :144   no :205   no :181      no : 18   no :261    Min.   :1.00  
+##  yes:238   yes:177   yes:201      yes:364   yes:121    1st Qu.:4.00  
+##                                                        Median :4.00  
+##                                                        Mean   :3.94  
+##                                                        3rd Qu.:5.00  
+##                                                        Max.   :5.00  
+##    freetime.m       goout.m          Dalc.m          Walc.m        health.m    
+##  Min.   :1.000   Min.   :1.000   Min.   :1.000   Min.   :1.00   Min.   :1.000  
+##  1st Qu.:3.000   1st Qu.:2.000   1st Qu.:1.000   1st Qu.:1.00   1st Qu.:3.000  
+##  Median :3.000   Median :3.000   Median :1.000   Median :2.00   Median :4.000  
+##  Mean   :3.223   Mean   :3.113   Mean   :1.474   Mean   :2.28   Mean   :3.579  
+##  3rd Qu.:4.000   3rd Qu.:4.000   3rd Qu.:2.000   3rd Qu.:3.00   3rd Qu.:5.000  
+##  Max.   :5.000   Max.   :5.000   Max.   :5.000   Max.   :5.00   Max.   :5.000  
+##    absences.m          mG1             mG2             mG3       
+##  Min.   : 0.000   Min.   : 3.00   Min.   : 0.00   Min.   : 0.00  
+##  1st Qu.: 0.000   1st Qu.: 8.00   1st Qu.: 8.25   1st Qu.: 8.00  
+##  Median : 3.000   Median :10.50   Median :11.00   Median :11.00  
+##  Mean   : 5.319   Mean   :10.86   Mean   :10.71   Mean   :10.39  
+##  3rd Qu.: 8.000   3rd Qu.:13.00   3rd Qu.:13.00   3rd Qu.:14.00  
+##  Max.   :75.000   Max.   :19.00   Max.   :19.00   Max.   :20.00</code></pre>
+<p>We generate GP Math Descriptive Statistics such as mean, variance and standard deviation.s</p>
+<pre class="r"><code>print(&quot;GP Math traveltime.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Math traveltime.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$traveltime.m, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   1.00000000   1.44240838   0.03557865   0.06995510   0.48355114   0.69537841 
+##     coef.var 
+##   0.48209538</code></pre>
+<pre class="r"><code>ztraveltime&lt;- abs(scale(maths$traveltime.m))
+FSA::perc(as.numeric(ztraveltime), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 7.591623</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(ztraveltime), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 2.094241</code></pre>
+<pre class="r"><code>print(&quot;GP Student studytime.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Student studytime.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$studytime.m, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   2.00000000   2.03403141   0.04327479   0.08508732   0.71537426   0.84579800 
+##     coef.var 
+##   0.41582347</code></pre>
+<pre class="r"><code>zstudytimem&lt;- abs(scale(maths$studytime.m))
+FSA::perc(as.numeric(zstudytimem), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 7.068063</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zstudytimem), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Math failures.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Math failures.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$failures.m, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   0.00000000   0.29057592   0.03732347   0.07338578   0.53214192   0.72948059 
+##     coef.var 
+##   2.51046472</code></pre>
+<pre class="r"><code>zfailuresm&lt;- abs(scale(maths$failures.m))
+FSA::perc(as.numeric(zfailuresm), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 7.329843</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zfailuresm), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 4.450262</code></pre>
+<pre class="r"><code>print(&quot;GP Math famrel.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Math famrel.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$famrel.m, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   4.00000000   3.93979058   0.04715419   0.09271503   0.84938368   0.92162014 
+##     coef.var 
+##   0.23392618</code></pre>
+<pre class="r"><code>zfamrelm&lt;- abs(scale(maths$famrel.m))
+FSA::perc(as.numeric(zfamrelm), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 7.068063</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zfamrelm), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Math freetime.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Math freetime.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$freetime.m, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    3.0000000    3.2225131    0.0505624    0.0994163    0.9766047    0.9882331 
+##     coef.var 
+##    0.3066654</code></pre>
+<pre class="r"><code>zfreetimem&lt;- abs(scale(maths$freetime.m))
+FSA::perc(as.numeric(zfreetimem), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 4.712042</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zfreetimem), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Math goout.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Math goout.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$goout.m, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   3.00000000   3.11256545   0.05791443   0.11387193   1.28125902   1.13192713 
+##     coef.var 
+##   0.36366372</code></pre>
+<pre class="r"><code>zgooutm&lt;- abs(scale(maths$goout.m))
+FSA::perc(as.numeric(zgooutm), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zgooutm), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Math famrel.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Math famrel.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$famrel.m, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   4.00000000   3.93979058   0.04715419   0.09271503   0.84938368   0.92162014 
+##     coef.var 
+##   0.23392618</code></pre>
+<pre class="r"><code>zfamrelm&lt;- abs(scale(maths$famrel.m))
+FSA::perc(as.numeric(zfamrelm), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 7.068063</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zfamrelm), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Math Dalc.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Math Dalc.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$Dalc.m, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   1.00000000   1.47382199   0.04534343   0.08915470   0.78540215   0.88622918 
+##     coef.var 
+##   0.60131358</code></pre>
+<pre class="r"><code>zDalcm&lt;- abs(scale(maths$Dalc.m))
+FSA::perc(as.numeric(zDalcm), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 4.450262</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zDalcm), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 2.356021</code></pre>
+<pre class="r"><code>print(&quot;GP Math Walc.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Math Walc.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$Walc.m, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   2.00000000   2.28010471   0.06563713   0.12905637   1.64574487   1.28286588 
+##     coef.var 
+##   0.56263463</code></pre>
+<pre class="r"><code>zWalcm&lt;- abs(scale(maths$Walc.m))
+FSA::perc(as.numeric(zWalcm), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 7.068063</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zWalcm), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Math health.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Math health.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$health.m, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   4.00000000   3.57853403   0.07164864   0.14087628   1.96100782   1.40035989 
+##     coef.var 
+##   0.39132222</code></pre>
+<pre class="r"><code>zhealthm&lt;- abs(scale(maths$health.m))
+FSA::perc(as.numeric(zhealthm), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zhealthm), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Math absences.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Math absences.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$absences.m, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    3.0000000    5.3193717    0.3901418    0.7671006   58.1444531    7.6252510 
+##     coef.var 
+##    1.4334872</code></pre>
+<pre class="r"><code>zabsencesm&lt;- abs(scale(maths$absences.m))
+FSA::perc(as.numeric(zabsencesm), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 3.403141</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zabsencesm), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0.7853403</code></pre>
+<pre class="r"><code>print(&quot;GP Math mG1 Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Math mG1 Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$mG1, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   10.5000000   10.8612565    0.1713583    0.3369264   11.2169202    3.3491671 
+##     coef.var 
+##    0.3083591</code></pre>
+<pre class="r"><code>zmG1&lt;- abs(scale(maths$mG1))
+FSA::perc(as.numeric(zmG1), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 3.403141</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zmG1), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Math mG2 Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Math mG2 Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$mG2, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   11.0000000   10.7120419    0.1960908    0.3855557   14.6885160    3.8325600 
+##     coef.var 
+##    0.3577805</code></pre>
+<pre class="r"><code>zmG2&lt;- abs(scale(maths$mG2))
+FSA::perc(as.numeric(zmG2), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 4.188482</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zmG2), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Math mG3 Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Math mG3 Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$mG3, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   11.0000000   10.3874346    0.2398202    0.4715368   21.9702354    4.6872418 
+##     coef.var 
+##    0.4512415</code></pre>
+<pre class="r"><code>zmG3&lt;- abs(scale(maths$mG3))
+FSA::perc(as.numeric(zmG3), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 10.4712</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zmG3), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<p>To understand outliers with our math data we calculate the skew and kurtosis</p>
+<pre class="r"><code>math_title &lt;- c(&#39;traveltime.m&#39;, 
+                &#39;studytime.m&#39;, 
+                &#39;failures.m&#39;,
+                &#39;famrel.m&#39;, 
+                &#39;freetime.m&#39;, 
+                &#39;goout.m&#39;,
+                &#39;Dalc.m&#39;, 
+                &#39;Walc.m&#39;, 
+                &#39;health.m&#39;, 
+                &#39;absences.m&#39;,
+                &#39;mG1&#39;, 
+                &#39;mG2&#39;, 
+                &#39;mG3&#39;
+                )
+math_skew &lt;- c(skewness(maths$traveltime.m), 
+               skewness(maths$studytime.m), 
+               skewness(maths$failures.m), 
+               skewness(maths$famrel.m),
+               skewness(maths$freetime.m), 
+               skewness(maths$goout.m),
+               skewness(maths$Dalc.m),
+               skewness(maths$Walc.m), 
+               skewness(maths$health.m),
+               skewness(maths$absences.m), 
+               skewness(maths$mG1),
+               skewness(maths$mG2), 
+               skewness(maths$mG3))
+math_kurtosis &lt;- c(kurtosis(maths$traveltime.m), 
+                   kurtosis(maths$studytime.m), 
+                   kurtosis(maths$failures.m), 
+                   kurtosis(maths$famrel.m),
+                   kurtosis(maths$freetime.m), 
+                   kurtosis(maths$goout.m),
+                   kurtosis(maths$Dalc.m),
+                   kurtosis(maths$Walc.m), 
+                   kurtosis(maths$health.m),
+                   kurtosis(maths$absences.m), 
+                   kurtosis(maths$mG1),
+                   kurtosis(maths$mG2), 
+                   kurtosis(maths$mG3))
+
+data &lt;- data.frame(math_title, math_skew, math_kurtosis)
+colnames(data)[1] &lt;- &quot;Attributes&quot;
+colnames(data)[2] &lt;- &quot;Skewness&quot;
+colnames(data)[3] &lt;- &quot;Kurtosis&quot;
+head(data,13)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Attributes"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Skewness"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Kurtosis"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"traveltime.m","2":"1.6366852","3":"5.463460","_rn_":"1"},{"1":"studytime.m","2":"0.6391890","3":"2.957128","_rn_":"2"},{"1":"failures.m","2":"2.7005637","3":"9.496895","_rn_":"3"},{"1":"famrel.m","2":"-0.9684514","3":"4.057879","_rn_":"4"},{"1":"freetime.m","2":"-0.1459339","3":"2.723906","_rn_":"5"},{"1":"goout.m","2":"0.1043884","3":"2.189549","_rn_":"6"},{"1":"Dalc.m","2":"2.2315103","3":"7.962771","_rn_":"7"},{"1":"Walc.m","2":"0.6319909","3":"2.245015","_rn_":"8"},{"1":"health.m","2":"-0.5260921","3":"1.989912","_rn_":"9"},{"1":"absences.m","2":"4.0274303","3":"29.446827","_rn_":"10"},{"1":"mG1","2":"0.2752714","3":"2.305943","_rn_":"11"},{"1":"mG2","2":"-0.3986132","3":"3.484845","_rn_":"12"},{"1":"mG3","2":"-0.7030809","3":"3.258566","_rn_":"13"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>To visualise these two tables we create a bar plot of all our categorical variables then histograms, QQ plots and grouped boxplot of our numeric variables.</p>
+<pre class="r"><code># we create our barchart dataset
+math_attributes = c(rep(&quot;guardian.m&quot;, 3), 
+           rep(&quot;schoolsup.m&quot;,2), 
+           rep(&quot;famsup.m&quot;,2), 
+           rep(&quot;paid.m&quot;,2), 
+           rep(&quot;activities.m&quot;, 2), 
+           rep(&quot;higher.m&quot;,2),
+           rep(&quot;romantic.m&quot;,2)
+           )
+labels2 = c(&#39;father&#39;,&#39;mother&#39;, &#39;other&#39;,
+           &#39;no&#39;, &#39;yes&#39;,
+           &#39;no&#39;,&#39;yes&#39;,
+           &#39;no&#39;, &#39;yes&#39;,
+           &#39;no&#39;,&#39;yes&#39;,
+           &#39;no&#39;, &#39;yes&#39;,
+           &#39;no&#39;,&#39;yes&#39;
+           )
+number_of = c(sum(maths$guardian.m == &#39;father&#39;),
+              sum(maths$guardian.m == &#39;mother&#39;),
+              sum(maths$guardian.m == &#39;other&#39;),
+              sum(maths$schoolsup.m == &#39;no&#39;),
+              sum(maths$schoolsup.m == &#39;yes&#39;),
+              sum(maths$famsup.m == &#39;no&#39;),
+              sum(maths$famsup.m == &#39;yes&#39;),
+              sum(maths$paid.m == &#39;no&#39;),
+              sum(maths$paid.m == &#39;yes&#39;),
+              sum(maths$activities.m == &#39;no&#39;),
+              sum(maths$activities.m == &#39;yes&#39;),
+              sum(maths$higher.m == &#39;no&#39;),
+              sum(maths$higher.m == &#39;yes&#39;),
+              sum(maths$romantic.m == &#39;no&#39;),
+              sum(maths$romantic.m == &#39;yes&#39;)
+              )
+
+data &lt;- data.frame(math_attributes,labels2,number_of)
+# Now we generate our stacked barchart
+ggplot(data,
+       alpha=factor(number_of),
+       aes(fill=labels2, y=number_of, x=math_attributes)) + 
+  geom_bar(position=&quot;stack&quot;, stat=&quot;identity&quot;) + 
+  xlab(&quot;Maths Categorical Attributes&quot;) + ylab(&quot;Frequency&quot;) +
+  labs(title=&quot;GP: Overview of Maths Categorical Attributes&quot;) +
+  theme(legend.position = &quot;bottom&quot;) +
+  scale_fill_discrete(breaks=labels2)</code></pre>
+<p><img src="7_rcode_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code>#ref https://www.ucd.ie/ecomodel/Resources/QQplots_WebVersion.html
+par(mfrow=c(5,3), mar=c(1.7,1.7,1.7,1.7))
+#hist
+x &lt;- maths$traveltime.m
+age_his&lt;-hist(x, breaks=6, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Math: Travel Time&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(age_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on the plot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;traveltime.m&quot;)
+
+#hist
+x &lt;- maths$studytime.m
+Medu_his&lt;-hist(x, breaks=4, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Math: Study Time&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;studytime.m&quot;)
+
+#hist
+x &lt;- maths$failures.m
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Math: Failures&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;failures.m&quot;)
+
+#hist
+x &lt;- maths$famrel.m
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Math: Family Relationship&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;famrel.m&quot;)
+
+#hist
+x &lt;- maths$freetime.m
+age_his&lt;-hist(x, breaks=6, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Math: Free Time&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(age_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on the plot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;freetime.m&quot;)</code></pre>
+<p><img src="7_rcode_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre class="r"><code>#hist
+x &lt;- maths$goout.m
+Medu_his&lt;-hist(x, breaks=4, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Math: Going Out&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;goout.m&quot;)
+
+#hist
+x &lt;- maths$Dalc.m
+Medu_his&lt;-hist(x, breaks=4, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Math: Weekday Alcohol&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;Dalc.m&quot;)
+
+#hist
+x &lt;- maths$Walc.m
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Math: Weekend Alcohol&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;Walc.m&quot;)
+
+#hist
+x &lt;- maths$health.m
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Math: Health&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;health.m&quot;)
+
+#hist
+x &lt;- maths$absences.m
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Math: Absences&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;absences.m&quot;)</code></pre>
+<p><img src="7_rcode_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
+<pre class="r"><code>#hist
+x &lt;- maths$mG1
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Math: Math Score 1&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;mG1&quot;)
+
+#hist
+x &lt;- maths$mG2
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Math: Math Score 2&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;mG2&quot;)
+
+#hist
+x &lt;- maths$mG3
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Math: Math Score 3&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;mG3&quot;)</code></pre>
+<p><img src="7_rcode_files/figure-html/unnamed-chunk-9-3.png" width="672" /></p>
+</div>
+<div id="school-1-gabriel-pereira-gp-portuguese-language" class="section level2">
+<h2>School 1: Gabriel Pereira (GP) Portuguese Language</h2>
+<p>To conclude with school 1 we look at Portuguese related attributes for students of school 1</p>
+<pre class="r"><code>langs = grades[school1_langs_names]
+summary(langs)</code></pre>
+<pre><code>##   guardian.p   traveltime.p    studytime.p      failures.p     schoolsup.p
+##  father: 91   Min.   :1.000   Min.   :1.000   Min.   :0.0000   no :332    
+##  mother:275   1st Qu.:1.000   1st Qu.:1.000   1st Qu.:0.0000   yes: 50    
+##  other : 16   Median :1.000   Median :2.000   Median :0.0000              
+##               Mean   :1.445   Mean   :2.039   Mean   :0.1414              
+##               3rd Qu.:2.000   3rd Qu.:2.000   3rd Qu.:0.0000              
+##               Max.   :4.000   Max.   :4.000   Max.   :3.0000              
+##  famsup.p  paid.p    activities.p higher.p  romantic.p    famrel.p    
+##  no :143   no :356   no :182      no : 18   no :259    Min.   :1.000  
+##  yes:239   yes: 26   yes:200      yes:364   yes:123    1st Qu.:4.000  
+##                                                        Median :4.000  
+##                                                        Mean   :3.942  
+##                                                        3rd Qu.:5.000  
+##                                                        Max.   :5.000  
+##    freetime.p      goout.p          Dalc.p          Walc.p         health.p    
+##  Min.   :1.00   Min.   :1.000   Min.   :1.000   Min.   :1.000   Min.   :1.000  
+##  1st Qu.:3.00   1st Qu.:2.000   1st Qu.:1.000   1st Qu.:1.000   1st Qu.:3.000  
+##  Median :3.00   Median :3.000   Median :1.000   Median :2.000   Median :4.000  
+##  Mean   :3.23   Mean   :3.118   Mean   :1.476   Mean   :2.291   Mean   :3.576  
+##  3rd Qu.:4.00   3rd Qu.:4.000   3rd Qu.:2.000   3rd Qu.:3.000   3rd Qu.:5.000  
+##  Max.   :5.00   Max.   :5.000   Max.   :5.000   Max.   :5.000   Max.   :5.000  
+##    absences.p          pG1             pG2             pG3       
+##  Min.   : 0.000   Min.   : 0.00   Min.   : 5.00   Min.   : 0.00  
+##  1st Qu.: 0.000   1st Qu.:10.00   1st Qu.:11.00   1st Qu.:11.00  
+##  Median : 2.000   Median :12.00   Median :12.00   Median :13.00  
+##  Mean   : 3.673   Mean   :12.11   Mean   :12.24   Mean   :12.52  
+##  3rd Qu.: 6.000   3rd Qu.:14.00   3rd Qu.:14.00   3rd Qu.:14.00  
+##  Max.   :32.000   Max.   :19.00   Max.   :19.00   Max.   :19.00</code></pre>
+<p>We generate GP Lang Descriptive Statistics such as mean, variance and standard deviation.s</p>
+<pre class="r"><code>print(&quot;GP Lang traveltime.p Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang traveltime.p Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$traveltime.p, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   1.00000000   1.44502618   0.03578206   0.07035504   0.48909593   0.69935394 
+##     coef.var 
+##   0.48397320</code></pre>
+<pre class="r"><code>ztraveltimep&lt;- abs(scale(langs$traveltime.p))
+FSA::perc(as.numeric(ztraveltimep), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 7.853403</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(ztraveltimep), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 2.094241</code></pre>
+<pre class="r"><code>print(&quot;GP Lang studytime.p Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang studytime.p Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$studytime.p, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   2.00000000   2.03926702   0.04326315   0.08506444   0.71498949   0.84557051 
+##     coef.var 
+##   0.41464433</code></pre>
+<pre class="r"><code>zstudytimep&lt;- abs(scale(langs$studytime.p))
+FSA::perc(as.numeric(zstudytimep), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 7.068063</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zstudytimep), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Lang failures.p Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang failures.p Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$failures.p, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   0.00000000   0.14136126   0.02626033   0.05163332   0.26342911   0.51325346 
+##     coef.var 
+##   3.63079299</code></pre>
+<pre class="r"><code>zfailuresp&lt;- abs(scale(langs$failures.p))
+FSA::perc(as.numeric(zfailuresp), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 3.403141</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zfailuresp), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 3.403141</code></pre>
+<pre class="r"><code>print(&quot;GP Lang famrel.p Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang famrel.p Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$famrel.p, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   4.00000000   3.94240838   0.04650257   0.09143382   0.82607082   0.90888438 
+##     coef.var 
+##   0.23054040</code></pre>
+<pre class="r"><code>zfamrelp&lt;- abs(scale(langs$famrel.p))
+FSA::perc(as.numeric(zfamrelp), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 6.806283</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zfamrelp), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Lang freetime.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang freetime.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$freetime.p, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   3.00000000   3.23036649   0.05040189   0.09910070   0.97041404   0.98509595 
+##     coef.var 
+##   0.30494867</code></pre>
+<pre class="r"><code>zfreetimep&lt;- abs(scale(langs$freetime.p))
+FSA::perc(as.numeric(zfreetimep), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 4.450262</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zfreetimep), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Lang goout.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang goout.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$goout.p, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   3.00000000   3.11780105   0.05800567   0.11405132   1.28529909   1.13371032 
+##     coef.var 
+##   0.36362497</code></pre>
+<pre class="r"><code>zgooutp&lt;- abs(scale(langs$goout.p))
+FSA::perc(as.numeric(zgooutp), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zgooutp), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Lang famrel.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang famrel.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$famrel.p, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   4.00000000   3.94240838   0.04650257   0.09143382   0.82607082   0.90888438 
+##     coef.var 
+##   0.23054040</code></pre>
+<pre class="r"><code>zfamrelp&lt;- abs(scale(langs$famrel.p))
+FSA::perc(as.numeric(zfamrelm), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 7.068063</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zfamrelm), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Lang Dalc.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang Dalc.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$Dalc.p, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   1.00000000   1.47643979   0.04534720   0.08916211   0.78553270   0.88630283 
+##     coef.var 
+##   0.60029730</code></pre>
+<pre class="r"><code>zDalcp&lt;- abs(scale(langs$Dalc.p))
+FSA::perc(as.numeric(zDalcp), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 4.450262</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zDalcp), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 2.356021</code></pre>
+<pre class="r"><code>print(&quot;GP Lang Walc.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang Walc.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$Walc.p, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   2.00000000   2.29057592   0.06562233   0.12902727   1.64500282   1.28257663 
+##     coef.var 
+##   0.55993631</code></pre>
+<pre class="r"><code>zWalcp&lt;- abs(scale(langs$Walc.p))
+FSA::perc(as.numeric(zWalcp), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 7.068063</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zWalcp), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Lang health.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang health.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$health.p, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   4.00000000   3.57591623   0.07184757   0.14126740   1.97191189   1.40424780 
+##     coef.var 
+##   0.39269594</code></pre>
+<pre class="r"><code>zhealthp&lt;- abs(scale(langs$health.p))
+FSA::perc(as.numeric(zhealthp), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zhealthp), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Lang absences.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang absences.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$absences.p, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    2.0000000    3.6727749    0.2510110    0.4935404   24.0684957    4.9059653 
+##     coef.var 
+##    1.3357653</code></pre>
+<pre class="r"><code>zabsencesp&lt;- abs(scale(langs$absences.p))
+FSA::perc(as.numeric(zabsencesp), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 6.544503</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zabsencesp), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 1.570681</code></pre>
+<pre class="r"><code>print(&quot;GP Lang pG1 Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang pG1 Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$pG1, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   12.0000000   12.1125654    0.1308035    0.2571872    6.5358522    2.5565313 
+##     coef.var 
+##    0.2110644</code></pre>
+<pre class="r"><code>zpG1&lt;- abs(scale(langs$pG1))
+FSA::perc(as.numeric(zpG1), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 4.712042</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zpG1), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0.2617801</code></pre>
+<pre class="r"><code>print(&quot;GP Lang pG2 Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang pG2 Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$pG2, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   12.0000000   12.2382199    0.1262913    0.2483153    6.0927086    2.4683413 
+##     coef.var 
+##    0.2016912</code></pre>
+<pre class="r"><code>zpG2&lt;- abs(scale(langs$pG2))
+FSA::perc(as.numeric(zpG2), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 4.188482</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zpG2), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Lang pG3 Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang pG3 Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$pG3, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   13.0000000   12.5157068    0.1507017    0.2963112    8.6756057    2.9454381 
+##     coef.var 
+##    0.2353393</code></pre>
+<pre class="r"><code>zpG3&lt;- abs(scale(langs$pG3))
+FSA::perc(as.numeric(zpG3), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 3.141361</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zpG3), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 1.570681</code></pre>
+<p>To understand outliers with our Portuguese student data we calculate the skew and kurtosis</p>
+<pre class="r"><code>lang_title &lt;- c(&#39;traveltime.p&#39;, 
+                &#39;studytime.p&#39;, 
+                &#39;failures.p&#39;,
+                &#39;famrel.p&#39;, 
+                &#39;freetime.p&#39;, 
+                &#39;goout.p&#39;,
+                &#39;Dalc.p&#39;, 
+                &#39;Walc.p&#39;, 
+                &#39;health.p&#39;, 
+                &#39;absences.p&#39;,
+                &#39;pG1&#39;, 
+                &#39;pG2&#39;, 
+                &#39;pG3&#39;
+                )
+lang_skew &lt;- c(skewness(langs$traveltime.p),
+               skewness(langs$studytime.p), 
+               skewness(langs$failures.p), 
+               skewness(langs$famrel.p),
+               skewness(langs$freetime.p), 
+               skewness(langs$goout.p),
+               skewness(langs$Dalc.p),
+               skewness(langs$Walc.p), 
+               skewness(langs$health.p),
+               skewness(langs$absences.p), 
+               skewness(langs$pG1),
+               skewness(langs$pG2), 
+               skewness(langs$pG3))
+lang_kurtosis &lt;- c(kurtosis(langs$traveltime.p), 
+                   kurtosis(langs$studytime.p), 
+                   kurtosis(langs$failures.p), 
+                   kurtosis(langs$famrel.p),
+                   kurtosis(langs$freetime.p), 
+                   kurtosis(langs$goout.p),
+                   kurtosis(langs$Dalc.p),
+                   kurtosis(langs$Walc.p), 
+                   kurtosis(langs$health.p),
+                   kurtosis(langs$absences.p), 
+                   kurtosis(langs$pG1),
+                   kurtosis(langs$pG2), 
+                   kurtosis(langs$pG3))
+
+data &lt;- data.frame(lang_title, lang_skew, lang_kurtosis)
+colnames(data)[1] &lt;- &quot;Attributes&quot;
+colnames(data)[2] &lt;- &quot;Skewness&quot;
+colnames(data)[3] &lt;- &quot;Kurtosis&quot;
+head(data,13)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Attributes"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Skewness"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Kurtosis"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"traveltime.p","2":"1.6253902","3":"5.379520","_rn_":"1"},{"1":"studytime.p","2":"0.6298293","3":"2.943059","_rn_":"2"},{"1":"failures.p","2":"4.1666447","3":"20.879844","_rn_":"3"},{"1":"famrel.p","2":"-0.9365301","3":"4.011004","_rn_":"4"},{"1":"freetime.p","2":"-0.1269826","3":"2.721141","_rn_":"5"},{"1":"goout.p","2":"0.1033717","3":"2.190553","_rn_":"6"},{"1":"Dalc.p","2":"2.2230330","3":"7.933885","_rn_":"7"},{"1":"Walc.p","2":"0.6194291","3":"2.229678","_rn_":"8"},{"1":"health.p","2":"-0.5172838","3":"1.971004","_rn_":"9"},{"1":"absences.p","2":"2.1740500","3":"9.226503","_rn_":"10"},{"1":"pG1","2":"-0.1529550","3":"3.718140","_rn_":"11"},{"1":"pG2","2":"0.2378201","3":"2.810882","_rn_":"12"},{"1":"pG3","2":"-0.9930205","3":"6.423848","_rn_":"13"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>To visualise these two tables we create a bar plot of all our categorical variables then histograms, QQ plots and grouped boxplot of our numeric variables.</p>
+<pre class="r"><code># we create our barchart dataset
+lang_attributes = c(rep(&quot;guardian.m&quot;, 3), 
+           rep(&quot;schoolsup.m&quot;,2), 
+           rep(&quot;famsup.m&quot;,2), 
+           rep(&quot;paid.m&quot;,2), 
+           rep(&quot;activities.m&quot;, 2), 
+           rep(&quot;higher.m&quot;,2),
+           rep(&quot;romantic.m&quot;,2)
+           )
+labels3 = c(&#39;father&#39;,&#39;mother&#39;, &#39;other&#39;,
+           &#39;no&#39;, &#39;yes&#39;,
+           &#39;no&#39;,&#39;yes&#39;,
+           &#39;no&#39;, &#39;yes&#39;,
+           &#39;no&#39;,&#39;yes&#39;,
+           &#39;no&#39;, &#39;yes&#39;,
+           &#39;no&#39;,&#39;yes&#39;
+           )
+number_of = c(sum(langs$guardian.p == &#39;father&#39;),
+              sum(langs$guardian.p == &#39;mother&#39;),
+              sum(langs$guardian.p == &#39;other&#39;),
+              sum(langs$schoolsup.p == &#39;no&#39;),
+              sum(langs$schoolsup.p == &#39;yes&#39;),
+              sum(langs$famsup.p == &#39;no&#39;),
+              sum(langs$famsup.p == &#39;yes&#39;),
+              sum(langs$paid.p == &#39;no&#39;),
+              sum(langs$paid.p == &#39;yes&#39;),
+              sum(langs$activities.p == &#39;no&#39;),
+              sum(langs$activities.p == &#39;yes&#39;),
+              sum(langs$higher.p == &#39;no&#39;),
+              sum(langs$higher.p == &#39;yes&#39;),
+              sum(langs$romantic.p == &#39;no&#39;),
+              sum(langs$romantic.p == &#39;yes&#39;)
+              )
+
+data &lt;- data.frame(lang_attributes,labels3,number_of)
+# Now we generate our stacked barchart
+ggplot(data,
+       alpha=factor(number_of),
+       aes(fill=labels3, y=number_of, x=lang_attributes)) + 
+  geom_bar(position=&quot;stack&quot;, stat=&quot;identity&quot;) + 
+  xlab(&quot;Portuguese Categorical Attributes&quot;) + ylab(&quot;Frequency&quot;) +
+  labs(title=&quot;GP: Overview of Portuguese Categorical Attributes&quot;) +
+  theme(legend.position = &quot;bottom&quot;) +
+  scale_fill_discrete(breaks=labels3)</code></pre>
+<p><img src="7_rcode_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<pre class="r"><code>#ref https://www.ucd.ie/ecomodel/Resources/QQplots_WebVersion.html
+par(mfrow=c(5,3), mar=c(1.7,1.7,1.7,1.7))
+#hist
+x &lt;- langs$traveltime.p
+age_his&lt;-hist(x, breaks=6, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Travel Time&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(age_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on the plot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;traveltime.p&quot;)
+
+#hist
+x &lt;- langs$studytime.p
+Medu_his&lt;-hist(x, breaks=4, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Study Time&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;studytime.p&quot;)
+
+#hist
+x &lt;- langs$failures.p
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Failures&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;failures.p&quot;)
+
+#hist
+x &lt;- langs$famrel.p
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Family Relationship&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;famrel.p&quot;)
+
+#hist
+x &lt;- langs$freetime.p
+age_his&lt;-hist(x, breaks=6, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Free Time&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(age_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on the plot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;age&quot;)</code></pre>
+<p><img src="7_rcode_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<pre class="r"><code>#hist
+x &lt;- langs$goout.p
+Medu_his&lt;-hist(x, breaks=4, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Going Out&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;goout.p&quot;)
+
+#hist
+x &lt;- langs$Dalc.p
+Medu_his&lt;-hist(x, breaks=4, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Weekday Alcohol&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;Dalc.p&quot;)
+
+#hist
+x &lt;- langs$Walc.p
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Weekend Alcohol&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;Walc.p&quot;)
+
+#hist
+x &lt;- langs$health.p
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Health&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;health.p&quot;)
+
+#hist
+x &lt;- langs$absences.p
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Absences&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;absences.p&quot;)</code></pre>
+<p><img src="7_rcode_files/figure-html/unnamed-chunk-14-2.png" width="672" /></p>
+<pre class="r"><code>#hist
+x &lt;- langs$pG1
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Language Score 1&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;pG1&quot;)
+
+#hist
+x &lt;- langs$pG2
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Language Score 2&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;pG2&quot;)
+
+#hist
+x &lt;- langs$pG3
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Language Score 3&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;pG3&quot;)</code></pre>
+<p><img src="7_rcode_files/figure-html/unnamed-chunk-14-3.png" width="672" /></p>
+</div>
+<div id="school-2-students-mousinho-da-silveira-ms-students" class="section level2">
+<h2>School 2: Students Mousinho da Silveira (MS) Students</h2>
+<p>Now we examine our students from school 1</p>
+<pre class="r"><code>students = grades[school2_student_names]
+summary(students)</code></pre>
+<pre><code>##  sex          age        address famsize   Pstatus      Medu      
+##  F:198   Min.   :15.00   R: 81   GT3:278   A: 38   Min.   :0.000  
+##  M:184   1st Qu.:16.00   U:301   LE3:104   T:344   1st Qu.:2.000  
+##          Median :17.00                             Median :3.000  
+##          Mean   :16.59                             Mean   :2.806  
+##          3rd Qu.:17.00                             3rd Qu.:4.000  
+##          Max.   :22.00                             Max.   :4.000  
+##       Fedu             Mjob           Fjob            reason    nursery  
+##  Min.   :0.000   at_home : 53   at_home : 16   course    :140   no : 72  
+##  1st Qu.:2.000   health  : 33   health  : 17   home      :110   yes:310  
+##  Median :3.000   other   :138   other   :211   other     : 34            
+##  Mean   :2.565   services: 96   services:107   reputation: 98            
+##  3rd Qu.:4.000   teacher : 62   teacher : 31                             
+##  Max.   :4.000                                                           
+##  internet 
+##  no : 58  
+##  yes:324  
+##           
+##           
+##           
+## </code></pre>
+<p>We generate MS Student Descriptive Statistics such as mean, variance and standard deviation.s</p>
+<pre class="r"><code>print(&quot;MS Student Age Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;MS Student Age Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(students$age, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##  17.00000000  16.58638743   0.06003995   0.11805115   1.37703206   1.17347009 
+##     coef.var 
+##   0.07074899</code></pre>
+<pre class="r"><code>zage&lt;- abs(scale(students$age))
+
+FSA::perc(as.numeric(zage), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 3.403141</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zage), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0.2617801</code></pre>
+<pre class="r"><code>print(&quot;MS Student Mother&#39;s Education Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;MS Student Mother&#39;s Education Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(students$Medu, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   3.00000000   2.80628272   0.05558407   0.10928995   1.18022289   1.08638064 
+##     coef.var 
+##   0.38712444</code></pre>
+<pre class="r"><code>zMedu&lt;- abs(scale(students$Medu))
+
+FSA::perc(as.numeric(zMedu), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0.7853403</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zMedu), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;MS Student Father&#39;s Education Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;MS Student Father&#39;s Education Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(students$Fedu, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   3.00000000   2.56544503   0.05608853   0.11028181   1.20174245   1.09624014 
+##     coef.var 
+##   0.42730993</code></pre>
+<pre class="r"><code>zFedu&lt;- abs(scale(students$Fedu))
+
+FSA::perc(as.numeric(zFedu), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0.5235602</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zFedu), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<p>To understand outliers with our student data we calculate the skew and kurtosis</p>
+<pre class="r"><code>student_title &lt;- c(&#39;age&#39;, &#39;Medu&#39;, &#39;Fedu&#39;)
+student_skew &lt;- c(skewness(students$age), skewness(students$Medu), skewness(students$Fedu))
+student_kurtosis &lt;- c(kurtosis(students$age), kurtosis(students$Medu), kurtosis(students$Fedu))
+
+
+data &lt;- data.frame(student_title, student_skew, student_kurtosis)
+colnames(data)[1] &lt;- &quot;Attributes&quot;
+colnames(data)[2] &lt;- &quot;Skewness&quot;
+colnames(data)[3] &lt;- &quot;Kurtosis&quot;
+head(data)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Attributes"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Skewness"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Kurtosis"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"age","2":"0.39689830","3":"3.080954","_rn_":"1"},{"1":"Medu","2":"-0.38514449","3":"1.973527","_rn_":"2"},{"1":"Fedu","2":"-0.09526141","3":"1.790475","_rn_":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>To visualise these two tables we create a bar plot of all our categorical variables then histograms, QQ plots and grouped boxplot of our numeric variables.</p>
+<pre class="r"><code># we create our barchart dataset
+student_attributes = c(rep(&quot;sex&quot;, 2), 
+           rep(&quot;address&quot;,2), 
+           rep(&quot;famsize&quot;,2), 
+           rep(&quot;Pstatus&quot;,2), 
+           rep(&quot;Mjob&quot;, 5), 
+           rep(&quot;Fjob&quot;,5),
+           rep(&quot;reason&quot;,4),
+           rep(&quot;nursery&quot;,2), 
+           rep(&#39;internet&#39;,2)
+           )
+labels4 = c(&#39;F&#39;,&#39;M&#39;, 
+           &#39;R&#39;,&#39;U&#39;, 
+           &#39;GT3&#39;, &#39;LE3&#39;, 
+           &#39;A&#39;,&#39;T&#39;,
+           &#39;at_home&#39;,&#39;health&#39;,&#39;other&#39;,&#39;services&#39;,&#39;teacher&#39;,
+           &#39;at_home&#39;,&#39;health&#39;,&#39;other&#39;,&#39;services&#39;,&#39;teacher&#39;,
+           &#39;course&#39;,&#39;home&#39;,&#39;other&#39;,&#39;reputation&#39;,
+           &#39;no&#39;, &#39;yes&#39;,
+           &#39;no&#39;,&#39;yes&#39;
+           )
+number_of = c(sum(students$sex == &#39;F&#39;),
+              sum(students$sex == &#39;M&#39;),
+              sum(students$address == &#39;R&#39;),
+              sum(students$address == &#39;U&#39;),
+              sum(students$famsize == &#39;GT3&#39;),
+              sum(students$famsize == &#39;LE3&#39;),
+              sum(students$Pstatus == &#39;A&#39;),
+              sum(students$Pstatus == &#39;T&#39;),
+              sum(students$Mjob == &#39;at_home&#39;),
+              sum(students$Mjob == &#39;health&#39;), 
+              sum(students$Mjob == &#39;other&#39;),
+              sum(students$Mjob == &#39;services&#39;),
+              sum(students$Fjob == &#39;teacher&#39;),
+              sum(students$Fjob == &#39;at_home&#39;),
+              sum(students$Fjob == &#39;health&#39;), 
+              sum(students$Fjob == &#39;other&#39;),
+              sum(students$Fjob == &#39;services&#39;),
+              sum(students$Fjob == &#39;teacher&#39;),
+              sum(students$reason == &#39;course&#39;), 
+              sum(students$reason == &#39;home&#39;),
+              sum(students$reason == &#39;other&#39;),
+              sum(students$reason == &#39;reputation&#39;),
+              sum(students$nursery == &#39;no&#39;),
+              sum(students$nursery == &#39;yes&#39;),
+              sum(students$internet == &#39;no&#39;),
+              sum(students$internet == &#39;yes&#39;))
+
+data &lt;- data.frame(student_attributes,labels4,number_of)
+# Now we generate our stacked barchart
+ggplot(data,
+       alpha=factor(number_of),
+       aes(fill=labels4, y=number_of, x=student_attributes)) + 
+  geom_bar(position=&quot;stack&quot;, stat=&quot;identity&quot;) + 
+  xlab(&quot;Student Categorical Attributes&quot;) + ylab(&quot;Frequency&quot;) +
+  labs(title=&quot;MS School: Overview of Student Categorical Attributes&quot;) +
+  theme(legend.position = &quot;bottom&quot;) +
+  scale_fill_discrete(breaks=labels4)</code></pre>
+<p><img src="7_rcode_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<pre class="r"><code>#ref https://www.ucd.ie/ecomodel/Resources/QQplots_WebVersion.html
+par(mfrow=c(3,3))
+
+#hist
+x &lt;- students$age
+age_his&lt;-hist(x, breaks=6, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Age&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(age_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on the plot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;age Boxplot&quot;)
+
+#hist
+x &lt;- students$Medu
+Medu_his&lt;-hist(x, breaks=4, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Medu&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;Medu Boxplot&quot;)
+
+#hist
+x &lt;- students$Fedu
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Fedu&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;Fedu Boxplot&quot;)</code></pre>
+<p><img src="7_rcode_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+</div>
+<div id="school-2-students-mousinho-da-silveira-ms-maths" class="section level2">
+<h2>School 2: Students Mousinho da Silveira (MS) Maths</h2>
+<p>Now we examine math related attributes for students from school 1</p>
+<pre class="r"><code>maths = grades[school2_maths_names]
+summary(maths)</code></pre>
+<pre><code>##   guardian.m   traveltime.m    studytime.m      failures.m     schoolsup.m
+##  father: 91   Min.   :1.000   Min.   :1.000   Min.   :0.0000   no :331    
+##  mother:275   1st Qu.:1.000   1st Qu.:1.000   1st Qu.:0.0000   yes: 51    
+##  other : 16   Median :1.000   Median :2.000   Median :0.0000              
+##               Mean   :1.442   Mean   :2.034   Mean   :0.2906              
+##               3rd Qu.:2.000   3rd Qu.:2.000   3rd Qu.:0.0000              
+##               Max.   :4.000   Max.   :4.000   Max.   :3.0000              
+##  famsup.m  paid.m    activities.m higher.m  romantic.m    famrel.m   
+##  no :144   no :205   no :181      no : 18   no :261    Min.   :1.00  
+##  yes:238   yes:177   yes:201      yes:364   yes:121    1st Qu.:4.00  
+##                                                        Median :4.00  
+##                                                        Mean   :3.94  
+##                                                        3rd Qu.:5.00  
+##                                                        Max.   :5.00  
+##    freetime.m       goout.m          Dalc.m          Walc.m        health.m    
+##  Min.   :1.000   Min.   :1.000   Min.   :1.000   Min.   :1.00   Min.   :1.000  
+##  1st Qu.:3.000   1st Qu.:2.000   1st Qu.:1.000   1st Qu.:1.00   1st Qu.:3.000  
+##  Median :3.000   Median :3.000   Median :1.000   Median :2.00   Median :4.000  
+##  Mean   :3.223   Mean   :3.113   Mean   :1.474   Mean   :2.28   Mean   :3.579  
+##  3rd Qu.:4.000   3rd Qu.:4.000   3rd Qu.:2.000   3rd Qu.:3.00   3rd Qu.:5.000  
+##  Max.   :5.000   Max.   :5.000   Max.   :5.000   Max.   :5.00   Max.   :5.000  
+##    absences.m          mG1             mG2             mG3       
+##  Min.   : 0.000   Min.   : 3.00   Min.   : 0.00   Min.   : 0.00  
+##  1st Qu.: 0.000   1st Qu.: 8.00   1st Qu.: 8.25   1st Qu.: 8.00  
+##  Median : 3.000   Median :10.50   Median :11.00   Median :11.00  
+##  Mean   : 5.319   Mean   :10.86   Mean   :10.71   Mean   :10.39  
+##  3rd Qu.: 8.000   3rd Qu.:13.00   3rd Qu.:13.00   3rd Qu.:14.00  
+##  Max.   :75.000   Max.   :19.00   Max.   :19.00   Max.   :20.00</code></pre>
+<p>We generate MS Math Descriptive Statistics such as mean, variance and standard deviation.s</p>
+<pre class="r"><code>print(&quot;MS Math traveltime.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;MS Math traveltime.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$traveltime.m, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   1.00000000   1.44240838   0.03557865   0.06995510   0.48355114   0.69537841 
+##     coef.var 
+##   0.48209538</code></pre>
+<pre class="r"><code>ztraveltime&lt;- abs(scale(maths$traveltime.m))
+FSA::perc(as.numeric(ztraveltime), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 7.591623</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(ztraveltime), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 2.094241</code></pre>
+<pre class="r"><code>print(&quot;MS Student studytime.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;MS Student studytime.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$studytime.m, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   2.00000000   2.03403141   0.04327479   0.08508732   0.71537426   0.84579800 
+##     coef.var 
+##   0.41582347</code></pre>
+<pre class="r"><code>zstudytimem&lt;- abs(scale(maths$studytime.m))
+FSA::perc(as.numeric(zstudytimem), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 7.068063</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zstudytimem), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;MS Math failures.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;MS Math failures.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$failures.m, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   0.00000000   0.29057592   0.03732347   0.07338578   0.53214192   0.72948059 
+##     coef.var 
+##   2.51046472</code></pre>
+<pre class="r"><code>zfailuresm&lt;- abs(scale(maths$failures.m))
+FSA::perc(as.numeric(zfailuresm), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 7.329843</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zfailuresm), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 4.450262</code></pre>
+<pre class="r"><code>print(&quot;MS Math famrel.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;MS Math famrel.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$famrel.m, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   4.00000000   3.93979058   0.04715419   0.09271503   0.84938368   0.92162014 
+##     coef.var 
+##   0.23392618</code></pre>
+<pre class="r"><code>zfamrelm&lt;- abs(scale(maths$famrel.m))
+FSA::perc(as.numeric(zfamrelm), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 7.068063</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zfamrelm), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;MS Math freetime.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;MS Math freetime.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$freetime.m, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    3.0000000    3.2225131    0.0505624    0.0994163    0.9766047    0.9882331 
+##     coef.var 
+##    0.3066654</code></pre>
+<pre class="r"><code>zfreetimem&lt;- abs(scale(maths$freetime.m))
+FSA::perc(as.numeric(zfreetimem), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 4.712042</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zfreetimem), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;MS Math goout.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;MS Math goout.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$goout.m, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   3.00000000   3.11256545   0.05791443   0.11387193   1.28125902   1.13192713 
+##     coef.var 
+##   0.36366372</code></pre>
+<pre class="r"><code>zgooutm&lt;- abs(scale(maths$goout.m))
+FSA::perc(as.numeric(zgooutm), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zgooutm), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;MS Math famrel.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;MS Math famrel.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$famrel.m, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   4.00000000   3.93979058   0.04715419   0.09271503   0.84938368   0.92162014 
+##     coef.var 
+##   0.23392618</code></pre>
+<pre class="r"><code>zfamrelm&lt;- abs(scale(maths$famrel.m))
+FSA::perc(as.numeric(zfamrelm), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 7.068063</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zfamrelm), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;MS Math Dalc.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;MS Math Dalc.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$Dalc.m, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   1.00000000   1.47382199   0.04534343   0.08915470   0.78540215   0.88622918 
+##     coef.var 
+##   0.60131358</code></pre>
+<pre class="r"><code>zDalcm&lt;- abs(scale(maths$Dalc.m))
+FSA::perc(as.numeric(zDalcm), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 4.450262</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zDalcm), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 2.356021</code></pre>
+<pre class="r"><code>print(&quot;MS Math Walc.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;MS Math Walc.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$Walc.m, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   2.00000000   2.28010471   0.06563713   0.12905637   1.64574487   1.28286588 
+##     coef.var 
+##   0.56263463</code></pre>
+<pre class="r"><code>zWalcm&lt;- abs(scale(maths$Walc.m))
+FSA::perc(as.numeric(zWalcm), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 7.068063</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zWalcm), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;MS Math health.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;MS Math health.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$health.m, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   4.00000000   3.57853403   0.07164864   0.14087628   1.96100782   1.40035989 
+##     coef.var 
+##   0.39132222</code></pre>
+<pre class="r"><code>zhealthm&lt;- abs(scale(maths$health.m))
+FSA::perc(as.numeric(zhealthm), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zhealthm), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;MS Math absences.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;MS Math absences.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$absences.m, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    3.0000000    5.3193717    0.3901418    0.7671006   58.1444531    7.6252510 
+##     coef.var 
+##    1.4334872</code></pre>
+<pre class="r"><code>zabsencesm&lt;- abs(scale(maths$absences.m))
+FSA::perc(as.numeric(zabsencesm), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 3.403141</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zabsencesm), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0.7853403</code></pre>
+<pre class="r"><code>print(&quot;MS Math mG1 Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;MS Math mG1 Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$mG1, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   10.5000000   10.8612565    0.1713583    0.3369264   11.2169202    3.3491671 
+##     coef.var 
+##    0.3083591</code></pre>
+<pre class="r"><code>zmG1&lt;- abs(scale(maths$mG1))
+FSA::perc(as.numeric(zmG1), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 3.403141</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zmG1), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;MS Math mG2 Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;MS Math mG2 Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$mG2, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   11.0000000   10.7120419    0.1960908    0.3855557   14.6885160    3.8325600 
+##     coef.var 
+##    0.3577805</code></pre>
+<pre class="r"><code>zmG2&lt;- abs(scale(maths$mG2))
+FSA::perc(as.numeric(zmG2), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 4.188482</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zmG2), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;MS Math mG3 Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;MS Math mG3 Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(maths$mG3, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   11.0000000   10.3874346    0.2398202    0.4715368   21.9702354    4.6872418 
+##     coef.var 
+##    0.4512415</code></pre>
+<pre class="r"><code>zmG3&lt;- abs(scale(maths$mG3))
+FSA::perc(as.numeric(zmG3), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 10.4712</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zmG3), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<p>To understand outliers with our math data we calculate the skew and kurtosis</p>
+<pre class="r"><code>math_title &lt;- c(&#39;traveltime.m&#39;, 
+                &#39;studytime.m&#39;, 
+                &#39;failures.m&#39;,
+                &#39;famrel.m&#39;, 
+                &#39;freetime.m&#39;, 
+                &#39;goout.m&#39;,
+                &#39;Dalc.m&#39;, 
+                &#39;Walc.m&#39;, 
+                &#39;health.m&#39;, 
+                &#39;absences.m&#39;,
+                &#39;mG1&#39;, 
+                &#39;mG2&#39;, 
+                &#39;mG3&#39;
+                )
+math_skew &lt;- c(skewness(maths$traveltime.m), 
+               skewness(maths$studytime.m), 
+               skewness(maths$failures.m), 
+               skewness(maths$famrel.m),
+               skewness(maths$freetime.m), 
+               skewness(maths$goout.m),
+               skewness(maths$Dalc.m),
+               skewness(maths$Walc.m), 
+               skewness(maths$health.m),
+               skewness(maths$absences.m), 
+               skewness(maths$mG1),
+               skewness(maths$mG2), 
+               skewness(maths$mG3))
+math_kurtosis &lt;- c(kurtosis(maths$traveltime.m), 
+                   kurtosis(maths$studytime.m), 
+                   kurtosis(maths$failures.m), 
+                   kurtosis(maths$famrel.m),
+                   kurtosis(maths$freetime.m), 
+                   kurtosis(maths$goout.m),
+                   kurtosis(maths$Dalc.m),
+                   kurtosis(maths$Walc.m), 
+                   kurtosis(maths$health.m),
+                   kurtosis(maths$absences.m), 
+                   kurtosis(maths$mG1),
+                   kurtosis(maths$mG2), 
+                   kurtosis(maths$mG3))
+
+data &lt;- data.frame(math_title, math_skew, math_kurtosis)
+colnames(data)[1] &lt;- &quot;Attributes&quot;
+colnames(data)[2] &lt;- &quot;Skewness&quot;
+colnames(data)[3] &lt;- &quot;Kurtosis&quot;
+head(data,13)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Attributes"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Skewness"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Kurtosis"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"traveltime.m","2":"1.6366852","3":"5.463460","_rn_":"1"},{"1":"studytime.m","2":"0.6391890","3":"2.957128","_rn_":"2"},{"1":"failures.m","2":"2.7005637","3":"9.496895","_rn_":"3"},{"1":"famrel.m","2":"-0.9684514","3":"4.057879","_rn_":"4"},{"1":"freetime.m","2":"-0.1459339","3":"2.723906","_rn_":"5"},{"1":"goout.m","2":"0.1043884","3":"2.189549","_rn_":"6"},{"1":"Dalc.m","2":"2.2315103","3":"7.962771","_rn_":"7"},{"1":"Walc.m","2":"0.6319909","3":"2.245015","_rn_":"8"},{"1":"health.m","2":"-0.5260921","3":"1.989912","_rn_":"9"},{"1":"absences.m","2":"4.0274303","3":"29.446827","_rn_":"10"},{"1":"mG1","2":"0.2752714","3":"2.305943","_rn_":"11"},{"1":"mG2","2":"-0.3986132","3":"3.484845","_rn_":"12"},{"1":"mG3","2":"-0.7030809","3":"3.258566","_rn_":"13"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>To visualise these two tables we create a bar plot of all our categorical variables then histograms, QQ plots and grouped boxplot of our numeric variables.</p>
+<pre class="r"><code># we create our barchart dataset
+math_attributes = c(rep(&quot;guardian.m&quot;, 3), 
+           rep(&quot;schoolsup.m&quot;,2), 
+           rep(&quot;famsup.m&quot;,2), 
+           rep(&quot;paid.m&quot;,2), 
+           rep(&quot;activities.m&quot;, 2), 
+           rep(&quot;higher.m&quot;,2),
+           rep(&quot;romantic.m&quot;,2)
+           )
+labels5 = c(&#39;father&#39;,&#39;mother&#39;, &#39;other&#39;,
+           &#39;no&#39;, &#39;yes&#39;,
+           &#39;no&#39;,&#39;yes&#39;,
+           &#39;no&#39;, &#39;yes&#39;,
+           &#39;no&#39;,&#39;yes&#39;,
+           &#39;no&#39;, &#39;yes&#39;,
+           &#39;no&#39;,&#39;yes&#39;
+           )
+number_of = c(sum(maths$guardian.m == &#39;father&#39;),
+              sum(maths$guardian.m == &#39;mother&#39;),
+              sum(maths$guardian.m == &#39;other&#39;),
+              sum(maths$schoolsup.m == &#39;no&#39;),
+              sum(maths$schoolsup.m == &#39;yes&#39;),
+              sum(maths$famsup.m == &#39;no&#39;),
+              sum(maths$famsup.m == &#39;yes&#39;),
+              sum(maths$paid.m == &#39;no&#39;),
+              sum(maths$paid.m == &#39;yes&#39;),
+              sum(maths$activities.m == &#39;no&#39;),
+              sum(maths$activities.m == &#39;yes&#39;),
+              sum(maths$higher.m == &#39;no&#39;),
+              sum(maths$higher.m == &#39;yes&#39;),
+              sum(maths$romantic.m == &#39;no&#39;),
+              sum(maths$romantic.m == &#39;yes&#39;)
+              )
+
+data &lt;- data.frame(math_attributes,labels5,number_of)
+# Now we generate our stacked barchart
+ggplot(data,
+       alpha=factor(number_of),
+       aes(fill=labels5, y=number_of, x=math_attributes)) + 
+  geom_bar(position=&quot;stack&quot;, stat=&quot;identity&quot;) + 
+  xlab(&quot;Maths Categorical Attributes&quot;) + ylab(&quot;Frequency&quot;) +
+  labs(title=&quot;MP: Overview of Maths Categorical Attributes&quot;) +
+  theme(legend.position = &quot;bottom&quot;) +
+  scale_fill_discrete(breaks=labels5)</code></pre>
+<p><img src="7_rcode_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<pre class="r"><code>#ref https://www.ucd.ie/ecomodel/Resources/QQplots_WebVersion.html
+par(mfrow=c(5,3), mar=c(1.7,1.7,1.7,1.7))
+#hist
+x &lt;- maths$traveltime.m
+age_his&lt;-hist(x, breaks=6, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Math: Travel Time&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(age_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on the plot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;traveltime.m&quot;)
+
+#hist
+x &lt;- maths$studytime.m
+Medu_his&lt;-hist(x, breaks=4, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Math: Study Time&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;studytime.m&quot;)
+
+#hist
+x &lt;- maths$failures.m
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Math: Failures&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;failures.m&quot;)
+
+#hist
+x &lt;- maths$famrel.m
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Math: Family Relationship&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;famrel.m&quot;)
+
+#hist
+x &lt;- maths$freetime.m
+age_his&lt;-hist(x, breaks=6, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Math: Free Time&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(age_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on the plot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;freetime.m&quot;)</code></pre>
+<p><img src="7_rcode_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<pre class="r"><code>#hist
+x &lt;- maths$goout.m
+Medu_his&lt;-hist(x, breaks=4, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Maths: Going Out&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;goout.m&quot;)
+
+#hist
+x &lt;- maths$Dalc.m
+Medu_his&lt;-hist(x, breaks=4, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Maths: Weekday Alcohol&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;Dalc.m&quot;)
+
+#hist
+x &lt;- maths$Walc.m
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Maths: Weekend Alcohol&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;Walc.m&quot;)
+
+#hist
+x &lt;- maths$health.m
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Maths: Health&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;health.m&quot;)
+
+#hist
+x &lt;- maths$absences.m
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Maths: Absences&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;absences.m&quot;)</code></pre>
+<p><img src="7_rcode_files/figure-html/unnamed-chunk-24-2.png" width="672" /></p>
+<pre class="r"><code>#hist
+x &lt;- maths$mG1
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Maths: Math Score 1&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;mG1&quot;)
+
+#hist
+x &lt;- maths$mG2
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Maths: Math Score 2&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;mG2&quot;)
+
+#hist
+x &lt;- maths$mG3
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Maths: Math Score 3&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;mG3&quot;)</code></pre>
+<p><img src="7_rcode_files/figure-html/unnamed-chunk-24-3.png" width="672" /></p>
+</div>
+<div id="school-2-students-mousinho-da-silveira-ms-language" class="section level2">
+<h2>School 2: Students Mousinho da Silveira (MS) Language</h2>
+<p>Now we examine math related attributes for students from school 1</p>
+<pre class="r"><code>langs = grades[school2_langs_names]
+summary(langs)</code></pre>
+<pre><code>##   guardian.p   traveltime.p    studytime.p      failures.p     schoolsup.p
+##  father: 91   Min.   :1.000   Min.   :1.000   Min.   :0.0000   no :332    
+##  mother:275   1st Qu.:1.000   1st Qu.:1.000   1st Qu.:0.0000   yes: 50    
+##  other : 16   Median :1.000   Median :2.000   Median :0.0000              
+##               Mean   :1.445   Mean   :2.039   Mean   :0.1414              
+##               3rd Qu.:2.000   3rd Qu.:2.000   3rd Qu.:0.0000              
+##               Max.   :4.000   Max.   :4.000   Max.   :3.0000              
+##  famsup.p  paid.p    activities.p higher.p  romantic.p    famrel.p    
+##  no :143   no :356   no :182      no : 18   no :259    Min.   :1.000  
+##  yes:239   yes: 26   yes:200      yes:364   yes:123    1st Qu.:4.000  
+##                                                        Median :4.000  
+##                                                        Mean   :3.942  
+##                                                        3rd Qu.:5.000  
+##                                                        Max.   :5.000  
+##    freetime.p      goout.p          Dalc.p          Walc.p         health.p    
+##  Min.   :1.00   Min.   :1.000   Min.   :1.000   Min.   :1.000   Min.   :1.000  
+##  1st Qu.:3.00   1st Qu.:2.000   1st Qu.:1.000   1st Qu.:1.000   1st Qu.:3.000  
+##  Median :3.00   Median :3.000   Median :1.000   Median :2.000   Median :4.000  
+##  Mean   :3.23   Mean   :3.118   Mean   :1.476   Mean   :2.291   Mean   :3.576  
+##  3rd Qu.:4.00   3rd Qu.:4.000   3rd Qu.:2.000   3rd Qu.:3.000   3rd Qu.:5.000  
+##  Max.   :5.00   Max.   :5.000   Max.   :5.000   Max.   :5.000   Max.   :5.000  
+##    absences.p          pG1             pG2             pG3       
+##  Min.   : 0.000   Min.   : 0.00   Min.   : 5.00   Min.   : 0.00  
+##  1st Qu.: 0.000   1st Qu.:10.00   1st Qu.:11.00   1st Qu.:11.00  
+##  Median : 2.000   Median :12.00   Median :12.00   Median :13.00  
+##  Mean   : 3.673   Mean   :12.11   Mean   :12.24   Mean   :12.52  
+##  3rd Qu.: 6.000   3rd Qu.:14.00   3rd Qu.:14.00   3rd Qu.:14.00  
+##  Max.   :32.000   Max.   :19.00   Max.   :19.00   Max.   :19.00</code></pre>
+<p>We generate MS Lang Descriptive Statistics such as mean, variance and standard deviation.s</p>
+<pre class="r"><code>print(&quot;GP Lang traveltime.p Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang traveltime.p Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$traveltime.p, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   1.00000000   1.44502618   0.03578206   0.07035504   0.48909593   0.69935394 
+##     coef.var 
+##   0.48397320</code></pre>
+<pre class="r"><code>ztraveltimep&lt;- abs(scale(langs$traveltime.p))
+FSA::perc(as.numeric(ztraveltimep), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 7.853403</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(ztraveltimep), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 2.094241</code></pre>
+<pre class="r"><code>print(&quot;GP Lang studytime.p Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang studytime.p Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$studytime.p, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   2.00000000   2.03926702   0.04326315   0.08506444   0.71498949   0.84557051 
+##     coef.var 
+##   0.41464433</code></pre>
+<pre class="r"><code>zstudytimep&lt;- abs(scale(langs$studytime.p))
+FSA::perc(as.numeric(zstudytimep), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 7.068063</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zstudytimep), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Lang failures.p Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang failures.p Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$failures.p, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   0.00000000   0.14136126   0.02626033   0.05163332   0.26342911   0.51325346 
+##     coef.var 
+##   3.63079299</code></pre>
+<pre class="r"><code>zfailuresp&lt;- abs(scale(langs$failures.p))
+FSA::perc(as.numeric(zfailuresp), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 3.403141</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zfailuresp), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 3.403141</code></pre>
+<pre class="r"><code>print(&quot;GP Lang famrel.p Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang famrel.p Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$famrel.p, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   4.00000000   3.94240838   0.04650257   0.09143382   0.82607082   0.90888438 
+##     coef.var 
+##   0.23054040</code></pre>
+<pre class="r"><code>zfamrelp&lt;- abs(scale(langs$famrel.p))
+FSA::perc(as.numeric(zfamrelp), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 6.806283</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zfamrelp), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Lang freetime.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang freetime.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$freetime.p, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   3.00000000   3.23036649   0.05040189   0.09910070   0.97041404   0.98509595 
+##     coef.var 
+##   0.30494867</code></pre>
+<pre class="r"><code>zfreetimep&lt;- abs(scale(langs$freetime.p))
+FSA::perc(as.numeric(zfreetimep), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 4.450262</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zfreetimep), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Lang goout.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang goout.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$goout.p, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   3.00000000   3.11780105   0.05800567   0.11405132   1.28529909   1.13371032 
+##     coef.var 
+##   0.36362497</code></pre>
+<pre class="r"><code>zgooutp&lt;- abs(scale(langs$goout.p))
+FSA::perc(as.numeric(zgooutp), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zgooutp), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Lang famrel.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang famrel.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$famrel.p, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   4.00000000   3.94240838   0.04650257   0.09143382   0.82607082   0.90888438 
+##     coef.var 
+##   0.23054040</code></pre>
+<pre class="r"><code>zfamrelp&lt;- abs(scale(langs$famrel.p))
+FSA::perc(as.numeric(zfamrelm), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 7.068063</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zfamrelm), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Lang Dalc.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang Dalc.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$Dalc.p, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   1.00000000   1.47643979   0.04534720   0.08916211   0.78553270   0.88630283 
+##     coef.var 
+##   0.60029730</code></pre>
+<pre class="r"><code>zDalcp&lt;- abs(scale(langs$Dalc.p))
+FSA::perc(as.numeric(zDalcp), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 4.450262</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zDalcp), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 2.356021</code></pre>
+<pre class="r"><code>print(&quot;GP Lang Walc.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang Walc.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$Walc.p, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   2.00000000   2.29057592   0.06562233   0.12902727   1.64500282   1.28257663 
+##     coef.var 
+##   0.55993631</code></pre>
+<pre class="r"><code>zWalcp&lt;- abs(scale(langs$Walc.p))
+FSA::perc(as.numeric(zWalcp), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 7.068063</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zWalcp), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Lang health.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang health.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$health.p, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   4.00000000   3.57591623   0.07184757   0.14126740   1.97191189   1.40424780 
+##     coef.var 
+##   0.39269594</code></pre>
+<pre class="r"><code>zhealthp&lt;- abs(scale(langs$health.p))
+FSA::perc(as.numeric(zhealthp), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zhealthp), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Lang absences.m Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang absences.m Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$absences.p, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##    2.0000000    3.6727749    0.2510110    0.4935404   24.0684957    4.9059653 
+##     coef.var 
+##    1.3357653</code></pre>
+<pre class="r"><code>zabsencesp&lt;- abs(scale(langs$absences.p))
+FSA::perc(as.numeric(zabsencesp), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 6.544503</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zabsencesp), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 1.570681</code></pre>
+<pre class="r"><code>print(&quot;GP Lang pG1 Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang pG1 Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$pG1, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   12.0000000   12.1125654    0.1308035    0.2571872    6.5358522    2.5565313 
+##     coef.var 
+##    0.2110644</code></pre>
+<pre class="r"><code>zpG1&lt;- abs(scale(langs$pG1))
+FSA::perc(as.numeric(zpG1), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 4.712042</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zpG1), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0.2617801</code></pre>
+<pre class="r"><code>print(&quot;GP Lang pG2 Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang pG2 Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$pG2, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   12.0000000   12.2382199    0.1262913    0.2483153    6.0927086    2.4683413 
+##     coef.var 
+##    0.2016912</code></pre>
+<pre class="r"><code>zpG2&lt;- abs(scale(langs$pG2))
+FSA::perc(as.numeric(zpG2), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 4.188482</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zpG2), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>print(&quot;GP Lang pG3 Descriptive Statistics&quot;)</code></pre>
+<pre><code>## [1] &quot;GP Lang pG3 Descriptive Statistics&quot;</code></pre>
+<pre class="r"><code>pastecs::stat.desc(langs$pG3, basic=F)</code></pre>
+<pre><code>##       median         mean      SE.mean CI.mean.0.95          var      std.dev 
+##   13.0000000   12.5157068    0.1507017    0.2963112    8.6756057    2.9454381 
+##     coef.var 
+##    0.2353393</code></pre>
+<pre class="r"><code>zpG3&lt;- abs(scale(langs$pG3))
+FSA::perc(as.numeric(zpG3), 1.96, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 3.141361</code></pre>
+<pre class="r"><code>FSA::perc(as.numeric(zpG3), 3.29, &quot;gt&quot;)</code></pre>
+<pre><code>## [1] 1.570681</code></pre>
+<p>To understand outliers with our student data we calculate the skew and kurtosis</p>
+<pre class="r"><code>lang_title &lt;- c(&#39;traveltime.p&#39;, 
+                &#39;studytime.p&#39;, 
+                &#39;failures.p&#39;,
+                &#39;famrel.p&#39;, 
+                &#39;freetime.p&#39;, 
+                &#39;goout.p&#39;,
+                &#39;Dalc.p&#39;, 
+                &#39;Walc.p&#39;, 
+                &#39;health.p&#39;, 
+                &#39;absences.p&#39;,
+                &#39;pG1&#39;, 
+                &#39;pG2&#39;, 
+                &#39;pG3&#39;
+                )
+lang_skew &lt;- c(skewness(langs$traveltime.p),
+               skewness(langs$studytime.p), 
+               skewness(langs$failures.p), 
+               skewness(langs$famrel.p),
+               skewness(langs$freetime.p), 
+               skewness(langs$goout.p),
+               skewness(langs$Dalc.p),
+               skewness(langs$Walc.p), 
+               skewness(langs$health.p),
+               skewness(langs$absences.p), 
+               skewness(langs$pG1),
+               skewness(langs$pG2), 
+               skewness(langs$pG3))
+lang_kurtosis &lt;- c(kurtosis(langs$traveltime.p), 
+                   kurtosis(langs$studytime.p), 
+                   kurtosis(langs$failures.p), 
+                   kurtosis(langs$famrel.p),
+                   kurtosis(langs$freetime.p), 
+                   kurtosis(langs$goout.p),
+                   kurtosis(langs$Dalc.p),
+                   kurtosis(langs$Walc.p), 
+                   kurtosis(langs$health.p),
+                   kurtosis(langs$absences.p), 
+                   kurtosis(langs$pG1),
+                   kurtosis(langs$pG2), 
+                   kurtosis(langs$pG3))
+
+data &lt;- data.frame(lang_title, lang_skew, lang_kurtosis)
+colnames(data)[1] &lt;- &quot;Attributes&quot;
+colnames(data)[2] &lt;- &quot;Skewness&quot;
+colnames(data)[3] &lt;- &quot;Kurtosis&quot;
+head(data,13)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Attributes"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Skewness"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Kurtosis"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"traveltime.p","2":"1.6253902","3":"5.379520","_rn_":"1"},{"1":"studytime.p","2":"0.6298293","3":"2.943059","_rn_":"2"},{"1":"failures.p","2":"4.1666447","3":"20.879844","_rn_":"3"},{"1":"famrel.p","2":"-0.9365301","3":"4.011004","_rn_":"4"},{"1":"freetime.p","2":"-0.1269826","3":"2.721141","_rn_":"5"},{"1":"goout.p","2":"0.1033717","3":"2.190553","_rn_":"6"},{"1":"Dalc.p","2":"2.2230330","3":"7.933885","_rn_":"7"},{"1":"Walc.p","2":"0.6194291","3":"2.229678","_rn_":"8"},{"1":"health.p","2":"-0.5172838","3":"1.971004","_rn_":"9"},{"1":"absences.p","2":"2.1740500","3":"9.226503","_rn_":"10"},{"1":"pG1","2":"-0.1529550","3":"3.718140","_rn_":"11"},{"1":"pG2","2":"0.2378201","3":"2.810882","_rn_":"12"},{"1":"pG3","2":"-0.9930205","3":"6.423848","_rn_":"13"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>To visualise these two tables we create a bar plot of all our categorical variables then histograms, QQ plots and grouped boxplot of our numeric variables.</p>
+<pre class="r"><code># we create our barchart dataset
+lang_attributes = c(rep(&quot;guardian.p&quot;, 3), 
+           rep(&quot;schoolsup.p&quot;,2), 
+           rep(&quot;famsup.p&quot;,2), 
+           rep(&quot;paid.p&quot;,2), 
+           rep(&quot;activities.p&quot;, 2), 
+           rep(&quot;higher.p&quot;,2),
+           rep(&quot;romantic.p&quot;,2)
+           )
+labels6 = c(&#39;father&#39;,&#39;mother&#39;, &#39;other&#39;,
+           &#39;no&#39;, &#39;yes&#39;,
+           &#39;no&#39;,&#39;yes&#39;,
+           &#39;no&#39;, &#39;yes&#39;,
+           &#39;no&#39;,&#39;yes&#39;,
+           &#39;no&#39;, &#39;yes&#39;,
+           &#39;no&#39;,&#39;yes&#39;
+           )
+number_of = c(sum(langs$guardian.p == &#39;father&#39;),
+              sum(langs$guardian.p == &#39;mother&#39;),
+              sum(langs$guardian.p == &#39;other&#39;),
+              sum(langs$schoolsup.p == &#39;no&#39;),
+              sum(langs$schoolsup.p == &#39;yes&#39;),
+              sum(langs$famsup.p == &#39;no&#39;),
+              sum(langs$famsup.p == &#39;yes&#39;),
+              sum(langs$paid.p == &#39;no&#39;),
+              sum(langs$paid.p == &#39;yes&#39;),
+              sum(langs$activities.p == &#39;no&#39;),
+              sum(langs$activities.p == &#39;yes&#39;),
+              sum(langs$higher.p == &#39;no&#39;),
+              sum(langs$higher.p == &#39;yes&#39;),
+              sum(langs$romantic.p == &#39;no&#39;),
+              sum(langs$romantic.p == &#39;yes&#39;)
+              )
+
+data &lt;- data.frame(lang_attributes,labels6,number_of)
+# Now we generate our stacked barchart
+ggplot(data,
+       alpha=factor(number_of),
+       aes(fill=labels6, y=number_of, x=lang_attributes)) + 
+  geom_bar(position=&quot;stack&quot;, stat=&quot;identity&quot;) + 
+  xlab(&quot;Language Categorical Attributes&quot;) + ylab(&quot;Frequency&quot;) +
+  labs(title=&quot;MS: Overview of Language Categorical Attributes&quot;) +
+  theme(legend.position = &quot;bottom&quot;) +
+  scale_fill_discrete(breaks=labels6)</code></pre>
+<p><img src="7_rcode_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<pre class="r"><code>#ref https://www.ucd.ie/ecomodel/Resources/QQplots_WebVersion.html
+par(mfrow=c(5,3), mar=c(1.7,1.7,1.7,1.7))
+#hist
+x &lt;- langs$traveltime.p
+age_his&lt;-hist(x, breaks=6, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Travel Time&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(age_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on the plot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;traveltime.p&quot;)
+
+#hist
+x &lt;- langs$studytime.p
+Medu_his&lt;-hist(x, breaks=4, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Study Time&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;studytime.p&quot;)
+
+#hist
+x &lt;- langs$failures.p
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Failures&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;failures.p&quot;)
+
+#hist
+x &lt;- langs$famrel.p
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Family Relationship&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;famrel.p&quot;)
+
+#hist
+x &lt;- langs$freetime.p
+age_his&lt;-hist(x, breaks=6, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Free Time&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(age_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on the plot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;age&quot;)</code></pre>
+<p><img src="7_rcode_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<pre class="r"><code>#hist
+x &lt;- langs$goout.p
+Medu_his&lt;-hist(x, breaks=4, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Going Out&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;goout.p&quot;)
+
+#hist
+x &lt;- langs$Dalc.p
+Medu_his&lt;-hist(x, breaks=4, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Weekday Alcohol&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;Dalc.p&quot;)
+
+#hist
+x &lt;- langs$Walc.p
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Weekend Alcohol&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;Walc.p&quot;)
+
+#hist
+x &lt;- langs$health.p
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Health&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;health.p&quot;)
+
+#hist
+x &lt;- langs$absences.p
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Absences&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;absences.p&quot;)</code></pre>
+<p><img src="7_rcode_files/figure-html/unnamed-chunk-29-2.png" width="672" /></p>
+<pre class="r"><code>#hist
+x &lt;- langs$pG1
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Language Score 1&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;pG1&quot;)
+
+#hist
+x &lt;- langs$pG2
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Language Score 2&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;pG2&quot;)
+
+#hist
+x &lt;- langs$pG3
+Fedu_his&lt;-hist(x, breaks=5, col=&quot;dodgerblue1&quot;, xlab=&quot;Students&quot;,
+        main=&quot;Lang: Language Score 3&quot;)
+xfit&lt;-seq(min(x),max(x),length=20)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(Medu_his$mids[1:2])*length(x)
+lines(xfit, yfit, col=&quot;red&quot;, lwd=2)
+
+#qqplot
+qqnorm(x)
+qqline(x, col=2) #show a line on theplot
+
+#boxplot
+boxplot(x, horizontal=TRUE, main=&quot;pG3&quot;)</code></pre>
+<p><img src="7_rcode_files/figure-html/unnamed-chunk-29-3.png" width="672" /> # Data Encoding</p>
+<pre class="r"><code>df&lt;- grades
+for (i in colnames(df)){
+  if(class(grades[[i]])==&quot;factor&quot;){
+    df[[i]] &lt;- sapply(df[[i]], unclass)
+  }
+}
+#df$sex &lt;- sapply(df$sex, unclass) #1=F, 2=M
+#df$address &lt;- sapply(df$address, unclass) #1=R, 2=U
+grades_cleaned &lt;-df
+head(grades_cleaned)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["school"],"name":[1],"type":["int"],"align":["right"]},{"label":["sex"],"name":[2],"type":["int"],"align":["right"]},{"label":["age"],"name":[3],"type":["int"],"align":["right"]},{"label":["address"],"name":[4],"type":["int"],"align":["right"]},{"label":["famsize"],"name":[5],"type":["int"],"align":["right"]},{"label":["Pstatus"],"name":[6],"type":["int"],"align":["right"]},{"label":["Medu"],"name":[7],"type":["int"],"align":["right"]},{"label":["Fedu"],"name":[8],"type":["int"],"align":["right"]},{"label":["Mjob"],"name":[9],"type":["int"],"align":["right"]},{"label":["Fjob"],"name":[10],"type":["int"],"align":["right"]},{"label":["reason"],"name":[11],"type":["int"],"align":["right"]},{"label":["nursery"],"name":[12],"type":["int"],"align":["right"]},{"label":["internet"],"name":[13],"type":["int"],"align":["right"]},{"label":["guardian.m"],"name":[14],"type":["int"],"align":["right"]},{"label":["traveltime.m"],"name":[15],"type":["int"],"align":["right"]},{"label":["studytime.m"],"name":[16],"type":["int"],"align":["right"]},{"label":["failures.m"],"name":[17],"type":["int"],"align":["right"]},{"label":["schoolsup.m"],"name":[18],"type":["int"],"align":["right"]},{"label":["famsup.m"],"name":[19],"type":["int"],"align":["right"]},{"label":["paid.m"],"name":[20],"type":["int"],"align":["right"]},{"label":["activities.m"],"name":[21],"type":["int"],"align":["right"]},{"label":["higher.m"],"name":[22],"type":["int"],"align":["right"]},{"label":["romantic.m"],"name":[23],"type":["int"],"align":["right"]},{"label":["famrel.m"],"name":[24],"type":["int"],"align":["right"]},{"label":["freetime.m"],"name":[25],"type":["int"],"align":["right"]},{"label":["goout.m"],"name":[26],"type":["int"],"align":["right"]},{"label":["Dalc.m"],"name":[27],"type":["int"],"align":["right"]},{"label":["Walc.m"],"name":[28],"type":["int"],"align":["right"]},{"label":["health.m"],"name":[29],"type":["int"],"align":["right"]},{"label":["absences.m"],"name":[30],"type":["int"],"align":["right"]},{"label":["mG1"],"name":[31],"type":["int"],"align":["right"]},{"label":["mG2"],"name":[32],"type":["int"],"align":["right"]},{"label":["mG3"],"name":[33],"type":["int"],"align":["right"]},{"label":["guardian.p"],"name":[34],"type":["int"],"align":["right"]},{"label":["traveltime.p"],"name":[35],"type":["int"],"align":["right"]},{"label":["studytime.p"],"name":[36],"type":["int"],"align":["right"]},{"label":["failures.p"],"name":[37],"type":["int"],"align":["right"]},{"label":["schoolsup.p"],"name":[38],"type":["int"],"align":["right"]},{"label":["famsup.p"],"name":[39],"type":["int"],"align":["right"]},{"label":["paid.p"],"name":[40],"type":["int"],"align":["right"]},{"label":["activities.p"],"name":[41],"type":["int"],"align":["right"]},{"label":["higher.p"],"name":[42],"type":["int"],"align":["right"]},{"label":["romantic.p"],"name":[43],"type":["int"],"align":["right"]},{"label":["famrel.p"],"name":[44],"type":["int"],"align":["right"]},{"label":["freetime.p"],"name":[45],"type":["int"],"align":["right"]},{"label":["goout.p"],"name":[46],"type":["int"],"align":["right"]},{"label":["Dalc.p"],"name":[47],"type":["int"],"align":["right"]},{"label":["Walc.p"],"name":[48],"type":["int"],"align":["right"]},{"label":["health.p"],"name":[49],"type":["int"],"align":["right"]},{"label":["absences.p"],"name":[50],"type":["int"],"align":["right"]},{"label":["pG1"],"name":[51],"type":["int"],"align":["right"]},{"label":["pG2"],"name":[52],"type":["int"],"align":["right"]},{"label":["pG3"],"name":[53],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"1","3":"15","4":"1","5":"1","6":"2","7":"1","8":"1","9":"1","10":"3","11":"2","12":"2","13":"2","14":"2","15":"2","16":"4","17":"1","18":"2","19":"2","20":"2","21":"2","22":"2","23":"1","24":"3","25":"1","26":"2","27":"1","28":"1","29":"1","30":"2","31":"7","32":"10","33":"10","34":"2","35":"2","36":"4","37":"0","38":"2","39":"2","40":"2","41":"2","42":"2","43":"1","44":"3","45":"1","46":"2","47":"1","48":"1","49":"1","50":"4","51":"13","52":"13","53":"13","_rn_":"1"},{"1":"1","2":"1","3":"15","4":"1","5":"1","6":"2","7":"1","8":"1","9":"3","10":"3","11":"4","12":"1","13":"2","14":"2","15":"1","16":"2","17":"2","18":"2","19":"2","20":"1","21":"1","22":"2","23":"2","24":"3","25":"3","26":"4","27":"2","28":"4","29":"5","30":"2","31":"8","32":"6","33":"5","34":"2","35":"1","36":"2","37":"0","38":"2","39":"2","40":"1","41":"1","42":"2","43":"2","44":"3","45":"3","46":"4","47":"2","48":"4","49":"5","50":"2","51":"13","52":"11","53":"11","_rn_":"2"},{"1":"1","2":"1","3":"15","4":"1","5":"1","6":"2","7":"2","8":"2","9":"1","10":"3","11":"4","12":"2","13":"1","14":"2","15":"1","16":"1","17":"0","18":"2","19":"2","20":"2","21":"2","22":"2","23":"1","24":"4","25":"3","26":"1","27":"1","28":"1","29":"2","30":"8","31":"14","32":"13","33":"13","34":"2","35":"1","36":"1","37":"0","38":"2","39":"2","40":"1","41":"2","42":"2","43":"1","44":"4","45":"3","46":"1","47":"1","48":"1","49":"2","50":"8","51":"14","52":"13","53":"12","_rn_":"3"},{"1":"1","2":"1","3":"15","4":"1","5":"1","6":"2","7":"2","8":"4","9":"4","10":"2","11":"1","12":"2","13":"2","14":"2","15":"1","16":"3","17":"0","18":"2","19":"2","20":"2","21":"2","22":"2","23":"1","24":"4","25":"3","26":"2","27":"1","28":"1","29":"5","30":"2","31":"10","32":"9","33":"8","34":"2","35":"1","36":"3","37":"0","38":"2","39":"2","40":"1","41":"2","42":"2","43":"1","44":"4","45":"3","46":"2","47":"1","48":"1","49":"5","50":"2","51":"10","52":"11","53":"10","_rn_":"4"},{"1":"1","2":"1","3":"15","4":"1","5":"1","6":"2","7":"3","8":"3","9":"4","10":"4","11":"4","12":"2","13":"2","14":"3","15":"2","16":"3","17":"2","18":"1","19":"2","20":"2","21":"2","22":"2","23":"2","24":"4","25":"2","26":"1","27":"2","28":"3","29":"3","30":"8","31":"10","32":"10","33":"10","34":"3","35":"2","36":"3","37":"0","38":"1","39":"2","40":"2","41":"2","42":"2","43":"2","44":"4","45":"2","46":"1","47":"2","48":"3","49":"3","50":"2","51":"13","52":"13","53":"13","_rn_":"5"},{"1":"1","2":"1","3":"15","4":"1","5":"1","6":"2","7":"3","8":"4","9":"4","10":"2","11":"1","12":"2","13":"2","14":"2","15":"1","16":"3","17":"0","18":"2","19":"2","20":"2","21":"2","22":"2","23":"1","24":"4","25":"3","26":"2","27":"1","28":"1","29":"5","30":"2","31":"12","32":"12","33":"11","34":"2","35":"1","36":"3","37":"0","38":"2","39":"2","40":"1","41":"2","42":"2","43":"1","44":"4","45":"3","46":"2","47":"1","48":"1","49":"5","50":"2","51":"11","52":"12","53":"12","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="data-transformation" class="section level1">
+<h1>Data Transformation</h1>
+<pre class="r"><code>#
+#fixing outliers
+#sample size is between between 3 and 5,000 in order so we will use Shapiro-Wilk Test to see how well our data transformation worked
+# If the p-value is less than α =.05 the data is not normally distributed
+#grades_cleaned &lt;- grades
+#we perform Shapiro-Wilk Test on original data
+#print(&quot;Shapiro-Wilk Test before removing outliers&quot;)
+#shapiro.test(grades$age)
+#grades_cleaned$age[grades_cleaned$age&gt;16.59+(1.173*2)] &lt;- 17 #removed two sd with upper Qtr
+#grades_cleaned$age[grades_cleaned$age&lt;16.59-(1.173*2)] &lt;- 15 #removed two sd with lower Qtr
+#grades_cleaned = grades_cleaned[grades_cleaned$age&lt;=16.59+(1.173*2),]
+#grades_cleaned$age = log10(grades_cleaned$age)
+#grades_cleaned$age = sqrt(grades_cleaned$age)
+#grades_cleaned$age = (grades_cleaned$age)^(1/3)
+#now we perform Shapiro-Wilk Test on transformed data
+#print(&quot;Shapiro-Wilk Test after removing outliers&quot;)
+#boxplot(grades_cleaned$age)
+#qqnorm(grades_cleaned$age)
+#qqline(grades_cleaned$age, col=2) #show a line on theplot
+#shapiro.test(grades_cleaned$age)
+#gg &lt;- ggplot(grades_cleaned, aes(x=grades_cleaned$age))
+#gg &lt;- gg + geom_histogram(binwidth=1, colour=&quot;black&quot;, aes(y=..density.., fill=..count..))
+#gg &lt;- gg + scale_fill_gradient(&quot;Count&quot;, low=&quot;#DCDCDC&quot;, high=&quot;#7C7C7C&quot;)
+#gg &lt;- gg + stat_function(fun=dnorm, color=&quot;red&quot;,args=list(mean=mean(grades_cleaned$age, na.rm=TRUE), sd=sd(grades_cleaned$age, #na.rm=TRUE)))
+#gg
+maths_cleaned = grades_cleaned[,-c(34:53)]
+langs_cleaned = grades_cleaned[,-c(14:33)]
+
+#df[c(&quot;A&quot;,&quot;B&quot;,&quot;E&quot;)]
+#1:13 student
+#14:33 maths
+#34:53 lang
+#data &lt;- data.frame(students, maths)</code></pre>
+</div>
+<div id="pearsons-corrolation-heatmap-maths" class="section level1">
+<h1>Pearsons Corrolation HeatMap: Maths</h1>
+<pre class="r"><code># Pearsons Corrolation MATHS
+
+#ref: http://www.sthda.com/english/wiki/ggplot2-quick-correlation-matrix-heatmap-r-software-and-data-visualization
+#Pearson Correlation
+cormat &lt;- round(cor(maths_cleaned[,]),2)
+
+# Get lower triangle of the correlation matrix
+  get_lower_tri&lt;-function(cormat){
+    cormat[upper.tri(cormat)] &lt;- NA
+    return(cormat)
+  }
+  # Get upper triangle of the correlation matrix
+  get_upper_tri &lt;- function(cormat){
+    cormat[lower.tri(cormat)]&lt;- NA
+    return(cormat)
+  }
+  # remove anything less correlation matrix
+  get_upper_tri &lt;- function(cormat){
+    cormat[lower.tri(cormat)]&lt;- NA
+    return(cormat)
+  }
+  
+upper_tri &lt;- get_upper_tri(cormat)
+
+melted_cormat &lt;- melt(upper_tri, na.rm = TRUE)
+gg &lt;- ggplot(data = melted_cormat, aes(Var2, Var1, fill = value))+
+  geom_tile(color = &quot;white&quot;)+
+  scale_fill_gradient2(low = &quot;blue&quot;, high = &quot;red&quot;, mid = &quot;white&quot;, 
+                       midpoint = 0, limit = c(-1,1), space = &quot;Lab&quot;, 
+                       name=&quot;Pearson\nCorrelation&quot;) +
+  theme_minimal()+ 
+  theme(axis.text.x = element_text(angle = 90, vjust = 1, 
+                                   size = 5, hjust = 1))+
+  theme(axis.text.y = element_text(vjust = 1, 
+                                   size = 5, hjust = 1))+
+  coord_fixed() +
+  geom_text(aes(Var2, Var1, label = value), color = &quot;black&quot;, size = 1)
+
+ggsave(&quot;maths_perc_hm.png&quot;, gg, width = 10, dpi = 600, bg=&quot;white&quot;)</code></pre>
+<pre><code>## Saving 10 x 5 in image</code></pre>
+<pre class="r"><code>#negative correlations are in blue color and positive correlations in red. The function scale_fill_gradient2 is used with the argument #limit = c(-1,1) as correlation coefficients range from -1 to 1.
+#coord_fixed() : this function ensures that one unit on the x-axis is the same length as one unit on the y-axis.</code></pre>
+<pre class="r"><code># Pearsons Corrolation Portuguese Language 
+
+#ref: http://www.sthda.com/english/wiki/ggplot2-quick-correlation-matrix-heatmap-r-software-and-data-visualization
+#Pearson Correlation
+cormat &lt;- round(cor(langs_cleaned[,]),2)
+
+# Get lower triangle of the correlation matrix
+  get_lower_tri&lt;-function(cormat){
+    cormat[upper.tri(cormat)] &lt;- NA
+    return(cormat)
+  }
+  # Get upper triangle of the correlation matrix
+  get_upper_tri &lt;- function(cormat){
+    cormat[lower.tri(cormat)]&lt;- NA
+    return(cormat)
+  }
+  
+upper_tri &lt;- get_upper_tri(cormat)
+upper_tri</code></pre>
+<pre><code>##              school   sex   age address famsize Pstatus  Medu  Fedu  Mjob  Fjob
+## school            1 -0.04  0.35   -0.28    0.02    0.09 -0.13 -0.08 -0.05  0.02
+## sex              NA  1.00 -0.02   -0.01    0.09    0.02  0.10  0.05  0.21  0.08
+## age              NA    NA  1.00   -0.16    0.01    0.05 -0.12 -0.13 -0.06  0.00
+## address          NA    NA    NA    1.00    0.06   -0.07  0.14  0.07  0.12 -0.01
+## famsize          NA    NA    NA      NA    1.00   -0.15 -0.02 -0.05  0.07 -0.09
+## Pstatus          NA    NA    NA      NA      NA    1.00 -0.13 -0.08 -0.05  0.03
+## Medu             NA    NA    NA      NA      NA      NA  1.00  0.65  0.46  0.17
+## Fedu             NA    NA    NA      NA      NA      NA    NA  1.00  0.27  0.21
+## Mjob             NA    NA    NA      NA      NA      NA    NA    NA  1.00  0.23
+## Fjob             NA    NA    NA      NA      NA      NA    NA    NA    NA  1.00
+## reason           NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## nursery          NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## internet         NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## guardian.p       NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## traveltime.p     NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## studytime.p      NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## failures.p       NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## schoolsup.p      NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## famsup.p         NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## paid.p           NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## activities.p     NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## higher.p         NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## romantic.p       NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## famrel.p         NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## freetime.p       NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## goout.p          NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## Dalc.p           NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## Walc.p           NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## health.p         NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## absences.p       NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## pG1              NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## pG2              NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+## pG3              NA    NA    NA      NA      NA      NA    NA    NA    NA    NA
+##              reason nursery internet guardian.p traveltime.p studytime.p
+## school        -0.06   -0.08    -0.09      -0.02         0.26       -0.09
+## sex           -0.08    0.00     0.07      -0.05         0.05       -0.29
+## age           -0.03   -0.03    -0.08       0.15         0.11       -0.01
+## address       -0.06    0.08     0.21      -0.05        -0.34       -0.02
+## famsize       -0.01    0.11     0.05      -0.01         0.06       -0.06
+## Pstatus       -0.03   -0.07     0.03      -0.11         0.04        0.04
+## Medu           0.11    0.18     0.19       0.01        -0.21        0.05
+## Fedu           0.03    0.13     0.13      -0.11        -0.19        0.00
+## Mjob          -0.01    0.09     0.25       0.00        -0.11       -0.02
+## Fjob          -0.02   -0.02     0.05      -0.08         0.03       -0.08
+## reason         1.00    0.04     0.02      -0.02        -0.06        0.15
+## nursery          NA    1.00    -0.02      -0.03        -0.04        0.09
+## internet         NA      NA     1.00      -0.02        -0.12        0.05
+## guardian.p       NA      NA       NA       1.00         0.01       -0.02
+## traveltime.p     NA      NA       NA         NA         1.00       -0.10
+## studytime.p      NA      NA       NA         NA           NA        1.00
+## failures.p       NA      NA       NA         NA           NA          NA
+## schoolsup.p      NA      NA       NA         NA           NA          NA
+## famsup.p         NA      NA       NA         NA           NA          NA
+## paid.p           NA      NA       NA         NA           NA          NA
+## activities.p     NA      NA       NA         NA           NA          NA
+## higher.p         NA      NA       NA         NA           NA          NA
+## romantic.p       NA      NA       NA         NA           NA          NA
+## famrel.p         NA      NA       NA         NA           NA          NA
+## freetime.p       NA      NA       NA         NA           NA          NA
+## goout.p          NA      NA       NA         NA           NA          NA
+## Dalc.p           NA      NA       NA         NA           NA          NA
+## Walc.p           NA      NA       NA         NA           NA          NA
+## health.p         NA      NA       NA         NA           NA          NA
+## absences.p       NA      NA       NA         NA           NA          NA
+## pG1              NA      NA       NA         NA           NA          NA
+## pG2              NA      NA       NA         NA           NA          NA
+## pG3              NA      NA       NA         NA           NA          NA
+##              failures.p schoolsup.p famsup.p paid.p activities.p higher.p
+## school             0.07       -0.13    -0.16   0.04        -0.10     0.00
+## sex                0.13       -0.14    -0.15   0.11         0.11    -0.16
+## age                0.26       -0.25    -0.13  -0.06        -0.07    -0.23
+## address           -0.04        0.03     0.01  -0.09        -0.06     0.04
+## famsize           -0.04       -0.03    -0.10  -0.03        -0.02     0.00
+## Pstatus            0.06       -0.05     0.01  -0.01         0.09    -0.03
+## Medu              -0.20       -0.05     0.16   0.11         0.11     0.14
+## Fedu              -0.21        0.03     0.18   0.11         0.11     0.16
+## Mjob              -0.09       -0.04     0.05  -0.01         0.10     0.04
+## Fjob              -0.02       -0.02    -0.04   0.02         0.01    -0.05
+## reason            -0.08        0.02     0.07  -0.10         0.10     0.06
+## nursery           -0.05        0.05     0.06   0.02         0.01     0.02
+## internet          -0.13       -0.03     0.08   0.03         0.06    -0.03
+## guardian.p         0.11       -0.05     0.00   0.07        -0.02    -0.04
+## traveltime.p       0.11        0.00    -0.03  -0.02         0.01    -0.05
+## studytime.p       -0.20        0.03     0.15  -0.02         0.11     0.19
+## failures.p         1.00        0.04    -0.04   0.13        -0.02    -0.32
+## schoolsup.p          NA        1.00     0.09   0.05         0.04     0.01
+## famsup.p             NA          NA     1.00   0.10        -0.02     0.08
+## paid.p               NA          NA       NA   1.00         0.07     0.01
+## activities.p         NA          NA       NA     NA         1.00     0.11
+## higher.p             NA          NA       NA     NA           NA     1.00
+## romantic.p           NA          NA       NA     NA           NA       NA
+## famrel.p             NA          NA       NA     NA           NA       NA
+## freetime.p           NA          NA       NA     NA           NA       NA
+## goout.p              NA          NA       NA     NA           NA       NA
+## Dalc.p               NA          NA       NA     NA           NA       NA
+## Walc.p               NA          NA       NA     NA           NA       NA
+## health.p             NA          NA       NA     NA           NA       NA
+## absences.p           NA          NA       NA     NA           NA       NA
+## pG1                  NA          NA       NA     NA           NA       NA
+## pG2                  NA          NA       NA     NA           NA       NA
+## pG3                  NA          NA       NA     NA           NA       NA
+##              romantic.p famrel.p freetime.p goout.p Dalc.p Walc.p health.p
+## school             0.08    -0.07       0.02   -0.01   0.09   0.04    -0.06
+## sex               -0.08     0.07       0.21    0.06   0.24   0.25     0.14
+## age                0.13     0.03       0.02    0.17   0.13   0.16    -0.07
+## address            0.00     0.02       0.04    0.08  -0.10  -0.09    -0.02
+## famsize            0.03    -0.03       0.02    0.01   0.09   0.09    -0.05
+## Pstatus           -0.05     0.05       0.06    0.02  -0.02   0.03     0.05
+## Medu               0.04     0.01       0.01    0.05   0.04  -0.02    -0.03
+## Fedu               0.02     0.01      -0.03    0.01   0.01   0.00     0.02
+## Mjob              -0.06     0.05       0.11   -0.02   0.07   0.01     0.07
+## Fjob               0.00     0.02      -0.06    0.00   0.08   0.06     0.01
+## reason             0.00    -0.01      -0.05   -0.04  -0.02  -0.02    -0.17
+## nursery            0.03     0.01      -0.01   -0.01  -0.09  -0.12    -0.04
+## internet           0.07     0.06       0.08    0.08   0.06   0.04    -0.07
+## guardian.p         0.05     0.02       0.03    0.08   0.00   0.00    -0.05
+## traveltime.p       0.00    -0.02      -0.01    0.04   0.16   0.14     0.01
+## studytime.p        0.03     0.04      -0.13   -0.05  -0.19  -0.25    -0.08
+## failures.p        -0.02    -0.03       0.11    0.06   0.19   0.16     0.07
+## schoolsup.p       -0.08     0.00      -0.04   -0.06  -0.02  -0.11    -0.04
+## famsup.p           0.01     0.00      -0.01   -0.03  -0.02  -0.09     0.06
+## paid.p             0.01     0.07       0.00   -0.02   0.10   0.04     0.08
+## activities.p       0.03     0.06       0.10    0.04  -0.07  -0.04     0.02
+## higher.p          -0.14     0.04      -0.05   -0.04  -0.09  -0.08    -0.05
+## romantic.p         1.00    -0.07       0.02    0.00   0.05   0.02     0.05
+## famrel.p             NA     1.00       0.14    0.05  -0.10  -0.13     0.10
+## freetime.p           NA       NA       1.00    0.29   0.20   0.13     0.07
+## goout.p              NA       NA         NA    1.00   0.26   0.40    -0.03
+## Dalc.p               NA       NA         NA      NA   1.00   0.64     0.06
+## Walc.p               NA       NA         NA      NA     NA   1.00     0.08
+## health.p             NA       NA         NA      NA     NA     NA     1.00
+## absences.p           NA       NA         NA      NA     NA     NA       NA
+## pG1                  NA       NA         NA      NA     NA     NA       NA
+## pG2                  NA       NA         NA      NA     NA     NA       NA
+## pG3                  NA       NA         NA      NA     NA     NA       NA
+##              absences.p   pG1   pG2   pG3
+## school            -0.06 -0.17 -0.12 -0.18
+## sex               -0.01 -0.18 -0.19 -0.20
+## age                0.09 -0.11 -0.04 -0.07
+## address           -0.02  0.18  0.19  0.19
+## famsize           -0.01  0.09  0.06  0.04
+## Pstatus           -0.06 -0.02 -0.06 -0.08
+## Medu               0.02  0.21  0.22  0.20
+## Fedu               0.02  0.16  0.18  0.17
+## Mjob               0.02  0.08  0.05  0.06
+## Fjob              -0.02  0.03  0.02 -0.02
+## reason             0.02  0.13  0.12  0.09
+## nursery            0.00  0.05  0.07  0.07
+## internet           0.06  0.08  0.04  0.09
+## guardian.p         0.09 -0.08 -0.05 -0.02
+## traveltime.p       0.01 -0.19 -0.19 -0.16
+## studytime.p       -0.17  0.27  0.28  0.28
+## failures.p         0.08 -0.30 -0.31 -0.34
+## schoolsup.p       -0.05 -0.19 -0.14 -0.14
+## famsup.p           0.02  0.08  0.06  0.09
+## paid.p            -0.03 -0.14 -0.12 -0.13
+## activities.p      -0.07  0.09  0.10  0.12
+## higher.p          -0.13  0.29  0.31  0.31
+## romantic.p         0.04 -0.04 -0.07 -0.05
+## famrel.p          -0.05 -0.01  0.02  0.04
+## freetime.p         0.01 -0.09 -0.11 -0.11
+## goout.p            0.15 -0.09 -0.13 -0.13
+## Dalc.p             0.15 -0.25 -0.27 -0.28
+## Walc.p             0.16 -0.19 -0.22 -0.23
+## health.p           0.03 -0.15 -0.19 -0.18
+## absences.p         1.00 -0.16 -0.20 -0.14
+## pG1                  NA  1.00  0.89  0.82
+## pG2                  NA    NA  1.00  0.89
+## pG3                  NA    NA    NA  1.00</code></pre>
+<pre class="r"><code>melted_cormat &lt;- melt(upper_tri, na.rm = TRUE)
+
+gg &lt;- ggplot(data = melted_cormat, aes(Var2, Var1, fill = value))+
+  geom_tile(color = &quot;white&quot;)+
+  scale_fill_gradient2(low = &quot;blue&quot;, high = &quot;red&quot;, mid = &quot;white&quot;, 
+                       midpoint = 0, limit = c(-1,1), space = &quot;Lab&quot;, 
+                       name=&quot;Pearson\nCorrelation&quot;) +
+  theme_minimal()+ 
+  theme(axis.text.x = element_text(angle = 90, vjust = 1, 
+                                   size = 5, hjust = 1))+
+  theme(axis.text.y = element_text(vjust = 1, 
+                                   size = 5, hjust = 1))+
+  coord_fixed() +
+  geom_text(aes(Var2, Var1, label = value), color = &quot;black&quot;, size = 1)
+
+ggsave(&quot;langs_perc_hm.png&quot;, gg, width = 10, dpi = 600, bg=&quot;white&quot;)</code></pre>
+<pre><code>## Saving 10 x 5 in image</code></pre>
+<pre class="r"><code>#negative correlations are in blue color and positive correlations in red. The function scale_fill_gradient2 is used with the argument #limit = c(-1,1) as correlation coefficients range from -1 to 1.
+#coord_fixed() : this function ensures that one unit on the x-axis is the same length as one unit on the y-axis.</code></pre>
+<p>chi square on two cats anova - test numeric variable with cat var</p>
+<p>pearsons corrilation heat map The correlation coefficient has values between -1 and 1 - A value closer to 0 implies weaker correlation (zero implies no correlation) - Value closer to 1 implies strong positive correlation - Value closer to -1 implies strong negative correlation</p>
+<p>#fix and clean data to so we can perform correlation tests and select features # chi square on two cats anova - test numeric variable with cat var</p>
+<p>pearsons corrilation heat map The correlation coefficient has values between -1 and 1 - A value closer to 0 implies weaker correlation (zero implies no correlation) - Value closer to 1 implies strong positive correlation - Value closer to -1 implies strong negative correlation</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

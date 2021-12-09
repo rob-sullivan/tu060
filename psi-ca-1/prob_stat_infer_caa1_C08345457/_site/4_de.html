@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>4. Data Exploration</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">PSI Assignment</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">0 Introduction</a>
+</li>
+<li>
+  <a href="1_sorq.html">1 Statement of Research Question</a>
+</li>
+<li>
+  <a href="2_dcprep.html">2. Data Collection &amp; Preparation</a>
+</li>
+<li>
+  <a href="3_dd.html">3. Data Description</a>
+</li>
+<li>
+  <a href="4_de.html">4. Data Exploration</a>
+</li>
+<li>
+  <a href="5_pm.html">5. Predictive Modelling</a>
+</li>
+<li>
+  <a href="6_ref.html">6. References</a>
+</li>
+<li>
+  <a href="7_rcode.html">7. Appendix: R Code</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">4. Data Exploration</h1>
+
+</div>
+
+
+<pre><code>## Loading required package: colorspace</code></pre>
+<pre><code>## Loading required package: grid</code></pre>
+<pre><code>## VIM is ready to use.</code></pre>
+<pre><code>## Suggestions and bug-reports can be submitted at: https://github.com/statistikat/VIM/issues</code></pre>
+<pre><code>## 
+## Attaching package: &#39;VIM&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:datasets&#39;:
+## 
+##     sleep</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.4     ✓ dplyr   1.0.7
+## ✓ tidyr   1.1.4     ✓ stringr 1.4.0
+## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre><code>## 
+## Attaching package: &#39;pastecs&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
+## 
+##     first, last</code></pre>
+<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
+## 
+##     extract</code></pre>
+<pre><code>## 
+## Attaching package: &#39;psych&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:ggplot2&#39;:
+## 
+##     %+%, alpha</code></pre>
+<pre><code>## Registered S3 methods overwritten by &#39;FSA&#39;:
+##   method       from
+##   confint.boot car 
+##   hist.boot    car</code></pre>
+<pre><code>## ## FSA v0.9.1. See citation(&#39;FSA&#39;) if used in publication.
+## ## Run fishR() for related website and fishR(&#39;IFAR&#39;) for related book.</code></pre>
+<pre><code>## 
+## Attaching package: &#39;FSA&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:psych&#39;:
+## 
+##     headtail</code></pre>
+<pre><code>## Loading required package: carData</code></pre>
+<pre><code>## 
+## Attaching package: &#39;car&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:FSA&#39;:
+## 
+##     bootCase</code></pre>
+<pre><code>## The following object is masked from &#39;package:psych&#39;:
+## 
+##     logit</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     recode</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
+## 
+##     some</code></pre>
+<pre><code>## 
+## Attaching package: &#39;effectsize&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:psych&#39;:
+## 
+##     phi</code></pre>
+<p>We selected 14 variables of interest for math students during data description. We will now use these variables to answer questions to understand why students perform poorly on exams.</p>
+<pre><code>##     school               age          Pstatus           Pstatus.1        
+##  Length:382         Min.   :15.00   Length:382         Length:382        
+##  Class :character   1st Qu.:16.00   Class :character   Class :character  
+##  Mode  :character   Median :17.00   Mode  :character   Mode  :character  
+##                     Mean   :16.59                                        
+##                     3rd Qu.:17.00                                        
+##                     Max.   :22.00                                        
+##   guardian.m         traveltime.m     failures.m     schoolsup.m       
+##  Length:382         Min.   :1.000   Min.   :0.0000   Length:382        
+##  Class :character   1st Qu.:1.000   1st Qu.:0.0000   Class :character  
+##  Mode  :character   Median :1.000   Median :0.0000   Mode  :character  
+##                     Mean   :1.442   Mean   :0.2906                     
+##                     3rd Qu.:2.000   3rd Qu.:0.0000                     
+##                     Max.   :4.000   Max.   :3.0000                     
+##   romantic.m           goout.m          Dalc.m          Walc.m    
+##  Length:382         Min.   :1.000   Min.   :1.000   Min.   :1.00  
+##  Class :character   1st Qu.:2.000   1st Qu.:1.000   1st Qu.:1.00  
+##  Mode  :character   Median :3.000   Median :1.000   Median :2.00  
+##                     Mean   :3.113   Mean   :1.474   Mean   :2.28  
+##                     3rd Qu.:4.000   3rd Qu.:2.000   3rd Qu.:3.00  
+##                     Max.   :5.000   Max.   :5.000   Max.   :5.00  
+##     health.m          mG3       
+##  Min.   :1.000   Min.   : 0.00  
+##  1st Qu.:3.000   1st Qu.: 8.00  
+##  Median :4.000   Median :11.00  
+##  Mean   :3.579   Mean   :10.39  
+##  3rd Qu.:5.000   3rd Qu.:14.00  
+##  Max.   :5.000   Max.   :20.00</code></pre>
+<div id="q1-do-students-that-are-in-a-relationship-drink-more-at-the-weekend" class="section level1">
+<h1>Q1: Do students that are in a relationship drink more at the weekend?</h1>
+<ul>
+<li>We will use a two sampled paired t-test. We are comparing ‘relationship’ which is a nominal categorical variable with level of alcohol consumption, an ordinal categorical variable. We state the null hypothesis below:</li>
+<li>h0: mu_inRel &lt;= mu_sgl</li>
+<li>h1: mu_inRel &gt; mu_sgl</li>
+<li>a = 0.05 (95% confidence)</li>
+</ul>
+<div id="descriptive-statistics-of-variables" class="section level2">
+<h2>Descriptive statistics of variables</h2>
+<pre class="r"><code>#Get descriptive statistics by group to show a matrix of alcohol consumption by those in a relationship and those that are not. Mean of those in a relationship that drink is a little larger than those that are not. Standard deviations are less than 2 so we can use a student t-test. Both are positively skewed with a platykurtic distribution(Moderately Spread Out).
+psych::describeBy(smath$Walc.m, smath$romantic.m, mat=TRUE)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["item"],"name":[1],"type":["chr"],"align":["left"]},{"label":["group1"],"name":[2],"type":["chr"],"align":["left"]},{"label":["vars"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["trimmed"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["mad"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["min"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["range"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["skew"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["kurtosis"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["se"],"name":[15],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"no","3":"1","4":"261","5":"2.264368","6":"1.278158","7":"2","8":"2.129187","9":"1.4826","10":"1","11":"5","12":"4","13":"0.6115635","14":"-0.8363925","15":"0.07911597","_rn_":"X11"},{"1":"2","2":"yes","3":"1","4":"121","5":"2.314050","6":"1.297646","7":"2","8":"2.154639","9":"1.4826","10":"1","11":"5","12":"4","13":"0.6576358","14":"-0.6716840","15":"0.11796779","_rn_":"X12"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="levenes-test-for-homogeneity-of-variance" class="section level2">
+<h2>Levene’s test for homogeneity of variance</h2>
+<pre class="r"><code>#We conduct Levene&#39;s test for homogeneity of variance. The null hypothesis is that variances in relationship and weekend alcohol consumption are equal so to assume homogeneity we would expect probability to not be statistically significant.
+car::leveneTest(smath$Walc.m ~ smath$romantic.m, center=mean)</code></pre>
+<pre><code>## Warning in leveneTest.default(y = y, group = group, ...): group coerced to
+## factor.</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Df"],"name":[1],"type":["int"],"align":["right"]},{"label":["F value"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"0.001406564","3":"0.9701027","_rn_":"group"},{"1":"380","2":"NA","3":"NA","_rn_":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<pre class="r"><code>#our probability Pr(&gt;F) is greater than 0.05 so it is not statistically significant so we can assume homogeneity.</code></pre>
+</div>
+<div id="student-t-test" class="section level2">
+<h2>Student T-Test</h2>
+<pre class="r"><code>stats::t.test(Walc.m~romantic.m,var.equal=TRUE,data=smath)</code></pre>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  Walc.m by romantic.m
+## t = -0.35172, df = 380, p-value = 0.7252
+## alternative hypothesis: true difference in means between group no and group yes is not equal to 0
+## 95 percent confidence interval:
+##  -0.3274186  0.2280551
+## sample estimates:
+##  mean in group no mean in group yes 
+##          2.264368          2.314050</code></pre>
+<ul>
+<li>No statistically significant difference was found so we do not reject the null hypothesis. We cannot say with a 95% confidence level that math students in a relationship drink more at the weekend than those that do not.</li>
+</ul>
+</div>
+</div>
+<div id="what-is-the-difference-between-maths-students-who-perform-bad-on-final-grades-vs-those-who-perform-well" class="section level1">
+<h1>What is the difference between maths students who perform bad on final grades vs those who perform well</h1>
+<p>We will use a two sampled paired t-test. We are comparing two groups of students (bad + good) from the same school. Weekend Alcohol standard dev is 1.06 and math grade 3 is 4.66 mG3. There is a difference between these two by 0.22 which means we must use Welch’s test (s1/s2&lt;0.5) h0: good performing students and bad performing students drink the same amount of alcohol h1: bad performing students drink more alcohol</p>
+<p>h0: mu1 = mu2 h1: mu2&gt;mu1</p>
+<p>#mothers education on grades? #alcohol on grades? # h1: students who spend more time studying get better grades #relationship status on grades?</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
