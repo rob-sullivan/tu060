@@ -16,6 +16,4 @@ navbar:
       href: 5_pm.html
     - text: "6. References"
       href: 6_ref.html
-    - text: "7. Appendix: R Code"
-      href: 7_rcode.html
     

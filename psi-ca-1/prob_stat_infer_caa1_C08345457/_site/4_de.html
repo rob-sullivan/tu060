@@ -264,9 +264,6 @@ $(document).ready(function () {
 <li>
   <a href="6_ref.html">6. References</a>
 </li>
-<li>
-  <a href="7_rcode.html">7. Appendix: R Code</a>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -284,151 +281,275 @@ $(document).ready(function () {
 </div>
 
 
-<pre><code>## Loading required package: colorspace</code></pre>
-<pre><code>## Loading required package: grid</code></pre>
-<pre><code>## VIM is ready to use.</code></pre>
-<pre><code>## Suggestions and bug-reports can be submitted at: https://github.com/statistikat/VIM/issues</code></pre>
-<pre><code>## 
-## Attaching package: &#39;VIM&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:datasets&#39;:
-## 
-##     sleep</code></pre>
-<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
-<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-## ✓ tibble  3.1.4     ✓ dplyr   1.0.7
-## ✓ tidyr   1.1.4     ✓ stringr 1.4.0
-## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
-<pre><code>## 
-## Attaching package: &#39;pastecs&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
-## 
-##     first, last</code></pre>
-<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
-## 
-##     extract</code></pre>
-<pre><code>## 
-## Attaching package: &#39;psych&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:ggplot2&#39;:
-## 
-##     %+%, alpha</code></pre>
-<pre><code>## Registered S3 methods overwritten by &#39;FSA&#39;:
-##   method       from
-##   confint.boot car 
-##   hist.boot    car</code></pre>
-<pre><code>## ## FSA v0.9.1. See citation(&#39;FSA&#39;) if used in publication.
-## ## Run fishR() for related website and fishR(&#39;IFAR&#39;) for related book.</code></pre>
-<pre><code>## 
-## Attaching package: &#39;FSA&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:psych&#39;:
-## 
-##     headtail</code></pre>
-<pre><code>## Loading required package: carData</code></pre>
-<pre><code>## 
-## Attaching package: &#39;car&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:FSA&#39;:
-## 
-##     bootCase</code></pre>
-<pre><code>## The following object is masked from &#39;package:psych&#39;:
-## 
-##     logit</code></pre>
-<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
-## 
-##     recode</code></pre>
-<pre><code>## The following object is masked from &#39;package:purrr&#39;:
-## 
-##     some</code></pre>
-<pre><code>## 
-## Attaching package: &#39;effectsize&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:psych&#39;:
-## 
-##     phi</code></pre>
-<p>We selected 14 variables of interest for math students during data description. We will now use these variables to answer questions to understand why students perform poorly on exams.</p>
-<pre><code>##     school               age          Pstatus           Pstatus.1        
-##  Length:382         Min.   :15.00   Length:382         Length:382        
-##  Class :character   1st Qu.:16.00   Class :character   Class :character  
-##  Mode  :character   Median :17.00   Mode  :character   Mode  :character  
-##                     Mean   :16.59                                        
-##                     3rd Qu.:17.00                                        
-##                     Max.   :22.00                                        
-##   guardian.m         traveltime.m     failures.m     schoolsup.m       
-##  Length:382         Min.   :1.000   Min.   :0.0000   Length:382        
-##  Class :character   1st Qu.:1.000   1st Qu.:0.0000   Class :character  
-##  Mode  :character   Median :1.000   Median :0.0000   Mode  :character  
-##                     Mean   :1.442   Mean   :0.2906                     
-##                     3rd Qu.:2.000   3rd Qu.:0.0000                     
-##                     Max.   :4.000   Max.   :3.0000                     
-##   romantic.m           goout.m          Dalc.m          Walc.m    
-##  Length:382         Min.   :1.000   Min.   :1.000   Min.   :1.00  
-##  Class :character   1st Qu.:2.000   1st Qu.:1.000   1st Qu.:1.00  
-##  Mode  :character   Median :3.000   Median :1.000   Median :2.00  
-##                     Mean   :3.113   Mean   :1.474   Mean   :2.28  
-##                     3rd Qu.:4.000   3rd Qu.:2.000   3rd Qu.:3.00  
-##                     Max.   :5.000   Max.   :5.000   Max.   :5.00  
-##     health.m          mG3       
-##  Min.   :1.000   Min.   : 0.00  
-##  1st Qu.:3.000   1st Qu.: 8.00  
-##  Median :4.000   Median :11.00  
-##  Mean   :3.579   Mean   :10.39  
-##  3rd Qu.:5.000   3rd Qu.:14.00  
-##  Max.   :5.000   Max.   :20.00</code></pre>
-<div id="q1-do-students-that-are-in-a-relationship-drink-more-at-the-weekend" class="section level1">
-<h1>Q1: Do students that are in a relationship drink more at the weekend?</h1>
+<p>In this section we tried to investigate, through data exploration, if a subset of attributes related to motivation and time away from school work affected a math student’s final grade. In a first attempt at data exploration we had selected 14 variables of interest for math students during data description. Variables such as in a romantic relationship and alcohol intake were reviewed. Tests such as the T-test and Anova were conducted but nothing of strong statistical significance (p&lt;0.05) was detected that supported our research questions. In this iteration we used the following variables to try investigate different attributes related to motivation and focus away from schoolwork play a role in final grade performance.</p>
+<div id="variable-selected-maths-students" class="section level2">
+<h2>Variable Selected: Maths Students</h2>
+<p>The following are our selected variables of interest.</p>
+<pre><code>##  school        age          failures.m     romantic.m  traveltime.m  
+##  GP:342   Min.   :15.00   Min.   :0.0000   no :237    Min.   :1.000  
+##           1st Qu.:16.00   1st Qu.:0.0000   yes:105    1st Qu.:1.000  
+##           Median :16.00   Median :0.0000              Median :1.000  
+##           Mean   :16.44   Mean   :0.2895              Mean   :1.383  
+##           3rd Qu.:17.00   3rd Qu.:0.0000              3rd Qu.:2.000  
+##           Max.   :22.00   Max.   :3.0000              Max.   :4.000  
+##     goout.m           Fedu            Medu       higher.m       mG1      
+##  Min.   :1.000   Min.   :0.000   Min.   :0.000   no : 16   Min.   : 3.0  
+##  1st Qu.:2.000   1st Qu.:2.000   1st Qu.:2.000   yes:326   1st Qu.: 8.0  
+##  Median :3.000   Median :3.000   Median :3.000             Median :10.5  
+##  Mean   :3.123   Mean   :2.594   Mean   :2.854             Mean   :10.9  
+##  3rd Qu.:4.000   3rd Qu.:4.000   3rd Qu.:4.000             3rd Qu.:13.0  
+##  Max.   :5.000   Max.   :4.000   Max.   :4.000             Max.   :19.0  
+##       mG2             mG3       
+##  Min.   : 0.00   Min.   : 0.00  
+##  1st Qu.: 9.00   1st Qu.: 8.00  
+##  Median :11.00   Median :11.00  
+##  Mean   :10.79   Mean   :10.49  
+##  3rd Qu.:13.00   3rd Qu.:14.00  
+##  Max.   :19.00   Max.   :20.00</code></pre>
+</div>
+<div id="q1-is-desire-to-go-onto-higher-education-e.g-university-a-good-indicator-for-future-performance-with-math-students" class="section level2">
+<h2>Q1: Is desire to go onto higher education (e.g university) a good indicator for future performance with math students?</h2>
+<p>The purpose of this test was to see if those who said yes to wanting to pursue higher education, got better grades than those that do not. We wanted to test hypothesis that motivation affects final grade performance because we want to know, what levels indicate, in a subset of attributes, that a student requires early intervention before exam failure? It also helps us understand if we should include this attribute in our model to predict which students will fail their exams, if so what is the level of accuracy.</p>
+<p>We will use a two sampled paired t-test if we find a difference in standard deviation between higher.m and mG3 that is greater than 2 standard deviations. We will deem this a non-parametric test and use a Wilcoxon’s rank sum test instead. We are comparing ‘higher.m’ which is a nominal categorical variable with level of grade scored 0-20, numerical variable. This is similar to the pearson’s test we did in the previous section.</p>
+<p>We state our hypothesis along with the null hypothesis: h0: higher.m_mu &lt;= mG3_mu h1: higher.m_mu &gt; mG3_mu</p>
+<div id="descriptive-statistics-of-variables" class="section level3">
+<h3>Descriptive statistics of variables</h3>
 <ul>
-<li>We will use a two sampled paired t-test. We are comparing ‘relationship’ which is a nominal categorical variable with level of alcohol consumption, an ordinal categorical variable. We state the null hypothesis below:</li>
-<li>h0: mu_inRel &lt;= mu_sgl</li>
-<li>h1: mu_inRel &gt; mu_sgl</li>
-<li>a = 0.05 (95% confidence)</li>
-</ul>
-<div id="descriptive-statistics-of-variables" class="section level2">
-<h2>Descriptive statistics of variables</h2>
-<pre class="r"><code>#Get descriptive statistics by group to show a matrix of alcohol consumption by those in a relationship and those that are not. Mean of those in a relationship that drink is a little larger than those that are not. Standard deviations are less than 2 so we can use a student t-test. Both are positively skewed with a platykurtic distribution(Moderately Spread Out).
-psych::describeBy(smath$Walc.m, smath$romantic.m, mat=TRUE)</code></pre>
+<li>We get descriptive statistics by group to show a matrix of those who said yes to wanting to purse a higher education and those that do not. We are focusing on the mean, standard deviation, skew and kurtosis. We performed this at high level in the last section of this report.
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["item"],"name":[1],"type":["chr"],"align":["left"]},{"label":["group1"],"name":[2],"type":["chr"],"align":["left"]},{"label":["vars"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["trimmed"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["mad"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["min"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["range"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["skew"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["kurtosis"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["se"],"name":[15],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"no","3":"1","4":"261","5":"2.264368","6":"1.278158","7":"2","8":"2.129187","9":"1.4826","10":"1","11":"5","12":"4","13":"0.6115635","14":"-0.8363925","15":"0.07911597","_rn_":"X11"},{"1":"2","2":"yes","3":"1","4":"121","5":"2.314050","6":"1.297646","7":"2","8":"2.154639","9":"1.4826","10":"1","11":"5","12":"4","13":"0.6576358","14":"-0.6716840","15":"0.11796779","_rn_":"X12"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["item"],"name":[1],"type":["chr"],"align":["left"]},{"label":["group1"],"name":[2],"type":["chr"],"align":["left"]},{"label":["vars"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["trimmed"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["mad"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["min"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["range"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["skew"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["kurtosis"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["se"],"name":[15],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"no","3":"1","4":"16","5":"4.93750","6":"4.567549","7":"7.5","8":"4.928571","9":"3.7065","10":"0","11":"10","12":"10","13":"-0.1471293","14":"-2.0009071","15":"1.141887","_rn_":"X11"},{"1":"2","2":"yes","3":"1","4":"326","5":"10.76687","6":"4.524899","7":"11.0","8":"11.167939","9":"4.4478","10":"0","11":"20","12":"20","13":"-0.7426497","14":"0.4753976","15":"0.250611","_rn_":"X12"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+</script>
+</div></li>
+<li>Mean of those who do want to go on and pursue a higher education is larger than those that do not. Good grades are required to pursue an education at a university. Intuitively the ‘yes’ group should score higher, however our test must confirm this and determine, if this is statistically significant. Standard deviations were greater than 2 so we used a Wilcoxon’s rank test. Both are negatively skewed with a platykurtic distribution (Moderately Spread Out).</li>
+</ul>
+</div>
+<div id="levenes-test-for-homogeneity-of-variance" class="section level3">
+<h3>Levene’s test for homogeneity of variance</h3>
+<ul>
+<li>We conducted Levene’s test for homogeneity of variance (equal). This test only works for categorical variables (higher.m) with numeric variables (mG3). The null hypothesis was that variances in higher.m and final math grades are equal. In order to assume homogeneity we would expect the probability to statistically significant (p&lt;0.05).
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Df"],"name":[1],"type":["int"],"align":["right"]},{"label":["F value"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"1.521507","3":"0.2182437","_rn_":"group"},{"1":"340","2":"NA","3":"NA","_rn_":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+</script>
+</div></li>
+<li>our p-value probability Pr(&gt;F) was greater than 0.05 so it is <em>not statistically significant</em>. We rejected the null hypothesis and cannot assume homogeneity. There seems to be a difference between the variances in the sample population. This confirmed we would not be able to perform a analysis of variance (ANOVA) or a t-test and must perform a Wilcoxon’s rank test.</li>
+</ul>
+</div>
+<div id="wilcoxons-rank-sum-test" class="section level3">
+<h3>Wilcoxon’s Rank Sum Test</h3>
+<p>If Levene’s p-value was less than 0.05 we would deem variance equal and require a parametric test such as Student’s T-test. p-value was greater than 0.05 so we deemed it not normally distributed and required a non-parametric test such as Wilcoxon’s rank sum test. We compared the mean of two attributes from the same group (math students) making this a paired test. R perform a wilcoxon signed rank test of the null that the distribution of x is symmetric about mu. We fed a parameter to test that the x (mG3) was less than y (higher.m)</p>
+<pre><code>## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  mG3 by higher.m
+## W = 876.5, p-value = 3.383e-06
+## alternative hypothesis: true location shift is less than 0</code></pre>
+<p>A statistical significant difference <em>was found</em> so we can reject the null hypothesis. We can say with a 95% confidence level that math students who want to pursue a higher education are more likely to get better grades.</p>
+</div>
+<div id="cohens-d" class="section level3">
+<h3>Cohen’s d</h3>
+We can calculate Cohen’s d value to see the size of our statistically significance of difference (if any), this is to evaluate the strength of our statistical claim. According to (Kenrose, 2021) and (Cohen, 1988): d-values can be interpreted as follows; small effect = 0.2, Medium Effect = 0.5 and Large Effect = 0.8.
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["d"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["CI"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CI_low"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CI_high"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"14.142136","2":"0.95","3":"1.7968886","4":"27.39547","_rn_":"1"},{"1":"7.071068","2":"0.95","3":"0.2624903","4":"14.04000","_rn_":"2"},{"1":"18.384776","2":"0.95","3":"2.5819760","4":"35.49063","_rn_":"3"},{"1":"11.313708","2":"0.95","3":"1.2323652","4":"22.02047","_rn_":"4"},{"1":"14.142136","2":"0.95","3":"1.7968886","4":"27.39547","_rn_":"5"},{"1":"15.556349","2":"0.95","3":"2.0649874","4":"30.09066","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
-<div id="levenes-test-for-homogeneity-of-variance" class="section level2">
-<h2>Levene’s test for homogeneity of variance</h2>
-<pre class="r"><code>#We conduct Levene&#39;s test for homogeneity of variance. The null hypothesis is that variances in relationship and weekend alcohol consumption are equal so to assume homogeneity we would expect probability to not be statistically significant.
-car::leveneTest(smath$Walc.m ~ smath$romantic.m, center=mean)</code></pre>
-<pre><code>## Warning in leveneTest.default(y = y, group = group, ...): group coerced to
-## factor.</code></pre>
+<div id="result" class="section level3">
+<h3>Result</h3>
+<p>We wanted to know if a student’s motivation to go onto higher education influenced their final grades. We found after performing a Wilcoxon’s Rank Sum Test (Levene’s Test p = 0.231) there there <em>was a statistically significant difference</em> (mu_no=6.9, mu_yes=10.8; SD_no=2.9, SD_yes=3.7) of p&lt;0.05 (1.602e-05) so we rejected the null hypothesis. We can say with a 95% confidence level that math students, who want to pursue a higher education may get a better final grade. Our cohen’s d values are greater than 0.05 so we conclude that there is a large effect to the statistical significance of our Wilcoxon’s test. It seems higher.m is a good indicator.</p>
+</div>
+</div>
+<div id="q2-how-does-relationship-status-affect-grades-amoung-math-students" class="section level2">
+<h2>Q2: How does relationship status affect grades amoung math students?</h2>
+<p>The purpose of this test was to see if being in a relationship affects a students math grade. Here we wanted to know if time away from school work (i.e spending it with a partner) was influencing final grade score.</p>
+<p>We used a two sampled paired t-test to find if the difference in standard deviation between the two was less than 2 standard deviations. If greater than 2 standard deviations we deemed this a non-parametric test and used a Wilcoxon’s rank sum test instead. We were comparing ‘relationship’ which is a nominal categorical variable with level of grade level, a numeric variable.</p>
+<p>We state our hypothesis: h0: relationship_mu &lt;= mG3_mu h1: relationship_mu &gt; mG3_mu</p>
+<div id="descriptive-statistics-of-variables-1" class="section level3">
+<h3>Descriptive statistics of variables</h3>
+<ul>
+<li>We got descriptive statistics by group to show a matrix of grades by those in a relationship and those that are not. Grades that were 10 to 11 were deemed sufficient or a D in Ireland (i.e a pass).
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Df"],"name":[1],"type":["int"],"align":["right"]},{"label":["F value"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"0.001406564","3":"0.9701027","_rn_":"group"},{"1":"380","2":"NA","3":"NA","_rn_":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["item"],"name":[1],"type":["chr"],"align":["left"]},{"label":["group1"],"name":[2],"type":["chr"],"align":["left"]},{"label":["vars"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["trimmed"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["mad"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["min"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["range"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["skew"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["kurtosis"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["se"],"name":[15],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"no","3":"1","4":"237","5":"11.008439","6":"4.363749","7":"11","8":"11.261780","9":"4.4478","10":"0","11":"20","12":"20","13":"-0.6140932","14":"0.5575289","15":"0.2834559","_rn_":"X11"},{"1":"2","2":"yes","3":"1","4":"105","5":"9.333333","6":"5.176995","7":"11","8":"9.623529","9":"4.4478","10":"0","11":"18","12":"18","13":"-0.6978096","14":"-0.6040751","15":"0.5052230","_rn_":"X12"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+</script>
+</div></li>
+<li>Mean of those not in a relationship were greater than those in a relationship, however we need to test if this is statistically significant. Standard deviations are less than 2 so we used a student t-test. Both are moderately negatively skewed with a platykurtic distribution (Moderately Spread Out).</li>
+</ul>
+</div>
+<div id="levenes-test" class="section level3">
+<h3>Levene’s Test</h3>
+<ul>
+<li>We conducted a Levene’s test for homogeneity of variance. The null hypothesis was that variances in relationship and grades are equal so to assume homogeneity we would expect probability to be statistically significant.
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Df"],"name":[1],"type":["int"],"align":["right"]},{"label":["F value"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"5.778512","3":"0.01675795","_rn_":"group"},{"1":"340","2":"NA","3":"NA","_rn_":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+</script>
+</div></li>
+<li>our probability Pr(&gt;F) is greater than 0.05 so it is not statistically significant so we cannot assume homogeneity.</li>
+</ul>
+</div>
+<div id="wilcoxon-test" class="section level3">
+<h3>Wilcoxon Test</h3>
+<pre><code>## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  mG3 by romantic.m
+## W = 14266, p-value = 0.985
+## alternative hypothesis: true location shift is less than 0</code></pre>
+</div>
+<div id="cohens-d-1" class="section level3">
+<h3>Cohen’s d</h3>
+We again calculated Cohen’s d value to see the size of our statistically significance of difference.
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["d"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["CI"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CI_low"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CI_high"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"20.000000","2":"0.95","3":"-0.3652769","4":"45.05162","_rn_":"1"},{"1":"7.071068","2":"0.95","3":"0.2624903","4":"14.04000","_rn_":"2"},{"1":"26.000000","2":"0.95","3":"-0.3952051","4":"55.69843","_rn_":"3"},{"1":"16.000000","2":"0.95","3":"-0.6803553","4":"36.14153","_rn_":"4"},{"1":"14.142136","2":"0.95","3":"1.7968886","4":"27.39547","_rn_":"5"},{"1":"22.000000","2":"0.95","3":"-0.2235461","4":"49.51420","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<pre class="r"><code>#our probability Pr(&gt;F) is greater than 0.05 so it is not statistically significant so we can assume homogeneity.</code></pre>
 </div>
-<div id="student-t-test" class="section level2">
-<h2>Student T-Test</h2>
-<pre class="r"><code>stats::t.test(Walc.m~romantic.m,var.equal=TRUE,data=smath)</code></pre>
-<pre><code>## 
-##  Two Sample t-test
-## 
-## data:  Walc.m by romantic.m
-## t = -0.35172, df = 380, p-value = 0.7252
-## alternative hypothesis: true difference in means between group no and group yes is not equal to 0
-## 95 percent confidence interval:
-##  -0.3274186  0.2280551
-## sample estimates:
-##  mean in group no mean in group yes 
-##          2.264368          2.314050</code></pre>
+<div id="result-1" class="section level3">
+<h3>Result</h3>
 <ul>
-<li>No statistically significant difference was found so we do not reject the null hypothesis. We cannot say with a 95% confidence level that math students in a relationship drink more at the weekend than those that do not.</li>
+<li>Our test was to determine if being in a relationship affected grade performance. The P value was greater than 0.05. There <em>was no statistically significance</em> of a difference. We accept the null hypothesis and could not say with a 95% confidence level that there was a statistically significance in the different grades math students in a relationship get vs those that are not in a relationship. It doesn’t seem relationship.m is a good predictive indicator for our requirements.</li>
 </ul>
 </div>
 </div>
-<div id="what-is-the-difference-between-maths-students-who-perform-bad-on-final-grades-vs-those-who-perform-well" class="section level1">
-<h1>What is the difference between maths students who perform bad on final grades vs those who perform well</h1>
-<p>We will use a two sampled paired t-test. We are comparing two groups of students (bad + good) from the same school. Weekend Alcohol standard dev is 1.06 and math grade 3 is 4.66 mG3. There is a difference between these two by 0.22 which means we must use Welch’s test (s1/s2&lt;0.5) h0: good performing students and bad performing students drink the same amount of alcohol h1: bad performing students drink more alcohol</p>
-<p>h0: mu1 = mu2 h1: mu2&gt;mu1</p>
-<p>#mothers education on grades? #alcohol on grades? # h1: students who spend more time studying get better grades #relationship status on grades?</p>
+<div id="q3-do-math-students-of-a-certain-age-group-perform-worse-on-final-their-maths-exam-than-other-groups-one-way-anova" class="section level2">
+<h2>Q3: Do math students of a certain age group perform worse on final their maths exam than other groups? (One-way Anova)</h2>
+<p>We chose a one way Anova because we were testing against different groups from the same school. We assumed that students from GT school were randomly sampled from a normally distributed population.</p>
+<p>We stated our parameters and hypothesis below: * school: GT (all students are from the same school) * age group: 15, 16 and 17 * mG3: maths grade performance H0: The means between age groups are identical Ha: At least, the mean of one age group is different</p>
+<div id="data-preparation" class="section level3">
+<h3>Data Preparation</h3>
+<pre><code>## [1] &quot;None&quot;          &quot;Primary&quot;       &quot;5th-9th Grade&quot; &quot;Secondary&quot;    
+## [5] &quot;Higher Level&quot;</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Medu"],"name":[1],"type":["fct"],"align":["left"]},{"label":["count_medu"],"name":[2],"type":["int"],"align":["right"]},{"label":["mean_score"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["sd_score"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"None","2":"3","3":"13.000000","4":"3.464102"},{"1":"Primary","2":"37","3":"9.135135","4":"3.966262"},{"1":"5th-9th Grade","2":"92","3":"9.728261","4":"4.755802"},{"1":"Secondary","2":"85","3":"10.235294","4":"4.939267"},{"1":"Higher Level","2":"125","3":"11.576000","4":"4.485216"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p><img src="4_de_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="one-way-anova-test" class="section level3">
+<h3>One-Way ANOVA Test</h3>
+<pre><code>## [1] &quot;One Way ANOVA:&quot;</code></pre>
+<pre><code>##              Df Sum Sq Mean Sq F value  Pr(&gt;F)   
+## Medu          4    293   73.28   3.434 0.00907 **
+## Residuals   337   7192   21.34                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>We could not tell which mean within the Medu group was different so we used Tukey as the post-hoc test option as group variances were the same. If they were not we would have used Games-Howell.</p>
+<pre><code>## [1] &quot;Tukey:&quot;</code></pre>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = mG3 ~ Medu, data = smath)
+## 
+## $Medu
+##                                  diff          lwr      upr     p adj
+## Primary-None               -3.8648649 -11.47079455 3.741065 0.6321948
+## 5th-9th Grade-None         -3.2717391 -10.70520003 4.161722 0.7472775
+## Secondary-None             -2.7647059 -10.20782631 4.678415 0.8466600
+## Higher Level-None          -1.4240000  -8.82641025 5.978410 0.9844945
+## 5th-9th Grade-Primary       0.5931257  -1.87338994 3.059641 0.9647664
+## Secondary-Primary           1.1001590  -1.39531698 3.595635 0.7461211
+## Higher Level-Primary        2.4408649   0.06957067 4.812159 0.0401000
+## Secondary-5th-9th Grade     0.5070332  -1.39916057 2.413227 0.9495352
+## Higher Level-5th-9th Grade  1.8477391   0.10727633 3.588202 0.0311936
+## Higher Level-Secondary      1.3407059  -0.44056094 3.121973 0.2381620</code></pre>
+</div>
+<div id="result-2" class="section level3">
+<h3>Result</h3>
+<p>Pr(&gt;F) value is less than 0.05 for mother’s with a higher education vs primary education and mother’s education vs secondary education. There <em>is a statistical difference</em> between the age groups, specifically mothers with a higher education vs mothers with only a primary or secondary education (p-value adjusted 0.03 and 0.04). It seems a mother’s education is a good indicator for a math student’s final grade score.</p>
+</div>
+</div>
+<div id="q4-do-math-students-whos-travel-time-is-longer-have-more-failures-and-in-turn-do-worse-on-their-final-grade-exam-two-way-anova" class="section level2">
+<h2>Q4: Do math students who’s travel time is longer, have more failures and in turn do worse on their final grade exam? (Two-Way Anova)</h2>
+<div id="data-preparation-1" class="section level3">
+<h3>Data Preparation</h3>
+We select our variables into a subset, we
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["failures.m"],"name":[1],"type":["ord"],"align":["right"]},{"label":["traveltime.m"],"name":[2],"type":["fct"],"align":["left"]},{"label":["mG3"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"15m-30m","3":"10","_rn_":"1"},{"1":"2","2":"<15m","3":"5","_rn_":"2"},{"1":"0","2":"<15m","3":"13","_rn_":"3"},{"1":"0","2":"<15m","3":"8","_rn_":"4"},{"1":"2","2":"15m-30m","3":"10","_rn_":"5"},{"1":"0","2":"<15m","3":"11","_rn_":"6"},{"1":"2","2":"15m-30m","3":"0","_rn_":"7"},{"1":"0","2":"15m-30m","3":"8","_rn_":"8"},{"1":"0","2":"15m-30m","3":"16","_rn_":"9"},{"1":"0","2":"<15m","3":"11","_rn_":"10"},{"1":"0","2":"<15m","3":"15","_rn_":"11"},{"1":"0","2":"30m-1hr","3":"0","_rn_":"12"},{"1":"0","2":"<15m","3":"10","_rn_":"13"},{"1":"0","2":"<15m","3":"11","_rn_":"14"},{"1":"0","2":"<15m","3":"11","_rn_":"15"},{"1":"0","2":"<15m","3":"15","_rn_":"16"},{"1":"0","2":"30m-1hr","3":"12","_rn_":"17"},{"1":"0","2":"<15m","3":"8","_rn_":"18"},{"1":"0","2":"15m-30m","3":"6","_rn_":"19"},{"1":"3","2":"<15m","3":"0","_rn_":"20"},{"1":"0","2":"15m-30m","3":"6","_rn_":"21"},{"1":"0","2":"<15m","3":"15","_rn_":"22"},{"1":"0","2":"<15m","3":"14","_rn_":"23"},{"1":"0","2":"<15m","3":"18","_rn_":"24"},{"1":"0","2":"<15m","3":"0","_rn_":"25"},{"1":"0","2":"<15m","3":"11","_rn_":"26"},{"1":"2","2":"15m-30m","3":"8","_rn_":"27"},{"1":"1","2":"<15m","3":"7","_rn_":"28"},{"1":"0","2":"<15m","3":"9","_rn_":"29"},{"1":"0","2":"<15m","3":"11","_rn_":"30"},{"1":"0","2":"15m-30m","3":"15","_rn_":"31"},{"1":"0","2":"<15m","3":"13","_rn_":"32"},{"1":"0","2":"<15m","3":"11","_rn_":"33"},{"1":"0","2":"<15m","3":"6","_rn_":"34"},{"1":"3","2":"<15m","3":"10","_rn_":"35"},{"1":"0","2":"<15m","3":"6","_rn_":"36"},{"1":"0","2":"<15m","3":"13","_rn_":"37"},{"1":"0","2":"<15m","3":"10","_rn_":"38"},{"1":"0","2":"15m-30m","3":"11","_rn_":"39"},{"1":"1","2":"<15m","3":"10","_rn_":"40"},{"1":"0","2":"<15m","3":"11","_rn_":"41"},{"1":"0","2":"<15m","3":"10","_rn_":"42"},{"1":"0","2":"<15m","3":"14","_rn_":"43"},{"1":"3","2":"<15m","3":"7","_rn_":"44"},{"1":"2","2":"15m-30m","3":"0","_rn_":"45"},{"1":"0","2":"<15m","3":"11","_rn_":"46"},{"1":"0","2":"15m-30m","3":"10","_rn_":"47"},{"1":"0","2":">1hr","3":"11","_rn_":"48"},{"1":"3","2":"<15m","3":"0","_rn_":"49"},{"1":"0","2":"<15m","3":"10","_rn_":"50"},{"1":"0","2":"<15m","3":"12","_rn_":"51"},{"1":"1","2":"<15m","3":"13","_rn_":"52"},{"1":"0","2":"<15m","3":"0","_rn_":"53"},{"1":"0","2":"<15m","3":"8","_rn_":"54"},{"1":"0","2":"<15m","3":"11","_rn_":"55"},{"1":"0","2":"15m-30m","3":"11","_rn_":"56"},{"1":"2","2":"<15m","3":"8","_rn_":"57"},{"1":"0","2":"<15m","3":"10","_rn_":"58"},{"1":"0","2":"<15m","3":"13","_rn_":"59"},{"1":"0","2":"<15m","3":"17","_rn_":"60"},{"1":"0","2":"<15m","3":"6","_rn_":"61"},{"1":"0","2":"<15m","3":"12","_rn_":"62"},{"1":"0","2":"<15m","3":"10","_rn_":"63"},{"1":"0","2":"<15m","3":"8","_rn_":"64"},{"1":"0","2":"30m-1hr","3":"10","_rn_":"65"},{"1":"0","2":"<15m","3":"11","_rn_":"66"},{"1":"0","2":"<15m","3":"5","_rn_":"67"},{"1":"0","2":"<15m","3":"16","_rn_":"68"},{"1":"0","2":"<15m","3":"16","_rn_":"69"},{"1":"0","2":"15m-30m","3":"10","_rn_":"70"},{"1":"0","2":"<15m","3":"16","_rn_":"71"},{"1":"0","2":"<15m","3":"8","_rn_":"72"},{"1":"0","2":"<15m","3":"9","_rn_":"73"},{"1":"0","2":"<15m","3":"13","_rn_":"74"},{"1":"0","2":"<15m","3":"14","_rn_":"75"},{"1":"0","2":"<15m","3":"14","_rn_":"76"},{"1":"0","2":"<15m","3":"14","_rn_":"77"},{"1":"0","2":"<15m","3":"14","_rn_":"78"},{"1":"0","2":"<15m","3":"14","_rn_":"79"},{"1":"0","2":"<15m","3":"11","_rn_":"80"},{"1":"0","2":"<15m","3":"13","_rn_":"81"},{"1":"0","2":"<15m","3":"9","_rn_":"82"},{"1":"0","2":"<15m","3":"6","_rn_":"83"},{"1":"1","2":"15m-30m","3":"9","_rn_":"84"},{"1":"1","2":"15m-30m","3":"11","_rn_":"85"},{"1":"0","2":"30m-1hr","3":"13","_rn_":"86"},{"1":"0","2":"15m-30m","3":"13","_rn_":"87"},{"1":"0","2":"<15m","3":"6","_rn_":"88"},{"1":"0","2":"15m-30m","3":"9","_rn_":"89"},{"1":"0","2":"30m-1hr","3":"15","_rn_":"90"},{"1":"0","2":"<15m","3":"16","_rn_":"91"},{"1":"0","2":"<15m","3":"10","_rn_":"92"},{"1":"0","2":"<15m","3":"10","_rn_":"93"},{"1":"0","2":"30m-1hr","3":"11","_rn_":"94"},{"1":"0","2":"15m-30m","3":"6","_rn_":"95"},{"1":"0","2":"<15m","3":"6","_rn_":"96"},{"1":"0","2":"<15m","3":"14","_rn_":"97"},{"1":"0","2":"<15m","3":"10","_rn_":"98"},{"1":"0","2":"15m-30m","3":"7","_rn_":"99"},{"1":"0","2":"<15m","3":"11","_rn_":"100"},{"1":"0","2":"15m-30m","3":"18","_rn_":"101"},{"1":"0","2":"<15m","3":"10","_rn_":"102"},{"1":"0","2":"15m-30m","3":"12","_rn_":"103"},{"1":"1","2":"<15m","3":"0","_rn_":"104"},{"1":"0","2":"<15m","3":"9","_rn_":"105"},{"1":"0","2":"<15m","3":"13","_rn_":"106"},{"1":"0","2":"15m-30m","3":"6","_rn_":"107"},{"1":"0","2":"<15m","3":"6","_rn_":"108"},{"1":"1","2":"<15m","3":"0","_rn_":"109"},{"1":"0","2":"<15m","3":"9","_rn_":"110"},{"1":"0","2":"<15m","3":"10","_rn_":"111"},{"1":"0","2":"<15m","3":"12","_rn_":"112"},{"1":"0","2":"<15m","3":"10","_rn_":"113"},{"1":"0","2":"<15m","3":"11","_rn_":"114"},{"1":"0","2":"<15m","3":"9","_rn_":"115"},{"1":"0","2":"15m-30m","3":"8","_rn_":"116"},{"1":"0","2":"15m-30m","3":"10","_rn_":"117"},{"1":"0","2":"<15m","3":"17","_rn_":"118"},{"1":"0","2":"<15m","3":"15","_rn_":"119"},{"1":"0","2":"<15m","3":"18","_rn_":"120"},{"1":"0","2":"<15m","3":"15","_rn_":"121"},{"1":"0","2":"<15m","3":"0","_rn_":"122"},{"1":"0","2":"<15m","3":"9","_rn_":"123"},{"1":"1","2":"<15m","3":"9","_rn_":"124"},{"1":"0","2":"<15m","3":"15","_rn_":"125"},{"1":"0","2":"15m-30m","3":"14","_rn_":"126"},{"1":"0","2":"<15m","3":"15","_rn_":"127"},{"1":"0","2":"<15m","3":"15","_rn_":"128"},{"1":"2","2":"<15m","3":"4","_rn_":"129"},{"1":"0","2":"<15m","3":"12","_rn_":"130"},{"1":"1","2":"15m-30m","3":"18","_rn_":"131"},{"1":"0","2":"<15m","3":"9","_rn_":"132"},{"1":"0","2":"<15m","3":"9","_rn_":"133"},{"1":"0","2":"15m-30m","3":"14","_rn_":"134"},{"1":"0","2":"15m-30m","3":"15","_rn_":"135"},{"1":"0","2":"<15m","3":"12","_rn_":"136"},{"1":"0","2":"15m-30m","3":"12","_rn_":"137"},{"1":"0","2":"<15m","3":"0","_rn_":"138"},{"1":"0","2":"<15m","3":"15","_rn_":"139"},{"1":"0","2":"15m-30m","3":"15","_rn_":"140"},{"1":"0","2":"<15m","3":"8","_rn_":"141"},{"1":"0","2":"<15m","3":"13","_rn_":"142"},{"1":"0","2":"<15m","3":"14","_rn_":"143"},{"1":"0","2":"15m-30m","3":"9","_rn_":"144"},{"1":"3","2":"30m-1hr","3":"10","_rn_":"145"},{"1":"0","2":"15m-30m","3":"0","_rn_":"146"},{"1":"0","2":"15m-30m","3":"0","_rn_":"147"},{"1":"1","2":"<15m","3":"7","_rn_":"148"},{"1":"0","2":"15m-30m","3":"11","_rn_":"149"},{"1":"0","2":"15m-30m","3":"12","_rn_":"150"},{"1":"0","2":"15m-30m","3":"6","_rn_":"151"},{"1":"0","2":"15m-30m","3":"10","_rn_":"152"},{"1":"0","2":"15m-30m","3":"10","_rn_":"153"},{"1":"0","2":"15m-30m","3":"0","_rn_":"154"},{"1":"0","2":"15m-30m","3":"0","_rn_":"155"},{"1":"0","2":"<15m","3":"19","_rn_":"156"},{"1":"0","2":"<15m","3":"0","_rn_":"157"},{"1":"0","2":"<15m","3":"10","_rn_":"158"},{"1":"0","2":"<15m","3":"14","_rn_":"159"},{"1":"0","2":"<15m","3":"14","_rn_":"160"},{"1":"0","2":"<15m","3":"0","_rn_":"161"},{"1":"0","2":"<15m","3":"9","_rn_":"162"},{"1":"0","2":"<15m","3":"14","_rn_":"163"},{"1":"0","2":"<15m","3":"18","_rn_":"164"},{"1":"1","2":"<15m","3":"8","_rn_":"165"},{"1":"0","2":"<15m","3":"11","_rn_":"166"},{"1":"0","2":"<15m","3":"11","_rn_":"167"},{"1":"0","2":"15m-30m","3":"11","_rn_":"168"},{"1":"0","2":"<15m","3":"0","_rn_":"169"},{"1":"0","2":"<15m","3":"17","_rn_":"170"},{"1":"0","2":"15m-30m","3":"8","_rn_":"171"},{"1":"3","2":"<15m","3":"9","_rn_":"172"},{"1":"0","2":"<15m","3":"8","_rn_":"173"},{"1":"2","2":"<15m","3":"9","_rn_":"174"},{"1":"0","2":"15m-30m","3":"0","_rn_":"175"},{"1":"0","2":"<15m","3":"9","_rn_":"176"},{"1":"0","2":"<15m","3":"8","_rn_":"177"},{"1":"0","2":">1hr","3":"0","_rn_":"178"},{"1":"0","2":"<15m","3":"16","_rn_":"179"},{"1":"0","2":">1hr","3":"13","_rn_":"180"},{"1":"0","2":"<15m","3":"16","_rn_":"181"},{"1":"0","2":"<15m","3":"18","_rn_":"182"},{"1":"0","2":"<15m","3":"12","_rn_":"183"},{"1":"0","2":"<15m","3":"11","_rn_":"184"},{"1":"0","2":"<15m","3":"11","_rn_":"185"},{"1":"0","2":"<15m","3":"15","_rn_":"186"},{"1":"0","2":"<15m","3":"11","_rn_":"187"},{"1":"0","2":"<15m","3":"12","_rn_":"188"},{"1":"0","2":"<15m","3":"15","_rn_":"189"},{"1":"0","2":"<15m","3":"13","_rn_":"190"},{"1":"0","2":"<15m","3":"12","_rn_":"191"},{"1":"0","2":"15m-30m","3":"10","_rn_":"192"},{"1":"0","2":"<15m","3":"15","_rn_":"193"},{"1":"0","2":"<15m","3":"10","_rn_":"194"},{"1":"0","2":"<15m","3":"14","_rn_":"195"},{"1":"0","2":"15m-30m","3":"11","_rn_":"196"},{"1":"0","2":"<15m","3":"10","_rn_":"197"},{"1":"0","2":"<15m","3":"15","_rn_":"198"},{"1":"0","2":"15m-30m","3":"0","_rn_":"199"},{"1":"0","2":"<15m","3":"15","_rn_":"200"},{"1":"0","2":"<15m","3":"12","_rn_":"201"},{"1":"0","2":"15m-30m","3":"14","_rn_":"202"},{"1":"0","2":"<15m","3":"14","_rn_":"203"},{"1":"0","2":"15m-30m","3":"17","_rn_":"204"},{"1":"0","2":"<15m","3":"18","_rn_":"205"},{"1":"0","2":"<15m","3":"15","_rn_":"206"},{"1":"3","2":">1hr","3":"10","_rn_":"207"},{"1":"0","2":"<15m","3":"19","_rn_":"208"},{"1":"1","2":"15m-30m","3":"10","_rn_":"209"},{"1":"0","2":"<15m","3":"19","_rn_":"210"},{"1":"0","2":"<15m","3":"9","_rn_":"211"},{"1":"0","2":"<15m","3":"14","_rn_":"212"},{"1":"0","2":"15m-30m","3":"15","_rn_":"213"},{"1":"0","2":"<15m","3":"12","_rn_":"214"},{"1":"0","2":"<15m","3":"19","_rn_":"215"},{"1":"0","2":"<15m","3":"18","_rn_":"216"},{"1":"0","2":"<15m","3":"14","_rn_":"217"},{"1":"0","2":"<15m","3":"12","_rn_":"218"},{"1":"0","2":"15m-30m","3":"15","_rn_":"219"},{"1":"0","2":"15m-30m","3":"8","_rn_":"220"},{"1":"0","2":"30m-1hr","3":"15","_rn_":"221"},{"1":"0","2":"<15m","3":"10","_rn_":"222"},{"1":"0","2":"<15m","3":"9","_rn_":"223"},{"1":"0","2":"15m-30m","3":"15","_rn_":"224"},{"1":"0","2":"<15m","3":"18","_rn_":"225"},{"1":"0","2":"30m-1hr","3":"10","_rn_":"226"},{"1":"0","2":"<15m","3":"15","_rn_":"227"},{"1":"0","2":"15m-30m","3":"16","_rn_":"228"},{"1":"0","2":"<15m","3":"11","_rn_":"229"},{"1":"0","2":"30m-1hr","3":"18","_rn_":"230"},{"1":"0","2":"<15m","3":"10","_rn_":"231"},{"1":"1","2":"15m-30m","3":"10","_rn_":"232"},{"1":"0","2":"15m-30m","3":"14","_rn_":"233"},{"1":"0","2":"<15m","3":"14","_rn_":"234"},{"1":"0","2":"15m-30m","3":"15","_rn_":"235"},{"1":"0","2":"15m-30m","3":"10","_rn_":"236"},{"1":"0","2":"<15m","3":"15","_rn_":"237"},{"1":"0","2":"30m-1hr","3":"10","_rn_":"238"},{"1":"1","2":"<15m","3":"12","_rn_":"239"},{"1":"0","2":"15m-30m","3":"13","_rn_":"240"},{"1":"0","2":"<15m","3":"18","_rn_":"241"},{"1":"0","2":"<15m","3":"18","_rn_":"242"},{"1":"0","2":"<15m","3":"12","_rn_":"243"},{"1":"0","2":"<15m","3":"12","_rn_":"244"},{"1":"2","2":"30m-1hr","3":"0","_rn_":"245"},{"1":"0","2":"<15m","3":"20","_rn_":"246"},{"1":"0","2":"<15m","3":"8","_rn_":"247"},{"1":"0","2":"<15m","3":"13","_rn_":"248"},{"1":"0","2":"<15m","3":"13","_rn_":"249"},{"1":"0","2":"<15m","3":"12","_rn_":"250"},{"1":"0","2":"<15m","3":"12","_rn_":"251"},{"1":"0","2":"<15m","3":"5","_rn_":"252"},{"1":"0","2":"<15m","3":"17","_rn_":"253"},{"1":"0","2":"<15m","3":"0","_rn_":"254"},{"1":"0","2":"<15m","3":"0","_rn_":"255"},{"1":"0","2":"<15m","3":"16","_rn_":"256"},{"1":"0","2":"<15m","3":"16","_rn_":"257"},{"1":"0","2":"<15m","3":"11","_rn_":"258"},{"1":"0","2":"<15m","3":"11","_rn_":"259"},{"1":"0","2":"<15m","3":"7","_rn_":"260"},{"1":"0","2":"15m-30m","3":"6","_rn_":"261"},{"1":"1","2":"<15m","3":"12","_rn_":"262"},{"1":"1","2":"<15m","3":"14","_rn_":"263"},{"1":"0","2":"<15m","3":"15","_rn_":"264"},{"1":"0","2":"<15m","3":"11","_rn_":"265"},{"1":"0","2":"15m-30m","3":"12","_rn_":"266"},{"1":"2","2":"15m-30m","3":"9","_rn_":"267"},{"1":"0","2":"<15m","3":"16","_rn_":"268"},{"1":"0","2":"<15m","3":"10","_rn_":"269"},{"1":"0","2":"<15m","3":"15","_rn_":"270"},{"1":"0","2":"<15m","3":"0","_rn_":"271"},{"1":"0","2":"<15m","3":"14","_rn_":"272"},{"1":"0","2":"<15m","3":"10","_rn_":"273"},{"1":"1","2":"30m-1hr","3":"8","_rn_":"274"},{"1":"0","2":"<15m","3":"12","_rn_":"275"},{"1":"0","2":"15m-30m","3":"11","_rn_":"276"},{"1":"0","2":">1hr","3":"10","_rn_":"277"},{"1":"0","2":"30m-1hr","3":"0","_rn_":"278"},{"1":"0","2":"15m-30m","3":"12","_rn_":"279"},{"1":"3","2":">1hr","3":"7","_rn_":"280"},{"1":"0","2":"<15m","3":"13","_rn_":"281"},{"1":"2","2":"15m-30m","3":"0","_rn_":"282"},{"1":"0","2":"<15m","3":"11","_rn_":"283"},{"1":"0","2":"15m-30m","3":"8","_rn_":"284"},{"1":"3","2":"<15m","3":"0","_rn_":"285"},{"1":"3","2":"<15m","3":"0","_rn_":"286"},{"1":"3","2":"15m-30m","3":"10","_rn_":"287"},{"1":"3","2":"15m-30m","3":"10","_rn_":"288"},{"1":"0","2":"15m-30m","3":"13","_rn_":"289"},{"1":"0","2":"<15m","3":"10","_rn_":"290"},{"1":"3","2":"<15m","3":"5","_rn_":"291"},{"1":"0","2":"<15m","3":"11","_rn_":"292"},{"1":"0","2":"<15m","3":"6","_rn_":"293"},{"1":"0","2":"<15m","3":"16","_rn_":"294"},{"1":"0","2":"<15m","3":"11","_rn_":"295"},{"1":"0","2":"<15m","3":"11","_rn_":"296"},{"1":"0","2":"<15m","3":"16","_rn_":"297"},{"1":"0","2":"<15m","3":"9","_rn_":"298"},{"1":"1","2":"<15m","3":"10","_rn_":"299"},{"1":"0","2":"15m-30m","3":"8","_rn_":"300"},{"1":"1","2":"15m-30m","3":"8","_rn_":"301"},{"1":"0","2":"<15m","3":"13","_rn_":"302"},{"1":"0","2":"<15m","3":"12","_rn_":"303"},{"1":"0","2":"15m-30m","3":"12","_rn_":"304"},{"1":"0","2":"15m-30m","3":"9","_rn_":"305"},{"1":"0","2":"15m-30m","3":"10","_rn_":"306"},{"1":"0","2":"<15m","3":"13","_rn_":"307"},{"1":"0","2":"<15m","3":"10","_rn_":"308"},{"1":"0","2":"<15m","3":"12","_rn_":"309"},{"1":"0","2":"<15m","3":"16","_rn_":"310"},{"1":"0","2":"15m-30m","3":"17","_rn_":"311"},{"1":"0","2":"15m-30m","3":"14","_rn_":"312"},{"1":"1","2":"<15m","3":"5","_rn_":"313"},{"1":"0","2":"<15m","3":"14","_rn_":"314"},{"1":"1","2":"<15m","3":"8","_rn_":"315"},{"1":"0","2":"<15m","3":"14","_rn_":"316"},{"1":"0","2":"15m-30m","3":"13","_rn_":"317"},{"1":"1","2":"<15m","3":"0","_rn_":"318"},{"1":"1","2":"<15m","3":"8","_rn_":"319"},{"1":"1","2":"15m-30m","3":"8","_rn_":"320"},{"1":"0","2":"<15m","3":"10","_rn_":"321"},{"1":"0","2":"<15m","3":"11","_rn_":"322"},{"1":"0","2":"<15m","3":"8","_rn_":"323"},{"1":"0","2":"<15m","3":"9","_rn_":"324"},{"1":"0","2":"<15m","3":"11","_rn_":"325"},{"1":"0","2":"15m-30m","3":"9","_rn_":"326"},{"1":"0","2":"15m-30m","3":"9","_rn_":"327"},{"1":"1","2":"<15m","3":"0","_rn_":"328"},{"1":"1","2":"<15m","3":"0","_rn_":"329"},{"1":"0","2":"<15m","3":"15","_rn_":"330"},{"1":"3","2":"<15m","3":"0","_rn_":"331"},{"1":"0","2":">1hr","3":"9","_rn_":"332"},{"1":"0","2":"<15m","3":"8","_rn_":"333"},{"1":"1","2":"<15m","3":"8","_rn_":"334"},{"1":"0","2":"<15m","3":"15","_rn_":"335"},{"1":"0","2":"15m-30m","3":"10","_rn_":"336"},{"1":"0","2":"<15m","3":"16","_rn_":"337"},{"1":"1","2":"<15m","3":"12","_rn_":"338"},{"1":"3","2":"<15m","3":"0","_rn_":"339"},{"1":"0","2":"<15m","3":"11","_rn_":"340"},{"1":"0","2":"<15m","3":"18","_rn_":"341"},{"1":"3","2":"<15m","3":"8","_rn_":"342"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["school"],"name":[1],"type":["fct"],"align":["left"]},{"label":["age"],"name":[2],"type":["int"],"align":["right"]},{"label":["failures.m"],"name":[3],"type":["fct"],"align":["left"]},{"label":["romantic.m"],"name":[4],"type":["fct"],"align":["left"]},{"label":["traveltime.m"],"name":[5],"type":["fct"],"align":["left"]},{"label":["goout.m"],"name":[6],"type":["int"],"align":["right"]},{"label":["Fedu"],"name":[7],"type":["int"],"align":["right"]},{"label":["Medu"],"name":[8],"type":["fct"],"align":["left"]},{"label":["higher.m"],"name":[9],"type":["fct"],"align":["left"]},{"label":["mG1"],"name":[10],"type":["int"],"align":["right"]},{"label":["mG2"],"name":[11],"type":["int"],"align":["right"]},{"label":["mG3"],"name":[12],"type":["int"],"align":["right"]}],"data":[{"1":"GP","2":"15","3":"1","4":"no","5":"15m-30m","6":"2","7":"1","8":"Primary","9":"yes","10":"7","11":"10","12":"10","_rn_":"1"},{"1":"GP","2":"15","3":"2","4":"yes","5":"<15m","6":"4","7":"1","8":"Primary","9":"yes","10":"8","11":"6","12":"5","_rn_":"2"},{"1":"GP","2":"15","3":"0","4":"no","5":"<15m","6":"1","7":"2","8":"5th-9th Grade","9":"yes","10":"14","11":"13","12":"13","_rn_":"3"},{"1":"GP","2":"15","3":"0","4":"no","5":"<15m","6":"2","7":"4","8":"5th-9th Grade","9":"yes","10":"10","11":"9","12":"8","_rn_":"4"},{"1":"GP","2":"15","3":"2","4":"yes","5":"15m-30m","6":"1","7":"3","8":"Secondary","9":"yes","10":"10","11":"10","12":"10","_rn_":"5"},{"1":"GP","2":"15","3":"0","4":"no","5":"<15m","6":"2","7":"4","8":"Secondary","9":"yes","10":"12","11":"12","12":"11","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p><img src="4_de_files/figure-html/unnamed-chunk-14-1.png" width="672" /> ### One-way ANOVA Test</p>
+<pre><code>##               Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## traveltime.m   3    107    35.6   1.881    0.132    
+## failures.m     3   1041   346.9  18.336 4.87e-11 ***
+## Residuals    335   6338    18.9                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre><code>## [1] &quot;Tukey:&quot;</code></pre>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = mG3 ~ traveltime.m + failures.m, data = smath)
+## 
+## $traveltime.m
+##                       diff       lwr       upr     p adj
+## 15m-30m-&lt;15m    -1.0117359 -2.449050 0.4255778 0.2668772
+## 30m-1hr-&lt;15m    -1.4124328 -4.500610 1.6757445 0.6393401
+## &gt;1hr-&lt;15m       -2.2695756 -6.576076 2.0369250 0.5249513
+## 30m-1hr-15m-30m -0.4006969 -3.648350 2.8469560 0.9887988
+## &gt;1hr-15m-30m    -1.2578397 -5.680097 3.1644173 0.8831973
+## &gt;1hr-30m-1hr    -0.8571429 -6.055924 4.3416383 0.9740562
+## 
+## $failures.m
+##           diff       lwr        upr     p adj
+## 1-0 -3.1374861 -5.326146 -0.9488266 0.0014254
+## 2-0 -6.0702978 -9.520971 -2.6196249 0.0000459
+## 3-0 -5.6952975 -8.580428 -2.8101675 0.0000034
+## 2-1 -2.9328117 -6.909665  1.0440417 0.2282351
+## 3-1 -2.5578114 -6.055267  0.9396440 0.2350096
+## 3-2  0.3750002 -4.023762  4.7737624 0.9962305</code></pre>
+</div>
+<div id="result-3" class="section level3">
+<h3>Result</h3>
+<p>Pr(&gt;F) values for travel time is less than 0.05 but not for failures. There <em>is a statistical difference</em> between failure group. Comparing 0 failures to those students with 1 or more seems to be statistically significant. One explanation although just conjector, could be that students with more failures develop gaps in their learning which takes time to fill, time of which could have been spent focusing on the final grade exam. We are not told how time is spent around Failures. Failures.m will be included as an attribute for our predictive model.</p>
+</div>
+</div>
+<div id="q5-can-past-performance-predict-future-performance" class="section level2">
+<h2>Q5: Can past performance predict future performance?</h2>
+<p>The purpose of this test is to see if those who said yes to wanting to pursue higher education, fail less than than those that do not. We are trying to support our hypothesis.</p>
+<p>We will use a two sampled paired t-test if we find a difference in standard deviation between higher.m and failures.m that is greater than 2 standard deviations. We will deem this a non-parametric test and use a Wilcoxon’s rank sum test instead.</p>
+<p>We state our hypothesis along with the null hypothesis: h0: higher.m_mu = failures.m_mu h1: higher.m_mu != failures.m_mu</p>
+<div id="data-preparation-2" class="section level3">
+<h3>Data Preparation</h3>
+We select our variables into a subset, we
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["school"],"name":[1],"type":["fct"],"align":["left"]},{"label":["age"],"name":[2],"type":["int"],"align":["right"]},{"label":["failures.m"],"name":[3],"type":["fct"],"align":["left"]},{"label":["romantic.m"],"name":[4],"type":["fct"],"align":["left"]},{"label":["traveltime.m"],"name":[5],"type":["fct"],"align":["left"]},{"label":["goout.m"],"name":[6],"type":["int"],"align":["right"]},{"label":["Fedu"],"name":[7],"type":["int"],"align":["right"]},{"label":["Medu"],"name":[8],"type":["fct"],"align":["left"]},{"label":["higher.m"],"name":[9],"type":["fct"],"align":["left"]},{"label":["mG1"],"name":[10],"type":["fct"],"align":["left"]},{"label":["mG2"],"name":[11],"type":["fct"],"align":["left"]},{"label":["mG3"],"name":[12],"type":["int"],"align":["right"]}],"data":[{"1":"GP","2":"15","3":"1","4":"no","5":"15m-30m","6":"2","7":"1","8":"Primary","9":"yes","10":"7","11":"10","12":"10","_rn_":"1"},{"1":"GP","2":"15","3":"2","4":"yes","5":"<15m","6":"4","7":"1","8":"Primary","9":"yes","10":"8","11":"6","12":"5","_rn_":"2"},{"1":"GP","2":"15","3":"0","4":"no","5":"<15m","6":"1","7":"2","8":"5th-9th Grade","9":"yes","10":"14","11":"13","12":"13","_rn_":"3"},{"1":"GP","2":"15","3":"0","4":"no","5":"<15m","6":"2","7":"4","8":"5th-9th Grade","9":"yes","10":"10","11":"9","12":"8","_rn_":"4"},{"1":"GP","2":"15","3":"2","4":"yes","5":"15m-30m","6":"1","7":"3","8":"Secondary","9":"yes","10":"10","11":"10","12":"10","_rn_":"5"},{"1":"GP","2":"15","3":"0","4":"no","5":"<15m","6":"2","7":"4","8":"Secondary","9":"yes","10":"12","11":"12","12":"11","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p><img src="4_de_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+</div>
+<div id="one-way-anova-test-1" class="section level3">
+<h3>One-Way ANOVA Test</h3>
+<p>We will test first grade and second grade scores separately against final grade. We also know these are normally distributed from our previous section.</p>
+<pre><code>## [1] &quot;One Way ANOVA (mG1):&quot;</code></pre>
+<pre><code>##              Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## mG1          16   4827  301.66   36.87 &lt;2e-16 ***
+## Residuals   325   2659    8.18                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre><code>## [1] &quot;One Way ANOVA (mG2):&quot;</code></pre>
+<pre><code>##              Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## mG2          15   6121   408.1   97.52 &lt;2e-16 ***
+## Residuals   326   1364     4.2                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<div id="result-4" class="section level3">
+<h3>Result</h3>
+<p>Both mG1 and mG2 are statistically significant to mG3 (p=&lt;2e-16). Past performance in exam work seem to be a good predictor of future performance.</p>
+<p>#Conclusion We found strong significance with mother’s education (Medu), desire to persue higher education (higher.m), number of past failures (failures.m) and past exam performance (mG1, mG2) when compared to final grade (mG3). These seem to be the subset of attributes, that we should use when trying to determine if a student requires early intervention before exam failure.</p>
+</div>
 </div>
 
 

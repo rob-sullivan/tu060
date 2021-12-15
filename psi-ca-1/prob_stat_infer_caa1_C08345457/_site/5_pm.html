@@ -244,7 +244,7 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="0_index.html">0 Introduction</a>
+  <a href="index.html">0 Introduction</a>
 </li>
 <li>
   <a href="1_sorq.html">1 Statement of Research Question</a>
@@ -284,7 +284,236 @@ $(document).ready(function () {
 </div>
 
 
-<p>#import selected features from cleaned data #feature scaling #55% training data 45% test data #logistic regression // will a student fail their final exam (mG3, pG3)? Yes/No #linear regression // what would their likey grade be on their final exam? 0% - 100% (0 to 20 score) #model evaluation, What is ROC values?</p>
+<p>In the previous section we found that there was strong significance with mother’s education (Medu), desire to persue higher education (higher.m), number of past failures (failures.m) and past exam performance (mG1, mG2) when compared to final grade (mG3). We used these attributes to try predict which students will fail their exams, if so what is the level of accuracy.</p>
+<pre><code>## 
+## Please cite as:</code></pre>
+<pre><code>##  Hlavac, Marek (2018). stargazer: Well-Formatted Regression and Summary Statistics Tables.</code></pre>
+<pre><code>##  R package version 5.2.2. https://CRAN.R-project.org/package=stargazer</code></pre>
+<pre><code>## Loading required package: lavaan</code></pre>
+<pre><code>## This is lavaan 0.6-7</code></pre>
+<pre><code>## lavaan is BETA software! Please report any bugs.</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## ###############################################################################</code></pre>
+<pre><code>## This is semTools 0.5-5</code></pre>
+<pre><code>## All users of R (or SEM) are invited to submit functions or ideas for functions.</code></pre>
+<pre><code>## ###############################################################################</code></pre>
+<pre><code>## Loading required package: zoo</code></pre>
+<pre><code>## 
+## Attaching package: &#39;zoo&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     as.Date, as.Date.numeric</code></pre>
+<pre><code>## Loading required package: reshape</code></pre>
+<pre><code>## 
+## Attaching package: &#39;reshape&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:reshape2&#39;:
+## 
+##     colsplit, melt, recast</code></pre>
+<pre><code>## Loading required package: MASS</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:MASS&#39;:
+## 
+##     select</code></pre>
+<pre><code>## The following object is masked from &#39;package:reshape&#39;:
+## 
+##     rename</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre><code>##       Medu         higher.m           failures.m          mG1       
+##  Min.   :0.000   Length:382         Min.   :0.0000   Min.   : 3.00  
+##  1st Qu.:2.000   Class :character   1st Qu.:0.0000   1st Qu.: 8.00  
+##  Median :3.000   Mode  :character   Median :0.0000   Median :10.50  
+##  Mean   :2.806                      Mean   :0.2906   Mean   :10.86  
+##  3rd Qu.:4.000                      3rd Qu.:0.0000   3rd Qu.:13.00  
+##  Max.   :4.000                      Max.   :3.0000   Max.   :19.00  
+##       mG2             mG3       
+##  Min.   : 0.00   Min.   : 0.00  
+##  1st Qu.: 8.25   1st Qu.: 8.00  
+##  Median :11.00   Median :11.00  
+##  Mean   :10.71   Mean   :10.39  
+##  3rd Qu.:13.00   3rd Qu.:14.00  
+##  Max.   :19.00   Max.   :20.00</code></pre>
+<div id="data-preparation" class="section level2">
+<h2>Data Preparation</h2>
+<pre><code>##  Medu    higher.m  failures.m      mG1             mG2             mG3       
+##  0:  3   no : 11   0:297      Min.   : 3.00   Min.   : 5.00   Min.   : 4.00  
+##  1: 43   yes:332   1: 28      1st Qu.: 9.00   1st Qu.: 9.00   1st Qu.: 9.00  
+##  2: 84             2:  7      Median :11.00   Median :11.00   Median :11.00  
+##  3: 86             3: 11      Mean   :11.25   Mean   :11.39   Mean   :11.57  
+##  4:127                        3rd Qu.:14.00   3rd Qu.:14.00   3rd Qu.:14.00  
+##                               Max.   :19.00   Max.   :19.00   Max.   :20.00</code></pre>
+</div>
+<div id="multuplie-linear-regression" class="section level1">
+<h1>Multuplie Linear Regression</h1>
+<p>We will build our first predictive model as a multi linear regression model. Which we will use to predict a continuous dependent variable (mG3 final grade) from an independent variables. The independent variable will be mG1, mG2, failures.m, higher.m and Medu. The reason for this is that it is normally distributed and during our data description we noted that it had a pearson’s correlation of &gt;0.05. A simple linear regression model is similar to a pearson’s correlation.</p>
+<div id="building-linear-regression-model" class="section level2">
+<h2>Building Linear Regression Model</h2>
+<pre><code>## 
+## Call:
+## lm(formula = regression$mG3 ~ regression$mG2 + regression$mG1 + 
+##     regression$failures.m + regression$higher.m + regression$Medu)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2.2126 -0.3132 -0.1084  0.6906  2.7873 
+## 
+## Coefficients:
+##                        Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)             0.04228    0.56446   0.075  0.94034    
+## regression$mG2          0.89945    0.03307  27.200  &lt; 2e-16 ***
+## regression$mG1          0.10053    0.03285   3.061  0.00239 ** 
+## regression$failures.m1 -0.02029    0.16796  -0.121  0.90391    
+## regression$failures.m2 -0.85860    0.31586  -2.718  0.00691 ** 
+## regression$failures.m3  0.80989    0.28837   2.809  0.00527 ** 
+## regression$higher.myes  0.13250    0.28391   0.467  0.64102    
+## regression$Medu1        0.12158    0.49517   0.246  0.80619    
+## regression$Medu2        0.03809    0.48782   0.078  0.93782    
+## regression$Medu3       -0.08846    0.48773  -0.181  0.85620    
+## regression$Medu4        0.03427    0.48658   0.070  0.94389    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.8131 on 332 degrees of freedom
+## Multiple R-squared:  0.9404, Adjusted R-squared:  0.9386 
+## F-statistic: 524.1 on 10 and 332 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre><code>## 
+## ===============================================
+##                         Dependent variable:    
+##                     ---------------------------
+##                                 mG3            
+## -----------------------------------------------
+## mG2                          0.899***          
+##                               (0.033)          
+##                                                
+## mG1                          0.101***          
+##                               (0.033)          
+##                                                
+## failures.m1                   -0.020           
+##                               (0.168)          
+##                                                
+## failures.m2                  -0.859***         
+##                               (0.316)          
+##                                                
+## failures.m3                  0.810***          
+##                               (0.288)          
+##                                                
+## higher.myes                    0.133           
+##                               (0.284)          
+##                                                
+## Medu1                          0.122           
+##                               (0.495)          
+##                                                
+## Medu2                          0.038           
+##                               (0.488)          
+##                                                
+## Medu3                         -0.088           
+##                               (0.488)          
+##                                                
+## Medu4                          0.034           
+##                               (0.487)          
+##                                                
+## Constant                       0.042           
+##                               (0.564)          
+##                                                
+## -----------------------------------------------
+## Observations                    343            
+## R2                             0.940           
+## Adjusted R2                    0.939           
+## Residual Std. Error      0.813 (df = 332)      
+## F Statistic          524.096*** (df = 10; 332) 
+## ===============================================
+## Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = regression$mG3 ~ regression$mG2 + regression$mG1 + 
+##     regression$failures.m + regression$higher.m + regression$Medu)
+## 
+## Standardized Coefficients::
+##            (Intercept)         regression$mG2         regression$mG1 
+##            0.000000000            0.880641023            0.099897734 
+## regression$failures.m1 regression$failures.m2 regression$failures.m3 
+##           -0.001695257           -0.037042173            0.043539043 
+## regression$higher.myes       regression$Medu1       regression$Medu2 
+##            0.007123097            0.012284472            0.004997401 
+##       regression$Medu3       regression$Medu4 
+##           -0.011698378            0.005049656</code></pre>
+</div>
+<div id="results" class="section level2">
+<h2>Results</h2>
+<p>In residuals we are looking five values starting with Min and ending with Max. We are ensuring that our values are distributed across the line. In our case the min is -3.64 and the max is 3.66. We see they are almost the same. We also see that the median is close to 0.00. Under Coefficients we see information about the least squared error of the line. In our case we estimate that the value that intercepts the line is 1.42 and the slope is 0.90. Values under standard error and t-value show us how the p-values were calculated. The further away from 0.0 these values are tell us that they are not much use to the model. We can see that our mG1 is 0.02. For our p-values (Pr(&gt;|t|)) we are not interested in the intercept but we are interested in the weight (mG1). We can see that this value is less than 0.05 (&lt;2e-16) which indicates that mG1 is statistically significant. In R we also see stars which relate to significant codes. in our case it is 3 stars showing that the p-value is between 0 and 0.001 which indicates a strong statistical significance. Under residual standard error which tells us the difference between our observed values and expected values. We see that our RSE value is 1.46 which is between +/-2 which means that we are closely getting observed frequency to what we expected. Our model also shows a multiple R-squared value of 0.81 which means mG1 can explain 81% of the variation in size. This is a very good model. Since we only have 1 parameter in the model the adjusted R-squared is equal to the multiple R-squared. If we did multiple regression we would use the adjusted R-squared value. Finally we see our f-statistic, degrees of freedom and our p-value. Our p-value is less than &lt;2.2e-16 which means our weight value mG1 gives us a reliable weight for size.</p>
+</div>
+</div>
+<div id="logistic-regression" class="section level1">
+<h1>Logistic Regression</h1>
+<div id="data-preparation-1" class="section level2">
+<h2>data preparation</h2>
+<pre><code>##  Medu    higher.m  failures.m      mG1             mG2             mG3       
+##  0:  3   no : 11   0:297      Min.   : 3.00   Min.   : 5.00   Min.   : 4.00  
+##  1: 43   yes:332   1: 28      1st Qu.: 9.00   1st Qu.: 9.00   1st Qu.: 9.00  
+##  2: 84             2:  7      Median :11.00   Median :11.00   Median :11.00  
+##  3: 86             3: 11      Mean   :11.25   Mean   :11.39   Mean   :11.57  
+##  4:127                        3rd Qu.:14.00   3rd Qu.:14.00   3rd Qu.:14.00  
+##                               Max.   :19.00   Max.   :19.00   Max.   :20.00  
+##       Pass       
+##  Min.   :0.0000  
+##  1st Qu.:0.0000  
+##  Median :1.0000  
+##  Mean   :0.7434  
+##  3rd Qu.:1.0000  
+##  Max.   :1.0000</code></pre>
+</div>
+<div id="logistic-regression-model" class="section level2">
+<h2>Logistic Regression Model</h2>
+<pre><code>## 
+## Call:
+## glm(formula = Pass ~ mG2 + mG1 + failures.m + higher.m + Medu, 
+##     family = &quot;binomial&quot;, data = logreg_data)
+## 
+## Deviance Residuals: 
+##      Min        1Q    Median        3Q       Max  
+## -2.97432  -0.00922   0.00683   0.11793   2.02762  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) -27.7561    20.8933  -1.328   0.1840    
+## mG2           2.1165     0.3480   6.082 1.19e-09 ***
+## mG1           0.1608     0.1862   0.864   0.3877    
+## failures.m1  -1.1513     0.8311  -1.385   0.1660    
+## failures.m2  -2.0151     1.3228  -1.523   0.1277    
+## failures.m3   2.9760     1.1765   2.530   0.0114 *  
+## higher.myes   1.1205     1.1396   0.983   0.3255    
+## Medu1         7.0851    20.4369   0.347   0.7288    
+## Medu2         6.4980    20.4266   0.318   0.7504    
+## Medu3         6.1566    20.4270   0.301   0.7631    
+## Medu4         5.4196    20.4228   0.265   0.7907    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 390.63  on 342  degrees of freedom
+## Residual deviance: 113.68  on 332  degrees of freedom
+## AIC: 135.68
+## 
+## Number of Fisher Scoring iterations: 8</code></pre>
+</div>
+<div id="results-1" class="section level2">
+<h2>Results</h2>
+<p>Min, 1Q, Median, 3Q and Max are good as they are close to the centre on 0. Min and max are roughly symetrical. In the coefficients we can see y intercept (if someone will pass or fail) is -27.76 plus the independent variables as weights. Standard Error and z-value are showing results for the Chi-Squared Test, which tells us how significant our independent variables were in predicting if a student would fail or not. Finally we see the p-values for our independent variables (Pr(&gt;|z|)). The Akaike Information Criterion (AIC) value is 135.69. This is the residual deviance adjusted for our parameters. Fisher scoring tells us how many iterations it took to converge on the max likelihood estimates for our variables.</p>
+<p>What this model tells us is that second grade exams performance strongly impacts final grade (p=1.19e-09) and that those with 3 or more failures 0.0114 moderately affects final grades.</p>
+</div>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>In this report we performed a detailed analysis of the student performance dataset collected by (Cortez, et al, 2008). This report tried to demonstrate a systematic and in-depth understanding of concepts, methods and data analysis methodology. We wanted to know what levels indicated, in a subset of attributes, that a student requires early intervention before exam failure. We also wanted to know is it possible to predict which students will fail their exams, if so what is the level of accuracy.</p>
+<p>It was found, based on data available that past performance is a good indicator for future performance, so long as the student has not created gaps in learning from past failures, is motivated to purse a higher education and has a mother who will act as a role model for higher education.</p>
+<p>This report concludes that early intervention before exam failure should happen around second grade exams on students with 3 or more past failures. Career guidance to students. Higher education does not need to mean going on to university, students should also be made aware of apprentiships and other career progressions so that motivation to do well can be increased. More support should be given to mothers so as students leave school they can continue to focus on school work.</p>
+</div>
 
 
 

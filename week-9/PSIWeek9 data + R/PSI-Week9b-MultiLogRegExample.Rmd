@@ -1,0 +1,204 @@
+---
+title: "PSI Week 10 Examples of Binary Logistic Regression"
+output:
+  html_document:
+    df_print: paged
+editor_options:
+  chunk_output_type: console
+---
+# Example 1
+Trying to predict the likelihood of a student being admitted to graduate (postgraduate) school by grade point average, score on the GRE test and the academic ranking of the school where the student studied at undergraduate level
+Example adapted from https://rpubs.com/rslbliss/r_logistic_ws
+
+```{r}
+needed_packages <- c("foreign",  "Epi", "arm", "DescTools", "stargazer", "lmtest",  "car", "generalhoslem", "reshape2", "nnet", "ggplot2")                      
+# Extract not installed packages
+not_installed <- needed_packages[!(needed_packages %in% installed.packages()[ , "Package"])]    
+# Install not installed packages
+if(length(not_installed)) install.packages(not_installed, repos = "http://cran.us.r-project.org")
+```
+
+
+```{r}
+library(lmtest)
+library(DescTools)
+library(nnet)#Multinomial regression
+library(foreign)
+library(reshape2)
+library(ggplot2)
+library(DescTools)
+library(generalhoslem)#For test of fit for logistic regression
+
+ldata <- read.csv("https://stats.idre.ucla.edu/stat/data/binary.csv")
+
+#Data on admission to graduate programme
+#admit- whether admitted or not
+#gre - score on GRE test
+#gpa - grade point average @ undergraduate degree
+#rank - academic ranking of school where student took undergraduate degree
+names(ldata)
+summary(ldata)
+
+ldata$rank <- factor(ldata$rank)# Make sure that R treats this as a categorical variable
+#We have FOUR categories of ranking
+summary(ldata$rank)
+```
+
+## Create the logistic regression model
+Can the likelihood of being admitted to a graduate programme be predicted by a students GRE score, gpa and the rank of the school where they took their undergraduate degree
+```{r}
+model <- glm(admit ~ gre + gpa + rank, data=ldata, family="binomial")
+summary(model)
+```
+
+
+## Interpret the model
+```{r}
+# interpret logistic regression results,  transform the coefficients to odds ratios by raising e to the power of the coefficients.
+# Store coefficients in another object
+coefs <- coef(model)
+# Show the coefficients, just for fun
+coefs
+#Raise e to the power of the coefficients to get the odds ratios
+exp(coefs)
+
+#We can do an additional transformation by taking the odds ratio, subtract 1, and multiply by 100 to get the percent change in the odds for a one unit increase in the independent variable.
+# Doing the full transformation, all in one line
+(exp(coefs)-1)*100
+
+```
+Co-efficient of gre = 1.0023: For a one point increase in GRE score, we expect to see a 0.23% increase in the odds of being admitted to graduate school. With a z-value of 2.07 and an associated p-value of 0.04, this coefficient is statistically significant at the 5% level.
+rank2 = 0.51: Doing your undergraduate degree in a  school with a ranking of 2  compared to  a rank 1  is associated with a 49% decrease in the odds of being admitted to graduate school. With a z-value of -2.134 and an associated p-value of 0.03, this coefficient is statistically significant at the 5% level.
+
+## Assess the fit of the model
+```{r}
+#Chi-square plus significance
+lmtest::lrtest(model)
+
+#Pseudo Rsquared plus Chi-square of the model
+DescTools::PseudoR2(model, which="CoxSnell")
+DescTools::PseudoR2(model, which="Nagelkerke")
+
+#Check the assumption of linearity of independent variables and log odds using a Hosmer-Lemeshow test, if this is not statsitically significant we are ok
+generalhoslem::logitgof(ldata$admit, fitted(model))
+
+
+#Collinearity
+vifmodel<-car::vif(model) # ignore any warnings, GVIF^(1/(2*Df)) is the value of interest
+vifmodel
+#Tolerance
+1/vifmodel
+
+```
+The model is  statistically significant
+It explains between 9.8% and 13.7% of the variance in likelihood of being admitted.
+So there is a lot that is not explained
+The assumption of linearity between independent variables and to log odds is met.
+Collinearity is not an issue.
+
+
+# Example 2
+Trying to predict the likelihood of the type of education programme a student is studying from the ses (social economic status) score and their score on a writing test
+Example adapted from https://stats.idre.ucla.edu/r/dae/multinomial-logistic-regression/
+```{r}
+mdata <- foreign::read.dta("https://stats.idre.ucla.edu/stat/data/hsbdemo.dta")
+
+names(mdata)
+#prog is the type of educational programme (a categorical variable with three values)
+#ses, a three-level categorical variable
+#write is a continuous variable
+with(mdata, table(ses, prog))
+with(mdata, do.call(rbind, tapply(write, prog, function(x) c(M = mean(x), SD = sd(x)))))
+
+
+```
+## Build the model
+```{r}
+#Because prog has three levels we need to indicate which level is our reference
+#We will be comparing the other types of programme to academic
+mdata$prog2<-relevel(mdata$prog, ref = "academic")
+```
+
+
+```{r}
+#We create the model using multinom from nnet package
+model2<-multinom(prog2~ses+write, data = mdata)
+summary(model2)
+```
+
+
+```{r}
+#multinom package does not include p-value calculation for the regression coefficients, so we calculate p-values using Wald tests (here z-tests).
+z <- summary(model2)$coefficients/summary(model2)$standard.errors
+z
+p <- (1 - pnorm(abs(z), 0, 1)) * 2
+p
+
+#Chi-square plus significance
+lmtest::lrtest(model2)
+
+#Pseudo Rsquared 
+
+DescTools::PseudoR2(model2, which="CoxSnell")
+DescTools::PseudoR2(model2, which="Nagelkerke")
+
+#Check the assumption of linearity of independent variables and log odds using a Hosmer-Lemeshow test, if this is not statsitically significant we are ok
+generalhoslem::logitgof(mdata$prog, fitted(model2))
+
+#Collinearity
+vifmodel<-car::vif(model2)#You can ignore the warning messages, GVIF^(1/(2*Df)) is the value of interest
+vifmodel
+#Tolerance
+1/vifmodel
+```
+Model is significant and explains between 21.43% and 24.63% of the variance 
+No issue with assumption of linearity
+We may have problems with collinearity
+
+## Interpret the model
+```{r}
+# interpret logistic regression results,  transform the coefficients to odds ratios by raising e to the power of the coefficients.
+
+## extract the coefficients from the model and exponentiate
+exp(coef(model2))
+
+
+```
+### The relative risk ratio for a one-unit increase in the variable write is .9437 for being in general program vs. academic program.
+### The relative risk ratio switching from ses = 1 to 3 is .3126 for being in general program vs. academic program.
+
+## Look at the predicted probabilities to understand the model
+
+```{r}
+#You can calculate predicted probabilities for each of our outcome levels using the fitted function
+pp <- fitted(model2)
+
+#If we want to examine the changes in predicted probability associated with one of our two variables, we can create small datasets varying one variable while holding the other constant. We will first do this holding write at its mean and examining the predicted probabilities for each level of ses.
+dses <- data.frame(ses = c("low", "middle", "high"), write = mean(mdata$write))
+predict(model2, newdata = dses, "probs")
+
+
+
+#We can also use the predicted probabilities is to look at the averaged predicted probabilities for different values of the continuous predictor variable write within each level of ses.
+
+dwrite <- data.frame(ses = rep(c("low", "middle", "high"), each = 41), write = rep(c(30:70),
+    3))
+
+## store the predicted probabilities for each value of ses and write
+pp.write <- cbind(dwrite, predict(model2, newdata = dwrite, type = "probs", se = TRUE))
+
+## calculate the mean probabilities within each level of ses
+by(pp.write[, 3:5], pp.write$ses, colMeans)
+
+
+#Using the predictions we generated for the pp.write object above, we can plot the predicted probabilities against the writing score by the level of ses for different levels of the outcome variable.
+
+lpp <- reshape2::melt(pp.write, id.vars = c("ses", "write"), value.name = "probability")
+
+head(lpp)  # view first few rows
+
+## plot predicted probabilities across write values for each level of ses
+## facetted by program type
+ggplot(lpp, aes(x = write, y = probability, colour = ses)) + geom_line() + facet_grid(variable ~
+    ., scales = "free")
+```

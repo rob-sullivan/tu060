@@ -4,7 +4,7 @@ output:
   html_document:
     df_print: paged
 ---
-
+In the previous section we found that there was strong significance with mother's education (Medu), desire to persue higher education (higher.m), number of past failures (failures.m) and past exam performance (mG1, mG2) when compared to final grade (mG3). We used these attributes to try predict which students will fail their exams, if so what is the level of accuracy.
 ```{r, echo=FALSE}
 #These are our variables of interest - the nine continuous variables
 # Import Dataset
@@ -14,95 +14,82 @@ library(foreign) #To work with SPSS data
 library(lm.beta) #Will allow us to isolate the beta co-efficients
 library(stargazer)#For formatting outputs/tables
 library(semTools)
+library(lmtest)
+library(nnet)#Multinomial regression
+library(reshape2)
+library(DescTools)
+library(generalhoslem)#For test of fit for logistic regression
+library(dplyr)
+```
 
+```{r, echo=FALSE}
 #Read in the file
 students <- read.csv(file = 'dataset.csv', header=TRUE)
-varsint<-c("school",
-           "Walc.m",
+varsint<-c("Medu",
+           "higher.m",
+           "failures.m",
+           "mG1",
+           "mG2",
            "mG3"
            )
 
 regression <- students[varsint]#subset with our variables
+summary(regression)
+```
+## Data Preparation
+```{r, echo=FALSE}
+regression$Medu <- as.factor(regression$Medu)
+regression$higher.m <- as.factor(regression$higher.m)
+regression$failures.m <- as.factor(regression$failures.m)
+regression <- regression[which(regression$mG2>0.0),]
+regression <- regression[which(regression$mG3>0.0),]
+summary(regression)
 ```
 
-### Check for normal distribution of Maths Score
-```{r}
+# Multuplie Linear Regression
+We will build our first predictive model as a multi linear regression model. Which we will use to predict a continuous dependent variable (mG3 final grade) from an independent variables. The independent variable will be mG1, mG2, failures.m, higher.m and Medu. The reason for this is that it is normally distributed and during our data description we noted that it had a pearson's correlation of >0.05. A simple linear regression model is similar to a pearson's correlation.
 
-# We create a histogram
-gg <- ggplot(regression, aes(x=mG3))
-gg <- gg+ggtitle("Histogram for Maths Exam Scores")
-
-#label of the x axis
-gg <- gg + labs(x="Maths Scores")
-
-#style
-gg <- gg + geom_histogram(binwidth=0.1, colour="black", aes(y=..density.., fill=..count..))
-gg <- gg + scale_fill_gradient("Count", low="#DCDCDC", high="#7C7C7C")
-#adding a normal curve, pass descriptive stats and handle any missing values
-gg <- gg + stat_function(fun=dnorm, color="red",args=list(mean=mean(regression$mG3, na.rm=TRUE), sd=sd(regression$mG3, na.rm=TRUE)))
-
-#display the graph
-gg
+## Building Linear Regression Model
+```{r, echo=FALSE}
+#Note: R automatically recodes categorical to be dummy variable 0 = reference (boy), 1 category of interest (girl)
+model<-lm(regression$mG3~regression$mG2+regression$mG1+regression$failures.m+regression$higher.m+regression$Medu)
+summary(model)
+stargazer(model, type="text") #Tidy output of all the required stats
+lm.beta(model)
 ```
 
-```{r}
-#Create a qqplot
-qqnorm(regression$mG3, main="QQ Plot of math exam results")
-qqline(regression$mG3, col=2) #show a line on the plot
+## Results
+In residuals we are looking five values starting with Min and ending with Max. We are ensuring that our values are distributed across the line. In our case the min is -3.64 and the max is 3.66. We see they are almost the same. We also see that the median is close to 0.00. Under Coefficients we see information about the least squared error of the line. In our case we estimate that the value that intercepts the line is 1.42 and the slope is 0.90. Values under standard error and t-value show us how the p-values were calculated. The further away from 0.0 these values are tell us that they are not much use to the model. We can see that our mG1 is 0.02. For our p-values (Pr(>|t|)) we are not interested in the intercept but we are interested in the weight (mG1). We can see that this value is less than 0.05 (<2e-16) which indicates that mG1 is statistically significant. In R we also see stars which relate to significant codes. in our case it is 3 stars showing that the p-value is between 0 and 0.001 which indicates a strong statistical significance. Under residual standard error which tells us the difference between our observed values and expected values. We see that our RSE value is 1.46 which is between +/-2 which means that we are closely getting observed frequency to what we expected. Our model also shows a multiple R-squared value of 0.81 which means mG1 can explain 81% of the variation in size. This is a very good model. Since we only have 1 parameter in the model the adjusted R-squared is equal to the multiple R-squared. If we did multiple regression we would use the adjusted R-squared value. Finally we see our f-statistic, degrees of freedom and our p-value. Our p-value is less than <2.2e-16 which means our weight value mG1 gives us a reliable weight for size.
+
+# Logistic Regression
+## data preparation
+```{r, echo=FALSE}
+logreg_data <- regression
+# Adding column based on other column (0-9 = fail):
+logreg_data <-logreg_data %>%
+  mutate(Pass = case_when(
+    mG3>=10 ~ 1,
+    mG3<10 ~ 0
+    ))
+summary(logreg_data)
 ```
 
-```{r}
-#Get summary statistics
-mean(regression$mG3)
-sd(regression$mG3)
-length(regression$mG3)
+## Logistic Regression Model
+```{r, echo=FALSE}
+model <- glm(Pass ~ mG2 + mG1 + failures.m + higher.m + Medu, data=logreg_data, family="binomial")
+summary(model)
 ```
 
-```{r}
-#Check skew and kurtosis to decide how to proceed, divide to see size of problem
-tpskew<-semTools::skew(regression$mG3)
-tpkurt<-semTools::kurtosis(regression$mG3)
-print(paste("Skew: ", tpskew[1]/tpskew[2]))
-print(paste("Kurt: ", tpkurt[1]/tpkurt[2]))
-```
+## Results
+Min, 1Q, Median, 3Q and Max are good as they are close to the centre on 0. Min and max are roughly symetrical. In the coefficients we can see y intercept (if someone will pass or fail) is -27.76 plus the independent variables as weights. Standard Error and z-value are showing results for the Chi-Squared Test, which tells us how significant our independent variables were in predicting if a student would fail or not. Finally we see the p-values for our independent variables (Pr(>|z|)). The Akaike Information Criterion (AIC) value is 135.69. This is the residual deviance adjusted for our parameters. Fisher scoring tells us how many iterations it took to converge on the max likelihood estimates for our variables. 
 
-### Now check for normal distribution of Weekend Alcohol Consumption
-```{r}
+What this model tells us is that second grade exams performance strongly impacts final grade (p=1.19e-09) and that those with 3 or more failures 0.0114 moderately affects final grades.
 
-# We create a histogram
-gg <- ggplot(regression, aes(x=Walc.m))
-gg <- gg+ggtitle("Histogram for Maths Exam Scores")
 
-#label of the x axis
-gg <- gg + labs(x="Maths Scores")
+# Conclusion
+In this report we performed a detailed analysis of the student performance dataset collected by (Cortez, et al, 2008). This report tried to demonstrate a systematic and in-depth understanding of concepts, methods and data analysis methodology.
+We wanted to know what levels indicated, in a subset of attributes, that a student requires early intervention before exam failure. We also wanted to know is it possible to predict which students will fail their exams, if so what is the level of accuracy. 
 
-#style
-gg <- gg + geom_histogram(binwidth=0.1, colour="black", aes(y=..density.., fill=..count..))
-gg <- gg + scale_fill_gradient("Count", low="#DCDCDC", high="#7C7C7C")
-#adding a normal curve, pass descriptive stats and handle any missing values
-gg <- gg + stat_function(fun=dnorm, color="red",args=list(mean=mean(regression$Walc.m, na.rm=TRUE), sd=sd(regression$Walc.m, na.rm=TRUE)))
+It was found, based on data available that past performance is a good indicator for future performance, so long as the student has not created gaps in learning from past failures, is motivated to purse a higher education and has a mother who will act as a role model for higher education. 
 
-#display the graph
-gg
-```
-
-```{r}
-#Create a qqplot
-qqnorm(regression$Walc.m, main="QQ Plot of math exam results")
-qqline(regression$Walc.m, col=2) #show a line on the plot
-```
-
-```{r}
-#Get summary statistics
-mean(regression$Walc.m)
-sd(regression$Walc.m)
-length(regression$Walc.m)
-```
-
-```{r}
-#Check skew and kurtosis to decide how to proceed, divide to see size of problem
-tpskew<-semTools::skew(regression$Walc.m)
-tpkurt<-semTools::kurtosis(regression$Walc.m)
-print(paste("Skew: ", tpskew[1]/tpskew[2]))
-print(paste("Kurt: ", tpkurt[1]/tpkurt[2]))
-```
+This report concludes that early intervention before exam failure should happen around second grade exams on students with 3 or more past failures. Career guidance to students. Higher education does not need to mean going on to university, students should also be made aware of apprentiships and other career progressions so that motivation to do well can be increased. More support should be given to mothers so as students leave school they can continue to focus on school work. 

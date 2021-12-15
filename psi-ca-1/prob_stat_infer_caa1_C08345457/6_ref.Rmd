@@ -5,16 +5,18 @@ output:
     df_print: paged
 ---
 
-* (Cortez, et al, 2008)
-* (QQI, 2018)
-* (Luan J., 2002, 
-* (Minaei-Bidgoli et al. 2003)
-* (Nantais, 2019): https://towardsdatascience.com/internal-validity-in-data-science-c44c1a2f194f
-* (Hovens et al. 2009)
-* (Tiet et All, 1998)
-* (Brownlee, 2020): https://machinelearningmastery.com/data-sampling-methods-for-imbalanced-classification/
-* (Chawla et al, 2002) https://arxiv.org/pdf/1106.1813.pdf
-* (Shetye, 2019) https://towardsdatascience.com/feature-selection-with-pandas-e3690ad8504b
-
-harvard ref style req..
+* Amsel, B. (2011, November 07). Following in a Parent’s Footsteps . Retrieved from goodtherapy.org: https://www.goodtherapy.org/blog/following-parents-footsteps-1107114/
+* Brownlee, J. (2020, January 24). Tour of Data Sampling Methods for Imbalanced Classification. Retrieved from machinelearningmastery.com: https://machinelearningmastery.com/data-sampling-methods-for-imbalanced-classification/
+* Chawla. (2002, June 01). SMOTE: Synthetic Minority Over-sampling Technique. Retrieved from arxiv.org: https://arxiv.org/pdf/1106.1813.pdf
+* Cortez. (2008, January 01). Using Data Mining to Predict Secondary School Student Performance. Retrieved from https://repositorium.sdum.uminho.pt: https://repositorium.sdum.uminho.pt/bitstream/1822/8024/1/student.pdf
+* Frost, J. (2017, May 10). How to Interpret the F-test of Overall Significance in Regression Analysis. Retrieved from https://statisticsbyjim.com: https://statisticsbyjim.com/regression/interpret-f-test-overall-significance-regression
+* Hovens, J. (2010, July 01). Childhood life events and childhood trauma in adult patients with depressive, anxiety and comorbid disorders vs. controls . Retrieved from nih.gov: https://pubmed.ncbi.nlm.nih.gov/19878136/
+* Kenrose, S. (2021, September 2). Cohen’s D: Definition, Examples, Formulas . Retrieved from statisticshowto.com: https://www.statisticshowto.com/cohens-d/
+* Luan, J. (2002, April 16). Data Mining and Its Applications in Higher Education. Retrieved from https://onlinelibrary.wiley.com: https://onlinelibrary.wiley.com/doi/abs/10.1002/ir.35
+* Minaei, B. (2003, November 8). Predicting student performance: an application of data mining methods with an educational Web-based system. Retrieved from ieee.org: https://ieeexplore.ieee.org/document/1263284?arnumber=1263284
+* Nantais, J. (2019, October 29). Does your Data Science Project Actually do what you Think it Does? Retrieved from https://towardsdatascience.com: https://towardsdatascience.com/internal-validity-in-data-science-c44c1a2f194f
+* Quality and Qualifications Ireland (QQI). (2018). national-framework-of-qualifications. Retrieved from qqi.ie: https://www.qqi.ie/what-we-do/the-qualifications-system/national-framework-of-qualifications
+* Shetye, A. (2019, February 11). Feature Selection with sklearn and Pandas. Retrieved from towardsdatascience.com: https://towardsdatascience.com/feature-selection-with-pandas-e3690ad8504b
+* Tiet, Q. Q. (1998, November 01). Adverse life events and resilience . Retrieved from nih.gov: https://pubmed.ncbi.nlm.nih.gov/9808931/
+* Cohen, (1988). Set Correlation and Contingency Tables. Applied Psychological Measurement, 12(4), 425–434. https://doi.org/10.1177/014662168801200410
 

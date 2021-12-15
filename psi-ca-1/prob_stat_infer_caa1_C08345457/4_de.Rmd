@@ -18,29 +18,44 @@ library(coin)# For Wilcox test (non-parametric)
 library(rstatix)# For calculating effect size
 library(dplyr)
 ```
+In this section we tried to investigate, through data exploration, if a subset of attributes related to motivation and time away from school work affected a math student's final grade. In a first attempt at data exploration we had selected 14 variables of interest for math students during data description. Variables such as in a romantic relationship and alcohol intake were reviewed. Tests such as the T-test and Anova were conducted but nothing of strong statistical significance (p<0.05) was detected that supported our research questions. In this iteration we used the following variables to try investigate different attributes related to motivation and focus away from schoolwork play a role in final grade performance.
 
 ## Variable Selected: Maths Students
-We selected 14 variables of interest for math students during data description. We will now use these variables to answer our questions: What levels indicate, in a subset of attributes, that a student requires early intervention before exam failure?
+The following are our selected variables of interest.
 ```{r, echo=FALSE}
-#These are our variables of interest - the nine continuous variables
+#These are our variables of interest
 # Import Dataset
+## Positive:
+#* mG2: 90%
+#* mG1: 81%
+#* higher.m: 23%
+#* Medu: 21%
+#* Fedu: 16%
+
+## Negative:
+#* goout.m: -11%
+#* traveltime.m: -13%
+#* romantic.m: -14%
+#* age: -19%
+#* failures.m: -38%
+
 students <- read.csv(file = 'dataset.csv', header=TRUE)
 varsint<-c("school",
            "age", 
-           "Pstatus", 
-           "guardian.m", 
-           "traveltime.m",
            "failures.m", 
-           "schoolsup.m" , 
            "romantic.m",
+           "traveltime.m", 
            "goout.m",
-           "Dalc.m",
-           "Walc.m",
-           "health.m",
+           "Fedu",
+           "Medu",
+           "higher.m",
+           "mG1",
+           "mG2",
            "mG3"
            )
 
 smath <- students[varsint]#subset with our variables
+smath <- smath[which(smath$school=='GP'),] #subset from just 1 school to keep data wtihin the same group
 #characters to factors
 for (i in colnames(smath)){
   if(class(smath[[i]])=="character"){
@@ -58,206 +73,208 @@ for (i in colnames(smath)){
 summary(smath) #Get our summary statistics
 ```
 
-## Q1: Do math students that are in a romantic relationship drink more at the weekend?
-The purpose of this test is to see if romantic relationships and alcohol consumption are related and if they affect grades. 
+## Q1: Is desire to go onto higher education (e.g university) a good indicator for future performance with math students?
+The purpose of this test was to see if those who said yes to wanting to pursue higher education, got better grades than those that do not. We wanted to test hypothesis that motivation affects final grade performance because we want to know, what levels indicate, in a subset of attributes, that a student requires early intervention before exam failure? It also helps us understand if we should include this attribute in our model to predict which students will fail their exams, if so what is the level of accuracy. 
 
-We will use a two sampled paired t-test if we find the difference in standard deviation between the two is greater than 2 standard deviations we will deem this a non-parametric test and use a Wilcoxon’s rank sum test instead. We are comparing 'relationship' which is a nominal categorical variable with level of alcohol consumption, an ordinal categorical variable. 
+We will use a two sampled paired t-test if we find a difference in standard deviation between higher.m and mG3 that is greater than 2 standard deviations. We will deem this a non-parametric test and use a Wilcoxon’s rank sum test instead. We are comparing 'higher.m' which is a nominal categorical variable with level of grade scored 0-20, numerical variable. This is similar to the pearson's test we did in the previous section.
 
-We state our hypothesis:
-h0: mu_1 = mu_2
-h1: mu_1 != mu_2
+We state our hypothesis along with the null hypothesis:
+h0: higher.m_mu <= mG3_mu
+h1: higher.m_mu > mG3_mu
 
 ### Descriptive statistics of variables
-* We get descriptive statistics by group to show a matrix of alcohol consumption by those in a relationship and those that are not.
+* We get descriptive statistics by group to show a matrix of those who said yes to wanting to purse a higher education and those that do not. We are focusing on the mean, standard deviation, skew and kurtosis. We performed this at high level in the last section of this report.
 ```{r, echo=FALSE}
-psych::describeBy(smath$Walc.m, smath$romantic.m, mat=TRUE)
+psych::describeBy(smath$mG3, smath$higher.m, mat=TRUE)
 ```
-* Mean of those in a relationship that drink is a little larger than those that are not, we want to now test if this is statistically significant. Standard deviations are less than 2 so we can use a student t-test. Both are positively skewed with a platykurtic distribution (Moderately Spread Out).
+* Mean of those who do want to go on and pursue a higher education is larger than those that do not. Good grades are required to pursue an education at a university. Intuitively the 'yes' group should score higher, however our test must confirm this and determine, if this is statistically significant. Standard deviations were greater than 2 so we used a Wilcoxon’s rank test. Both are negatively skewed with a platykurtic distribution (Moderately Spread Out).
 
 ### Levene's test for homogeneity of variance
-* We conduct Levene's test for homogeneity of variance. The null hypothesis is that variances in romantic relationships and weekend alcohol consumption are equal so to assume homogeneity we would expect probability to not be statistically significant. This test will only work for categorical variables with numeric variables.
+* We conducted Levene's test for homogeneity of variance (equal). This test only works for categorical variables (higher.m) with numeric variables (mG3). The null hypothesis was that variances in higher.m and final math grades are equal. In order to assume homogeneity we would expect the probability to statistically significant (p<0.05).
 ```{r, echo=FALSE}
-car::leveneTest(smath$Walc.m, smath$romantic.m, center=mean)
+car::leveneTest(smath$mG3, smath$higher.m, center=mean)
 ```
-* our probability Pr(>F) is greater than 0.05 so it is not statistically significant so we can assume homogeneity.
+* our p-value probability Pr(>F) was greater than 0.05 so it is *not statistically significant*. We rejected the null hypothesis and cannot assume homogeneity. There seems to be a difference between the variances in the sample population. This confirmed we would not be able to perform a analysis of variance (ANOVA) or a t-test and must perform a Wilcoxon's rank test.
 
-### Student T-Test
+### Wilcoxon’s Rank Sum Test
+If Levene's p-value was less than 0.05 we would deem variance equal and require a parametric test such as Student’s T-test. p-value was greater than 0.05 so we deemed it not normally distributed and required a non-parametric test such as Wilcoxon’s rank sum test. We compared the mean of two attributes from the same group (math students) making this a paired test. R perform a wilcoxon signed rank test of the null that the distribution of x is symmetric about mu. We fed a parameter to test that the x (mG3) was less than y (higher.m)
 ```{r, echo=FALSE}
-stats::t.test(Walc.m~romantic.m,var.equal=TRUE,data=smath)
-# If p-value was less than 0.05 we would deem it not normally distributed and require a non-parametric test such as Wilcoxon’s rank sum test
-#stats::wilcox.test(Walc.m~romantic.m, data=smath)
-
-# No statistically significant difference was found so we do not reject the null hypothesis. We cannot say with a 95% confidence level that math students in a relationship drink more at the  weekend than those that do not.
+#this will perform a wilcoxon signed rank test of the null that the distribution of x is symmetric about mu. 
+# However our custom alternative: one-sided alternative "greater" that x is shifted to the right of y).
+stats::wilcox.test(mG3~higher.m, alternative="less", data=smath)
 ```
-```{r, echo=FALSE}
+A statistical significant difference *was found* so we can reject the null hypothesis. We can say with a 95% confidence level that math students who want to pursue a higher education are more likely to get better grades.
+
 ### Cohen's d
-# We can calculate Cohen's d value to see the size of our statistically significance of difference (if any)
-#romantic.m_num <- sapply(smath$romantic.m, as.numeric)
-#effectsize::t_to_d(t = smath$Walc.m, romantic.m_num)
+We can calculate Cohen's d value to see the size of our statistically significance of difference (if any), this is to evaluate the strength of our statistical claim. According to (Kenrose, 2021) and (Cohen, 1988): d-values can be interpreted as follows; small effect = 0.2, Medium Effect = 0.5 and Large Effect = 0.8.
+```{r, echo=FALSE}
+higher.m_num <- sapply(smath$higher.m, as.numeric)
+higherm_mgrade3 <- effectsize::t_to_d(t = smath$mG3, higher.m_num)
+head(higherm_mgrade3)
 ```
 ### Result
-* *No statistically significant difference* was found so we do not reject the null hypothesis. We cannot say with a 95% confidence level that math students in a relationship drink more at the  weekend than those that do not.
+We wanted to know if a student's motivation to go onto higher education influenced their final grades. We found after performing a Wilcoxon's Rank Sum Test (Levene's Test p = 0.231) there there *was a statistically significant difference* (mu_no=6.9, mu_yes=10.8; SD_no=2.9, SD_yes=3.7) of p<0.05 (1.602e-05) so we rejected the null hypothesis. We can say with a 95% confidence level that math students, who want to pursue a higher education may get a better final grade. Our cohen's d values are greater than 0.05 so we conclude that there is a large effect to the statistical significance of our Wilcoxon's test. It seems higher.m is a good indicator.
 
-## Q2: Do math students that are in a relationship get bad grades?
-The purpose of this test is to
+## Q2: How does relationship status affect grades amoung math students?
+The purpose of this test was to see if being in a relationship affects a students math grade. Here we wanted to know if time away from school work (i.e spending it with a partner) was influencing final grade score.
 
-We will use a two sampled paired t-test if we find the difference in standard deviation between the two is greater than 2 standard deviations we will deem this a non-parametric test and use a Wilcoxon’s rank sum test instead. We are comparing 'relationship' which is a nominal categorical variable with level of grade level, a numeric variable.
+We used a two sampled paired t-test to find if the difference in standard deviation between the two was less than 2 standard deviations. If greater than 2 standard deviations we deemed this a non-parametric test and used a Wilcoxon’s rank sum test instead. We were comparing 'relationship' which is a nominal categorical variable with level of grade level, a numeric variable.
 
 We state our hypothesis:
-h0: mu_1 = mu_2
-h1: mu_1 != mu_2
+h0: relationship_mu <= mG3_mu
+h1: relationship_mu > mG3_mu
 
 ### Descriptive statistics of variables
-* We get descriptive statistics by group to show a matrix of grades by those in a relationship and those that are not. Grades that are 10 to 11 are deemed sufficient or a D in Ireland (i.e a pass)
+* We got descriptive statistics by group to show a matrix of grades by those in a relationship and those that are not. Grades that were 10 to 11 were deemed sufficient or a D in Ireland (i.e a pass).
 ```{r, echo=FALSE}
 psych::describeBy(smath$mG3, smath$romantic.m, mat=TRUE)
 ```
-* Mean of those not in a relationship is greater than those in a relationship, we need to test if this is statistically significant. Standard deviations are less than 2 so we can use a student t-test. Both are negativelyskewed with a platykurtic distribution(Moderately Spread Out).
+* Mean of those not in a relationship were greater than those in a relationship, however we need to test if this is statistically significant. Standard deviations are less than 2 so we used a student t-test. Both are moderately negatively skewed with a platykurtic distribution (Moderately Spread Out).
 
-### Levene's test for homogeneity of variance
-* We conduct Levene's test for homogeneity of variance. The null hypothesis is that variances in relationship and grades are equal so to assume homogeneity we would expect probability to not be statistically significant.
+### Levene's Test
+* We conducted a Levene's test for homogeneity of variance. The null hypothesis was that variances in relationship and grades are equal so to assume homogeneity we would expect probability to be statistically significant.
 ```{r, echo=FALSE}
 car::leveneTest(smath$mG3 ~ smath$romantic.m, center=mean)
 ```
-* our probability Pr(>F) is greater than 0.05 so it is not statistically significant so we can assume homogeneity.
+* our probability Pr(>F) is greater than 0.05 so it is not statistically significant so we cannot assume homogeneity.
 
-### Student T-Test
+### Wilcoxon Test
 ```{r, echo=FALSE}
-stats::t.test(mG3~romantic.m,var.equal=TRUE,data=smath)
-# If Pr(>F) was less we would assume not normally distributed and Non-parametric
-#stats::wilcox.test(mG3~romantic.m, data=smath)
+#stats::t.test(mG3~romantic.m,var.equal=TRUE,data=smath)
+# If Pr(>F) was greater than 0.05 we would assume not normally distributed and Non-parametric
+stats::wilcox.test(mG3~romantic.m, alternative="less", data=smath)
 ```
+### Cohen's d
+We again calculated Cohen's d value to see the size of our statistically significance of difference.
 ```{r, echo=FALSE}
-## Cohen's d
-#We can calculate Cohen's d value to see the size of our statistically significance of difference (if any)
-#romantic.m_num <- sapply(smath$romantic.m, as.numeric)
-#effectsize::t_to_d(t = smath$mG3, romantic.m_num)
+romantic.m_num <- sapply(smath$romantic.m, as.numeric)
+romantic_es <- effectsize::t_to_d(t = smath$mG3, romantic.m_num)
+head(romantic_es)
 ```
-
 ### Result
-* The P value is less than 0.05. There is some statistically significance of a difference. We reject the null hypothesis. We can say with a 95% confidence level that there *is a statistically significance* in math students in a relationship getting poor grades.
+* Our test was to determine if being in a relationship affected grade performance. The P value was greater than 0.05. There *was no statistically significance* of a difference. We accept the null hypothesis and could not say with a 95% confidence level that there was a statistically significance in the different grades math students in a relationship get vs those that are not in a relationship. It doesn't seem relationship.m is a good predictive indicator for our requirements.
 
+## Q3: Do math students of a certain age group perform worse on final their maths exam than other groups? (One-way Anova)
+We chose a one way Anova because we were testing against different groups from the same school. We assumed that students from GT school were randomly sampled from a normally distributed population.
 
-
-
-## Q3: Do math students of a certain age group perform worse on final their maths exam than other groups?
-We will chose a one way Anova because we are testing against different groups from the same school. We assume that students from GT school were randomly sampled from a normally distributed population.
-
-We also state our hypothesis:
+We stated our parameters and hypothesis below:
+* school: GT (all students are from the same school)
+* age group: 15, 16 and 17
+* mG3: maths grade performance
 H0: The means between age groups are identical
 Ha: At least, the mean of one age group is different
 
-school: GT (all students are from the same school)
-age group: 15, 16 and 17
-mG3: maths grade performance
-
 ### Data Preparation
-```{r}
-gp_smath <- smath[which(smath$school=='GP'),]
-varsint<-c("school",
-           "age",
-           "mG3"
-           )
-
-#subset with our variables
-gp_smath <- gp_smath[varsint]
-
-#we configure the age variable
-gp_smath_ages <- subset(gp_smath, gp_smath$age < 18) %>%
-  select(age, mG3) %>% 
-  mutate(age = factor(gp_smath_ages$age, ordered = TRUE))
-
+```{r, echo=FALSE}
 # we check our dataframe creation worked
-glimpse(gp_smath_ages) 
+smath$Medu <- as.factor(smath$Medu)
+levels(smath$Medu) <- c("None", "Primary", "5th-9th Grade", "Secondary", "Higher Level")
+#glimpse(smath) 
 
-# we check we have 3 levels for age group
-levels(gp_smath_ages$age) 
-
+# we check we have more than 3 levels for mothers education group
+levels(smath$Medu) 
 
 # we get Desc stats of ages and score
-gp_smath_ages %>%
-	group_by(age) %>%
+smath %>%
+	group_by(Medu) %>%
 	summarise(
-		count_ages = n(),
+		count_medu = n(),
 		mean_score = mean(mG3, na.rm = TRUE),
 		sd_score = sd(mG3, na.rm = TRUE)
 	)
 
 # We can visually check for difference in distribution between age groups
-ggplot(gp_smath_ages, aes(x = age, y = mG3, fill = age)) +
+ggplot(smath, aes(x = Medu, y = mG3, fill = Medu)) +
+  xlab('Mother\'s Education (Medu)') +
+  ylab('Final Grade Score (mG3)') +
+  geom_boxplot() +
+  geom_jitter(shape = 15,
+              color = "steelblue",
+              position = position_jitter(0.21)) +
+  theme_classic()
+```
+
+
+### One-Way ANOVA Test
+```{r, echo=FALSE}
+anova_one_way <- aov(mG3~Medu, data = smath)
+print("One Way ANOVA:")
+summary(anova_one_way)
+```
+We could not tell which mean within the Medu group was different so we used Tukey as the post-hoc test option as group variances were the same. If they were not we would have used Games-Howell.
+```{r, echo=FALSE}
+print("Tukey:")
+TukeyHSD(anova_one_way) #Games-Howell in userfriendlyscience which is depreciated on CRAN
+```
+### Result
+Pr(>F) value is less than 0.05 for mother's with a higher education vs primary education and mother's education vs secondary education. There *is a statistical difference* between the age groups, specifically mothers with a higher education vs mothers with only a primary or secondary education (p-value adjusted 0.03 and 0.04). It seems a mother's education is a good indicator for a math student's final grade score.
+
+## Q4: Do math students who's travel time is longer, have more failures and in turn do worse on their final grade exam? (Two-Way Anova)
+### Data Preparation
+We select our variables into a subset, we
+```{r, echo=FALSE}
+smath$traveltime.m <- as.factor(smath$traveltime.m)
+levels(smath$traveltime.m) <- c("<15m", "15m-30m", "30m-1hr", ">1hr")
+smath$failures.m <- as.factor(smath$failures.m)
+levels(smath$failures.m) <- c("0", "1", "2", "3", "4")
+
+#we configure the guardian variable
+smath %>%
+  select(failures.m, traveltime.m, mG3) %>% 
+  mutate(failures.m = factor(smath$failures.m, ordered = TRUE))
+head(smath)
+
+# We can visually check for difference in distribution between going out group and failure group
+ggplot(smath, aes(x = traveltime.m, y = mG3 , fill=failures.m)) +
     geom_boxplot() +
-    geom_jitter(shape = 15,
-        color = "steelblue",
-        position = position_jitter(0.21)) +
+    theme_classic()
+```
+### One-way ANOVA Test
+```{r, echo=FALSE}
+anova_two_way <- aov(mG3~traveltime.m+failures.m, data = smath)
+summary(anova_two_way)
+print("Tukey:")
+TukeyHSD(anova_two_way) #Games-Howell in userfriendlyscience which is depreciated on CRAN
+```
+### Result
+Pr(>F) values for travel time is less than 0.05 but not for failures. There *is a statistical difference* between failure group. Comparing 0 failures to those students with 1 or more seems to be statistically significant. One explanation although just conjector, could be that students with more failures develop gaps in their learning which takes time to fill, time of which could have been spent focusing on the final grade exam. We are not told how time is spent around Failures. Failures.m will be included as an attribute for our predictive model.
+
+## Q5: Can past performance predict future performance?
+The purpose of this test is to see if those who said yes to wanting to pursue higher education, fail less than than those that do not. We are trying to support our hypothesis.  
+
+We will use a two sampled paired t-test if we find a difference in standard deviation between higher.m and failures.m that is greater than 2 standard deviations. We will deem this a non-parametric test and use a Wilcoxon’s rank sum test instead. 
+
+We state our hypothesis along with the null hypothesis:
+h0: higher.m_mu = failures.m_mu
+h1: higher.m_mu != failures.m_mu
+
+### Data Preparation
+We select our variables into a subset, we
+```{r, echo=FALSE}
+smath$mG1 <- as.factor(smath$mG1)
+smath$mG2 <- as.factor(smath$mG2)
+
+head(smath)
+
+# We can visually check for difference in distribution between going out group and failure group
+ggplot(smath, aes(x = mG2, y = mG3 , fill=mG2)) +
+    geom_boxplot() +
     theme_classic()
 ```
 
 ### One-Way ANOVA Test
-```{r}
-#We conduct oneway ANOVA using the dplyr library
-#We use Tukey as the post-hoc test option if group variances are the same and Games-Howell if they are not
-anova_one_way <- aov(mG3~age, data = gp_smath_ages)
-print("One Way ANOVA:")
+We will test first grade and second grade scores separately against final grade. We also know these are normally distributed from our previous section.
+```{r, echo=FALSE}
+anova_one_way <- aov(mG3~mG1, data = smath)
+print("One Way ANOVA (mG1):")
 summary(anova_one_way)
 
-```
-
-```{r}
-# we cannot tell which mean is different so we use Tukey
-print("Tukey:")
-TukeyHSD(anova_one_way)
+anova_one_way <- aov(mG3~mG2, data = smath)
+print("One Way ANOVA (mG2):")
+summary(anova_one_way)
 ```
 ### Result
-Pr(>F) value is greater than 0.05. There is *no statistical difference* between the age groups. There is a slight difference in means between 15 year olds and 17 year olds but nothing that is statistical significant (p adj>0.05).
+Both mG1 and mG2 are statistically significant to mG3 (p=<2e-16). Past performance in exam work seem to be a good predictor of future performance.
 
-## Q4: Do math students with bad health get bad grades?
-### Data Preparation
-```{r}
-gp_smath <- smath[which(smath$school=='GP'),]
-varsint<-c("school",
-           "guardian.m",
-           "health.m",
-           "mG3"
-           )
-
-#subset with our variables
-gp_smath <- gp_smath[varsint]
-
-#we configure the guardian variable
-gp_smath %>%
-  select(guardian.m, health.m, mG3) %>% 
-  mutate(guardian.m = factor(gp_smath$guardian.m, ordered = TRUE))
-
-
-# We can visually check for difference in distribution between age groups and health groups
-ggplot(gp_smath, aes(x = guardian.m, y = mG3, fill = health.m)) +
-    geom_boxplot() +
-    geom_jitter(shape = 15,
-        color = "steelblue",
-        position = position_jitter(0.21)) +
-    theme_classic()
-```
-### Two-way ANOVA Test
-```{r}
-anova_two_way <- aov(mG3~guardian.m+health.m, data = gp_smath)
-summary(anova_two_way)
-```
-### Result
-Pr(>F) values for health and guadianship status are greater than 0.05. There is *no statistical difference* between the these groups. There is a slight difference in means between health and guadianship but nothing that is statistical significant (p adj>0.05).
-## Q5: Do math students in the care of someone other than their mother get more school support?
-Here we will perform a chi-square test of independence on school support and guardianship. We first check that both categorical variable are factor.
-
-### Variable Class View
-```{r}
-sapply(smath, class) # yes both are factors
-```
-### Chi-Square Test
-```{r}
-chisq_test <- chisq.test(table(smath$guardian.m, smath$schoolsup))
-chisq_test # we get Chi-squared approximation may be incorrect, so we try a fisher's test
-```
-
-```{r}
-fisher_test <- fisher.test(table(smath$guardian.m, smath$schoolsup))
-fisher_test
-```
+#Conclusion
+We found strong significance with mother's education (Medu), desire to persue higher education (higher.m), number of past failures (failures.m) and past exam performance (mG1, mG2) when compared to final grade (mG3). These seem to be the subset of attributes, that we should use when trying to determine if a student requires early intervention before exam failure.

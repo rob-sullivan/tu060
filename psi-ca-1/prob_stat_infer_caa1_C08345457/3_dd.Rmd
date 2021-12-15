@@ -2348,9 +2348,10 @@ maths_cleaned = grades_cleaned[,-c(34:53)]
 langs_cleaned = grades_cleaned[,-c(14:33)]
 ```
 
+### Variables of Interest
+Below is a heatmap of Pearson's Correlation. The reason for this was to see if there was any statistical significance among variables. Knowing this, even at a high level helped us select interesting variables for data exploration. If our data did not fit a normal distribution we would reported either Spearman or Kendall. We assume most data is normally distributed.
 
 #### Maths Students
-Below is a heatmap of Pearson's Correlation. The reason for this was to see if there was any statistical significance among variables. Knowing this, even at a high level helped us select interesting variables for data exploration.
 ```{r, echo=FALSE}
 # Pearsons Corrolation HeatMap: Maths
 
@@ -2407,8 +2408,6 @@ gg
 * Negative correlations are in blue color and positive correlations in red.
 
 #### Portuguese Language Students
-Similar to math students, below is another heatmap of Pearson's Correlation. The reason for this was to see if there was any statistical significance among variables. Knowing this, even at a high level helped us select interesting variables for data exploration.
-
 ```{r, echo=FALSE}
 # Pearsons Corrolation Portuguese Language 
 
@@ -2462,25 +2461,26 @@ gg
 * Negative correlations are in blue color and positive correlations in red.
 
 # Selected Attributes
-Again our two main questions are:
+Again, the reason for using a Pearson Correlation Coefficient heat map was to see, at a high level, if there was any statistical significance among variables. Knowing this, even at a high level helped us select interesting variables for data exploration. Our two main questions are:
 
   1. What levels indicate, in a subset of attributes, that a student requires early intervention before exam failure?
   2. Is it possible to predict which students will fail their exams, if so what is the level of accuracy?
 
-We used the heatmaps above to start selecting attributes to be used for answering data exploration questions in the next section such as.
-  
-The following are variables of interest were selected as independent variables to our two dependent variables mG3 and pG3
-* school            
-* age                
-* Pstatus           
-* guardian        
-* traveltime     
-* failures        
-* schoolsup       
-* romantic        
-* goout           
-* Dalc          
-* Walc           
-* health
+Variables of interest were selected as independent variables to our dependent variables 'final grade'. We chose maths students for our individual tests. The following math student variables were selected for further testing against dependent variable 'mG3':
 
-We chose maths students for our individual tests.
+## Positive:
+* mG2: 90%
+* mG1: 81%
+* higher.m: 23%
+* Medu: 21%
+* Fedu: 16%
+
+## Negative:
+* goout.m: -11%
+* traveltime.m: -13%
+* romantic.m: -14%
+* age: -19%
+* failures.m: -38%
+
+## Discussion
+Previous grades may have some impact on final grade but it doesn't help us explain why previous grades would be good or bad in the first place. The other variables do help us in some way, determine why final grade would be good or bad. For example student's desire to go on and pursue a higher education (higher.m) and parents' education (Medu and Fedu) might indicate that students, according to (Amsel, 2011) who opt for the same work roles as their parents, may have an advantage of a role model. Other variables like going out with friends (goout.m), time taken to travel to the school (traveltime.m) or in a romantic relation (romantic.m) give a negative impact on fnal grade. This might indicate that any time away from schoolwork causes gaps in education to develop which results in poor grade performance. In the next section we will try investigate, through data exploration, if a subset of attributes relating to motivation and time away from school work affect final grade. 

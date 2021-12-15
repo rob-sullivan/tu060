@@ -20,19 +20,18 @@ The work presented here is my own and any material or ideas sourced elsewhere ha
 
 ## Table of contents
 
-1. [Statement of Research Question](1_sprq.html)
+1. [Statement of Research Question](1_sorq.html)
 2. [Data Collection & Preparation](2_dcprep.html)
 3. [Data Description](3_dd.html)
 4. [Data Exploration](4_de.html)
 5. [Predictive Modelling](5_pm.html)
 6. [References](6_ref.html)
-7. [Appendix 1: R Code](7_rcode.html)
 
  
 
 ## Introduction
-Navigation of this report is done via the table of content header links above. Code used will be embeded within this website report.
+Navigation of this report can be done via the table of content header links above. Code used will be embeded within this website report.
 
-This report is a detailed analysis of the student performance dataset collected by (Cortez, et al, 2008). Its purpose is to demonstrate a systematic and in-depth understanding of concepts, methods and data analysis methodology.
+This report was a detailed analysis of the student performance dataset collected by (Cortez, et al, 2008). Its purpose was to demonstrate a systematic and in-depth understanding of concepts, methods and data analysis methodology.
 
-The report will follow a standard methodology that covers the entire span of data analysis methodology that is applicable to the dataset. Correct methods will be selected for different context. Any choices made throughout the report will be justified and any difficulties or limitations will be discussed. Application of selected methods will be discussed, interpreted and critically evaluated. Conclusions will be drawn from the outcomes of our analysis and domain-level implications of outcomes will be synthesised. The report will adhere to NFQ Level 9 standard (QQI, 2018) such as knowledge kind requirement: "a critical awareness of current problems and/or new insights, generally informed by the forefront of a field of learning". Academic Referencing will be placed at the end of this document and any references made can throughout the document can be found there in detail.
+The report followed a standard methodology that covers the entire span of data analysis methodology that is applicable to the dataset. Correct methods were selected for different context. Any choices made throughout the report were justified, where possible and any difficulties or limitations were discussed, where known. Application of selected methods were also discussed, interpreted and critically evaluated. Conclusions were drawn from the outcomes of our analysis and domain-level implications of outcomes were synthesised. Any conjecture made in the report is stated with recommendations for further analysis. The report adhered to NFQ Level 9 standard (QQI, 2018), where possible, such as knowledge kind requirement: "a critical awareness of current problems and/or new insights, generally informed by the forefront of a field of learning". Academic Referencing was placed at the end of this document and any references made can throughout the document can be found there in detail.

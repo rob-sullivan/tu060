@@ -1,0 +1,166 @@
+---
+title: "PSI Week 9 Logistic Regression"
+output:
+  html_document:
+    df_print: paged
+  html_notebook:
+    fig_caption: yes
+editor_options:
+  chunk_output_type: console
+---
+### Preliminaries
+```{r prelim}
+needed_packages <- c("foreign",  "Epi", "arm", "DescTools", "stargazer", "lmtest",  "car", "generalhoslem", "regclass")                      
+# Extract not installed packages
+not_installed <- needed_packages[!(needed_packages %in% installed.packages()[ , "Package"])]    
+# Install not installed packages
+if(length(not_installed)) install.packages(not_installed, repos = "http://cran.us.r-project.org") 
+
+library(Epi)#ROC Curve
+library(DescTools)#Pseudo Rsquare statistics
+library(stargazer)
+library(foreign)#read SPSS file.
+library(arm)#for invlogit calculating predicted probabilities
+library(lmtest)#Simple calculation of Chi-square for model
+library(car)#Needed to test for colinearity of predictors
+library(generalhoslem)#Needed to test assumption of linearity
+library("regclass")#For confusion matrix
+```
+
+
+```{r setup}
+#Read in file needed
+mydata <- read.spss("youthcohort.sav")
+
+#Check your proportions of the outcome variable for bias - are these representative?
+table(mydata$satmath)
+
+```
+
+```
+## Build first model with gender as predictor
+```{r buildmodel1}
+#Make sure categorical data is used as factors
+
+logmodel1 <- glm(satmath ~ s1gender, data = mydata, na.action = na.exclude, family = binomial(link=logit))
+
+#Full summary of the model
+summary(logmodel1)
+
+#Chi-square plus significance
+lmtest::lrtest(logmodel1)
+
+                      
+#Chi-square and Pseudo R2 calculation - THESE ARE INCLUDED FOR INFORMATION ONLY
+#lmtest:lrtest achieves the same thing
+modelChi <- logmodel1$null.deviance - logmodel1$deviance
+modelChi
+
+pseudo.R2 <- modelChi / logmodel1$null.deviance
+pseudo.R2
+
+chidf <- logmodel1$df.null - logmodel1$df.residual
+chidf
+
+chisq.prob <- 1 - pchisq(modelChi, chidf)
+chisq.prob
+
+#Output the sensitivity, specificity, and ROC plot
+Epi::ROC(form=mydata$satmath ~ mydata$s1gender, plot="ROC")
+
+#Pseudo Rsquared 
+DescTools::PseudoR2(logmodel1, which="CoxSnell")
+DescTools::PseudoR2(logmodel1, which="Nagelkerke")
+
+#Summary of the model with co-efficients
+stargazer(logmodel1, type="text")
+```
+
+```{r predictorsmodel1}
+#Exponentiate the co-efficients
+exp(coefficients(logmodel1))
+## odds ratios and 95% CI 
+cbind(Estimate=round(coef(logmodel1),4),
+OR=round(exp(coef(logmodel1)),4))
+
+#Probability of answering yes when male 
+arm::invlogit(coef(logmodel1)[1]+ coef(logmodel1)[2]*0)#YES this is the same as just having the 1st co-efficient
+#Probability of answering yes when female 
+arm::invlogit(coef(logmodel1)[1]+ coef(logmodel1)[2]*1)
+```
+
+```{r checkassumptionsmodel1}
+#Check the assumption of linearity of independent variables and log odds using a Hosmer-Lemeshow test, if this is not statistically significant we are ok
+#Won't give a p-value here because only one predictor
+generalhoslem::logitgof(mydata$satmath, fitted(logmodel1))
+
+#We would check for collinearity here but as we only have one predictor it doesn't make sense - check model 2 to see how to do this
+
+```
+## Now extend the model to include parental education s1pared
+```{r buildmodel2}
+#Make sure categorical data is used as factors
+
+logmodel2 <- glm(satmath ~ s1gender+s1pared, data = mydata, na.action = na.exclude, family = binomial(link=logit))
+
+
+#Full summary of the model
+summary(logmodel2)
+
+#Chi-square plus significance
+lmtest::lrtest(logmodel2)
+
+#Pseudo Rsquared 
+DescTools::PseudoR2(logmodel2, which="CoxSnell")
+DescTools::PseudoR2(logmodel2, which="Nagelkerke")
+
+#Output the sensitivity, specificity, and ROC plot
+Epi::ROC(form=mydata$satmath ~ mydata$s1gender+mydata$s1pared, plot="ROC")
+                      
+
+#Summary of the model with co-efficients
+stargazer(logmodel2, type="text")
+```
+
+```{r predictorsmodel2}
+#Exponentiate the co-efficients
+exp(coefficients(logmodel2))
+## odds ratios 
+cbind(Estimate=round(coef(logmodel2),4),
+OR=round(exp(coef(logmodel2)),4))
+
+#s1pared 1 at least one parent with a degree, 2 at least one parent with an A Level, 3 neither parent with an A Level
+#1. Probability of answering yes when male and at least one parent has a degree
+arm::invlogit(coef(logmodel2)[1]+ coef(logmodel2)[2]*0)
+#2. Probability of answering yes when female and at least one parent has a degree
+arm::invlogit(coef(logmodel2)[1]+ coef(logmodel2)[2]*1)
+
+#3.Probability of answering yes when male when at least one parent has an A level
+arm::invlogit(coef(logmodel2)[1]+ coef(logmodel2)[2]*0 +coef(logmodel2)[3]*1+coef(logmodel2)[3]*0)
+#4. Probability of answering yes when female when at least one parent has an A level
+arm::invlogit(coef(logmodel2)[1]+ coef(logmodel2)[2]*1 +coef(logmodel2)[3]*1+coef(logmodel2)[3]*0)
+
+#5.Probability of answering yes when male when neither parent has an A level
+arm::invlogit(coef(logmodel2)[1]+ coef(logmodel2)[2]*0 +coef(logmodel2)[3]*0+coef(logmodel2)[3]*1)
+#6.Probability of answering yes when female when neither parent has an A level
+arm::invlogit(coef(logmodel2)[1]+ coef(logmodel2)[2]*1 +coef(logmodel2)[3]*0+coef(logmodel2)[3]*1)
+
+#Confusion matrix
+regclass::confusion_matrix(logmodel2)
+
+```
+
+```{r checkassumptionsmodel2}
+
+#Check the assumption of linearity of independent variables and log odds using a Hosmer-Lemeshow test, if this is not statistically significant we are ok
+
+generalhoslem::logitgof(mydata$satmath, fitted(logmodel2))
+
+
+#Collinearity
+vifmodel<-car::vif(logmodel2)#You can ignore the warning messages, GVIF^(1/(2*Df)) is the value of interest
+vifmodel
+#Tolerance
+1/vifmodel
+```
+

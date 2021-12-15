@@ -6,15 +6,19 @@ output:
 ---
 ## Statement of research question
 
-Data mining methods allows several interesting questions for the Higher Education domain to be answered, according to (Luan J., 2002) and (Minaei-Bidgoli et al. 2003) the following are interesting questions:
+Statistical methods methods allows several interesting questions for the Higher Education domain to be answered, according to (Luan J., 2002) and (Minaei-Bidgoli et al. 2003) the following are interesting questions:
 1. Who are the students taking most credit hours? Who is likely to return for more classes?
 2. What type of courses can be offered to attract more students?
 3. What are the main reasons for student transfers?
 4. Is is possible to predict student performance?
 5. What are the factors that affect student achievement?
 
-(Cortez, et al, 2008) tried to answer the last two. In this report, statistical methods will be applied to the student performance dataset with the goals of answering the following two research questions:
+(Cortez, et al, 2008) tried to answer the last two. 
+
+In this report, statistical methods were applied to the student performance dataset with the goals of answering the following two research questions:
 
 1. What levels indicate, in a subset of attributes, that a student requires early intervention before exam failure?
 2. Is it possible to predict which students will fail their exams, if so what is the level of accuracy?
+
+The conclusion and answer to these questions can be found in section 5 [Predictive Modelling](5_pm.html)
 
