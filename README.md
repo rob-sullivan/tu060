@@ -1,4 +1,4 @@
-# tu060 - Masters in Data Science
+# tu060 - Masters(MSc) in Data Science
 - Machine Learning
 - Deep Learning
 - Data Mining
