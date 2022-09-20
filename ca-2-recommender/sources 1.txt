@@ -1,0 +1,54 @@
+content, 
+
+collaborative flters, 
+explicit (user ratings or implicit feedback (purchases, visits, tests).
+Popular methods are neighbourhood and latent factor model
+latent factor model sets a number of evaluation methods to characterize both items and users and it is mainly based on the matrix
+factorization (for example the ratings-matrix). e. They have cold start problems for both new items and new users.
+
+demographic recommend based on age, gender, etc
+knowledge requires domain experience 
+community recommended by friend instead of stranger
+
+data mining techniques - classification (knn, naive bayes and support vector machine)
+cluster analysis *demographics, RFM, LTV, demographic + RFM, demo+LTV and LTV+RFM, 
+Common is K-means, K-Medoids and Clara
+association rules: apriori FP-Growth, SSFIM and SETM
+
+and hybrid recommenders combine two or more. Discrete choice models
+
+The main limitations of deep learning-based recommendation systems are represented by the fact that there
+are often privacy issues in the collection of information for content-based systems, while
+for collaborative fltering the acquisition of data from diferent sources often results in
+incomplete information that greatly afects the accuracy of recommendations.
+
+The main
+deep learning algorithms for recommender system are described as follows. Multilayer
+Perceptron (MLP)
+Autoencoders (AE) represent an unsupervised model
+Convolutional Neural Networks (CNN) 
+Recurrent Neural Networks (Long-Short Term Memory)
+Adversary Network
+Deep reinforcement learning (DRL)
+ontology-based recommendation system
+all deep learning algorithms have cold start problems and require a considerable amount of data to improve performance.
+Open problems in the literature for deep learning-based recommendation systems concern the frameworks scalability and the explicability of generated recommendations
+deep learning solutions are not applicable in this case, in which
+the number of acquisitions per user is low, which is one of the most critical problems of fashion retail.
+
+In compliance with GDPR
+rules, the Tool Admin stores the details of customers’ profle, items and transactions on
+stores and on the ecommerce website in a centralized database based on MS Azure
+
+The recommendations have to be carefully provided, since suggested items should not have been purchased
+by the customer recently, neither already proposed by the human Assistant.
+
+
+
+Nageswara RK, Talwar VG (2008) Application domain and functional classifcation of recommender systems a survey DESIDOC. J Library Information Technol 28(3):17–35
+
+Ricci F, Rokach L, Shapira B (2011) Introduction to Recommender Systems Handbook. In: Ricci
+F., Rokach L., Shapira B., Kantor P. (eds) Recommender Systems Handbook. Springer, Boston,
+MA
+
+https://towardsdatascience.com/k-medoid-clustering-pam-algorithm-in-python-with-solved-example-c0dcb35b3f46

@@ -13,10 +13,10 @@
 .Rproj.user/
 week-10/lab/GoogleNews-vectors-negative300.bin
 week-10/lab/recipes
-
+.ipynb_checkpoints
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
-
+screenshots/
 # Mono auto generated files
 mono_crash.*
 
