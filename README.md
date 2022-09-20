@@ -1,14 +1,16 @@
 # tu060
 code relating to TU Dublin's master's in data science
 
-## data mining
+## Data Mining
 
-## probability & statistical inference
+## Pobability & Statistical Inference
 
-## working with data
+## Working With Data
 
-## machine learning
+## Machine Learning
 
-## data management
+## Data Management
 
-## scientific research & literature
+## Scientific Research & Literature
+
+## Data Visualisation
