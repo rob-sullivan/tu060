@@ -13,4 +13,4 @@ code relating to TU Dublin's master's in data science
 
 ## Scientific Research & Literature
 
-## Data Visualisation
+## Data Visualisation.
