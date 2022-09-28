@@ -1,6 +1,6 @@
 #QGIS
-exercise_data/
-
+default-exercise-data/
+killarney_data/
 # History files
 .Rhistory
 .Rapp.history
