@@ -1,13 +1,21 @@
 # AI for Self Driving Car
-
+## make sure you have a python virtual environment setup
+## python -m pip install --upgrade pip setuptools virtualenv
+## python -m venv venv ##this creates a virtual environment called venv.
+## add /venv/ to .gitignore.
+## activate virtual environment with \venv\Scripts\activate.bat on windows or source kivy_venv/bin/activate on mac+linux
 # Import the libraries
-import numpy as np
-import random import random, randint
+import numpy as np #pip install numpy
+#import random import random, randint
+import random
 import os
 import time
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt #pip install matplotlib
 
 ## pytorch
+### check you have CUDA installed nvcc --version
+### then go to https://pytorch.org/get-started/locally/ and select local install options
+### run pip install. for example pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -71,8 +79,10 @@ class Dqn():
         self.last_reward = 0
     
     def select_action(self, state):
-        probs = F.softmax(self.model(Variable(state, volatile = True))*100) # T=100
-        action = probs.multinomial()
+        #probs = F.softmax(self.model(Variable(state, volatile = True))*100) # T=100
+        #action = probs.multinomial()
+        probs = F.softmax(self.model(state)*100) # T=100
+        action = probs.multinomial(num_samples=1)
         return action.data[0,0]
     
     def learn(self, batch_state, batch_next_state, batch_reward, batch_action):
@@ -81,7 +91,8 @@ class Dqn():
         target = self.gamma*next_outputs + batch_reward
         td_loss = F.smooth_l1_loss(outputs, target)
         self.optimizer.zero_grad()
-        td_loss.backward(retain_variables = True)
+        #td_loss.backward(retain_variables = True)
+        td_loss.backward(retain_graph = True)
         self.optimizer.step()
     
     def update(self, reward, new_signal):
