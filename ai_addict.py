@@ -1,30 +1,12 @@
-# AI for Self Driving Car
-## make sure you have a python virtual environment setup
-## python -m pip install --upgrade pip setuptools virtualenv
-## python -m venv venv ##this creates a virtual environment called venv.
-## add /venv/ to .gitignore.
-## activate virtual environment with \venv\Scripts\activate.bat on windows or source kivy_venv/bin/activate on mac+linux
-# Import the libraries
-import numpy as np #pip install numpy
-#import random import random, randint
+# Self Driving Car - comments
+
+# Importing the libraries
+import numpy as np
 import random
-import os
+import matplotlib.pyplot as plt
 import time
-import matplotlib.pyplot as plt #pip install matplotlib
 
-## pytorch
-### check you have CUDA installed nvcc --version
-### then go to https://pytorch.org/get-started/locally/ and select local install options
-### run pip install. for example pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import torch.optim as optim
-import torch.autograd as autograd
-from torch.autograd import Variable
-
-
-## Kivy packages for UI
+# Importing the Kivy packages
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.uix.button import Button
@@ -34,9 +16,19 @@ from kivy.properties import NumericProperty, ReferenceListProperty, ObjectProper
 from kivy.vector import Vector
 from kivy.clock import Clock
 
+import os
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
+import torch.autograd as autograd
+from torch.autograd import Variable
+
+# Importing the Dqn object from our AI in ai.py
+#from ai import Dqn
+
 # Creating the architecture of the Neural Network
-class Network(nn.Module):
-    
+class Network(nn.Module):  
     def __init__(self, input_size, nb_action):
         super(Network, self).__init__()
         self.input_size = input_size
@@ -50,8 +42,7 @@ class Network(nn.Module):
         return q_values
 
 # Implementing Experience Replay
-class ReplayMemory(object):
-    
+class ReplayMemory(object): 
     def __init__(self, capacity):
         self.capacity = capacity
         self.memory = []
@@ -67,7 +58,6 @@ class ReplayMemory(object):
 
 # Implementing Deep Q Learning
 class Dqn():
-    
     def __init__(self, input_size, nb_action, gamma):
         self.gamma = gamma
         self.reward_window = []
@@ -79,9 +69,7 @@ class Dqn():
         self.last_reward = 0
     
     def select_action(self, state):
-        #probs = F.softmax(self.model(Variable(state, volatile = True))*100) # T=100
-        #action = probs.multinomial()
-        probs = F.softmax(self.model(state)*100) # T=100
+        probs = F.softmax(self.model(Variable(state, volatile = True))*100) # T=100
         action = probs.multinomial(num_samples=1)
         return action.data[0,0]
     
@@ -91,7 +79,6 @@ class Dqn():
         target = self.gamma*next_outputs + batch_reward
         td_loss = F.smooth_l1_loss(outputs, target)
         self.optimizer.zero_grad()
-        #td_loss.backward(retain_variables = True)
         td_loss.backward(retain_graph = True)
         self.optimizer.step()
     
@@ -128,36 +115,36 @@ class Dqn():
         else:
             print("no checkpoint found...")
 
-# Settings
-## Adding this line if we don't want the right click to put a red point
+
+# Adding this line if we don't want the right click to put a red point
 Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
 
-## Introducing last_x and last_y, used to keep the last point in memory when we draw the sand on the map
+# Introducing last_x and last_y, used to keep the last point in memory when we draw the sand on the map
 last_x = 0
 last_y = 0
 n_points = 0 # the total number of points in the last drawing
 length = 0 # the length of the last drawing
 
-## Getting our AI, which we call "brain", and that contains our neural network that represents our Q-function
+# Getting our AI, which we call "brain", and that contains our neural network that represents our Q-function
 brain = Dqn(5,3,0.9) # 5 sensors, 3 actions, gama = 0.9
 action2rotation = [0,20,-20] # action = 0 => no rotation, action = 1 => rotate 20 degres, action = 2 => rotate -20 degres
 last_reward = 0 # initializing the last reward
 scores = [] # initializing the mean score curve (sliding window of the rewards) with respect to time
 
-## Initializing the map
+# Initializing the map
 first_update = True # using this trick to initialize the map only once
-
-## Initializing the last distance
-last_distance = 0
-
 def init():
     global sand # sand is an array that has as many cells as our graphic interface has pixels. Each cell has a one if there is sand, 0 otherwise.
     global goal_x # x-coordinate of the goal (where the car has to go, that is the airport or the downtown)
     global goal_y # y-coordinate of the goal (where the car has to go, that is the airport or the downtown)
+    global first_update
     sand = np.zeros((longueur,largeur)) # initializing the sand array with only zeros
     goal_x = 20 # the goal to reach is at the upper left of the map (the x-coordinate is 20 and not 0 because the car gets bad reward if it touches the wall)
     goal_y = largeur - 20 # the goal to reach is at the upper left of the map (y-coordinate)
-    first_update = True # trick to initialize the map only once
+    first_update = False # trick to initialize the map only once
+
+# Initializing the last distance
+last_distance = 0
 
 # Creating the car class (to understand "NumericProperty" and "ReferenceListProperty", see kivy tutorials: https://kivy.org/docs/tutorials/pong.html)
 class Car(Widget):
@@ -202,13 +189,13 @@ class Ball1(Widget): # sensor 1 (see kivy tutorials: kivy https://kivy.org/docs/
 class Ball2(Widget): # sensor 2 (see kivy tutorials: kivy https://kivy.org/docs/tutorials/pong.html)
     pass
 class Ball3(Widget): # sensor 3 (see kivy tutorials: kivy https://kivy.org/docs/tutorials/pong.html)
-	pass
+    pass
 
 # Creating the game class (to understand "ObjectProperty", see kivy tutorials: kivy https://kivy.org/docs/tutorials/pong.html)
 class Game(Widget):
 
     car = ObjectProperty(None) # getting the car object from our kivy file
-    ball1 = ObjectProperty(None) # getting the sensor 1 object from our kivy  file
+    ball1 = ObjectProperty(None) # getting the sensor 1 object from our kivy file
     ball2 = ObjectProperty(None) # getting the sensor 2 object from our kivy file
     ball3 = ObjectProperty(None) # getting the sensor 3 object from our kivy file
 
@@ -304,8 +291,8 @@ class MyPaintWidget(Widget):
             last_y = y
 
 # API and switches interface (see kivy tutorials: https://kivy.org/docs/tutorials/pong.html)
-class CarApp(App):
 
+class CarApp(App):
     def build(self): # building the app
         parent = Game()
         parent.serve_car()
@@ -331,6 +318,7 @@ class CarApp(App):
     def save(self, obj): # save button
         print("saving brain...")
         brain.save()
+        plt.title("Scores")
         plt.plot(scores)
         plt.show()
 

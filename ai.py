@@ -13,7 +13,6 @@ import torch.autograd as autograd
 from torch.autograd import Variable
 
 # Creating the architecture of the Neural Network
-
 class Network(nn.Module):
     
     def __init__(self, input_size, nb_action):
@@ -29,7 +28,6 @@ class Network(nn.Module):
         return q_values
 
 # Implementing Experience Replay
-
 class ReplayMemory(object):
     
     def __init__(self, capacity):
@@ -46,9 +44,7 @@ class ReplayMemory(object):
         return map(lambda x: Variable(torch.cat(x, 0)), samples)
 
 # Implementing Deep Q Learning
-
 class Dqn():
-    
     def __init__(self, input_size, nb_action, gamma):
         self.gamma = gamma
         self.reward_window = []
