@@ -140,10 +140,17 @@ class Dqn():
 # ## Environment
 class Environment():
     def __init__(self, input_size, nb_action, gamma):
-        # Getting our AI, which we call "agent", that contains 
-        # our neural network that represents our Q-function
-        self.agent_actions = [0,20,-20] #3 actions
-        self.agent = Dqn(5,3,0.9) # 5 sensors, 3 actions, gama = 0.9 
+        # Agent Brain - a neural network that represents our Q-function
+        self.agent = Dqn(5,3,0.9) # 5 sensors, 3 actions, gama = 0.9
+        #Agent's Actions
+        self.agent_actions = ['Internet Binging', 'Working', 'Doing Exercise', 'Socialising', 'Drinking Alcohol', 'Smoking'] #6 actions
+        #ref https://fourminutebooks.com/habits-of-a-happy-brain-summary/
+        #Agent Sensors
+        self.agent_serotonin = 0 #agent feeling of self achievement
+        self.agent_oxytocin = 0 #rewarding agent for being social
+        self.agent_dopamine = 0 #agent gets going after a reward
+        self.agent_endorphins = 0 #agent gets for pushing through physical pain at different times
+        self.agent_cortisol = 0 #stress hormone which makes agent feel uncomfortable and wants to do something
         
         # the mean score curve (sliding window of the rewards) with 
         # respect to time.
@@ -158,18 +165,84 @@ class Environment():
         # temporary. this will change
         self.reward_received = 0
 
-        #ref https://fourminutebooks.com/habits-of-a-happy-brain-summary/
-        self.serotonin = 0 #feeling of self achievement
-        self.oxytocin = 0 #rewarding you for being social
-        self.dopamine = 0 #going after a reward
-        self.endorphins = 0 #pushing through physical pain at different times
-
-        #unhappy chemicals protect us from harm by warning us of potential threats.
-        self.cortisol = 0 #stress hormone which makes you feel uncomfortable and wants you to do something
-
-        #habituation is not an experience that makes you most happy because it’s new
+        #habituation will reduce the experience that makes the agent happy because the action is new
         self.habituation = np.zeros((self.end_day,self.end_hour)) # initializing the habituation array with only zeros.
 
     def progress_time(self):
-        day = self.end_day - self.current_day
-        hour = self.end_hour - self.current_time
+        day = self.end_day - self.current_day #difference in current day and end day
+        hour = self.end_hour - self.current_time #difference in current hour and end hour
+        current_hours_elapsed = day*24 + hour
+
+        ## agent input state vector, composed of the five brain signals received by being in the environment
+        current_state = [self.agent_serotonin, self.agent_oxytocin, self.agent_dopamine, self.agent_endorphins, self.agent_cortisol]
+        action_to_take = self.agent.update(self.reward_received, current_state) # playing the action from the ai (dqn class)
+        self.scores.append(self.agent.score()) # appending the score (mean of the last 100 rewards to the reward window)
+
+        action_taken = self.agent_actions[action_to_take]
+
+        #update agent brain chemicals after action taken
+        if(action_taken == 'Internet Binging'):
+            self.agent_serotonin = 0
+            self.agent_oxytocin = 0
+            self.agent_dopamine = 0
+            self.agent_endorphins = 0
+            self.agent_cortisol = 0
+            self.reward_received = -1 # agent gets bad reward -1
+        elif(action_taken == 'Working'):
+            self.agent_serotonin = 0
+            self.agent_oxytocin = 0
+            self.agent_dopamine = 0
+            self.agent_endorphins = 0
+            self.agent_cortisol = 0
+        elif(action_taken == 'Doing Exercise'):
+            self.agent_serotonin = 0
+            self.agent_oxytocin = 0
+            self.agent_dopamine = 0
+            self.agent_endorphins = 0
+            self.agent_cortisol = 0
+            self.reward_received = -1 # agent gets bad reward -1
+        elif(action_taken == 'Socialising'):
+            self.agent_serotonin = 0
+            self.agent_oxytocin = 0
+            self.agent_dopamine = 0
+            self.agent_endorphins = 0
+            self.agent_cortisol = 0
+            self.reward_received = -1 # agent gets bad reward -1
+        elif(action_taken == 'Drinking Alcohol'):
+            self.agent_serotonin = 0
+            self.agent_oxytocin = 0
+            self.agent_dopamine = 0
+            self.agent_endorphins = 0
+            self.agent_cortisol = 0
+            self.reward_received = -1 # agent gets bad reward -1
+        elif(action_taken == 'Smoking'):
+            self.agent_serotonin = 0
+            self.agent_oxytocin = 0
+            self.agent_dopamine = 0
+            self.agent_endorphins = 0
+            self.agent_cortisol = 0
+            self.reward_received = -1 # agent gets bad reward -1
+        else:
+            self.agent_serotonin = 0
+            self.agent_oxytocin = 0
+            self.agent_dopamine = 0
+            self.agent_endorphins = 0
+            self.agent_cortisol = 0
+            self.reward_received = -1 # agent gets bad reward -1
+
+        if(current_hours_elapsed == (self.end_day*24 + self.end_hour)):
+            pass #end simulation
+
+        #reward and punishment conditions
+        if(self.habituation[0,0] > 0):
+            self.reward_received = -1 # and reward = -1
+        else:
+            #otherwise
+            self.reward_received = -0.2 # and it gets bad reward (-0.2)
+            if current_hours_elapsed < previous_hours_elapsed: # however if it getting close to the goal
+                self.reward_received = 0.1 # it still gets slightly positive reward 0.1
+
+        # Updating the last time from the agent to the end time (goal)
+        self.current_day += 1  #update to next day interval
+        self.current_time += 1 #update to next hour interval
+        previous_hours_elapsed = current_hours_elapsed
