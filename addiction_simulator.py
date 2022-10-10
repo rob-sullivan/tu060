@@ -54,7 +54,9 @@ warnings.filterwarnings("ignore")
 # %%
 class Network(nn.Module):  
     def __init__(self, input_size, nb_action):
-        super(Network, self).__init__()
+        #ref: https://discuss.pytorch.org/t/super-model-in-init/97426
+        #super(Network, self).__init__()
+        super().__init__()
         self.input_size = input_size
         self.nb_action = nb_action
         self.fc1 = nn.Linear(input_size, 30)
@@ -100,6 +102,7 @@ class Dqn():
         self.last_reward = 0
     
     def select_action(self, state):
+        #forloop to print current q values
         probs = F.softmax(self.model(Variable(state, volatile = True))*100) # T=100
         action = probs.multinomial(num_samples=1)
         return action.data[0,0]
