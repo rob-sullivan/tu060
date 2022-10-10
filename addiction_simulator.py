@@ -36,6 +36,15 @@ import torch.optim as optim
 import torch.autograd as autograd
 from torch.autograd import Variable
 
+#rich library for Terminal UI
+from rich import print
+from rich.console import Console
+from rich.table import Table
+from rich.tree import Tree
+from rich.prompt import Prompt
+from rich.prompt import IntPrompt
+from rich.prompt import Confirm]
+
 # %% [markdown]
 # ## Deep Q-Learning Agent
 
@@ -143,13 +152,17 @@ class Environment():
         # Agent Brain - a neural network that represents our Q-function
         self.agent = Dqn(5,3,0.9) # 5 sensors, 3 actions, gama = 0.9
         #Agent's Actions
-        self.agent_actions = ['Internet Binging', 'Working', 'Doing Exercise', 'Socialising', 'Drinking Alcohol', 'Smoking'] #6 actions
-        #ref https://fourminutebooks.com/habits-of-a-happy-brain-summary/
+        self.agent_actions = ['Binge on Internet', 'Work', 'Exercise', 'Socialising', 'Drink Alcohol', 'Smoke'] #6 actions
+        
         #Agent Sensors
+        ##ref habits of a happy brain
+        ## Happy Chemicals
         self.agent_serotonin = 0 #agent feeling of self achievement
         self.agent_oxytocin = 0 #rewarding agent for being social
         self.agent_dopamine = 0 #agent gets going after a reward
         self.agent_endorphins = 0 #agent gets for pushing through physical pain at different times
+
+        ### Unhappy Chemicals
         self.agent_cortisol = 0 #stress hormone which makes agent feel uncomfortable and wants to do something
         
         # the mean score curve (sliding window of the rewards) with 
@@ -157,65 +170,75 @@ class Environment():
         self.scores = []
 
         #the agent's environment
-        self.end_day = 365 #goal
-        self.end_hour = 24 #goal
-        self.current_day = 1
-        self.current_time = 1
+        self.end_day = 365 # day simulation ends
+        self.end_hour = 24 # hour simulation ends
+        self.current_day = 1 # day agent starts
+        self.current_hour = 1 # hour agent starts
 
         # temporary. this will change
-        self.reward_received = 0
+        self.reward_received = 0 # agent wants to maximise this score
 
         #habituation will reduce the experience that makes the agent happy because the action is new
         self.habituation = np.zeros((self.end_day,self.end_hour)) # initializing the habituation array with only zeros.
 
-    def progress_time(self):
+    def next_time_interval(self):
+        ## get the time left
         day = self.end_day - self.current_day #difference in current day and end day
-        hour = self.end_hour - self.current_time #difference in current hour and end hour
-        current_hours_elapsed = day*24 + hour
+        hour = self.end_hour - self.current_hour #difference in current hour and end hour
+        time_left = day*24 + hour
 
         ## agent input state vector, composed of the five brain signals received by being in the environment
         current_state = [self.agent_serotonin, self.agent_oxytocin, self.agent_dopamine, self.agent_endorphins, self.agent_cortisol]
         action_to_take = self.agent.update(self.reward_received, current_state) # playing the action from the ai (dqn class)
         self.scores.append(self.agent.score()) # appending the score (mean of the last 100 rewards to the reward window)
 
-        action_taken = self.agent_actions[action_to_take]
+        #This is the limbic system to say what action to take.
+        #we can take the agent's NN and call forward to output q values for each state.
+        suggested_action = self.agent_actions[action_to_take]
+        sa = int(1 if suggested_action=="Bing on Internet" else 2 if suggested_action=="Work" else 3 if suggested_action=="Exercise" else 4 if suggested_action=="Socialise" else 5 if suggested_action=="Drink Alcohol" else 6 if suggested_action=="Smoke" else 0)
+        #give user project options
+        print("** Current Day: [bold dark_violet]" + int(self.current_day) + "[/bold dark_violet], Current Hour: " + int(self.current_hour) + " ** \n")
+        
+        print("\n1. [bold dark_violet]Binge on Internet[/bold dark_violet]\n2. [bold dark_violet]Work[/bold dark_violet]\n3. [bold dark_violet]Exercise[/bold dark_violet]\n4. [bold dark_violet]Socialise[/bold dark_violet]\n5. [bold dark_violet]Drink Alcohol[/bold dark_violet]\n6. [bold dark_violet]Smoke[/bold dark_violet]\n")
+        action_taken = 0
+        action_taken = IntPrompt.ask("Choose from 1 to 6", default=sa)
 
         #update agent brain chemicals after action taken
-        if(action_taken == 'Internet Binging'):
+        if(action_taken == 'Binge on Internet'):
             self.agent_serotonin = 0
             self.agent_oxytocin = 0
             self.agent_dopamine = 0
             self.agent_endorphins = 0
             self.agent_cortisol = 0
             self.reward_received = -1 # agent gets bad reward -1
-        elif(action_taken == 'Working'):
+        elif(action_taken == 'Work'):
             self.agent_serotonin = 0
             self.agent_oxytocin = 0
             self.agent_dopamine = 0
             self.agent_endorphins = 0
             self.agent_cortisol = 0
-        elif(action_taken == 'Doing Exercise'):
-            self.agent_serotonin = 0
-            self.agent_oxytocin = 0
-            self.agent_dopamine = 0
-            self.agent_endorphins = 0
-            self.agent_cortisol = 0
-            self.reward_received = -1 # agent gets bad reward -1
-        elif(action_taken == 'Socialising'):
+        elif(action_taken == 'Exercise'):
             self.agent_serotonin = 0
             self.agent_oxytocin = 0
             self.agent_dopamine = 0
             self.agent_endorphins = 0
             self.agent_cortisol = 0
             self.reward_received = -1 # agent gets bad reward -1
-        elif(action_taken == 'Drinking Alcohol'):
+        elif(action_taken == 'Socialise'):
             self.agent_serotonin = 0
             self.agent_oxytocin = 0
             self.agent_dopamine = 0
             self.agent_endorphins = 0
             self.agent_cortisol = 0
             self.reward_received = -1 # agent gets bad reward -1
-        elif(action_taken == 'Smoking'):
+        elif(action_taken == 'Drink Alcohol'):
+            self.agent_serotonin = 0
+            self.agent_oxytocin = 0
+            self.agent_dopamine = 0
+            self.agent_endorphins = 0
+            self.agent_cortisol = 0
+            self.reward_received = -1 # agent gets bad reward -1
+        elif(action_taken == 'Smoke'):
             self.agent_serotonin = 0
             self.agent_oxytocin = 0
             self.agent_dopamine = 0
@@ -230,8 +253,8 @@ class Environment():
             self.agent_cortisol = 0
             self.reward_received = -1 # agent gets bad reward -1
 
-        if(current_hours_elapsed == (self.end_day*24 + self.end_hour)):
-            pass #end simulation
+        if(time_left <= 0): #end simulation
+            pass 
 
         #reward and punishment conditions
         if(self.habituation[0,0] > 0):
