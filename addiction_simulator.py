@@ -150,7 +150,7 @@ class Dqn():
 class Simulation():
     def __init__(self):
         # Agent Brain - a neural network that represents our Q-function
-        self.agent = Dqn(5,3,0.9) # 5 sensors, 3 actions, gama = 0.9
+        self.agent = Dqn(5,6,0.9) # 5 sensors, 3 actions, gama = 0.9
         #Agent's Actions
         self.agent_actions = ['Binge on Internet', 'Work', 'Exercise', 'Socialise', 'Drink Alcohol', 'Smoke'] #6 actions
         
