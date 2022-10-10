@@ -22,7 +22,7 @@
 
 # %%
 #basic
-import os
+from os import system, name
 import random
 import time
 import numpy as np
@@ -38,12 +38,12 @@ from torch.autograd import Variable
 
 #rich library for Terminal UI
 from rich import print
-from rich.console import Console
-from rich.table import Table
-from rich.tree import Tree
-from rich.prompt import Prompt
 from rich.prompt import IntPrompt
-from rich.prompt import Confirm]
+
+
+#hide pytorch warnings (should eventually be resolved)
+import warnings
+warnings.filterwarnings("ignore")
 
 # %% [markdown]
 # ## Deep Q-Learning Agent
@@ -146,21 +146,21 @@ class Dqn():
             print("no checkpoint found...")
 
 # %% [markdown]
-# ## Environment
-class Environment():
-    def __init__(self, input_size, nb_action, gamma):
+# ## Simulation
+class Simulation():
+    def __init__(self):
         # Agent Brain - a neural network that represents our Q-function
         self.agent = Dqn(5,3,0.9) # 5 sensors, 3 actions, gama = 0.9
         #Agent's Actions
-        self.agent_actions = ['Binge on Internet', 'Work', 'Exercise', 'Socialising', 'Drink Alcohol', 'Smoke'] #6 actions
+        self.agent_actions = ['Binge on Internet', 'Work', 'Exercise', 'Socialise', 'Drink Alcohol', 'Smoke'] #6 actions
         
         #Agent Sensors
         ##ref habits of a happy brain
         ## Happy Chemicals
-        self.agent_serotonin = 0 #agent feeling of self achievement
-        self.agent_oxytocin = 0 #rewarding agent for being social
-        self.agent_dopamine = 0 #agent gets going after a reward
-        self.agent_endorphins = 0 #agent gets for pushing through physical pain at different times
+        self.agent_serotonin = 1 #agent feeling of self achievement
+        self.agent_oxytocin = 1 #rewarding agent for being social
+        self.agent_dopamine = 1 #agent gets going after a reward
+        self.agent_endorphins = 1 #agent gets for pushing through physical pain at different times
 
         ### Unhappy Chemicals
         self.agent_cortisol = 0 #stress hormone which makes agent feel uncomfortable and wants to do something
@@ -174,12 +174,17 @@ class Environment():
         self.end_hour = 24 # hour simulation ends
         self.current_day = 1 # day agent starts
         self.current_hour = 1 # hour agent starts
+        self.previous_time_left = 0
 
         # temporary. this will change
         self.reward_received = 0 # agent wants to maximise this score
 
         #habituation will reduce the experience that makes the agent happy because the action is new
         self.habituation = np.zeros((self.end_day,self.end_hour)) # initializing the habituation array with only zeros.
+
+        self.finish = False #trigger to end simulation
+        while not self.finish:
+            self.finish = self.next_time_interval()
 
     def next_time_interval(self):
         ## get the time left
@@ -195,77 +200,98 @@ class Environment():
         #This is the limbic system to say what action to take.
         #we can take the agent's NN and call forward to output q values for each state.
         suggested_action = self.agent_actions[action_to_take]
-        sa = int(1 if suggested_action=="Bing on Internet" else 2 if suggested_action=="Work" else 3 if suggested_action=="Exercise" else 4 if suggested_action=="Socialise" else 5 if suggested_action=="Drink Alcohol" else 6 if suggested_action=="Smoke" else 0)
-        #give user project options
-        print("** Current Day: [bold dark_violet]" + int(self.current_day) + "[/bold dark_violet], Current Hour: " + int(self.current_hour) + " ** \n")
+        sa = int(1 if suggested_action=="Binge on Internet" else 2 if suggested_action=="Work" else 3 if suggested_action=="Exercise" else 4 if suggested_action=="Socialise" else 5 if suggested_action=="Drink Alcohol" else 6 if suggested_action=="Smoke" else 0)
         
+        #give user options
+        self.clear()
+        print("** Current Day: [bold dark_violet]" + str(self.current_day) + "[/bold dark_violet], Current Hour: [bold dark_violet]" + str(self.current_hour) + "[/bold dark_violet], Time Left: [bold dark_violet]" + str(time_left) + "[/bold dark_violet] hrs ** \n")
+        print("- [bold dark_green]Serotonin: " + str("#" * self.agent_serotonin) + "[/bold dark_green]")
+        print("- [bold dark_green]Oxytocin: " + str("#" * self.agent_oxytocin) + "[/bold dark_green]")
+        print("- [bold dark_green]Dopamine: " + str("#"*self.agent_dopamine) + "[/bold dark_green]")
+        print("- [bold dark_green]Endorphins: " + str("#"*self.agent_endorphins) + "[/bold dark_green]")
+        print("- [bold dark_red]Cortisol: " + str("#"*self.agent_serotonin) + "[/bold dark_red]")
         print("\n1. [bold dark_violet]Binge on Internet[/bold dark_violet]\n2. [bold dark_violet]Work[/bold dark_violet]\n3. [bold dark_violet]Exercise[/bold dark_violet]\n4. [bold dark_violet]Socialise[/bold dark_violet]\n5. [bold dark_violet]Drink Alcohol[/bold dark_violet]\n6. [bold dark_violet]Smoke[/bold dark_violet]\n")
         action_taken = 0
         action_taken = IntPrompt.ask("Choose from 1 to 6", default=sa)
 
         #update agent brain chemicals after action taken
-        if(action_taken == 'Binge on Internet'):
-            self.agent_serotonin = 0
-            self.agent_oxytocin = 0
-            self.agent_dopamine = 0
-            self.agent_endorphins = 0
-            self.agent_cortisol = 0
-            self.reward_received = -1 # agent gets bad reward -1
-        elif(action_taken == 'Work'):
-            self.agent_serotonin = 0
-            self.agent_oxytocin = 0
-            self.agent_dopamine = 0
-            self.agent_endorphins = 0
-            self.agent_cortisol = 0
-        elif(action_taken == 'Exercise'):
-            self.agent_serotonin = 0
-            self.agent_oxytocin = 0
-            self.agent_dopamine = 0
-            self.agent_endorphins = 0
-            self.agent_cortisol = 0
-            self.reward_received = -1 # agent gets bad reward -1
-        elif(action_taken == 'Socialise'):
-            self.agent_serotonin = 0
-            self.agent_oxytocin = 0
-            self.agent_dopamine = 0
-            self.agent_endorphins = 0
-            self.agent_cortisol = 0
-            self.reward_received = -1 # agent gets bad reward -1
-        elif(action_taken == 'Drink Alcohol'):
-            self.agent_serotonin = 0
-            self.agent_oxytocin = 0
-            self.agent_dopamine = 0
-            self.agent_endorphins = 0
-            self.agent_cortisol = 0
-            self.reward_received = -1 # agent gets bad reward -1
-        elif(action_taken == 'Smoke'):
-            self.agent_serotonin = 0
-            self.agent_oxytocin = 0
-            self.agent_dopamine = 0
-            self.agent_endorphins = 0
-            self.agent_cortisol = 0
-            self.reward_received = -1 # agent gets bad reward -1
-        else:
-            self.agent_serotonin = 0
-            self.agent_oxytocin = 0
-            self.agent_dopamine = 0
-            self.agent_endorphins = 0
-            self.agent_cortisol = 0
-            self.reward_received = -1 # agent gets bad reward -1
+        if(action_taken == 1): #Binge on Internet
+            self.agent_serotonin += 0
+            self.agent_oxytocin += 0
+            self.agent_dopamine += 1
+            self.agent_endorphins += 0
+            self.agent_cortisol += 0
+        elif(action_taken == 2): # Work
+            self.agent_serotonin += 1
+            self.agent_oxytocin += 0
+            self.agent_dopamine -= 1
+            self.agent_endorphins += 0
+            self.agent_cortisol += 1
+        elif(action_taken == 3): #Exercise
+            self.agent_serotonin += 1
+            self.agent_oxytocin += 0
+            self.agent_dopamine += 1
+            self.agent_endorphins += 0
+            self.agent_cortisol += 0
+        elif(action_taken == 4): #Socialise
+            self.agent_serotonin += 0
+            self.agent_oxytocin += 1
+            self.agent_dopamine += 1
+            self.agent_endorphins += 0
+            self.agent_cortisol += 0
+        elif(action_taken == 5): #Drink Alcohol
+            self.agent_serotonin += 0
+            self.agent_oxytocin += 0
+            self.agent_dopamine += 1
+            self.agent_endorphins += 0
+            self.agent_cortisol += 0
+        elif(action_taken == 6): #Smoke
+            self.agent_serotonin += 0
+            self.agent_oxytocin += 0
+            self.agent_dopamine += 1
+            self.agent_endorphins += 0
+            self.agent_cortisol += 0
 
-        if(time_left <= 0): #end simulation
-            pass 
 
         #reward and punishment conditions
+        self.reward_received = self.agent_serotonin + self.agent_oxytocin + self.agent_dopamine + self.agent_endorphins - self.agent_cortisol
         if(self.habituation[0,0] > 0):
-            self.reward_received = -1 # and reward = -1
+            self.reward_received = -1 # reward -1 for repeating an action
         else:
             #otherwise
-            self.reward_received = -0.2 # and it gets bad reward (-0.2)
-            if current_hours_elapsed < previous_hours_elapsed: # however if it getting close to the goal
-                self.reward_received = 0.1 # it still gets slightly positive reward 0.1
+            self.reward_received = -0.2 # it gets bad reward (-0.2)
+            if time_left < self.previous_time_left: # however if it getting close to the goal
+                self.reward_received = 0.1 # it still gets slightly positive reward 0.1 just for surviving
 
-        # Updating the last time from the agent to the end time (goal)
-        self.current_day += 1  #update to next day interval
-        self.current_time += 1 #update to next hour interval
-        previous_hours_elapsed = current_hours_elapsed
+        #check if this is the last round otherwise continue
+        if(time_left <= 0):
+            return True   #end simulation
+        else:    
+            # Updating the last time from the agent to the end time (goal)
+            self.current_day += 1  #update to next day interval
+            if(self.current_day > self.end_day):
+                self.current_day = self.end_day
+            self.current_hour += 1 #update to next hour interval
+            if(self.current_hour > self.end_hour):
+                self.current_hour = 0
+            self.previous_time_left = time_left
+            return False
+
+    def clear(self): 
+        """
+        This function was taken from https://www.geeksforgeeks.org/clear-screen-python/ to
+        allow the terminal to be cleared when changing menus or showing the user important
+        messages. It checks what operating system is being used and uses the correct 
+        clearing command.
+        """
+        # for windows 
+        if name == 'nt': 
+            _ = system('cls') 
+
+        # for mac and linux(here, os.name is 'posix')
+        else: 
+            _ = system('clear')
+
+
+if __name__ == "__main__":
+    Simulation()    
