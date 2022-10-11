@@ -37,6 +37,7 @@ import torch.autograd as autograd
 from torch.autograd import Variable
 
 #rich library for Terminal UI
+#from rich.jupyter import print
 from rich import print
 from rich.prompt import IntPrompt
 
