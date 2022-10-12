@@ -1,6 +1,8 @@
 #QGIS
 default-exercise-data/
 killarney_data/
+
+/venv/
 # History files
 .Rhistory
 .Rapp.history
