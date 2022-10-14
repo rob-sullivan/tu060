@@ -22,6 +22,7 @@
 
 # %%
 #basic
+import os
 from os import system, name
 import random
 import time
@@ -101,12 +102,16 @@ class Dqn():
         self.last_state = torch.Tensor(input_size).unsqueeze(0)
         self.last_action = 0
         self.last_reward = 0
+        
     
     def select_action(self, state):
-        #forloop to print current q values
+        #softmax converts q value numbers into a probability distribution.
+        #Q values are the output of the neural network
+        # Temperature value = 100. closer to zero the less sure the NN will be to taking the action
         probs = F.softmax(self.model(Variable(state, volatile = True))*100) # T=100
+        #e.g actions[1,2,3] = prob[0.04, 0.11, 0.85] # temperature increases 0.85 value to be selected
         action = probs.multinomial(num_samples=1)
-        return action.data[0,0]
+        return action.data[0,0]#convert from pytorch tensor to action
     
     def learn(self, batch_state, batch_next_state, batch_reward, batch_action):
         outputs = self.model(batch_state).gather(1, batch_action.unsqueeze(1)).squeeze(1)
@@ -216,7 +221,7 @@ class Simulation():
         print("- [bold dark_red]Cortisol: " + str("#"*self.agent_serotonin) + "[/bold dark_red]")
         print("\n1. [bold dark_violet]Binge on Internet[/bold dark_violet]\n2. [bold dark_violet]Work[/bold dark_violet]\n3. [bold dark_violet]Exercise[/bold dark_violet]\n4. [bold dark_violet]Socialise[/bold dark_violet]\n5. [bold dark_violet]Drink Alcohol[/bold dark_violet]\n6. [bold dark_violet]Smoke[/bold dark_violet]\n")
         action_taken = 0
-        action_taken = IntPrompt.ask("Choose from 1 to 6", default=sa)
+        action_taken = IntPrompt.ask("Choose from 1 to 6 or 0 to quit", default=sa)
 
         #update agent brain chemicals after action taken
         if(action_taken == 1): #Binge on Internet
@@ -255,6 +260,16 @@ class Simulation():
             self.agent_dopamine += 1
             self.agent_endorphins += 0
             self.agent_cortisol += 0
+        elif(action_taken == 0):#quit
+            #print("saving brain...")
+            #brain.save()
+            plt.title("Scores")
+            plt.xlabel("Epochs")
+            plt.ylabel("Reward")
+            plt.plot(self.scores)
+            plt.show()
+            return True   #end simulation
+
 
 
         #reward and punishment conditions
