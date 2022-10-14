@@ -113,6 +113,10 @@ class Dqn():
         action = probs.multinomial(num_samples=1)
         return action.data[0,0]#convert from pytorch tensor to action
     
+    #to train our AI
+    #forward propagation then backproagation
+    # get our output, target, compare our output to the target to compute the loss error
+    # backproagate loss error into the nn and use stochastic gradient descent we update the weights according to how much they contributed to the loss error
     def learn(self, batch_state, batch_next_state, batch_reward, batch_action):
         outputs = self.model(batch_state).gather(1, batch_action.unsqueeze(1)).squeeze(1)
         next_outputs = self.model(batch_next_state).detach().max(1)[0]
