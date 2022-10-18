@@ -10,6 +10,7 @@
 *.userosscache
 *.sln.docstates
 .venv/
+/venv/
 .Rproj.user/
 week-10/lab/GoogleNews-vectors-negative300.bin
 week-10/lab/recipes
