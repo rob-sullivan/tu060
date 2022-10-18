@@ -1,16 +1,11 @@
-# tu060
-code relating to TU Dublin's master's in data science
-
-## Data Mining
-
-## Pobability & Statistical Inference
-
-## Working With Data
-
-## Machine Learning
-
-## Data Management
-
-## Scientific Research & Literature
-
-## Data Visualisation.
+# tu060 - Masters(MSc) in Data Science
+- Machine Learning
+- Deep Learning
+- Data Mining
+- Probability and Statistical Inference
+- Working with Data
+- Data Management
+- Research Design and Proposal Writing
+- Scientific Research and Literature
+- Geographical Information Services (GIS)
+- Data Visualisation
