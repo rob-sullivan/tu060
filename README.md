@@ -1,16 +1,11 @@
-# tu060
-code relating to TU Dublin's master's in data science
-# working with data
-## week 1
-
-## week 2
-
-## week 3
-
-## week 4
-
-## week 5
-
-## week 6
-
-## week 7
+# tu060 - Masters(MSc) in Data Science
+- Machine Learning
+- Deep Learning
+- Data Mining
+- Probability and Statistical Inference
+- Working with Data
+- Data Management
+- Research Design and Proposal Writing
+- Scientific Research and Literature
+- Geographical Information Services (GIS)
+- Data Visualisation
