@@ -5,6 +5,7 @@
 - Probability and Statistical Inference
 - Working with Data
 - Data Management
+- Research Design and Proposal Writing
 - Scientific Research and Literature
 - Geographical Information Services (GIS)
 - Data Visualisation
