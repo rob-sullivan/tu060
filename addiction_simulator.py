@@ -170,13 +170,13 @@ class Simulation():
         #Agent Sensors
         ##ref habits of a happy brain
         ## Happy Chemicals
-        self.agent_serotonin = 1 #agent feeling of self achievement
-        self.agent_oxytocin = 1 #rewarding agent for being social
-        self.agent_dopamine = 1 #agent gets going after a reward
-        self.agent_endorphins = 1 #agent gets for pushing through physical pain at different times
+        self.agent_serotonin = 1.0 #agent feeling of self achievement
+        self.agent_oxytocin = 1.0 #rewarding agent for being social
+        self.agent_dopamine = 1.0 #agent gets going after a reward
+        self.agent_endorphins = 1.0 #agent gets for pushing through physical pain at different times
 
         ### Unhappy Chemicals
-        self.agent_cortisol = 0 #stress hormone which makes agent feel uncomfortable and wants to do something
+        self.agent_cortisol = 0.0 #stress hormone which makes agent feel uncomfortable and wants to do something
         
         # the mean score curve (sliding window of the rewards) with 
         # respect to time.
