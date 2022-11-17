@@ -5,38 +5,62 @@ class Environment():
         self.past_actions = []
         self.scenarios = []
 
-
-class Scenario():
+class State():
     def __init__(self):
+        #meta data
         self.id = 0
         self.name = ""
         self.description = ""
+
+        #how stressful is it
         self.cortisol = 0.0 #stress hormone which makes agent feel uncomfortable and wants to do something
+
+class Action():
+    def __init__(self):
+        #meta data
+        self.id = 0
+        self.name = ""
+        self.description = ""
+
+        #type
         self.is_physical = False
         self.is_social = False
         self.is_one_up = False
 
+        
+        #e.g if physical action like jogging
+        self.endorphins = 1.0 #agent gets for pushing through physical pain at different times (e.g runners high)
+        #e.g if socal meeting up with friends
+        self.oxytocin = 1.0  #rewarding agent for being social
+        #e.g if winning at a game, feeling in control or a process or superior to peers (publich applause)
+        self.serotonin = 1.0 #agent feeling of self achievement     
+
 class Reward():
     def __init__(self, scenario, past_actions, action):
-        self.dopamine = 1.0 #agent gets going after a reward
+        
+        #agent wants this reward for each state
+        self.dopamine = 1.0 
 
-        #weights or bonuses
-        if(scenario.is_physical):
-            self.endorphins = 1.0 #agent gets for pushing through physical pain at different times
+        #but has a stressful problem to overcome in the state
+        c = scenario.cortisol
 
-        if(scenario.is_physical):
-            self.oxytocin = 1.0  #rewarding agent for being social
+        #so selects an action to overcome stress (each action has certain bonuses or weights)
+        e = action.endorphins
+        o = action.oxytocin
+        s = action.serotonin
 
-        if(scenario.is_physical):
-            self.serotonin = 1.0 #agent feeling of self achievement      
-
-        if(action in past_actions):
+        #but spamming the same action all the time is not the best
+        if(action in past_actions):#e.g gambling feels great the first time but not the 100th time, chasing rewards!
             #habituation will reduce the experience that makes the agent happy because the action is new
-            self.habituation = 1.0
+            self.habituation = 0.5
 
-        reward = (self.dopamine * (self.endorphins + self.oxytocin + self.serotonin))*(scenario.cortisol + self.habituation)
+        action_reward = self.dopamine * (e + o + s)
+        action_punishment = c + self.habituation
 
-        return reward
+        #reward given for doing an action in a state
+        state_reward = action_reward*-action_punishment
+
+        return state_reward
         
 
 
