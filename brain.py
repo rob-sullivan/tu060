@@ -1,19 +1,18 @@
 ##ref habits of a happy brain
+## ref sims
+#  strategic life simulation video game of an agent-based artificial life program.
 
-class Environment():
-    def __init__(self):
-        self.past_actions = []
-        self.scenarios = []
-
+#A state is a daily activity of a virtual person
 class State():
-    def __init__(self):
+    def __init__(self, n, d, c):
         #meta data
         self.id = 0
-        self.name = ""
-        self.description = ""
+        self.name = n
+        self.description = d
+        
 
         #how stressful is it
-        self.cortisol = 0.0 #stress hormone which makes agent feel uncomfortable and wants to do something
+        self.cortisol = c # float, stress hormone which makes agent feel uncomfortable and wants to do something
 
 class Action():
     def __init__(self):
@@ -63,6 +62,10 @@ class Reward():
         return state_reward
         
 
+class Environment():
+    def __init__(self):
+        self.past_actions = []
+        self.scenarios = [] #/action_queue = []
 
-
-
+        work = State('work', 'any type of employment', .9)
+        socialise = State('socialise', 'meeting up with friends', .5)
