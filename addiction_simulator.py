@@ -154,7 +154,7 @@ class Dqn():
             checkpoint = torch.load('last_brain.pth')
             self.model.load_state_dict(checkpoint['state_dict'])
             self.optimizer.load_state_dict(checkpoint['optimizer'])
-            print("done !")
+            print("saved !")
         else:
             print("no checkpoint found...")
 
