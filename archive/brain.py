@@ -74,11 +74,11 @@ class Environment():
         self.locations = [] #/action_queue = []
 
         #create locations
-        home = State('Home', 'a place to sleep at night', .1)
+        home = State('Home', 'a place to rest and recharge', .1)
         office = State('Office', 'a place to earn an income', .9)
         college = State('College', 'a place to learn so your income potential increases', .8)
-        gym = State('Gym', 'a place to work out', .5)
-        pub = State('Pub', 'a place to dance, socialise, drink and smoke', .3)
+        gym = State('Gym', 'a place to stay physically healthy and avoid being sick from work', .5)
+        pub = State('Pub', 'a place to dance, socialise to stay mentally healthy and avoid being sick from work', .3)
 
         #add locations
         self.locations.append(home)
@@ -92,7 +92,7 @@ class Environment():
         socialise = Action('Socialise', 'conversing with others', 0, 1, 0)
         exercise = Action('Exercise', 'working out', 0, 1, 0)
         drink = Action('Drink', 'drinking alcohol to feel drunk and socialise', 1, 1, 0)
-        smoke_cigarette = Action('Smoke', 'smoking cigarettes to feel relaxed and socialise', 1, 1, 1)
+        smoke = Action('Smoke', 'smoking cigarettes to feel relaxed and socialise', 1, 1, 1)
         game = Action('Game', 'playing games to relax, feel a sence of achievement and socialise', 0, 1, 1)
 
         #add actions
@@ -100,7 +100,7 @@ class Environment():
         self.actions.append(socialise)
         self.actions.append(exercise)
         self.actions.append(drink)
-        self.actions.append(smoke_cigarette)
+        self.actions.append(smoke)
         self.actions.append(game)
 
         #day-time system
