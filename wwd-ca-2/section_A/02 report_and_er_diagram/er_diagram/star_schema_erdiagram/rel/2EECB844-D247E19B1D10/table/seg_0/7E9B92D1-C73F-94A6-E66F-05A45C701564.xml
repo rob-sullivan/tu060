@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7E9B92D1-C73F-94A6-E66F-05A45C701564" name="Rates_Dim">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>4DF30354-EE9F-E752-909C-0F80178E1231</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="rd_id" id="42D78529-B26C-49DA-13F0-EC71C7C064FD">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>09185B6A-7732-FF1C-1BCA-20D734F46E0C</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeScale>38</dataTypeScale>
+<ownDataTypeParameters>,,38</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="plan_name" id="E5A48D07-F1C9-12C6-8871-A9DF7978E275">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>D354E7E5-B1EB-4B93-E15D-C43CC5EE7717</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>26</dataTypeSize>
+<ownDataTypeParameters>26,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="call_type" id="E8F450E2-DC15-BC0F-7774-3153C3C143FC">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>8FF37184-6F2D-17FC-53D1-3E18BDE00AAC</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>26</dataTypeSize>
+<ownDataTypeParameters>26,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cost_per_min" id="C8B467E9-3E67-8B3D-283A-3240F9C64E4D">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>4C4DBE17-B559-E9DA-DBC7-DBF7BF298A89</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="15B2A6E3-EEDF-5A6D-5A9A-167405486005" name="Rates_Dim_PK">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>D413EDB9-3389-FBE2-7EF2-7D5C251A19D6</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="42D78529-B26C-49DA-13F0-EC71C7C064FD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DBAEC132-1463-825D-0C6C-4DD35BD4BF61" name="Call_Dim">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>C657C120-2C46-016F-5A7D-53318BA76D19</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cd_id" id="776023F4-0F98-E7A2-0942-CD2029FBFB6C">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>CF9F2495-950C-2673-B79D-F20AE93A3E4E</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="call_time" id="2E267C19-B351-7CCF-F18A-0BE7E5F8DA41">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>BA00CD57-3E67-F94E-96FC-C89C1971C9D6</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="phone_number" id="97659A27-06B8-2928-675C-0E4435DDC6DE">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>9F3ECE0C-6CA1-6C47-116A-87B6BA2CC33F</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32</dataTypeSize>
+<ownDataTypeParameters>32,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="call_type_name" id="9D376F47-096E-FB54-D366-E819D6FB7A8B">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>85AB6644-BA27-4A7B-8A11-A1F8DBC3EE3F</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32</dataTypeSize>
+<ownDataTypeParameters>32,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="call_duration" id="9B3DAA26-2311-E01B-E4C0-AD79D73A1CF3">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>0A189D9E-33BC-34D9-323C-885C8209E3DB</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="644BBAE1-6D47-EFFC-6D27-2D932AFD5880" name="Call_Dim_PK">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>4AACE46A-F9BD-7C9F-8173-504CBF6CF681</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="776023F4-0F98-E7A2-0942-CD2029FBFB6C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="F228D726-A6B4-D60C-850B-1963876FCEF8" containerWithKeyObject="C61AF2AE-06A5-BFC6-C875-3C8EC81BE029" localFKIndex="74A3619D-CC24-82DC-0F1F-F7A472B11A1C" name="Call_Facts_Dates_Dim_FK">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>3C27C7AB-6B6A-5642-E8DC-5992B4F1DF83</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<referredTableLongName>Dates_Dim</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>2AFFA3AD-D501-7457-9630-658D33E4003B</referredTableID>
+<keyObject>0428B9F4-6776-147B-2C56-AEA7621E46CD</keyObject>
+<referredKeyID>0428B9F4-6776-147B-2C56-AEA7621E46CD</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>dd_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

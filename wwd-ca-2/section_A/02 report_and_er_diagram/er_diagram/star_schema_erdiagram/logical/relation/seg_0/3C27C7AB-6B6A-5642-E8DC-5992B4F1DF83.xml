@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="time_interval" directorySegmentName="seg_0" id="3C27C7AB-6B6A-5642-E8DC-5992B4F1DF83">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-28 21:07:31 UTC</createdTime>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<engineerTo>
+<item key="2EECB844-7C5C-0510-5BBD-D247E19B1D10" value="true"/>
+</engineerTo>
+<sourcePk>8A6EB4C9-4517-0DDB-364B-E7DC70E583E7</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>BF193BC7-CEA0-1410-2AE5-EC0905C798C1</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>A5BB33E4-5819-7682-B0C9-7E07F89FD0EC</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

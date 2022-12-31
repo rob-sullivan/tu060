@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="star_schema_erdiagram" id="C8046A70-5CF9-2BF0-83F7-717CC9659B2B" version="3.5">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-28 09:40:16 UTC</createdTime>
+<ownerDesignName>calls_fact_table</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>C8046A70-5CF9-2BF0-83F7-717CC9659B2B</designId>
+</OSDM_Design>

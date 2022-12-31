@@ -1,0 +1,201 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A5BB33E4-5819-7682-B0C9-7E07F89FD0EC" name="Call_Facts">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-28 20:09:09 UTC</createdTime>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<engineerTo>
+<item key="2EECB844-7C5C-0510-5BBD-D247E19B1D10" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="cf_id" id="813DCF39-394E-BC97-147A-C1AEFD917389">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 14:28:47 UTC</createdTime>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<engineerTo>
+<item key="2EECB844-7C5C-0510-5BBD-D247E19B1D10" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeScale>32</dataTypeScale>
+<ownDataTypeParameters>,,32</ownDataTypeParameters>
+</Attribute>
+<Attribute name="dd_id" id="1716E744-AC65-C489-9203-55FC8CD26003">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 14:28:10 UTC</createdTime>
+<generatorID>3C27C7AB-6B6A-5642-E8DC-5992B4F1DF83</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<engineerTo>
+<item key="2EECB844-7C5C-0510-5BBD-D247E19B1D10" value="true"/>
+</engineerTo>
+<referedAttribute>8021E636-217D-55D9-3BC3-0C4140FD7C93</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeScale>32</dataTypeScale>
+<ownDataTypeParameters>,,32</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cusd_id" id="2D223EB5-B41D-5FF7-F012-24014581A4BE">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-28 21:07:09 UTC</createdTime>
+<generatorID>706AF223-3C42-A725-D6A8-DBFA329BA4BA</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<engineerTo>
+<item key="2EECB844-7C5C-0510-5BBD-D247E19B1D10" value="true"/>
+</engineerTo>
+<referedAttribute>FB42E0AF-4462-5C1F-65C9-218D3CB974E5</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>38</dataTypePrecision>
+<ownDataTypeParameters>,38,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cd_id" id="610E2B66-AA8A-CF3F-8576-C25699E1D725">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-29 12:01:56 UTC</createdTime>
+<comment><![CDATA[tells us what type of call was made and how long it lasted for.]]></comment>
+<generatorID>327D71EE-5F86-A65B-28B6-F8990715DE51</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<engineerTo>
+<item key="2EECB844-7C5C-0510-5BBD-D247E19B1D10" value="true"/>
+</engineerTo>
+<referedAttribute>CF9F2495-950C-2673-B79D-F20AE93A3E4E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="rd_id" id="619E01DB-4766-6508-A5A9-06CE95AE1F7E">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-29 11:56:42 UTC</createdTime>
+<comment><![CDATA[used to tell us how much the call costs per minute.]]></comment>
+<generatorID>A8907CA3-50F9-346F-2396-7FC388005E96</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<engineerTo>
+<item key="2EECB844-7C5C-0510-5BBD-D247E19B1D10" value="true"/>
+</engineerTo>
+<referedAttribute>09185B6A-7732-FF1C-1BCA-20D734F46E0C</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeScale>38</dataTypeScale>
+<ownDataTypeParameters>,,38</ownDataTypeParameters>
+</Attribute>
+<Attribute name="customer_age" id="C8905D46-E83C-B1E8-F46E-C3D55C8008A7">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-29 14:39:25 UTC</createdTime>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<engineerTo>
+<item key="2EECB844-7C5C-0510-5BBD-D247E19B1D10" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="customer_social_grade" id="E5B25374-0AE4-FC5A-24FA-602EBE94C79E">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-29 14:39:33 UTC</createdTime>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<engineerTo>
+<item key="2EECB844-7C5C-0510-5BBD-D247E19B1D10" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32</dataTypeSize>
+<ownDataTypeParameters>32,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="customer_contract_plan" id="C47DAD34-0582-A1E3-6428-45A38B9F49C3">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-29 14:39:44 UTC</createdTime>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<engineerTo>
+<item key="2EECB844-7C5C-0510-5BBD-D247E19B1D10" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32</dataTypeSize>
+<ownDataTypeParameters>32,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="days_on_plan" id="D244C270-7F19-FAD9-A362-60DEC8939156">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-29 14:39:59 UTC</createdTime>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<engineerTo>
+<item key="2EECB844-7C5C-0510-5BBD-D247E19B1D10" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="call_revenue_generated" id="3209E5D7-0700-6B7B-BADE-769453977BAB">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-29 14:40:31 UTC</createdTime>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<engineerTo>
+<item key="2EECB844-7C5C-0510-5BBD-D247E19B1D10" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cus_service_time" id="10042254-C593-6B70-4415-1E79567AC17D">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-29 14:41:11 UTC</createdTime>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<engineerTo>
+<item key="2EECB844-7C5C-0510-5BBD-D247E19B1D10" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="customer_active" id="BD213E74-1891-55C5-BD4A-55D36EC53927">
+<createdBy>newlo</createdBy>
+<createdTime>2022-01-01 23:50:00 UTC</createdTime>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<engineerTo>
+<item key="2EECB844-7C5C-0510-5BBD-D247E19B1D10" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="B106670E-1384-B762-D83A-6CD1DA417C45" name="Call_Dimension PK">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-28 20:37:05 UTC</createdTime>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="2EECB844-7C5C-0510-5BBD-D247E19B1D10" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>813DCF39-394E-BC97-147A-C1AEFD917389</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,113 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6C9F40B7-7920-F399-EF23-AA65DB1CC1C4" name="Cus_Dim">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>D7D8B9FC-FEE1-7AF9-74FE-120C34890D04</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cusd_id" id="B132F75C-4B9E-2786-24FF-D4BC2A3BEA31">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>FB42E0AF-4462-5C1F-65C9-218D3CB974E5</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>38</dataTypePrecision>
+<ownDataTypeParameters>,38,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="phone_number" id="98A4A9AB-3E6E-FBC3-7863-A6CA96249753">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>E183919E-CA01-D9D5-BE9E-7B61C6B0434A</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>26</dataTypeSize>
+<ownDataTypeParameters>26,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="date_of_birth" id="9F51DC75-491D-A997-198F-FC7DB55A185E">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>DFBD4E95-58A1-3940-3140-2DC1C03A3E29</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="social_grade_name" id="F15F525B-801F-8CD9-B28A-C933A214B1CC">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>BD6B721D-3238-99BA-FF09-1D5F6008C590</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>26</dataTypeSize>
+<ownDataTypeParameters>26,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="plan_name" id="D4B45267-0F42-2D1E-E026-E0BCD3CC5C38">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>76868D85-A902-E086-EEEF-00F7419DE435</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>26</dataTypeSize>
+<ownDataTypeParameters>26,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="plan_start_date" id="44F747B9-6668-FAA4-DFB4-869CD71F8AC4">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>61942FEA-AF62-CA29-8CDD-55A5C71C78BD</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="plan_end_date" id="0C43B556-7B8E-BC52-3333-8109A7B0AE69">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>BF684FB0-B8C0-E670-4B3E-F8F88B4DFAE2</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="18AFFA5D-925D-5425-0E3E-AAEE01B8EE48" name="Cus_Dim_PK">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>A3EC69D9-A2DF-139C-3D52-CEA8BA8F366B</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B132F75C-4B9E-2786-24FF-D4BC2A3BEA31"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,72 @@
+        --favourite_call_type
+        CREATE GLOBAL TEMPORARY TABLE CALL_TEMP_TABLE (
+            FACT_ID NUMBER,
+            CUS_ID NUMBER,
+            CL_TYPE VARCHAR2(32 BYTE),
+            PEAK NUMBER,
+            NON_PEAK NUMBER,
+            INTER NUMBER,
+            ROAM NUMBER,
+            CUS NUMBER,
+            VM NUMBER,
+            FAV_CALL VARCHAR2(32 BYTE)
+        );
+        
+
+        INSERT INTO CALL_TEMP_TABLE (FACT_ID, CUS_ID, CL_TYPE, PEAK, NON_PEAK, INTER, ROAM, CUS, VM)
+        SELECT CALL_FACTS.CF_ID, CALL_FACTS.CUS_DIM_CUSD_ID, CALL_DIM.CALL_TYPE_NAME, 0, 0, 0, 0, 0, 0
+        FROM CALL_FACTS
+        LEFT JOIN CALL_DIM
+        ON CALL_FACTS.CALL_DIM_CD_ID = CALL_DIM.CD_ID;
+
+        UPDATE CALL_TEMP_TABLE 
+        SET PEAK = 1
+        WHERE CL_TYPE = 'peak';
+        
+        UPDATE CALL_TEMP_TABLE 
+        SET NON_PEAK = 1 
+        WHERE CL_TYPE = 'off-peak';
+
+        UPDATE CALL_TEMP_TABLE 
+        SET INTER = 1 
+        WHERE CL_TYPE = 'international';
+        
+        UPDATE CALL_TEMP_TABLE 
+        SET ROAM = 1 
+        WHERE CL_TYPE = 'roaming';
+
+        UPDATE CALL_TEMP_TABLE 
+        SET CUS = 1 
+        WHERE CL_TYPE = 'customer service';
+        
+        UPDATE CALL_TEMP_TABLE 
+        SET VM = 1 
+        WHERE CL_TYPE = 'voice mail';
+   
+        --SELECT CUS_ID, SUM(PEAK), SUM(NON_PEAK), SUM(INTER), SUM(ROAM), SUM(CUS), SUM(VM), SUM(PEAK + NON_PEAK + INTER + ROAM + CUS + VM) AS TOTAL FROM CALL_TEMP_TABLE GROUP BY CUS_ID ORDER BY TOTAL DESC;     
+
+        CREATE GLOBAL TEMPORARY TABLE SUM_TEMP_TABLE (
+            CUS_ID NUMBER,
+            PEAK NUMBER,
+            NON_PEAK NUMBER,
+            INTER NUMBER,
+            ROAM NUMBER,
+            CUS NUMBER,
+            VM NUMBER,
+            TOTAL NUMBER
+        );
+        
+        INSERT INTO SUM_TEMP_TABLE
+        SELECT CUS_ID, SUM(PEAK), SUM(NON_PEAK), SUM(INTER), SUM(ROAM), SUM(CUS), SUM(VM), SUM(PEAK + NON_PEAK + INTER + ROAM + CUS + VM) AS TOTAL FROM CALL_TEMP_TABLE GROUP BY CUS_ID ORDER BY TOTAL DESC; 
+        
+        SELECT * FROM SUM_TEMP_TABLE
+
+         --THIS IS WHERE WE WANT TO BE
+         UPDATE CALL_TEMP_TABLE 
+         SET FAV_CALL = 'peak'
+         WHERE (SUM(PEAK)>SUM(NON_PEAK)) AND  (SUM(PEAK)>SUM(INTER)) AND (SUM(PEAK)>SUM(ROAM)) AND (SUM(PEAK)>SUM(CUS)) AND (SUM(PEAK)>SUM(VM));
+        
+
+
+        DROP TABLE CALL_TEMP_TABLE
+        DROP TABLE SUM_TEMP_TABLE

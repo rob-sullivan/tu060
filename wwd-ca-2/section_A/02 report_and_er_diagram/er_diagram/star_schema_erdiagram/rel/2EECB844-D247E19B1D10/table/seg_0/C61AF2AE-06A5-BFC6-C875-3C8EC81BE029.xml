@@ -1,0 +1,232 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C61AF2AE-06A5-BFC6-C875-3C8EC81BE029" name="Call_Facts">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>A5BB33E4-5819-7682-B0C9-7E07F89FD0EC</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cf_id" id="D417E7C0-0C35-D720-7901-6A6AD84F87AC">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>813DCF39-394E-BC97-147A-C1AEFD917389</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeScale>32</dataTypeScale>
+<ownDataTypeParameters>,,32</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Dates_Dim_dd_id" id="5A405383-B202-0756-EE81-C9F81C1284A5">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>1716E744-AC65-C489-9203-55FC8CD26003</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeScale>32</dataTypeScale>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F228D726-A6B4-D60C-850B-1963876FCEF8" referredColumn="294B21DD-D870-3843-0E23-FB63BB4FEE85"/>
+</associations>
+</Column>
+<Column name="Cus_Dim_cusd_id" id="5865ABC9-065A-54EE-CDF8-77D69938706B">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>2D223EB5-B41D-5FF7-F012-24014581A4BE</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>38</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0B0480E1-3864-7E4D-FCD2-91FFF43FA26E" referredColumn="B132F75C-4B9E-2786-24FF-D4BC2A3BEA31"/>
+</associations>
+</Column>
+<Column name="Call_Dim_cd_id" id="D12BBD3C-1046-4CBA-279A-C11320465179">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<comment><![CDATA[tells us what type of call was made and how long it lasted for.]]></comment>
+<generatorID>610E2B66-AA8A-CF3F-8576-C25699E1D725</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1587FD7C-7662-F77D-0F54-AC3098A1BB11" referredColumn="776023F4-0F98-E7A2-0942-CD2029FBFB6C"/>
+</associations>
+</Column>
+<Column name="Rates_Dim_rd_id" id="0A5D36F9-895D-A3B3-5D39-9864915467BF">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<comment><![CDATA[used to tell us how much the call costs per minute.]]></comment>
+<generatorID>619E01DB-4766-6508-A5A9-06CE95AE1F7E</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeScale>38</dataTypeScale>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BA4FA4EE-8419-EA7F-315D-9A524C2CEA7B" referredColumn="42D78529-B26C-49DA-13F0-EC71C7C064FD"/>
+</associations>
+</Column>
+<Column name="customer_age" id="490FD151-7908-716F-9A5F-F4F8EAADE6F9">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>C8905D46-E83C-B1E8-F46E-C3D55C8008A7</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="customer_social_grade" id="967A87F9-7AC7-116A-8075-70A92621423C">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>E5B25374-0AE4-FC5A-24FA-602EBE94C79E</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32</dataTypeSize>
+<ownDataTypeParameters>32,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="customer_contract_plan" id="3B5FD631-8D48-3D59-FDF5-F1EA1E71F02B">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>C47DAD34-0582-A1E3-6428-45A38B9F49C3</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32</dataTypeSize>
+<ownDataTypeParameters>32,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="days_on_plan" id="BFC6C3AB-A069-D387-6FD4-5BA9A9E150BC">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>D244C270-7F19-FAD9-A362-60DEC8939156</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="call_revenue_generated" id="3CEE6B55-EDB1-75E1-9519-3FEE50ADD188">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>3209E5D7-0700-6B7B-BADE-769453977BAB</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cus_service_time" id="5A7A5319-3F4B-349C-B5D9-D8D32207CDE9">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>10042254-C593-6B70-4415-1E79567AC17D</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="customer_active" id="CD2C45C4-1608-93B4-4193-4A8E33A57260">
+<createdBy>newlo</createdBy>
+<createdTime>2022-01-01 23:51:10 UTC</createdTime>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C3B04246-15DD-96B9-D67D-C9CB8A482B68" name="Call_Facts_PK">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>B106670E-1384-B762-D83A-6CD1DA417C45</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D417E7C0-0C35-D720-7901-6A6AD84F87AC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="70CAD836-21E9-EE86-FC58-350A08204C7E" name="Call_Facts_Rates_Dim_FK">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>A8907CA3-50F9-346F-2396-7FC388005E96</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0A5D36F9-895D-A3B3-5D39-9864915467BF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F7DA94B0-9FE4-CBE9-B359-758E2ECEE47A" name="Call_Facts_Call_Dim_FK">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>327D71EE-5F86-A65B-28B6-F8990715DE51</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D12BBD3C-1046-4CBA-279A-C11320465179"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E536625F-E131-CC95-68C9-E0F65FA4A11E" name="Call_Facts_Cus_Dim_FK">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>706AF223-3C42-A725-D6A8-DBFA329BA4BA</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5865ABC9-065A-54EE-CDF8-77D69938706B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="74A3619D-CC24-82DC-0F1F-F7A472B11A1C" name="Call_Facts_Dates_Dim_FK">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>3C27C7AB-6B6A-5642-E8DC-5992B4F1DF83</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5A405383-B202-0756-EE81-C9F81C1284A5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,123 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2AFFA3AD-D501-7457-9630-658D33E4003B" name="Dates_Dim">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>BF193BC7-CEA0-1410-2AE5-EC0905C798C1</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="dd_id" id="294B21DD-D870-3843-0E23-FB63BB4FEE85">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>8021E636-217D-55D9-3BC3-0C4140FD7C93</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeScale>32</dataTypeScale>
+<ownDataTypeParameters>,,32</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="date_time" id="F7F887ED-0357-B9AB-0826-1999B26ECDCF">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>F3E2F4AE-6252-1232-E9F4-5C7090394BF1</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="full_date_description" id="D41A2BCB-F4A5-CA35-4E6B-13DB8516A3C2">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>56E34DDE-3D88-A72E-538E-36A4D58E804C</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32</dataTypeSize>
+<ownDataTypeParameters>32,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="day_of_week" id="421421C1-1228-B2DA-D722-E7C22E4AE044">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>AEC57DA3-3443-0122-5C85-27800FEDB684</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="month" id="B7969CBF-2307-2C8D-3EE5-D90B52346805">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>533B4A48-95AF-6C4F-8BA7-FDEFD71E8BD4</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="year" id="B38F002E-82D5-B6D2-A3EF-8E4D7003BCB7">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>FCDF3E08-2505-1F01-EF9D-F045E0B34D73</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="week_num" id="A990CE09-D491-856B-3308-8327F5D0E7AF">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>3E0C18D3-1F9C-47A3-5481-1FB4634F7820</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="quarter" id="CCCA2C5A-E6AA-E815-1FE6-B55B8DA4E84E">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>145544F4-63F4-6C06-E133-50C7F3A91FED</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0428B9F4-6776-147B-2C56-AEA7621E46CD" name="Dates_Dim_PK">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-31 16:24:52 UTC</createdTime>
+<generatorID>8A6EB4C9-4517-0DDB-364B-E7DC70E583E7</generatorID>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="294B21DD-D870-3843-0E23-FB63BB4FEE85"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

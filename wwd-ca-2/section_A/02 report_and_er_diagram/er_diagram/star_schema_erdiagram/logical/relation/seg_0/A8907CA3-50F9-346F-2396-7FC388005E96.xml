@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="call_cost" directorySegmentName="seg_0" id="A8907CA3-50F9-346F-2396-7FC388005E96">
+<createdBy>newlo</createdBy>
+<createdTime>2021-12-29 11:54:15 UTC</createdTime>
+<ownerDesignName>star_schema_erdiagram</ownerDesignName>
+<engineerTo>
+<item key="2EECB844-7C5C-0510-5BBD-D247E19B1D10" value="true"/>
+</engineerTo>
+<sourcePk>D413EDB9-3389-FBE2-7EF2-7D5C251A19D6</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>4DF30354-EE9F-E752-909C-0F80178E1231</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>A5BB33E4-5819-7682-B0C9-7E07F89FD0EC</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
