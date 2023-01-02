@@ -10,6 +10,7 @@
 # User-specific files
 .Ruserdata
 /venv/
+/venv_research/
 
 # Example code in package build process
 *-Ex.R
