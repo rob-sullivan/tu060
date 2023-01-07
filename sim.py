@@ -63,6 +63,53 @@ class Environment():
         r = self.H_star - self.H
         return r
 
+class Environment1:
+  def __init__(self):
+    # initial values for internal state and homeostatic setpoint
+    self.Ht = []
+    self.h = 0
+    self.H = 0
+    self.H_lower = 0
+    self.H_upper = 1
+
+    def press_lever(self):
+        cocaine_dose_sec = 4
+
+    def K_function(self, h, t):
+        Ht = [cortisol, serotonin, endorphins, oxytocin, h (aka dopamine)]
+        H_star = H_star_upper
+        delta_Ht = Hstar – Ht
+        r = delta_Ht
+        self.adaptive_process(t, H_star) # trigger adaptive process slowly
+        return r
+
+    def adaptive_process(self, t, H_star):
+        H_star_upper = H_star + 1
+        
+    def absence_process(self, t, H_star):
+        if(H_star != H_star_lower):
+            H_star = H_star – 1
+
+
+    def expose_to_external_state(self):
+        self.Ht = [0,0,0,0,0] #[cortisol, serotonin, endorphins, oxytocin, h (aka dopamine)]
+        return self.Ht
+
+    def next_time_interval(self):
+        self.Ht = expose_to_external_state()
+        action = softmax(reward, Ht)
+        if(action=pull_lever):
+            self.press_lever()
+        else:
+            absence_process()
+
+            #the agent predicts the expected outcomes of possible action choices and based on that, 
+            # estimates the drive-reduction rewarding values of the choices. According to the estimated 
+            # values, the agent selects the action. 
+            # The curved arrow represents updating outcome expectancies based 
+            # on feedbacks received from the environment.
+
+
 
 if __name__ == "__main__":
     Environment(60) # e.g 60 seconds
