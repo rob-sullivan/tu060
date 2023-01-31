@@ -14,6 +14,7 @@
 .Rproj.user/
 
 /venv_research/
+/venv_dl/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
