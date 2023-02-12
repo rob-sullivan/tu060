@@ -11,6 +11,7 @@
 .Ruserdata
 /venv/
 /venv_research/
+/venv_dl/
 
 # Example code in package build process
 *-Ex.R
