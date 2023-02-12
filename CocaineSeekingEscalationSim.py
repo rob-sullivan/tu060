@@ -3,6 +3,8 @@
 
 #import libraries 
 import numpy as np
+import pylab
+import cmath
 
 class Environment():
     def __init__(self):
@@ -111,7 +113,7 @@ class Environment():
     def getRealizedTransition(self, state,action): #Return the next state that the animal fell into
         index = np.random.uniform(0,1)
         probSum = 0
-        for nextS in range(0,statesNum):
+        for nextS in range(0, self.statesNum):
             probSum = probSum + self.getTransition(state,action,nextS)
             if index <= probSum:
                 return nextS
@@ -122,20 +124,20 @@ class Environment():
     def getNonHomeostaticReward(self, state,action,nextState): #Obtained non-homeostatic reward
         return self.nonHomeostaticReward [state][action][nextState]
 
-    def driveReductionReward(inState,setpointS,outcome): #Homeostatically-regulated Reward
-        d1 = np.power(np.absolute(np.power(setpointS-inState,n*1.0)),(1.0/m))
-        d2 = np.power(np.absolute(np.power(setpointS-inState-outcome,n*1.0)),(1.0/m))
+    def driveReductionReward(self, inState,setpointS,outcome): #Homeostatically-regulated Reward
+        d1 = np.power(np.absolute(np.power(setpointS-inState, self.n*1.0)),(1.0/self.m))
+        d2 = np.power(np.absolute(np.power(setpointS-inState-outcome, self.n*1.0)),(1.0/self.m))
         return d1-d2
 
     def underCocaine(self, inS, setS): #To what extend the animal is under the effect of cocaine
-        underCocaRate = (inS - inStateLowerBound) / ( setS - inStateLowerBound )
+        underCocaRate = (inS - self.inStateLowerBound) / ( setS - self.inStateLowerBound )
         if underCocaRate>1: 
             underCocaRate = 1
         return underCocaRate
 
     def isActionAvailable(self, state,action): #Is action a available is state s? 
         probSum = 0 ;
-        for i in range(0,statesNum):
+        for i in range(0, self.statesNum):
             probSum = probSum + self.getTransition(state,action,i)
         if probSum == 1:
             return 1
@@ -144,190 +146,180 @@ class Environment():
         else:
             print("Error: There seems to be a problem in defining the transition function of the environment")
 
-    def pretraining  (ratType): #Pre-training Sessions
-
-        exState     = state[0]
-        inState     = state[1]
-        setpointS   = state[2]
-        trialCount  = state[3]
-        cocBuffer   = 0
+    def pretraining(self, ratType): #Pre-training Sessions
+        self.exState = self.state[0]
+        self.inState = self.state[1]
+        self.setpointS = self.state[2]
+        self.trialCount = self.state[3]
+        self.cocBuffer = 0
         
-        trialsNum = pretrainingTrialsNum
+        self.trialsNum = self.pretrainingTrialsNum
         
-        for trial in range(0,trialsNum):
-
-            estimatedActionValuesUnderCoca   = valueEstimationUnderCoca ( exState, inState, setpointS, searchDepth )
-            estimatedActionValuesNoCoca      = valueEstimationNoCoca    ( exState, inState, setpointS, searchDepth )        
-            underCocaineWeight               = underCocaine             ( inState , setpointS                      )
-            estimatedActionValues            = estimatedActionValuesUnderCoca*underCocaineWeight + estimatedActionValuesNoCoca*(1-underCocaineWeight)         
+        for trial in range(0, self.trialsNum):
+            self.estimatedActionValuesUnderCoca = self.valueEstimationUnderCoca(self.exState, self.inState, self.setpointS, self.searchDepth)
+            self.estimatedActionValuesNoCoca = self.valueEstimationNoCoca(self.exState, self.inState, self.setpointS, self.searchDepth)        
+            self.underCocaineWeight = self.underCocaine(inState, setpointS)
+            self.estimatedActionValues = self.estimatedActionValuesUnderCoca * self.underCocaineWeight + self.estimatedActionValuesNoCoca * ( 1 - self.underCocaineWeight)         
             
-            action                          = actionSelectionSoftmax    ( exState , estimatedActionValues           )
-            nextState                       = getRealizedTransition     ( exState , action                          )
-            out                             = getOutcome                ( exState , action    , nextState           )
-            nonHomeoRew                     = getNonHomeostaticReward   ( exState , action    , nextState           )
-            HomeoRew                        = driveReductionReward      ( inState , setpointS , out                 )
+            self.action = self.actionSelectionSoftmax(self.exState, self.estimatedActionValues)
+            self.nextState = self.getRealizedTransition(self.exState, self.action)
+            self.out = self.getOutcome (self.exState, self.action, self.nextState)
+            self.nonHomeoRew = self.getNonHomeostaticReward(self.exState, self.action, self.nextState)
+            self.HomeoRew = self.driveReductionReward(self.inState, self.setpointS, self.out)
 
             if ratType=='ShA':  
-                loggingShA (trial,action,inState,setpointS,out)    
-                print("ShA rat number: %d / %d     Pre-training session     trial: %d / %d      animal seeking cocaine  %d   %d" %(animal+1,animalsNum,trial+1,trialsNum, estimatedOutcomeUnderCoca[0][1][1],estimatedOutcomeNoCoca[0][1][1]))
+                self.loggingShA (trial, self.action,inState,setpointS, self.out)    
+                print("ShA rat number: %d / %d Pre-training session trial: %d / %d animal seeking cocaine %d   %d" %(self.animal + 1, self.animalsNum, trial + 1, self.trialsNum, self.estimatedOutcomeUnderCoca[0][1][1], self.estimatedOutcomeNoCoca[0][1][1]))
             elif ratType=='LgA':  
-                loggingLgA (trial,action,inState,setpointS,out)    
-                print("LgA rat number: %d / %d     Pre-training session     trial: %d / %d      animal seeking cocaine" %(animal+1,animalsNum,trial+1,trialsNum))
+                self.loggingLgA (trial, self.action,inState,setpointS, self.out)    
+                print("LgA rat number: %d / %d Pre-training session trial: %d / %d animal seeking cocaine" %(self.animal + 1, self.animalsNum, trial + 1, self.trialsNum))
 
-            updateOutcomeFunction               ( exState , action , nextState , out ,underCocaineWeight            )
-            updateNonHomeostaticRewardFunction  ( exState , action , nextState , nonHomeoRew ,underCocaineWeight    )
-            updateTransitionFunction            ( exState , action , nextState , underCocaineWeight                 )            
+            self.updateOutcomeFunction(self.exState, self.action, self.nextState, self.out, self.underCocaineWeight)
+            self.updateNonHomeostaticRewardFunction(self.exState, self.action, self.nextState, self.nonHomeoRew, self.underCocaineWeight)
+            self.updateTransitionFunction(self.exState, self.action, self.nextState, self.underCocaineWeight)            
             
-            cocBuffer = cocBuffer + out                
-            
-            inState     = updateInState(inState,cocBuffer*cocAbsorptionRatio)
-            setpointS   = updateSetpoint(setpointS,out)
+            self.cocBuffer = self.cocBuffer + self.out                
+            inState     = self.updateInState(inState,cocBuffer * self.cocAbsorptionRatio)
+            setpointS   = self.updateSetpoint(setpointS, self.out)
+            cocBuffer = cocBuffer * (1 - self.cocAbsorptionRatio)
+            exState   = self.nextState
 
-            cocBuffer = cocBuffer*(1-cocAbsorptionRatio)
+        self.state[0]    = exState
+        self.state[1]    = inState
+        self.state[2]    = setpointS
+        self.state[3]    = self.trialCount + self.trialsNum
+ 
+    def cocaineSeeking(self, sessionNum, ratType): #Cocaine Seeking Sessions
 
-            exState   = nextState
-
-        state[0]    = exState
-        state[1]    = inState
-        state[2]    = setpointS
-        state[3]    = trialCount+trialsNum
-
-    def cocaineSeeking  (sessionNum , ratType): #Cocaine Seeking Sessions
-
-        exState     = state[0]
-        inState     = state[1]
-        setpointS   = state[2]
-        trialCount  = state[3]
-        cocBuffer   = 0
+        self.exState = self.state[0]
+        self.inState     = self.state[1]
+        self.setpointS   = self.state[2]
+        self.trialCount  = self.state[3]
+        self.cocBuffer   = 0
         
         if ratType=='ShA':  
-            trialsNum = seekingTrialsNumShA    
+            trialsNum = self.seekingTrialsNumShA    
         if ratType=='LgA':  
-            trialsNum = seekingTrialsNumLgA    
+            trialsNum = self.seekingTrialsNumLgA    
         
-        for trial in range(0,trialsPerDay):
+        for trial in range(0, self.trialsPerDay):
+            # estimatedActionValuesUnderCoca = valueEstimationUnderCoca( exState, inState, setpointS, searchDepth )
+            # estimatedActionValuesNoCoca = valueEstimationNoCoca( exState, inState, setpointS, searchDepth )        
+            # underCocaineWeight = underCocaine( inState , setpointS)
+            # estimatedActionValues = estimatedActionValuesUnderCoca*underCocaineWeight + estimatedActionValuesNoCoca*(1-underCocaineWeight)         
 
-    #        estimatedActionValuesUnderCoca   = valueEstimationUnderCoca ( exState, inState, setpointS, searchDepth )
-    #        estimatedActionValuesNoCoca      = valueEstimationNoCoca    ( exState, inState, setpointS, searchDepth )        
-    #        underCocaineWeight               = underCocaine             ( inState , setpointS                      )
-    #        estimatedActionValues            = estimatedActionValuesUnderCoca*underCocaineWeight + estimatedActionValuesNoCoca*(1-underCocaineWeight)         
-
-            action = 0
-            nextState =0
-            nextState = 0
-            HomeoRew = 0
+            self.action = 0
+            self.nextState =0
+            self.nextState = 0
+            self.HomeoRew = 0
             if trial==0:
-                out = cocaine
+                self.out = self.cocaine
             else:
-                out = 0
+                self.out = 0
             
             if ratType=='LgA':  
-                loggingLgA(trial,action,inState,setpointS,out)    
-                print("LgA rat number: %d / %d     Session Number: %d / %d     trial: %d / %d      animal seeking cocaine" %(animal+1,animalsNum,sessionNum+1,sessionsNum,trial-trialCount+1,trialsNum))
+                self.loggingLgA(trial, self.action, self.inState, self.setpointS, self.out)    
+                print("LgA rat number: %d / %d     Session Number: %d / %d     trial: %d / %d      animal seeking cocaine" %(self.animal + 1, self.animalsNum, sessionNum + 1, self.sessionsNum, trial - self.trialCount+1, self.trialsNum))
 
-    #        updateOutcomeFunction               ( exState , action , nextState , out ,underCocaineWeight            )
-    #        updateNonHomeostaticRewardFunction  ( exState , action , nextState , nonHomeoRew ,underCocaineWeight    )
-    #        updateTransitionFunction            ( exState , action , nextState , underCocaineWeight                 )            
+            #updateOutcomeFunction( exState , action , nextState , out ,underCocaineWeight)
+            #updateNonHomeostaticRewardFunction( exState , action , nextState , nonHomeoRew ,underCocaineWeight)
+            #updateTransitionFunction( exState , action , nextState , underCocaineWeight)            
             
-            cocBuffer = cocBuffer + out                
+            self.cocBuffer = self.cocBuffer + self.out                
             
-            inState     = updateInState(inState,cocBuffer*cocAbsorptionRatio)
-    #        setpointS   = updateSetpoint(setpointS,out)
+            self.inState     = self.updateInState(self.inState, self.cocBuffer * self.cocAbsorptionRatio)
+            #setpointS = updateSetpoint(setpointS,out)
 
-            cocBuffer = cocBuffer*(1-cocAbsorptionRatio)
+            self.cocBuffer = self.cocBuffer*(1 - self.cocAbsorptionRatio)
 
-    #        exState   = nextState
+            #exState = nextState
 
-        state[0]    = exState
-        state[1]    = inState
-        state[2]    = setpointS
-        state[3]    = trialCount+trialsNum
+        self.state[0] = self.exState
+        self.state[1] = self.inState
+        self.state[2] = self.setpointS
+        self.state[3] = self.trialCount + trialsNum
 
-    def homeCage (sessionNum, ratType): #Home-cage Sessions
-
-        exState     = state[0]
-        inState     = state[1]
-        setpointS   = state[2]
-        trialCount  = state[3]
+    def homeCage (self, sessionNum, ratType): #Home-cage Sessions
+        exState = self.state[0]
+        inState = self.state[1]
+        setpointS = self.state[2]
+        trialCount = self.state[3]
     
         if ratType=='ShA':  
-            trialsNum = restTrialsNumShA    
-            print("ShA rat number: %d / %d     Session Number: %d / %d                          animal rests in home cage" %(animal+1,animalsNum,sessionNum+1,sessionsNum))
+            trialsNum = self.restTrialsNumShA    
+            print("ShA rat number: %d / %d Session Number: %d / %d animal rests in home cage" %(self.animal+1, self.animalsNum, sessionNum+1, self.sessionsNum))
         elif ratType=='LgA':  
-            trialsNum = restTrialsNumLgA
-            print("LgA rat number: %d / %d     Session Number: %d / %d                          animal rests in home cage" %(animal+1,animalsNum,sessionNum+1,sessionsNum))
+            trialsNum = self.restTrialsNumLgA
+            print("LgA rat number: %d / %d Session Number: %d / %d animal rests in home cage" %(self.animal+1, self.animalsNum, sessionNum+1, self.sessionsNum))
         elif ratType=='afterPretrainingShA':  
-            trialsNum = restAfterPretrainingTrialsNum    
-            print("ShA rat number: %d / %d     After pretraining                                animal rests in home cage" %(animal+1,animalsNum))
+            trialsNum = self.restAfterPretrainingTrialsNum    
+            print("ShA rat number: %d / %d     After pretraining animal rests in home cage" %(self.animal+1, self.animalsNum))
         elif ratType=='afterPretrainingLgA':  
-            trialsNum = restAfterPretrainingTrialsNum    
-            print("LgA rat number: %d / %d     After pretraining                                animal rests in home cage" %(animal+1,animalsNum))
+            trialsNum = self.restAfterPretrainingTrialsNum    
+            print("LgA rat number: %d / %d     After pretraining animal rests in home cage" %(self.animal+1, self.animalsNum))
         
         for trial in range(trialCount,trialCount+trialsNum):
 
-            inState     = updateInState(inState,0)
-            setpointS   = updateSetpoint(setpointS,0)
+            inState = self.updateInState(inState,0)
+            setpointS = self.updateSetpoint(setpointS,0)
 
             if ratType=='ShA':  
-                loggingShA(trial,0,inState,setpointS,0)    
+                self.loggingShA(trial,0,inState,setpointS,0)    
             elif ratType=='LgA':  
-                loggingLgA(trial,0,inState,setpointS,0)    
+                self.loggingLgA(trial,0,inState,setpointS,0)    
             elif ratType=='afterPretrainingShA':  
-                loggingShA(trial,0,inState,setpointS,0)    
+                self.loggingShA(trial,0,inState,setpointS,0)    
             elif ratType=='afterPretrainingLgA':  
-                loggingLgA(trial,0,inState,setpointS,0)    
+                self.loggingLgA(trial,0,inState,setpointS,0)    
 
-        state[0]    = exState
-        state[1]    = inState
-        state[2]    = setpointS
-        state[3]    = trialCount+trialsNum
+        self.state[0] = exState
+        self.state[1] = inState
+        self.state[2] = setpointS
+        self.state[3] = trialCount+trialsNum
 
-    def loggingShA(trial,action,inState,setpointS,coca): #Logging the current information for the Short-access group
+    def loggingShA(self, trial,action,inState,setpointS,coca): #Logging the current information for the Short-access group
     
         if action==0: 
-            nulDoingShA[trial]             = nulDoingShA[trial] + 1
+            self.nulDoingShA[trial] = self.nulDoingShA[trial] + 1
         elif action==1: 
-            activeLeverPressShA[trial]     = activeLeverPressShA[trial] + 1
-        internalStateShA[trial]    = internalStateShA[trial] + inState
-        setpointShA[trial]         = setpointShA[trial] + setpointS    
-        if coca==cocaine:
-            infusionShA[trial]     = infusionShA[trial] + 1
+            self.activeLeverPressShA[trial] = self.activeLeverPressShA[trial] + 1
+        self.internalStateShA[trial] = self.internalStateShA[trial] + inState
+        self.setpointShA[trial] = self.setpointShA[trial] + setpointS    
+        if coca==self.cocaine:
+            self.infusionShA[trial] = self.infusionShA[trial] + 1
 
-        estimatedOutcomeUnderCocaShA [trial] = estimatedOutcomeUnderCocaShA [trial] + estimatedOutcomeUnderCoca[0][1][1]
-        estimatedOutcomeNoCocaShA    [trial] = estimatedOutcomeNoCocaShA    [trial] + estimatedOutcomeNoCoca   [0][1][1]
+        self.estimatedOutcomeUnderCocaShA[trial] = self.estimatedOutcomeUnderCocaShA [trial] + self.estimatedOutcomeUnderCoca[0][1][1]
+        self.estimatedOutcomeNoCocaShA[trial] = self.estimatedOutcomeNoCocaShA [trial] + self.estimatedOutcomeNoCoca[0][1][1]
 
-    def loggingLgA(trial,action,inState,setpointS,coca): #Logging the current information for the Long-access group
-    
-        internalStateLgA[trial]    = internalStateLgA[trial] + inState
-        setpointLgA[trial]         = setpointLgA[trial] + setpointS    
-        if coca==cocaine:
-            infusionLgA[trial]     = infusionLgA[trial] + 1
+    def loggingLgA(self, trial, action, inState, setpointS, coca): #Logging the current information for the Long-access group
+        self.internalStateLgA[trial] = self.internalStateLgA[trial] + inState
+        self.setpointLgA[trial] = self.setpointLgA[trial] + setpointS    
+        if coca == self.cocaine:
+            self.infusionLgA[trial] = self.infusionLgA[trial] + 1
 
-        estimatedOutcomeUnderCocaLgA [trial] = estimatedOutcomeUnderCocaLgA [trial] + estimatedOutcomeUnderCoca[0][1][1]
-        estimatedOutcomeNoCocaLgA    [trial] = estimatedOutcomeNoCocaLgA    [trial] + estimatedOutcomeNoCoca   [0][1][1]
+        self.estimatedOutcomeUnderCocaLgA [trial] = self.estimatedOutcomeUnderCocaLgA[trial] + self.estimatedOutcomeUnderCoca[0][1][1]
+        self.estimatedOutcomeNoCocaLgA    [trial] = self.estimatedOutcomeNoCocaLgA[trial] + self.estimatedOutcomeNoCoca[0][1][1]
 
-    def loggingFinalization(): #Wrap up all the logged data
+    def loggingFinalization(self): #Wrap up all the logged data
         
-        for trial in range(0,totalTrialsNum):
-            nulDoingShA[trial]             = nulDoingShA[trial]/animalsNum
-            activeLeverPressShA[trial]     = activeLeverPressShA[trial]/animalsNum
-            internalStateShA[trial]        = internalStateShA[trial]/animalsNum
-            setpointShA[trial]             = setpointShA[trial]/animalsNum  
-            infusionShA[trial]             = infusionShA[trial]/animalsNum 
-            estimatedOutcomeUnderCocaShA [trial] = estimatedOutcomeUnderCocaShA [trial]/animalsNum
-            estimatedOutcomeNoCocaShA    [trial] = estimatedOutcomeNoCocaShA    [trial]/animalsNum
+        for trial in range(0, self.totalTrialsNum):
+            self.nulDoingShA[trial] = self.nulDoingShA[trial]/self.animalsNum
+            self.activeLeverPressShA[trial] = self.activeLeverPressShA[trial]/self.animalsNum
+            self.internalStateShA[trial] = self.internalStateShA[trial]/self.animalsNum
+            self.setpointShA[trial] = self.setpointShA[trial]/self.animalsNum  
+            self.infusionShA[trial] = self.infusionShA[trial]/self.animalsNum 
+            self.estimatedOutcomeUnderCocaShA[trial] = self.estimatedOutcomeUnderCocaShA[trial]/self.animalsNum
+            self.estimatedOutcomeNoCocaShA[trial] = self.estimatedOutcomeNoCocaShA[trial]/self.animalsNum
 
-            nulDoingLgA[trial]             = nulDoingLgA[trial]/animalsNum
-            activeLeverPressLgA[trial]     = activeLeverPressLgA[trial]/animalsNum
-            internalStateLgA[trial]        = internalStateLgA[trial]/animalsNum
-            setpointLgA[trial]             = setpointLgA[trial]/animalsNum  
-            infusionLgA[trial]             = infusionLgA[trial]/animalsNum 
-            estimatedOutcomeUnderCocaLgA [trial] = estimatedOutcomeUnderCocaLgA [trial]/animalsNum
-            estimatedOutcomeNoCocaLgA    [trial] = estimatedOutcomeNoCocaLgA    [trial]/animalsNum
+            self.nulDoingLgA[trial] = self.nulDoingLgA[trial]/self.animalsNum
+            self.activeLeverPressLgA[trial] = self.activeLeverPressLgA[trial]/self.animalsNum
+            self.internalStateLgA[trial] = self.internalStateLgA[trial]/self.animalsNum
+            self.setpointLgA[trial] = self.setpointLgA[trial]/self.animalsNum  
+            self.infusionLgA[trial] = self.infusionLgA[trial]/self.animalsNum 
+            self.estimatedOutcomeUnderCocaLgA [trial] = self.estimatedOutcomeUnderCocaLgA[trial]/self.animalsNum
+            self.estimatedOutcomeNoCocaLgA    [trial] = self.estimatedOutcomeNoCocaLgA[trial]/self.animalsNum
 
-
-    def plotInternalState45(): #Plot the internal state
-
+    def plotInternalState45(self): #Plot the internal state
         font = {'family' : 'normal', 'size'   : 16}
         pylab.rc('font', **font)
         pylab.rcParams.update({'legend.fontsize': 16})
@@ -339,7 +331,7 @@ class Environment():
 
 
         ax1 = fig1.add_subplot(111)
-        S0 = ax1.plot(internalStateLgA[0:675] , linewidth = 2 , color='black' )
+        S0 = ax1.plot(self.internalStateLgA[0:675] , linewidth = 2 , color='black' )
 
         ax1.axhline(0, color='0.25',ls='--', lw=1 )
     
@@ -354,9 +346,9 @@ class Environment():
             tick_lbs.append(i*10)
         pylab.xticks(tick_lcs, tick_lbs)
 
-    #    for i in range ( 0 , 5 ):
-    #        if i%2==0:
-    #            p = pylab.axvspan( i*extinctionTrialsNum + i, (i+1)*extinctionTrialsNum + i , facecolor='0.75',edgecolor='none', alpha=0.5)        
+        #    for i in range ( 0 , 5 ):
+        #        if i%2==0:
+        #            p = pylab.axvspan( i*extinctionTrialsNum + i, (i+1)*extinctionTrialsNum + i , facecolor='0.75',edgecolor='none', alpha=0.5)        
         
         for line in ax1.get_xticklines() + ax1.get_yticklines():
             line.set_markeredgewidth(2)
@@ -367,7 +359,7 @@ class Environment():
         ax1.set_title('')
         fig1.savefig('internalState45min.eps', format='eps')
 
-    def plotInternalState5(): #Plot the internal state
+    def plotInternalState5(self): #Plot the internal state
 
         font = {'family' : 'normal', 'size'   : 16}
         pylab.rc('font', **font)
@@ -378,7 +370,7 @@ class Environment():
 
 
         ax1 = fig1.add_subplot(111)
-        S0 = ax1.plot(internalStateLgA[0:60] , linewidth = 2 , color='black' )
+        S0 = ax1.plot(self.internalStateLgA[0:60] , linewidth = 2 , color='black' )
 
         ax1.axhline(0, color='0.25',ls='--', lw=1 )
     
@@ -393,9 +385,9 @@ class Environment():
             tick_lbs.append((i*240)/4)
         pylab.xticks(tick_lcs, tick_lbs)
 
-    #    for i in range ( 0 , 5 ):
-    #        if i%2==0:
-    #            p = pylab.axvspan( i*extinctionTrialsNum + i, (i+1)*extinctionTrialsNum + i , facecolor='0.75',edgecolor='none', alpha=0.5)        
+        #    for i in range ( 0 , 5 ):
+        #        if i%2==0:
+        #            p = pylab.axvspan( i*extinctionTrialsNum + i, (i+1)*extinctionTrialsNum + i , facecolor='0.75',edgecolor='none', alpha=0.5)        
         
         for line in ax1.get_xticklines() + ax1.get_yticklines():
             line.set_markeredgewidth(2)
@@ -406,12 +398,12 @@ class Environment():
         ax1.set_title('')
         fig1.savefig('internalState4min.eps', format='eps')
 
-    def plotting(): #Plot all the results
+    def plotting(self): #Plot all the results
 
-        loggingFinalization()
+        self.loggingFinalization()
 
-        plotInternalState45() 
-        plotInternalState5() 
+        self.plotInternalState45() 
+        self.plotInternalState5() 
 
         pylab.show()
 
@@ -426,14 +418,14 @@ class Animal():
         self.estimatedOutcomeNoCoca = None
 
     def initializeAnimal(self): #Create a new animal, (state-action q-table)
-        self.state[0] = initialExState
-        self.state[1] = initialInState
-        self.state[2] = initialSetpoint 
+        self.state[0] = self.initialExState
+        self.state[1] = self.initialInState
+        self.state[2] = self.initialSetpoint 
         self.state[3] = 0 
             
-        for i in range(0,statesNum):
-            for j in range(0,actionsNum):
-                for k in range(0,statesNum):
+        for i in range(0, self.statesNum):
+            for j in range(0, self.actionsNum):
+                for k in range(0, self.statesNum):
                     self.estimatedTransitionUnderCoca            [i][j][k] = 0.0
                     self.estimatedOutcomeUnderCoca               [i][j][k] = 0.0
                     self.estimatedNonHomeostaticRewardUnderCoca  [i][j][k] = 0.0
@@ -467,185 +459,185 @@ class Animal():
         self.estimatedTransitionNoCoca    [4][1][0] = 1
 
         #Assuming that the animals know the energy cost (fatigue) of pressing a lever - ros, this? https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2656.13040
-        for i in range(0,statesNum):
-            for j in range(0,statesNum):
-                self.estimatedNonHomeostaticRewardUnderCoca      [i][1][j] = -leverPressCost
-                self.estimatedNonHomeostaticRewardNoCoca         [i][1][j] = -leverPressCost
+        for i in range(0, self.statesNum):
+            for j in range(0, self.statesNum):
+                self.estimatedNonHomeostaticRewardUnderCoca[i][1][j] = -self.leverPressCost
+                self.estimatedNonHomeostaticRewardNoCoca[i][1][j] = -self.leverPressCost
 
-        self.estimatedOutcomeUnderCoca [0][1][1]     = cocaine
-        self.estimatedOutcomeNoCoca    [0][1][1]     = cocaine
+        self.estimatedOutcomeUnderCoca[0][1][1] = self.cocaine
+        self.estimatedOutcomeNoCoca[0][1][1] = self.cocaine
 
     #value estimator
     def valueEstimationUnderCoca(self, state,inState,setpointS,depthLeft): #Goal-directed Value estimation, Assuming the animal is under Cocaine
 
-        values = numpy.zeros ( [actionsNum] , float )
+        values = np.zeros ( [self.actionsNum] , float )
 
         # If this is the last depth that should be searched :
         if depthLeft==1:
-            for action in range(0,actionsNum):
-                for nextState in range(0,statesNum):
-                    homeoReward    = driveReductionReward(inState,setpointS,cocaine)*estimatedOutcomeUnderCoca[state][action][nextState]/cocaine
-                    nonHomeoReward = estimatedNonHomeostaticRewardUnderCoca[state][action][nextState]
-                    transitionProb = estimatedTransitionUnderCoca[state][action][nextState]
+            for action in range(0, self.actionsNum):
+                for nextState in range(0, self.statesNum):
+                    homeoReward    = self.driveReductionReward(inState,setpointS, self.cocaine) * self.estimatedOutcomeUnderCoca[state][action][nextState]/cocaine
+                    nonHomeoReward = self.estimatedNonHomeostaticRewardUnderCoca[state][action][nextState]
+                    transitionProb = self.estimatedTransitionUnderCoca[state][action][nextState]
                     values[action] = values[action] +  transitionProb * ( homeoReward + nonHomeoReward )
             return values
         
         # Otherwise :
-        for action in range(0,actionsNum):
-            for nextState in range(0,statesNum):
-                if estimatedTransitionUnderCoca[state][action][nextState] < pruningThreshold :
+        for action in range(0, self.actionsNum):
+            for nextState in range(0, self.statesNum):
+                if self.estimatedTransitionUnderCoca[state][action][nextState] < self.pruningThreshold :
                     VNextStateBest = 0
                 else:    
-                    VNextState = valueEstimationUnderCoca(nextState,setpointS,inState,depthLeft-1)
-                    VNextStateBest = maxValue (VNextState)
-                homeoReward    = driveReductionReward(inState,setpointS,cocaine)*estimatedOutcomeUnderCoca[state][action][nextState]/cocaine
-                nonHomeoReward = estimatedNonHomeostaticRewardUnderCoca[state][action][nextState]
-                transitionProb = estimatedTransitionUnderCoca[state][action][nextState]
-                values[action] = values[action] + transitionProb * ( homeoReward + nonHomeoReward + gamma*VNextStateBest ) 
+                    VNextState = self.valueEstimationUnderCoca(nextState,setpointS,inState,depthLeft-1)
+                    VNextStateBest = self.maxValue (VNextState)
+                homeoReward    = self.driveReductionReward(inState,setpointS, self.cocaine) * self.estimatedOutcomeUnderCoca[state][action][nextState]/self.cocaine
+                nonHomeoReward = self.estimatedNonHomeostaticRewardUnderCoca[state][action][nextState]
+                transitionProb = self.estimatedTransitionUnderCoca[state][action][nextState]
+                values[action] = values[action] + transitionProb * ( homeoReward + nonHomeoReward + self.gamma*VNextStateBest ) 
                 
         return values
 
     def valueEstimationNoCoca(self, state,inState,setpointS,depthLeft): #Goal-directed Value estimation, Assuming the animal is not under Cocaine 
 
-        values = numpy.zeros ( [actionsNum] , float )
+        values = np.zeros ( [self.actionsNum] , float )
 
         # If this is the last depth that should be searched :
         if depthLeft==1:
-            for action in range(0,actionsNum):
-                for nextState in range(0,statesNum):
-                    homeoReward    = driveReductionReward(inState,setpointS,cocaine)*estimatedOutcomeNoCoca[state][action][nextState]/cocaine
-                    nonHomeoReward = estimatedNonHomeostaticRewardNoCoca[state][action][nextState]
-                    transitionProb = estimatedTransitionNoCoca[state][action][nextState]
+            for action in range(0, self.actionsNum):
+                for nextState in range(0, self.statesNum):
+                    homeoReward    = self.driveReductionReward(inState,setpointS, self.cocaine) * self.estimatedOutcomeNoCoca[state][action][nextState]/self.cocaine
+                    nonHomeoReward = self.estimatedNonHomeostaticRewardNoCoca[state][action][nextState]
+                    transitionProb = self.estimatedTransitionNoCoca[state][action][nextState]
                     values[action] = values[action] +  transitionProb * ( homeoReward + nonHomeoReward )
             return values
         
         # Otherwise :
-        for action in range(0,actionsNum):
-            for nextState in range(0,statesNum):
-                if estimatedTransitionNoCoca[state][action][nextState] < pruningThreshold :
+        for action in range(0, self.actionsNum):
+            for nextState in range(0, self.statesNum):
+                if self.estimatedTransitionNoCoca[state][action][nextState] < self.pruningThreshold :
                     VNextStateBest = 0
                 else:    
-                    VNextState = valueEstimationNoCoca(nextState,setpointS,inState,depthLeft-1)
-                    VNextStateBest = maxValue (VNextState)
-                homeoReward    = driveReductionReward(inState,setpointS,cocaine)*estimatedOutcomeNoCoca[state][action][nextState]/cocaine
-                nonHomeoReward = estimatedNonHomeostaticRewardNoCoca[state][action][nextState]
-                transitionProb = estimatedTransitionNoCoca[state][action][nextState]
-                values[action] = values[action] + transitionProb * ( homeoReward + nonHomeoReward + gamma*VNextStateBest ) 
+                    VNextState = self.valueEstimationNoCoca(nextState,setpointS,inState,depthLeft-1)
+                    VNextStateBest = self.maxValue (VNextState)
+                homeoReward    = self.driveReductionReward(inState,setpointS, self.cocaine) * self.estimatedOutcomeNoCoca[state][action][nextState]/ self.cocaine
+                nonHomeoReward = self.estimatedNonHomeostaticRewardNoCoca[state][action][nextState]
+                transitionProb = self.estimatedTransitionNoCoca[state][action][nextState]
+                values[action] = values[action] + transitionProb * ( homeoReward + nonHomeoReward + self.gamma*VNextStateBest ) 
                 
         return values
     
     def maxValue(self, V): # Max ( Value[nextState,a] ) : for all a
         maxV = V[0]
-        for action in range(0,actionsNum):
+        for action in range(0, self.actionsNum):
             if V[action]>maxV:
                 maxV = V[action]    
         return maxV
 
-    def actionSelectionSoftmax(state,V): #Action Selection : Softmax
+    def actionSelectionSoftmax(self, state,V): #Action Selection : Softmax
         # Normalizing values, in order to be overflow due to very high values
         maxV = V[0]
         if maxV==0:
             maxV=1        
-        for action in range(0,actionsNum):
+        for action in range(0, self.actionsNum):
             if maxV < V[action]:
                 maxV = V[action]
-        for action in range(0,actionsNum):
+        for action in range(0, self.actionsNum):
             V[action] = V[action]/maxV
 
 
         sumEV = 0
-        for action in range(0,actionsNum):
-            sumEV = sumEV + abs(cmath.exp( V[action] / beta ))
+        for action in range(0, self.actionsNum):
+            sumEV = sumEV + abs(cmath.exp( V[action] / self.beta ))
 
-        index = numpy.random.uniform(0,sumEV)
+        index = np.random.uniform(0,sumEV)
 
         probSum=0
-        for action in range(0,actionsNum):
-                probSum = probSum + abs(cmath.exp( V[action] / beta ))
+        for action in range(0, self.actionsNum):
+                probSum = probSum + abs(cmath.exp( V[action] / self.beta ))
                 if probSum >= index:
                     return action
 
         print("Error: An unexpected (strange) problem has occured in action selection...")
         return 0
 
-    def updateInState(inState,outcome): #Update internal state upon consumption
-        interS = inState + outcome - cocaineDegradationRate*(inState-inStateLowerBound)
-        if interS<inStateLowerBound:
-            interS=inStateLowerBound
+    def updateInState(self, inState,outcome): #Update internal state upon consumption
+        interS = inState + outcome - self.cocaineDegradationRate*(inState- self.inStateLowerBound)
+        if interS < self.inStateLowerBound:
+            interS = self.inStateLowerBound
         return interS
 
-    def updateSetpoint(optimalInState,out): #Update the homeostatic setpoint (Allostatic mechanism)
-        optInS = optimalInState + out*setpointShiftRate - setpointRecoveryRate
+    def updateSetpoint(self, optimalInState,out): #Update the homeostatic setpoint (Allostatic mechanism)
+        optInS = optimalInState + out * self.setpointShiftRate - self.setpointRecoveryRate
 
-        if optInS<optimalInStateLowerBound:
-            optInS=optimalInStateLowerBound
+        if optInS < self.optimalInStateLowerBound:
+            optInS = self.optimalInStateLowerBound
 
-        if optInS>optimalInStateUpperBound:
-            optInS=optimalInStateUpperBound
+        if optInS > self.optimalInStateUpperBound:
+            optInS = self.optimalInStateUpperBound
         return optInS
 
-    def updateOutcomeFunction(state,action,nextState,out,underCocaWeight): #Update the expected-outcome function
+    def updateOutcomeFunction(self, state,action,nextState,out,underCocaWeight): #Update the expected-outcome function
 
-        learningRateUnderCoca = updateOutcomeRate * underCocaWeight * cocaineInducedLearningRateDeficiency
-        learningRateNoCoca    = updateOutcomeRate * (1 - underCocaWeight)
+        learningRateUnderCoca = self.updateOutcomeRate * underCocaWeight * self.cocaineInducedLearningRateDeficiency
+        learningRateNoCoca = self.updateOutcomeRate * (1 - underCocaWeight)
 
-        estimatedOutcomeUnderCoca[state][action][nextState] = (1.0-learningRateUnderCoca)*estimatedOutcomeUnderCoca[state][action][nextState] +     learningRateUnderCoca*out
-        estimatedOutcomeNoCoca   [state][action][nextState] = (1.0-learningRateNoCoca   )*estimatedOutcomeNoCoca   [state][action][nextState] +     learningRateNoCoca   *out
+        self.estimatedOutcomeUnderCoca[state][action][nextState] = (1.0-learningRateUnderCoca) * self.estimatedOutcomeUnderCoca[state][action][nextState] +     learningRateUnderCoca*out
+        self.estimatedOutcomeNoCoca[state][action][nextState] = (1.0-learningRateNoCoca   ) * self.estimatedOutcomeNoCoca   [state][action][nextState] +     learningRateNoCoca   *out
 
-    def updateNonHomeostaticRewardFunction(state,action,nextState,rew,underCocaWeight): #Update the expected-non-homeostatic-reward function
+    def updateNonHomeostaticRewardFunction(self, state,action,nextState,rew,underCocaWeight): #Update the expected-non-homeostatic-reward function
         
-        learningRateUnderCoca = updateOutcomeRate * underCocaWeight
-        learningRateNoCoca    = updateOutcomeRate * (1 - underCocaWeight)
+        learningRateUnderCoca = self.updateOutcomeRate * underCocaWeight
+        learningRateNoCoca= self.updateOutcomeRate * (1 - underCocaWeight)
         
-        estimatedNonHomeostaticRewardUnderCoca[state][action][nextState] = (1.0-learningRateUnderCoca)*estimatedNonHomeostaticRewardUnderCoca[state][action][nextState] +     learningRateUnderCoca*rew
-        estimatedNonHomeostaticRewardNoCoca   [state][action][nextState] = (1.0-learningRateNoCoca   )*estimatedNonHomeostaticRewardNoCoca   [state][action][nextState] +     learningRateNoCoca   *rew
+        self.estimatedNonHomeostaticRewardUnderCoca[state][action][nextState] = (1.0-learningRateUnderCoca) * self.estimatedNonHomeostaticRewardUnderCoca[state][action][nextState] +     learningRateUnderCoca*rew
+        self.estimatedNonHomeostaticRewardNoCoca   [state][action][nextState] = (1.0-learningRateNoCoca   ) * self.estimatedNonHomeostaticRewardNoCoca   [state][action][nextState] +     learningRateNoCoca   *rew
 
-    def updateTransitionFunction(state,action,nextState,underCocaWeight): #Update the expected-transition function
-        learningRateUnderCoca = updateOutcomeRate * underCocaWeight
-        learningRateNoCoca    = updateOutcomeRate * (1 - underCocaWeight)
+    def updateTransitionFunction(self, state,action,nextState,underCocaWeight): #Update the expected-transition function
+        learningRateUnderCoca = self.updateOutcomeRate * underCocaWeight
+        learningRateNoCoca    = self.updateOutcomeRate * (1 - underCocaWeight)
     
         #---- First inhibit all associations
-        for i in range(0,statesNum):
-            estimatedTransitionUnderCoca[state][action][i] = (1.0-learningRateUnderCoca)*estimatedTransitionUnderCoca[state][action][i]
-            estimatedTransitionNoCoca   [state][action][i] = (1.0-learningRateNoCoca   )*estimatedTransitionNoCoca   [state][action][i]
+        for i in range(0, self.statesNum):
+            self.estimatedTransitionUnderCoca[state][action][i] = (1.0-learningRateUnderCoca) * self.estimatedTransitionUnderCoca[state][action][i]
+            self.estimatedTransitionNoCoca   [state][action][i] = (1.0-learningRateNoCoca   ) * self.estimatedTransitionNoCoca   [state][action][i]
         
         #---- Then potentiate the experiences association
-        estimatedTransitionUnderCoca[state][action][nextState] = estimatedTransitionUnderCoca[state][action][nextState] + learningRateUnderCoca
-        estimatedTransitionNoCoca   [state][action][nextState] = estimatedTransitionNoCoca   [state][action][nextState] + learningRateNoCoca
+        self.estimatedTransitionUnderCoca[state][action][nextState] = self.estimatedTransitionUnderCoca[state][action][nextState] + learningRateUnderCoca
+        self.estimatedTransitionNoCoca   [state][action][nextState] = self.estimatedTransitionNoCoca   [state][action][nextState] + learningRateNoCoca
 
     #Definition of the Animal
     def homeostaticSystem(self):
-        initialInState          = 0
-        initialSetpoint         = 200
-        inStateLowerBound       = 0
-        cocaineDegradationRate  = 0.007    # Dose of cocaine that the animal loses in every time-step
-        cocAbsorptionRatio      = 0.12      # Proportion of the injected cocaine that affects the brain right after infusion 
+        self.initialInState          = 0
+        self.initialSetpoint         = 200
+        self.inStateLowerBound       = 0
+        self.cocaineDegradationRate  = 0.007    # Dose of cocaine that the animal loses in every time-step
+        self.cocAbsorptionRatio      = 0.12      # Proportion of the injected cocaine that affects the brain right after infusion 
 
     def allostaticSystem(self):
-        setpointShiftRate       = 0.0018
-        setpointRecoveryRate    = 0.00016
-        optimalInStateLowerBound= 100
-        optimalInStateUpperBound= 200
+        self.setpointShiftRate       = 0.0018
+        self.setpointRecoveryRate    = 0.00016
+        self.optimalInStateLowerBound= 100
+        self.optimalInStateUpperBound= 200
 
     def driveFunction(self):
         self.m = 3     # Parameter of the drive function : m-th root
         self.n = 4     # Parameter of the drive function : n-th pawer
 
     def goalDirectedSystem(self):
-        updateOutcomeRate       = 0.025 # Learning rate for updating the outcome function
-        cocaineInducedLearningRateDeficiency = 0.15
-        updateTransitionRate    = 0.2   # Learning rate for updating the transition function
-        updateRewardRate        = 0.2   # Learning rate for updating the non-homeostatic reward function
-        gamma                   = 1     # Discount factor
-        beta                    = 0.25  # Rate of exploration
-        searchDepth             = 3     # Depth of going into the decision tree for goal-directed valuation of choices
-        pruningThreshold        = 0.1   # If the probability of a transition like (s,a,s') is less than "pruningThreshold", cut it from the decision tree 
+        self.updateOutcomeRate = 0.025 # Learning rate for updating the outcome function
+        self.cocaineInducedLearningRateDeficiency = 0.15
+        self.updateTransitionRate = 0.2   # Learning rate for updating the transition function
+        self.updateRewardRate = 0.2   # Learning rate for updating the non-homeostatic reward function
+        self.gamma = 1     # Discount factor
+        self.beta = 0.25  # Rate of exploration
+        self.searchDepth = 3     # Depth of going into the decision tree for goal-directed valuation of choices
+        self.pruningThreshold = 0.1   # If the probability of a transition like (s,a,s') is less than "pruningThreshold", cut it from the decision tree 
 
-        estimatedTransitionUnderCoca             = numpy.zeros ( [statesNum , actionsNum , statesNum] , float )
-        estimatedOutcomeUnderCoca                = numpy.zeros ( [statesNum , actionsNum , statesNum] , float )
-        estimatedNonHomeostaticRewardUnderCoca   = numpy.zeros ( [statesNum , actionsNum , statesNum] , float )
-        estimatedTransitionNoCoca                = numpy.zeros ( [statesNum , actionsNum , statesNum] , float )
-        estimatedOutcomeNoCoca                   = numpy.zeros ( [statesNum , actionsNum , statesNum] , float )
-        estimatedNonHomeostaticRewardNoCoca      = numpy.zeros ( [statesNum , actionsNum , statesNum] , float )
+        self.estimatedTransitionUnderCoca = np.zeros( [self.statesNum , self.actionsNum , self.statesNum] , float )
+        self.estimatedOutcomeUnderCoca = np.zeros( [self.statesNum , self.actionsNum , self.statesNum] , float )
+        self.estimatedNonHomeostaticRewardUnderCoca = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
+        self.estimatedTransitionNoCoca = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
+        self.estimatedOutcomeNoCoca = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
+        self.estimatedNonHomeostaticRewardNoCoca = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
 
-        state                            = numpy.zeros ( [4] , float )     # a vector of the external state, internal state, setpoint, and trial
+        self.state = np.zeros ( [4] , float )     # a vector of the external state, internal state, setpoint, and trial
