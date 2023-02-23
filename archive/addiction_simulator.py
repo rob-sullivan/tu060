@@ -215,7 +215,7 @@ class Simulation():
         suggested_action = self.agent_actions[action_to_take]
         sa = int(1 if suggested_action=="Binge on Internet" else 2 if suggested_action=="Work" else 3 if suggested_action=="Exercise" else 4 if suggested_action=="Socialise" else 5 if suggested_action=="Drink Alcohol" else 6 if suggested_action=="Smoke" else 0)
         
-        #give user options
+        #clear screen and how current hormone levels
         self.clear()
         print("** Current Day: [bold dark_violet]" + str(self.current_day) + "[/bold dark_violet], Current Hour: [bold dark_violet]" + str(self.current_hour) + "[/bold dark_violet], Time Left: [bold dark_violet]" + str(time_left) + "[/bold dark_violet] hrs ** \n")
         print("- [bold dark_green]Serotonin: " + str("#" * self.agent_serotonin) + "[/bold dark_green]")
@@ -223,6 +223,8 @@ class Simulation():
         print("- [bold dark_green]Dopamine: " + str("#"*self.agent_dopamine) + "[/bold dark_green]")
         print("- [bold dark_green]Endorphins: " + str("#"*self.agent_endorphins) + "[/bold dark_green]")
         print("- [bold dark_red]Cortisol: " + str("#"*self.agent_serotonin) + "[/bold dark_red]")
+
+        ##give user options
         print("\n1. [bold dark_violet]Binge on Internet[/bold dark_violet]\n2. [bold dark_violet]Work[/bold dark_violet]\n3. [bold dark_violet]Exercise[/bold dark_violet]\n4. [bold dark_violet]Socialise[/bold dark_violet]\n5. [bold dark_violet]Drink Alcohol[/bold dark_violet]\n6. [bold dark_violet]Smoke[/bold dark_violet]\n")
         action_taken = 0
         action_taken = IntPrompt.ask("Choose from 1 to 6 or 0 to quit", default=sa)
