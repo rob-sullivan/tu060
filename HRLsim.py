@@ -12,7 +12,7 @@ import pylab
 import cmath
 
 class Plot():
-    
+    """This class will plot trials conducted with animals"""
     def __init__(self, animalsNum, totalTrialsNum):
         self.plotParameters(totalTrialsNum)
         self.loggingFinalization(animalsNum, totalTrialsNum)
@@ -141,8 +141,8 @@ class Plot():
         fig1.savefig('internalState4min.eps', format='png') #eps format
 
 class Animal():
-    #def initializeAnimal
-    def __init__(self, typeOfAnimal, externalState):
+    """This class defines an animal, human users inherit from the animal class""" 
+    def __init__(self, typeOfAnimal, externalState, cocaine, leverPressCost, trialsNum): #initialize Animal
         self.animalType = typeOfAnimal
         self.states = 6
         self.actions= 2
@@ -151,30 +151,65 @@ class Animal():
         self.internalState = 0
         self.homeostaticSetpoint = 200
 
-        #sensors fed into animal     
-        self.currentState = np.zeros(4) #senses for external state, internal state, homeostatic setpoint, and current
+        # Goal-directed system (6 states)
+        self.estimatedTransitionUnderCoca = np.zeros ( [ self.states , self.actions ,  self.states] , float )
+        self.estimatedOutcomeUnderCoca = np.zeros ( [ self.states , self.actions ,  self.states] , float )
+        self.estimatedNonHomeostaticRewardUnderCoca = np.zeros ( [ self.states , self.actions ,  self.states] , float )
+        self.estimatedTransitionNoCoca = np.zeros ( [ self.states , self.actions ,  self.states] , float )
+        self.estimatedOutcomeNoCoca = np.zeros ( [ self.states , self.actions ,  self.states] , float )
+        self.estimatedNonHomeostaticRewardNoCoca = np.zeros ( [ self.states , self.actions ,  self.states] , float )
+
+        #Animal Sensory (senses for external state, internal state, homeostatic setpoint, and current trial)
+        self.currentState = np.zeros(4)
 
         self.currentState[0] = externalState
         self.currentState[1] = self.internalState
         self.currentState[2] = self.homeostaticSetpoint 
-        self.currentState[3] = 0 #current
-        
+        self.currentState[3] = 0 #current trial
 
+        #q-table state,action. with-cocaine, outcome-with-cocaine, reward-with-cocaine, without-cocaine, outcome-without-cocaine, reward-without-cocaine
+        self.estimatedTransitionUnderCoca [0][0][0] = 1 #self.states , self.actions ,  self.states
+        self.estimatedTransitionUnderCoca [0][1][1] = 1
+        self.estimatedTransitionUnderCoca [1][0][2] = 1
+        self.estimatedTransitionUnderCoca [1][1][2] = 1
+        self.estimatedTransitionUnderCoca [2][0][3] = 1
+        self.estimatedTransitionUnderCoca [2][1][3] = 1
+        self.estimatedTransitionUnderCoca [3][0][4] = 1
+        self.estimatedTransitionUnderCoca [3][1][4] = 1
+        self.estimatedTransitionUnderCoca [4][0][0] = 1
+        self.estimatedTransitionUnderCoca [4][1][0] = 1
+
+        self.estimatedTransitionNoCoca    [0][0][0] = 1
+        self.estimatedTransitionNoCoca    [0][1][1] = 1
+        self.estimatedTransitionNoCoca    [1][0][2] = 1
+        self.estimatedTransitionNoCoca    [1][1][2] = 1
+        self.estimatedTransitionNoCoca    [2][0][3] = 1
+        self.estimatedTransitionNoCoca    [2][1][3] = 1
+        self.estimatedTransitionNoCoca    [3][0][4] = 1
+        self.estimatedTransitionNoCoca    [3][1][4] = 1
+        self.estimatedTransitionNoCoca    [4][0][0] = 1
+        self.estimatedTransitionNoCoca    [4][1][0] = 1
+
+        #Action Energy Cost (Assuming that the animals know the energy cost or fatigue of pressing a lever)
+        for i in range(0,self.states):
+            for j in range(0,self.states):
+                self.estimatedNonHomeostaticRewardUnderCoca [i][1][j] = -leverPressCost
+                self.estimatedNonHomeostaticRewardNoCoca [i][1][j] = -leverPressCost
+
+        self.estimatedOutcomeUnderCoca[0][1][1] = cocaine
+        self.estimatedOutcomeNoCoca [0][1][1] = cocaine
 
     #actions that can be taken
     def seekCocaine(self, sessionNum): #ratType #def cocaineSeeking
-        cocaine = 50 # K value, Dose of self-administered drug, they set K = 50 for a single infusion of 0.250mg of cocaine. #K changes proportionally for higher or lower unit doses. Repeated infusions results in the buildup of cocaine in the brain and thus, accumulation of drug influence on the internal state.
 
         exState = self.current_state[0]
         inState = self.current_state[1]
         setpointS = self.current_state[2]
-        trialCoun = self.current_state[3]
+        trialCount = self.current_state[3]
+
         cocBuffer = 0
         
-        if self.animalType=='ShA':  
-            trialsNum = seekingTrialsNumShA    
-        if self.animalType=='LgA':  
-            trialsNum = seekingTrialsNumLgA    
+  
         
         for trial in range(0,trialsPerDay):
 
@@ -215,41 +250,59 @@ class Animal():
         self.current_state[3]    = trialCount+trialsNum
 
 class Environment():
+    """This class defines the environment that an animal is in, cage, lever pressing, etc.
+    For humans it could be swipping on an app."""
     def __init__(self):
         self.externalState = 0
+        self.cocaine = 50 # K value, Dose of self-administered drug, they set K = 50 for a single infusion of 0.250mg of cocaine. #K changes proportionally for higher or lower unit doses. Repeated infusions results in the buildup of cocaine in the brain and thus, accumulation of drug influence on the internal state.
+        self.leverPressCost  = 20 
 
 class Simulator():
     def __init__(self):
+        #initialise the simulation
         self.simulationParameters()
+        #create the environment
         self.env = Environment()
-        self.user = Animal('LgA', self.env.externalState)
+        #create the animal
+        self.user = Animal(self.animalType, self.env.externalState, self.env.cocaine, self.env.leverPressCost, self.trialsNum)
+        #plot the results
         self.p = Plot(self.animalsNum, self.totalTrialsNum)
 
     def simulationParameters(self):
-        self.animalsNum          = 1                                  # Number of animals
+        self.animalsNum = 1 # Number of animals
+        self.animalType = 'LgA'
 
-        pretrainingHours    = 0
-        sessionsNum         = 1                            # Number of sessions of cocain seeking, followed by rest in home-cage
-        seekingHoursShA     = 1            
-        seekingHoursLgA     = 24            
-        extinctionHours     = 0.75
+        # Session & Trials
+        self.sessionsNum = 1 #sessions of seeking cocaine then resting in home-cage
+        self.trialsPerHour = 900 # Number of trials during one hour (as each trial is supposed to be 4 seconds),  60sec*60min/4sec = 3600sec.hr/4sec = 900sec
+        self.trialsPerDay = 24 * self.trialsPerHour
+        self.totalTrialsNum = self.trialsPerDay
 
-        trialsPerHour       = 900 # Number of trials during one hour (as each trial is supposed to be 4 seconds),  60sec*60min/4sec = 3600sec.hr/4sec = 900sec
-        trialsPerDay        = 24*trialsPerHour
-        pretrainingTrialsNum= pretrainingHours* trialsPerHour
-        restAfterPretrainingTrialsNum = (24 - pretrainingHours) *trialsPerHour
+        # Pretraining
+        self.pretrainingHours = 0
+        self.pretrainingTrialsNum = int(self.pretrainingHours * self.trialsPerHour)
+        self.restAfterPretrainingTrialsNum = int((24 - self.pretrainingHours) * self.trialsPerHour)
 
-        seekingTrialsNumShA = seekingHoursShA * trialsPerHour    # Number of trials for each cocaine seeking session
-        restingHoursShA     = 24 - seekingHoursShA
-        restTrialsNumShA    = restingHoursShA * trialsPerHour    # Number of trials for each session of the animal being in the home cage
+        # ShA
+        self.seekingHoursShA = 1 
+        self.seekingTrialsNumShA = self.seekingHoursShA * self.trialsPerHour    # Number of trials for each cocaine seeking session
+        self.restingHoursShA = 24 - self.seekingHoursShA
+        self.restTrialsNumShA = self.restingHoursShA * self.trialsPerHour    # Number of trials for each session of the animal being in the home cage
 
-        seekingTrialsNumLgA = seekingHoursLgA * trialsPerHour    # Number of trials for each cocaine seeking session
-        restingHoursLgA     = 24 - seekingHoursLgA
-        restTrialsNumLgA    = restingHoursLgA * trialsPerHour    # Number of trials for each session of the animal being in the home cage
+        # LgA
+        self.seekingHoursLgA = 24
+        self.seekingTrialsNumLgA = self.seekingHoursLgA * self.trialsPerHour    # Number of trials for each cocaine seeking session
+        self.restingHoursLgA = 24 - self.seekingHoursLgA
+        self.restTrialsNumLgA = self.restingHoursLgA * self.trialsPerHour    # Number of trials for each session of the animal being in the home cage
 
-        extinctionTrialsNum = int(extinctionHours*trialsPerHour) # Number of trials for each extinction session, we want to return an int for ranges
+        if self.animalType=='ShA':  
+            self.trialsNum = self.seekingTrialsNumShA   
+        elif self.animalType=='LgA':  
+            self.trialsNum = self.seekingTrialsNumLgA
 
-        self.totalTrialsNum      = trialsPerDay
+        # Extinction
+        self.extinctionHours = 0.75
+        self.extinctionTrialsNum = int(self.extinctionHours * self.trialsPerHour) # Number of trials for each extinction session, we want to return an int for ranges 
         
 if __name__ == "__main__":
     app = Simulator()
