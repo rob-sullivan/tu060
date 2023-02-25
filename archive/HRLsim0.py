@@ -166,8 +166,10 @@ class Log():
 
 class Animal():
     """This class defines an animal, human users inherit from the animal class""" 
-    def __init__(self, typeOfAnimal): #initialize Animal
+    def __init__(self, typeOfAnimal, env): #initialize Animal
         self.animalType = typeOfAnimal
+        self.states = 6
+        self.actions= 2
 
         # Homeostatic System
         self.internalState = 0
@@ -179,35 +181,6 @@ class Animal():
 
             # Proportion of the injected cocaine that affects the brain right after infusion
         self.cocAbsorptionRatio = 0.12 
-
-    #Update internal state upon consumption
-    def updateInternalState(self, internalState,outcome):
-        internalS = internalState + outcome - self.cocaineDegradationRate*(internalState - self.inStateLowerBound)
-        if internalS < self.inStateLowerBound:
-            internalS =self.inStateLowerBound
-        return internalS
-
-class Environment():
-    """This class defines the environment that an animal is in, cage, lever pressing, etc.
-    For humans it could be swipping on an app."""
-    def __init__(self, a):
-        self.states = 6
-        self.actions= 2
-
-        self.animal = a
-
-        self.externalState = 0
-        # Drug parameters
-            # K value, Dose of self-administered drug, 
-            # set K = 50 for a single infusion of 0.250mg of cocaine. 
-            # #K changes proportionally for higher or lower unit doses. 
-            # Repeated infusions results in the buildup of cocaine in 
-            # the brain and thus, accumulation of drug influence on the internal state.
-        self.cocaine = 50 
-        self.cocaineBuffer = 0
-
-        # this is energy cost or fatigue of pressing a lever
-        self.leverPressCost  = 20 
 
         # Goal-directed system (two state sets total of 6 states)
             #Two sets of states; the under-cocaine state set and the not-under-cocaine state set
@@ -248,28 +221,28 @@ class Environment():
             # senses for external state, internal state, homeostatic setpoint, and current trial
         self.currentState = np.zeros(4)
 
-        self.currentState[0] = self.externalState
-        self.currentState[1] = self.animal.internalState
-        self.currentState[2] = self.animal.homeostaticSetpoint 
+        self.currentState[0] = env.externalState
+        self.currentState[1] = self.internalState
+        self.currentState[2] = self.homeostaticSetpoint 
         self.currentState[3] = 0 #current trial
 
         #Rewards
         #Action Energy Cost (Assuming that the animals know the energy cost or fatigue of pressing a lever)
-        for i in range(0, self.states):
-            for j in range(0, self.states):
-                self.estimatedNonHomeostaticRewardUnderCoca[i][1][j] = -self.leverPressCost
-                self.estimatedNonHomeostaticRewardNoCoca[i][1][j] = -self.leverPressCost
+        for i in range(0,self.states):
+            for j in range(0,self.states):
+                self.estimatedNonHomeostaticRewardUnderCoca[i][1][j] = -env.leverPressCost
+                self.estimatedNonHomeostaticRewardNoCoca[i][1][j] = -env.leverPressCost
 
-        self.estimatedOutcomeUnderCoca[0][1][1] = self.cocaine
-        self.estimatedOutcomeNoCoca[0][1][1] = self.cocaine
+        self.estimatedOutcomeUnderCoca[0][1][1] = env.cocaine
+        self.estimatedOutcomeNoCoca[0][1][1] = env.cocaine
 
     #actions that can be taken
     def seekCocaine(self, env, log, numOfAnimal, numOfSessions, trialsNum, trialsPerDay, totalTrialsNum): #ratType #def cocaineSeeking
         for animal in range(0, numOfAnimal):
-            externalState = env.currentState[0]
-            internalState = env.currentState[1]
-            homeostaticSetpoint = env.currentState[2]
-            trialCount = env.currentState[3]
+            externalState = self.currentState[0]
+            internalState = self.currentState[1]
+            homeostaticSetpoint = self.currentState[2]
+            trialCount = self.currentState[3]
 
             sessionNum = 0
 
@@ -288,18 +261,18 @@ class Environment():
                 else:
                     out = 0
                 
-                if self.animal.animalType=='LgA':  
-                    log.logTrial(self.animal.animalType, trial, action, internalState, homeostaticSetpoint, out, env.cocaine, self.estimatedOutcomeUnderCoca, self.estimatedOutcomeNoCoca)    
+                if self.animalType=='LgA':  
+                    log.logTrial(self.animalType, trial, action, internalState, homeostaticSetpoint, out, env.cocaine, self.estimatedOutcomeUnderCoca, self.estimatedOutcomeNoCoca)    
                     print("LgA rat number: %d / %d     Session Number: %d / %d     trial: %d / %d      animal seeking cocaine" %(animal+1, numOfAnimal, sessionNum+1,numOfSessions,trial-trialCount+1,trialsNum))# updateOutcomeFunction( exState , action , nextState , out ,underCocaineWeight)
                 #updateNonHomeostaticRewardFunction  ( externalState , action , nextState , nonHomeoRew ,underCocaineWeight    )
                 #updateTransitionFunction            ( externalState , action , nextState , underCocaineWeight                 )            
                 
                 env.cocaineBuffer = env.cocaineBuffer + out                
                 
-                internalState     = self.animal.updateInternalState(internalState, env.cocaineBuffer * self.animal.cocAbsorptionRatio)
+                internalState     = self.updateInternalState(internalState, env.cocaineBuffer * self.cocAbsorptionRatio)
                 #homeostaticSetpoint   = updateSetpoint(homeostaticSetpoint,out)
 
-                env.cocaineBuffer = env.cocaineBuffer*(1 - self.animal.cocAbsorptionRatio)
+                env.cocaineBuffer = env.cocaineBuffer*(1 - self.cocAbsorptionRatio)
             #externalState   = nextState
 
             #next state
@@ -307,11 +280,35 @@ class Environment():
             self.currentState[1] = internalState
             self.currentState[2] = homeostaticSetpoint
             self.currentState[3] = trialCount + trialsNum
-
         #plot the results
         log.finalizeLog(numOfAnimal, totalTrialsNum)
         log.plotInternalState45() 
         log.plotInternalState5()
+
+    #Update internal state upon consumption
+    def updateInternalState(self, internalState,outcome):
+        internalS = internalState + outcome - self.cocaineDegradationRate*(internalState - self.inStateLowerBound)
+        if internalS < self.inStateLowerBound:
+            internalS =self.inStateLowerBound
+        return internalS
+
+class Environment():
+    """This class defines the environment that an animal is in, cage, lever pressing, etc.
+    For humans it could be swipping on an app."""
+    def __init__(self):
+        self.externalState = 0
+
+        # Drug parameters
+            # K value, Dose of self-administered drug, 
+            # set K = 50 for a single infusion of 0.250mg of cocaine. 
+            # #K changes proportionally for higher or lower unit doses. 
+            # Repeated infusions results in the buildup of cocaine in 
+            # the brain and thus, accumulation of drug influence on the internal state.
+        self.cocaine = 50 
+        self.cocaineBuffer = 0
+
+        # this is energy cost or fatigue of pressing a lever
+        self.leverPressCost  = 20 
 
 class Simulator():
     def __init__(self):
@@ -351,17 +348,15 @@ class Simulator():
         self.extinctionHours = 0.75
         self.extinctionTrialsNum = int(self.extinctionHours * self.trialsPerHour) # Number of trials for each extinction session, we want to return an int for ranges 
 
+        #create the environment
+        self.env = Environment()
         #create the animal
-        self.animal = Animal(self.animalType)
-
-        #create the environment and put animal into it
-        self.env = Environment(self.animal)
-
+        self.animal = Animal(self.animalType, self.env)
         #log trials
         self.log = Log(self.totalTrialsNum)
 
         #run sim
-        self.env.seekCocaine(self.env, self.log, self.animalsNum, self.sessionsNum, self.trialsNum, self.trialsPerDay, self.totalTrialsNum)
+        self.animal.seekCocaine(self.env, self.log, self.animalsNum, self.sessionsNum, self.trialsNum, self.trialsPerDay, self.totalTrialsNum)
 
         
 if __name__ == "__main__":
