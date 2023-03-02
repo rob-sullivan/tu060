@@ -137,8 +137,6 @@ class Dqn():
         else:
             print("no checkpoint found...")
 
-
-
 '''
 Escalation of Cocaine-Seeking in the Homeostatic Reinforcement Learning Framework By Mehdi Keramati, 
 in March 2013 using Python 2.6 
@@ -385,7 +383,13 @@ def updateTransitionFunction(state,action,nextState):
 --------------------------------------------------------------------------------------------------------------------------------'''
 def pretraining  (ratType, dqn_agent):
 
-    #ros - external state, internal state, setpoint, and trial
+    #ros - used to plot performance. The mean score curve (sliding window of the rewards) with respect to time.
+    scores = []
+
+    #ros - score agent wants to maximise
+    reward_received = 0.0
+
+    #ros - get current state external state, internal state, setpoint, and trial
     current_state = [state[0], state[1], state[2], state[3]]
 
     exState     = state[0]
@@ -397,12 +401,11 @@ def pretraining  (ratType, dqn_agent):
     trialsNum = pretrainingTrialsNum
     
     for trial in range(0,trialsNum):
-
-        estimatedActionValues   = valueEstimation(exState,inState,setpointS,searchDepth)
-
+        
         # ros - playing the action from the ai (dqn class)
         action = dqn_agent.update(reward_received, current_state)
-        #action                  = actionSelectionSoftmax(exState,estimatedActionValues)
+        #estimatedActionValues   = valueEstimation(exState,inState,setpointS,searchDepth)
+        #action                  = actionSelectionSoftmax(exState,estimatedActionValues) #ros - removed non DQL agent
 
         nextState               = getRealizedTransition(exState,action)
         out                     = getOutcome(exState,action,nextState)
@@ -436,22 +439,39 @@ def pretraining  (ratType, dqn_agent):
         current_state = [state[0], state[1], state[2], state[3]]
         
         #ros - reward or punish DQN agent
-        reward_received = estimatedNonHomeostaticReward[state][action][nextState]
+        reward_received = HomeoRew + nonHomeoRew
 
     state[0]    = exState
     state[1]    = inState
     state[2]    = setpointS
     state[3]    = trialCount+trialsNum
 
+    #ros - get current state external state, internal state, setpoint, and trial
     current_state = [state[0], state[1], state[2], state[3]]
 
-    pretrained_dqn_agent = dqn_agent
-    return pretrained_dqn_agent
+    #show results of DQN agent
+    if ratType=='ShA':  
+        plt.title("Pretrained ShA DQL, Cocaine Seeking: Scores")   
+    if ratType=='LgA':  
+        plt.title("Pretrained LgA DQL, Cocaine Seeking: Scores")
+    plt.xlabel("Epochs (Trials)")
+    plt.ylabel("Non-Homeostatic Reward")
+    plt.plot(scores)
+    plt.show()
+    pre_trained_agent = dqn_agent
+    return pre_trained_agent
 
 '''--------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------   Cocaine Seeking Sessions  --------------------------------------------------------------------- 
 --------------------------------------------------------------------------------------------------------------------------------'''
-def cocaineSeeking  (sessionNum , ratType):
+def cocaineSeeking  (sessionNum , ratType, dqn_agent):
+    #ros - used to plot performance. The mean score curve (sliding window of the rewards) with respect to time.
+    scores = []
+
+    #ros - score agent wants to maximise
+    reward_received = 0.0
+    #ros - external state, internal state, setpoint, and trial
+    current_state = [state[0], state[1], state[2], state[3]]
 
     exState     = state[0]
     inState     = state[1]
@@ -466,8 +486,11 @@ def cocaineSeeking  (sessionNum , ratType):
     
     for trial in range(trialCount,trialCount+trialsNum):
 
-        estimatedActionValues   = valueEstimation(exState,inState,setpointS,searchDepth)
-        action                  = actionSelectionSoftmax(exState,estimatedActionValues)
+        # ros - playing the action from the ai (dqn class)
+        action = dqn_agent.update(reward_received, current_state)
+
+        #estimatedActionValues   = valueEstimation(exState,inState,setpointS,searchDepth)
+        #action                  = actionSelectionSoftmax(exState,estimatedActionValues)
         nextState               = getRealizedTransition(exState,action)
         out                     = getOutcome(exState,action,nextState)
         nonHomeoRew             = getNonHomeostaticReward(exState,action,nextState)
@@ -493,18 +516,38 @@ def cocaineSeeking  (sessionNum , ratType):
 
         exState   = nextState
 
+        #ros - appending the score for DQN agent(mean of the last 100 rewards to the reward window)
+        scores.append(dqn_agent.score())
+
+        #ros - get next state for DQN agent
+        current_state = [state[0], state[1], state[2], state[3]]
+        
+        #ros - reward or punish DQN agent
+        reward_received = HomeoRew + nonHomeoRew
+
     state[0]    = exState
     state[1]    = inState
     state[2]    = setpointS
     state[3]    = trialCount+trialsNum
 
+    #ros - get current state external state, internal state, setpoint, and trial
+    current_state = [state[0], state[1], state[2], state[3]]
+
+    #show results of DQN agent
+    if ratType=='ShA':  
+        plt.title("Pretrained ShA DQL, Cocaine Seeking: Scores")   
+    if ratType=='LgA':  
+        plt.title("Pretrained LgA DQL, Cocaine Seeking: Scores")
+    plt.xlabel("Epochs (Trials)")
+    plt.ylabel("Non-Homeostatic Reward")
+    plt.plot(scores)
+    plt.show()
     return
 
 '''--------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------   Home-cage Sessions  --------------------------------------------------------------------------- 
 --------------------------------------------------------------------------------------------------------------------------------'''
 def homeCage (sessionNum, ratType):
-
     exState     = state[0]
     inState     = state[1]
     setpointS   = state[2]
@@ -1074,40 +1117,29 @@ infusionLgA            = numpy.zeros( [totalTrialsNum] , float)
 ---------------------------------   Simulation   ----------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------'''
 #ros - Create a ShA DQL Agent
-# get shape of numpy array sensors. i.e external state, internal state, setpoint, and trial
+#ros - get shape of numpy array sensors. i.e external state, internal state, setpoint, and trial
 s = state.shape[0]
-#get number of actions
+#ros - get number of actions
 a = actionsNum
 
-# Agent Brain - a neural network that represents our Q-function
+#ros - Agent Brain, a neural network that represents our Q-function
 ShA_DQN_agent = Dqn(s,a,gamma) # e.g 5 sensors, 6 actions, gamma = 0.9
-
-#give agent actions to do
-actions_available = [i for i in range(0, a)] #comprehension list to build array
-agent_actions = [actions_available] # e.g 'Binge on Internet', 'Work', 'Exercise', 'Socialise', 'Drink Alcohol', 'Smoke'
-
-# used to plot performance. The mean score curve (sliding window of the rewards) with respect to time.
-scores = []
-
-# score agent wants to maximise
-reward_received = 0
-
 
 animal = 0
 #------------------------------------------ Simulating the 20sec time-out
 initializeAnimal          (                         )
+
+#ros - pretrain agent
 ShA_DQN_agent = pretraining('ShA',ShA_DQN_agent)
+#pretraining('ShA')
 
-#show results of DQN agent
-plt.title("Pretraining ShA DQN: Scores")
-plt.xlabel("Epochs")
-plt.ylabel("Reward")
-plt.plot(scores)
-plt.show()
+#ros - put pretrain agent in a cage to rest. Homeostatic system cools off
+homeCage ( 0,'afterPretrainingShA' )
 
-homeCage                  ( 0,'afterPretrainingShA' ) 
 for session in range(0,sessionsNum):
-    cocaineSeeking        (  session , 'ShA'        )
+    #ros - let pretrained ShA_DQN_agent seek cocaine then rest in cage
+    cocaineSeeking        (  session , 'ShA', ShA_DQN_agent)
+    #cocaineSeeking        (  session , 'ShA'        )
     homeCage              (  session , 'ShA'        ) 
     
 ####################################################################
@@ -1142,19 +1174,33 @@ internalStateLgA       = numpy.zeros( [totalTrialsNum] , float)
 setpointLgA            = numpy.zeros( [totalTrialsNum] , float)
 infusionLgA            = numpy.zeros( [totalTrialsNum] , float)
 
+#ros - Create a LgA DQL Agent
+#ros - get shape of numpy array sensors. i.e external state, internal state, setpoint, and trial
+s = state.shape[0]
+#ros - get number of actions
+a = actionsNum
+
+#ros - Agent Brain, a neural network that represents our Q-function
+LgA_DQN_agent = Dqn(s,a,gamma) # e.g 5 sensors, 6 actions, gamma = 0.9
+
 #------------------------------------------ Simulating the 4sec time-out
 initializeAnimal          (                         )
-pretraining               ( 'LgA'                   )    
+#ros - pretrain agent
+LgA_DQN_agent = pretraining('LgA',LgA_DQN_agent)
+#pretraining               ( 'LgA'                   )
+ 
 homeCage                  ( 0,'afterPretrainingLgA' ) 
 
 for session in range(0,sessionsNum):
-    cocaineSeeking        (  session , 'LgA')
-    homeCage              (  session , 'LgA') 
-
+    #ros - let pretrained ShA_DQN_agent seek cocaine then rest in cage
+    cocaineSeeking        (  session , 'LgA', LgA_DQN_agent)
+    #cocaineSeeking        (  session , 'ShA'        )
+    homeCage              (  session , 'LgA'        ) 
 
 plotting()
 
-"""
+
+""" TEMPLATE
 #ros - Create a ShA DQL Agent
 # get shape of numpy array sensors. i.e external state, internal state, setpoint, and trial
 s = state.shape[0]
