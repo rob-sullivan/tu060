@@ -22,8 +22,10 @@ from torch.autograd import Variable
 #from rich.prompt import IntPrompt
 
 #used for Keramati's simulator
+import scipy
 import numpy
 import pylab
+import cmath
 
 #hide pytorch warnings (should eventually be resolved)
 import warnings
@@ -207,39 +209,39 @@ class HomeoRLEnv():
         extinctionHours = 0
 
         trialsPerHour = 900 # 60*60/4 = 3600/4 = 900 trials during one hour (as each trial is supposed to be 4 seconds)
-        trialsPerDay = 24*trialsPerHour
+        self.trialsPerDay = 24*trialsPerHour
         self.pretrainingTrialsNum= pretrainingHours* trialsPerHour
         self.restAfterPretrainingTrialsNum = (24 - pretrainingHours) * trialsPerHour
 
         self.seekingTrialsNumShA = seekingHoursShA * trialsPerHour    # Number of trials for each cocaine seeking session
-        restingHoursShA     = 24 - seekingHoursShA
-        self.restTrialsNumShA    = restingHoursShA * trialsPerHour    # Number of trials for each session of the animal being in the home cage
-        self.extinctionTrialsNum = extinctionHours*trialsPerHour      # Number of trials for each extinction session
+        restingHoursShA = 24 - seekingHoursShA
+        self.restTrialsNumShA = restingHoursShA * trialsPerHour    # Number of trials for each session of the animal being in the home cage
+        self.extinctionTrialsNum = extinctionHours * trialsPerHour      # Number of trials for each extinction session
 
         self.seekingTrialsNumLgA = seekingHoursLgA * trialsPerHour    # Number of trials for each cocaine seeking session
-        restingHoursLgA     = 24 - seekingHoursLgA
-        self.restTrialsNumLgA    = restingHoursLgA * trialsPerHour    # Number of trials for each session of the animal being in the home cage
-        self.extinctionTrialsNum = extinctionHours*trialsPerHour      # Number of trials for each extinction session
+        restingHoursLgA = 24 - seekingHoursLgA
+        self.restTrialsNumLgA = restingHoursLgA * trialsPerHour    # Number of trials for each session of the animal being in the home cage
+        self.extinctionTrialsNum = extinctionHours * trialsPerHour      # Number of trials for each extinction session
 
-        totalTrialsNum      = trialsPerDay + self.sessionsNum * (trialsPerDay)  #+ extinctionTrialsNum*2 + 1
+        self.totalTrialsNum = self.trialsPerDay + self.sessionsNum * (self.trialsPerDay)  #+ extinctionTrialsNum*2 + 1
 
         #Plotting Parameters
         self.trialsPerBlock = int(10*60/4)            # Each BLOCK is 10 minutes - Each minute 60 second - Each trial takes 4 seconds
 
         #Logging Parameters
-        self.nulDoingShA            = numpy.zeros( [totalTrialsNum] , float)
-        self.inactiveLeverPressShA  = numpy.zeros( [totalTrialsNum] , float)
-        self.activeLeverPressShA    = numpy.zeros( [totalTrialsNum] , float)
-        self.internalStateShA       = numpy.zeros( [totalTrialsNum] , float)
-        self.setpointShA            = numpy.zeros( [totalTrialsNum] , float)
-        self.infusionShA            = numpy.zeros( [totalTrialsNum] , float)
+        self.nulDoingShA = numpy.zeros( [self.totalTrialsNum] , float)
+        self.inactiveLeverPressShA = numpy.zeros( [self.totalTrialsNum] , float)
+        self.activeLeverPressShA = numpy.zeros( [self.totalTrialsNum] , float)
+        self.internalStateShA = numpy.zeros( [self.totalTrialsNum] , float)
+        self.setpointShA = numpy.zeros( [self.totalTrialsNum] , float)
+        self.infusionShA = numpy.zeros( [self.totalTrialsNum] , float)
 
-        self.nulDoingLgA            = numpy.zeros( [totalTrialsNum] , float)
-        self.inactiveLeverPressLgA  = numpy.zeros( [totalTrialsNum] , float)
-        self.activeLeverPressLgA    = numpy.zeros( [totalTrialsNum] , float)
-        self.internalStateLgA       = numpy.zeros( [totalTrialsNum] , float)
-        self.setpointLgA            = numpy.zeros( [totalTrialsNum] , float)
-        self.infusionLgA            = numpy.zeros( [totalTrialsNum] , float)
+        self.nulDoingLgA = numpy.zeros( [self.totalTrialsNum] , float)
+        self.inactiveLeverPressLgA = numpy.zeros( [self.totalTrialsNum] , float)
+        self.activeLeverPressLgA = numpy.zeros( [self.totalTrialsNum] , float)
+        self.internalStateLgA = numpy.zeros( [self.totalTrialsNum] , float)
+        self.setpointLgA = numpy.zeros( [self.totalTrialsNum] , float)
+        self.infusionLgA = numpy.zeros( [self.totalTrialsNum] , float)
 
         # 20 second Time Out Simulation
         #ros - Create a ShA DQL Agent
@@ -285,12 +287,12 @@ class HomeoRLEnv():
         self.estimatedNonHomeostaticReward = numpy.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
 
         #------------------------------------------ ReDefining the Logging Parameters
-        self.nulDoingLgA            = numpy.zeros( [totalTrialsNum] , float)
-        self.inactiveLeverPressLgA  = numpy.zeros( [totalTrialsNum] , float)
-        self.activeLeverPressLgA    = numpy.zeros( [totalTrialsNum] , float)
-        self.internalStateLgA       = numpy.zeros( [totalTrialsNum] , float)
-        self.setpointLgA            = numpy.zeros( [totalTrialsNum] , float)
-        self.infusionLgA            = numpy.zeros( [totalTrialsNum] , float)
+        self.nulDoingLgA            = numpy.zeros( [self.totalTrialsNum] , float)
+        self.inactiveLeverPressLgA  = numpy.zeros( [self.totalTrialsNum] , float)
+        self.activeLeverPressLgA    = numpy.zeros( [self.totalTrialsNum] , float)
+        self.internalStateLgA       = numpy.zeros( [self.totalTrialsNum] , float)
+        self.setpointLgA            = numpy.zeros( [self.totalTrialsNum] , float)
+        self.infusionLgA            = numpy.zeros( [self.totalTrialsNum] , float)
 
         #ros - Create a LgA DQL Agent
         s = self.state.shape[0]#get shape of numpy array sensors. i.e external state, internal state, setpoint, and trial
@@ -359,10 +361,10 @@ class HomeoRLEnv():
 
             if ratType=='ShA':  
                 self.loggingShA (trial,action,inState,setpointS,out)    
-                print("ShA rat number: %d / %d     Pre-training session     trial: %d / %d      animal seeking cocaine" %(self.animal+1,self.animalsNum,trial+1,trialsNum))
+                print("ShA rat number: %d / %d \t Pre-training session \t trial: %d / %d \t animal seeking cocaine" %(self.animal+1,self.animalsNum,trial+1,trialsNum))
             elif ratType=='LgA':  
                 self.loggingLgA (trial,action,inState,setpointS,out)    
-                print("LgA rat number: %d / %d     Pre-training session     trial: %d / %d      animal seeking cocaine" %(self.animal+1, self.animalsNum,trial+1,trialsNum))
+                print("LgA rat number: %d / %d \t Pre-training session \t trial: %d / %d \t animal seeking cocaine" %(self.animal+1, self.animalsNum,trial+1,trialsNum))
 
             self.updateOutcomeFunction(exState, action, nextState, out)
             self.updateNonHomeostaticRewardFunction(exState, action, nextState, nonHomeoRew)
@@ -415,8 +417,9 @@ class HomeoRLEnv():
         """
         return 
 
-    def cocaineSeeking(self, sessionNum, ratType, dqn_agent):
+    def cocaineSeeking(self, sessionNum, ratType):
         """Cocaine Seeking Session"""
+        """
         #ros - used to plot performance. The mean score curve (sliding window of the rewards) with respect to time.
         scores = []
 
@@ -424,50 +427,52 @@ class HomeoRLEnv():
         reward_received = 0.0
         #ros - external state, internal state, setpoint, and trial
         current_state = [state[0], state[1], state[2], state[3]]
+        """
 
-        exState     = state[0]
-        inState     = state[1]
-        setpointS   = state[2]
-        trialCount  = state[3]
+        exState     = self.state[0]
+        inState     = self.state[1]
+        setpointS   = self.state[2]
+        trialCount  = self.state[3]
         cocBuffer   = 0
         
         if ratType=='ShA':  
-            trialsNum = seekingTrialsNumShA    
+            trialsNum = self.seekingTrialsNumShA    
         if ratType=='LgA':  
-            trialsNum = seekingTrialsNumLgA    
+            trialsNum = self.seekingTrialsNumLgA    
         
         for trial in range(trialCount,trialCount+trialsNum):
-
+            """
             # ros - playing the action from the ai (dqn class)
             action = dqn_agent.update(reward_received, current_state)
-
-            #estimatedActionValues   = valueEstimation(exState,inState,setpointS,searchDepth)
-            #action                  = actionSelectionSoftmax(exState,estimatedActionValues)
-            nextState               = getRealizedTransition(exState,action)
-            out                     = getOutcome(exState,action,nextState)
-            nonHomeoRew             = getNonHomeostaticReward(exState,action,nextState)
-            HomeoRew                = driveReductionReward(inState,setpointS,out)
+            """
+            estimatedActionValues= self.valueEstimation(exState,inState,setpointS, self.searchDepth)
+            action = self.actionSelectionSoftmax(exState,estimatedActionValues)
+            nextState = self.getRealizedTransition(exState,action)
+            out = self.getOutcome(exState,action,nextState)
+            nonHomeoRew = self.getNonHomeostaticReward(exState,action,nextState)
+            HomeoRew = self.driveReductionReward(inState,setpointS,out)
 
             if ratType=='ShA':  
-                loggingShA(trial,action,inState,setpointS,out)    
-                print("ShA rat number: %d / %d     Session Number: %d / %d     trial: %d / %d      animal seeking cocaine" %(animal+1,animalsNum,sessionNum+1,sessionsNum,trial-trialCount+1,trialsNum))
+                self.loggingShA(trial,action,inState,setpointS,out)    
+                print("ShA rat number: %d / %d \t Session Number: %d / %d \t trial: %d / %d \t animal seeking cocaine" %(self.animal+1, self.animalsNum, sessionNum+1, self.sessionsNum, trial-trialCount+1, trialsNum))
             if ratType=='LgA':  
-                loggingLgA(trial,action,inState,setpointS,out)    
-                print("LgA rat number: %d / %d     Session Number: %d / %d     trial: %d / %d      animal seeking cocaine" %(animal+1,animalsNum,sessionNum+1,sessionsNum,trial-trialCount+1,trialsNum))
+                self.loggingLgA(trial,action,inState,setpointS,out)    
+                print("LgA rat number: %d / %d \t Session Number: %d / %d \t trial: %d / %d \t animal seeking cocaine" %(self.animal+1, self.animalsNum, sessionNum+1, self.sessionsNum, trial-trialCount+1, trialsNum))
 
-            updateOutcomeFunction(exState,action,nextState,out)
-            updateNonHomeostaticRewardFunction(exState,action,nextState,nonHomeoRew)
-            updateTransitionFunction(exState,action,nextState)            
+            self.updateOutcomeFunction(exState,action,nextState,out)
+            self.updateNonHomeostaticRewardFunction(exState,action,nextState,nonHomeoRew)
+            self.updateTransitionFunction(exState,action,nextState)            
             
             cocBuffer = cocBuffer + out                
             
-            inState     = updateInState(inState,cocBuffer*cocAbsorptionRatio)
-            setpointS   = updateSetpoint(setpointS,out)
+            inState     = self.updateInState(inState, cocBuffer * self.cocAbsorptionRatio)
+            setpointS   = self.updateSetpoint(setpointS,out)
 
-            cocBuffer = cocBuffer*(1-cocAbsorptionRatio)
+            cocBuffer = cocBuffer * (1 - self.cocAbsorptionRatio)
 
             exState   = nextState
 
+            """
             #ros - appending the score for DQN agent(mean of the last 100 rewards to the reward window)
             scores.append(dqn_agent.score())
 
@@ -476,12 +481,13 @@ class HomeoRLEnv():
             
             #ros - reward or punish DQN agent
             reward_received = HomeoRew + nonHomeoRew
+            """
+        self.state[0] = exState
+        self.state[1] = inState
+        self.state[2] = setpointS
+        self.state[3] = trialCount+trialsNum
 
-        state[0]    = exState
-        state[1]    = inState
-        state[2]    = setpointS
-        state[3]    = trialCount+trialsNum
-
+        """
         #ros - get current state external state, internal state, setpoint, and trial
         current_state = [state[0], state[1], state[2], state[3]]
 
@@ -494,165 +500,166 @@ class HomeoRLEnv():
         plt.ylabel("Non-Homeostatic Reward")
         plt.plot(scores)
         plt.show()
+        """
         return
 
     def homeCage(self, sessionNum, ratType):
         """Home-cage Sessions"""
-        exState     = state[0]
-        inState     = state[1]
-        setpointS   = state[2]
-        trialCount  = state[3]
+        exState = self.state[0]
+        inState = self.state[1]
+        setpointS = self.state[2]
+        trialCount = self.state[3]
     
         if ratType=='ShA':  
-            trialsNum = restTrialsNumShA    
-            print("ShA rat number: %d / %d     Session Number: %d / %d                          animal rests in home cage" %(animal+1,animalsNum,sessionNum+1,sessionsNum))
+            trialsNum = self.restTrialsNumShA    
+            print("ShA rat number: %d / %d \t Session Number: %d / %d \t animal rests in home cage" %(self.animal+1, self.animalsNum, sessionNum+1, self.sessionsNum))
         elif ratType=='LgA':  
-            trialsNum = restTrialsNumLgA
-            print("LgA rat number: %d / %d     Session Number: %d / %d                          animal rests in home cage" %(animal+1,animalsNum,sessionNum+1,sessionsNum))
+            trialsNum = self.restTrialsNumLgA
+            print("LgA rat number: %d / %d \t Session Number: %d / %d \t animal rests in home cage" %(self.animal+1, self.animalsNum, sessionNum+1, self.sessionsNum))
         elif ratType=='afterPretrainingShA':  
-            trialsNum = restAfterPretrainingTrialsNum    
-            print("ShA rat number: %d / %d     After pretraining                                animal rests in home cage" %(animal+1,animalsNum))
+            trialsNum = self.restAfterPretrainingTrialsNum    
+            print("ShA rat number: %d / %d \t After pretraining \t animal rests in home cage" %(self.animal+1, self.animalsNum))
         elif ratType=='afterPretrainingLgA':  
-            trialsNum = restAfterPretrainingTrialsNum    
-            print("LgA rat number: %d / %d     After pretraining                                animal rests in home cage" %(animal+1,animalsNum))
+            trialsNum = self.restAfterPretrainingTrialsNum    
+            print("LgA rat number: %d / %d \t After pretraining \t animal rests in home cage" %(self.animal+1, self.animalsNum))
         
         for trial in range(trialCount,trialCount+trialsNum):
 
-            inState     = updateInState(inState,0)
-            setpointS   = updateSetpoint(setpointS,0)
+            inState     = self.updateInState(inState,0)
+            setpointS   = self.updateSetpoint(setpointS,0)
 
             if ratType=='ShA':  
-                loggingShA(trial,0,inState,setpointS,0)    
+                self.loggingShA(trial,0,inState,setpointS,0)    
             elif ratType=='LgA':  
-                loggingLgA(trial,0,inState,setpointS,0)    
+                self.loggingLgA(trial,0,inState,setpointS,0)    
             elif ratType=='afterPretrainingShA':  
-                loggingShA(trial,0,inState,setpointS,0)    
+                self.loggingShA(trial,0,inState,setpointS,0)    
             elif ratType=='afterPretrainingLgA':  
-                loggingLgA(trial,0,inState,setpointS,0)    
+                self.loggingLgA(trial,0,inState,setpointS,0)    
 
-        state[0]    = exState
-        state[1]    = inState
-        state[2]    = setpointS
-        state[3]    = trialCount+trialsNum
+        self.state[0]    = exState
+        self.state[1]    = inState
+        self.state[2]    = setpointS
+        self.state[3]    = trialCount+trialsNum
 
         return
 
     def extinction(self, trialsNum, ratsType):
         """Extinction Sessions. No drugs given 
         no matter what lever is pressed"""
-        exState     = state[0]
-        inState     = state[1]
-        setpointS   = state[2]
-        trialCount  = state[3]
-        cocBuffer   = 0
+        exState = self.state[0]
+        inState = self.state[1]
+        setpointS = self.state[2]
+        trialCount = self.state[3]
+        cocBuffer = 0
         
         for trial in range(trialCount,trialCount+trialsNum):
             
-            estimatedActionValues   = valueEstimation               (exState,inState,setpointS,searchDepth)
-            action                  = actionSelectionSoftmax        ( exState, estimatedActionValues    )
-            nextState               = getRealizedTransition         ( exState, action                   )
-            out                     = 0
-            nonHomeoRew             = getNonHomeostaticReward       ( exState, action, nextState        )
-            HomeoRew                = driveReductionReward          ( inState, setpointS, out           )
+            estimatedActionValues = self.valueEstimation(exState, inState, setpointS, self.searchDepth)
+            action = self.actionSelectionSoftmax( exState, estimatedActionValues)
+            nextState = self.getRealizedTransition( exState, action)
+            out = 0
+            nonHomeoRew = self.getNonHomeostaticReward( exState, action, nextState)
+            HomeoRew = self.driveReductionReward( inState, setpointS, out)
             
             if ratsType == 'ShA':
-                loggingShA(trial,action,inState,setpointS,out)    
-                print("ShA rat number: %d / %d     Extinction session       trial: %d / %d      Extinction of cocaine seeking" %(animal+1,animalsNum,trial-trialCount+1,trialsNum))
+                self.loggingShA(trial,action,inState,setpointS,out)    
+                print("ShA rat number: %d / %d \t Extinction session \t trial: %d / %d \t Extinction of cocaine seeking" %(self.animal+1, self.animalsNum,trial-trialCount+1,trialsNum))
             if ratsType == 'LgA':
-                loggingLgA(trial,action,inState,setpointS,out)    
-                print("LgA rat number: %d / %d     Extinction session       trial: %d / %d      Extinction of cocaine seeking" %(animal+1,animalsNum,trial-trialCount+1,trialsNum))
+                self.loggingLgA(trial,action,inState,setpointS,out)    
+                print("LgA rat number: %d / %d \t Extinction session \t trial: %d / %d \t Extinction of cocaine seeking" %(self.animal+1, self.animalsNum,trial-trialCount+1,trialsNum))
 
-            updateOutcomeFunction               ( exState, action, nextState, out            )
-            updateNonHomeostaticRewardFunction  ( exState, action, nextState, nonHomeoRew    )
-            updateTransitionFunction            ( exState, action, nextState,                )            
+            self.updateOutcomeFunction( exState, action, nextState, out)
+            self.updateNonHomeostaticRewardFunction( exState, action, nextState, nonHomeoRew)
+            self.updateTransitionFunction( exState, action, nextState)            
             
             cocBuffer = cocBuffer + out                
             
-            inState     = updateInState         ( inState, cocBuffer*cocAbsorptionRatio )
-            setpointS   = updateSetpoint        ( setpointS, out )
+            inState = self.updateInState( inState, cocBuffer * self.cocAbsorptionRatio )
+            setpointS = self.updateSetpoint( setpointS, out )
 
-            cocBuffer = cocBuffer * ( 1-cocAbsorptionRatio )
+            cocBuffer = cocBuffer * ( 1- self.cocAbsorptionRatio )
 
             exState   = nextState
 
-        state[0]    = exState
-        state[1]    = inState
-        state[2]    = setpointS
-        state[3]    = trialCount+trialsNum
+        self.state[0] = exState
+        self.state[1] = inState
+        self.state[2] = setpointS
+        self.state[3] = trialCount+trialsNum
 
         return
 
     def noncontingentInfusion(self, sessionNum,ratType):
         """Non-contingent cocaine infusion"""
-        exState     = state[0]
-        inState     = state[1]
-        setpointS   = state[2]
-        trialCount  = state[3]
+        exState = self.state[0]
+        inState = self.state[1]
+        setpointS = self.state[2]
+        trialCount = self.state[3]
 
-        inState     = updateInState(inState,cocaine)
-        setpointS   = updateSetpoint(setpointS,cocaine)
+        inState = self.updateInState(inState, self.cocaine)
+        setpointS = self.updateSetpoint(setpointS, self.cocaine)
         if ratType == 'ShA':
-            loggingShA(trialCount,0,inState,setpointS,cocaine)    
-            print("ShA rat number: %d / %d     Session Number: %d / %d                         animal receives non-contingent cocaine infusion" %(animal+1,animalsNum,sessionNum+1,sessionsNum))
+            self.loggingShA(trialCount,0,inState,setpointS,self.cocaine)    
+            print("ShA rat number: %d / %d \t Session Number: %d / %d \t animal receives non-contingent cocaine infusion" %(self.animal+1, self.animalsNum,sessionNum+1, self.sessionsNum))
         if ratType == 'LgA':
-            loggingLgA(trialCount,0,inState,setpointS,cocaine)    
-            print("LgA rat number: %d / %d     Session Number: %d / %d                         animal receives non-contingent cocaine infusion" %(animal+1,animalsNum,sessionNum+1,sessionsNum))
+            self.loggingLgA(trialCount,0,inState,setpointS,self.cocaine)    
+            print("LgA rat number: %d / %d \t Session Number: %d / %d \t animal receives non-contingent cocaine infusion" %(self.animal+1, self.animalsNum,sessionNum+1, self.sessionsNum))
             
 
-        state[0]    = exState
-        state[1]    = inState
-        state[2]    = setpointS
-        state[3]    = trialCount + 1
+        self.state[0] = exState
+        self.state[1] = inState
+        self.state[2] = setpointS
+        self.state[3] = trialCount + 1
 
         return
 
     #Utility Functions
     def setTransition(self, state, action, nextState, transitionProbability):
         """Setting the transition function of the MDP"""
-        transition [state][action][nextState] = transitionProbability
+        self.transition [state][action][nextState] = transitionProbability
         return 
 
     def getTransition(self, s,a,nextS):
         """Return the probability of the transitions s-a->s'"""
-        return transition[s][a][nextS]
+        return self.transition[s][a][nextS]
 
     def getRealizedTransition(self, state,action):
         """Return the next state that the animal fell into"""
         index = numpy.random.uniform(0,1)
         probSum = 0
-        for nextS in range(0,statesNum):
-            probSum = probSum + getTransition(state,action,nextS)
+        for nextS in range(0, self.statesNum):
+            probSum = probSum + self.getTransition(state,action,nextS)
             if index <= probSum:
                 return nextS    
             
     def updateTransitionFunction(self, state,action,nextState):
         '''Update the expected-transition function'''
         #---- First inhibit all associations
-        for i in range(0,statesNum):
-            estimatedTransition[state][action][i] = (1.0-updateTransitionRate)*estimatedTransition[state][action][i]
+        for i in range(0, self.statesNum):
+            self.estimatedTransition[state][action][i] = (1.0- self.updateTransitionRate)* self.estimatedTransition[state][action][i]
         
         #---- Then increase the effect of experiences association
-        estimatedTransition[state][action][nextState] = estimatedTransition[state][action][nextState] + updateTransitionRate
+        self.estimatedTransition[state][action][nextState] = self.estimatedTransition[state][action][nextState] + self.updateTransitionRate
                 
         return
 
     def setOutcome(self, state,action,nextState,out):
         """Setting the outcome function of the MDP"""
-        outcome [state][action][nextState] = out
+        self.outcome [state][action][nextState] = out
         return 
 
     def getOutcome(self, state,action,nextState):
         """Obtained outcome"""
-        return outcome[state,action,nextState]
+        return self.outcome[state,action,nextState]
 
     def updateOutcomeFunction(self, state,action,nextState,out):
         """Update the expected-outcome function"""
-        estimatedOutcome[state][action][nextState] = (1.0-updateOutcomeRate)*estimatedOutcome[state][action][nextState] + updateOutcomeRate*out
+        self.estimatedOutcome[state][action][nextState] = (1.0 - self.updateOutcomeRate) * self.estimatedOutcome[state][action][nextState] + self.updateOutcomeRate * out
         return
 
     def setNonHomeostaticReward(self, state,action,nextState,rew):
         """Setting the non-homeostatic reward function of the MDP"""
-        nonHomeostaticReward [state][action][nextState] = rew
+        self.nonHomeostaticReward[state][action][nextState] = rew
         return 
 
     def getNonHomeostaticReward(self, state,action,nextState):
@@ -663,59 +670,59 @@ class HomeoRLEnv():
 
     def updateNonHomeostaticRewardFunction(self, state,action,nextState,rew):
         """Update the expected-non-homeostatic-reward function""" 
-        estimatedNonHomeostaticReward[state][action][nextState] = (1.0-updateRewardRate)*estimatedNonHomeostaticReward[state][action][nextState] + updateRewardRate*rew
+        self.estimatedNonHomeostaticReward[state][action][nextState] = (1.0 - self.updateRewardRate) * self.estimatedNonHomeostaticReward[state][action][nextState] + self.updateRewardRate * rew
         return
 
-    def driveReductionReward(self, inState,setpointS,outcome):
+    def driveReductionReward(self, inState, setpointS, outcome):
         """Homeostatically-regulated Reward"""
-        d1 = numpy.power(numpy.absolute(numpy.power(setpointS-inState,n*1.0)),(1.0/m))
-        d2 = numpy.power(numpy.absolute(numpy.power(setpointS-inState-outcome,n*1.0)),(1.0/m))
+        d1 = numpy.power(numpy.absolute(numpy.power(setpointS-inState, self.n*1.0)),(1.0/self.m))
+        d2 = numpy.power(numpy.absolute(numpy.power(setpointS-inState-outcome, self.n*1.0)),(1.0/self.m))
         return d1-d2
 
     def updateInState(self, inState,outcome):
         """Update internal state upon consumption"""
-        interS = inState + outcome - cocaineDegradationRate*(inState-inStateLowerBound)
-        if interS<inStateLowerBound:
-            interS=inStateLowerBound
+        interS = inState + outcome - self.cocaineDegradationRate*(inState - self.inStateLowerBound)
+        if interS < self.inStateLowerBound:
+            interS = self.inStateLowerBound
         return interS
 
-    def updateSetpoint(self, optimalInState,out):
+    def updateSetpoint(self, optimalInState, out):
         """Update the homeostatic setpoint (Allostatic mechanism)""" 
-        optInS = optimalInState + out*setpointShiftRate - setpointRecoveryRate
+        optInS = optimalInState + out * self.setpointShiftRate - self.setpointRecoveryRate
 
-        if optInS<optimalInStateLowerBound:
-            optInS=optimalInStateLowerBound
+        if optInS < self.optimalInStateLowerBound:
+            optInS = self.optimalInStateLowerBound
 
-        if optInS>optimalInStateUpperBound:
-            optInS=optimalInStateUpperBound
+        if optInS > self.optimalInStateUpperBound:
+            optInS = self.optimalInStateUpperBound
 
         return optInS
     
     def initializeAnimal(self):    
         """Creates a new animal"""       
-        state[0] = initialExState
-        state[1] = initialInState
-        state[2] = initialSetpoint 
-        state[3] = 0 
+        self.state[0] = self.initialExState
+        self.state[1] = self.initialInState
+        self.state[2] = self.initialSetpoint 
+        self.state[3] = 0 
             
-        for i in range(0,statesNum):
-            for j in range(0,actionsNum):
-                for k in range(0,statesNum):
-                    estimatedTransition[i][j][k] = (1.0)/(statesNum*1.0)
-                    estimatedOutcome[i][j][k] = 0.0
-                    estimatedNonHomeostaticReward[i][j][k] = 0.0
+        for i in range(0, self.statesNum):
+            for j in range(0, self.actionsNum):
+                for k in range(0, self.statesNum):
+                    self.estimatedTransition[i][j][k] = (1.0)/( self.statesNum*1.0)
+                    self.estimatedOutcome[i][j][k] = 0.0
+                    self.estimatedNonHomeostaticReward[i][j][k] = 0.0
         
     #    Assuming that the animals know the energy cost (fatigue) of pressing a lever 
-        for i in range(0,statesNum):
-            for j in range(0,statesNum):
-                estimatedNonHomeostaticReward[i][1][j] = -leverPressCost
+        for i in range(0, self.statesNum):
+            for j in range(0, self.statesNum):
+                self.estimatedNonHomeostaticReward[i][1][j] = -self.leverPressCost
         return
 
     def isActionAvailable(self, state,action):
         """Is action a available is state s?"""
         probSum = 0 ;
-        for i in range(0,statesNum):
-            probSum = probSum + getTransition(state,action,i)
+        for i in range(0, self.statesNum):
+            probSum = probSum + self.getTransition(state,action,i)
         if probSum == 1:
             return 1
         elif probSum == 0:
@@ -726,37 +733,37 @@ class HomeoRLEnv():
 
     def valueEstimation(self, state,inState,setpointS,depthLeft):
         """Goal-directed Value estimation"""
-        values = numpy.zeros ( [actionsNum] , float )
+        values = numpy.zeros ( [self.actionsNum] , float )
 
         # If this is the last depth that should be searched :
         if depthLeft==1:
-            for action in range(0,actionsNum):
-                for nextState in range(0,statesNum):
-                    homeoReward    = driveReductionReward(inState,setpointS,estimatedOutcome[state][action][nextState])
-                    nonHomeoReward = estimatedNonHomeostaticReward[state][action][nextState]
-                    transitionProb = estimatedTransition[state][action][nextState]
+            for action in range(0, self.actionsNum):
+                for nextState in range(0, self.statesNum):
+                    homeoReward    = self.driveReductionReward(inState,setpointS, self.estimatedOutcome[state][action][nextState])
+                    nonHomeoReward = self.estimatedNonHomeostaticReward[state][action][nextState]
+                    transitionProb = self.estimatedTransition[state][action][nextState]
                     values[action] = values[action] +  transitionProb * ( homeoReward + nonHomeoReward )
             return values
         
         # Otherwise :
-        for action in range(0,actionsNum):
-            for nextState in range(0,statesNum):
-                if estimatedTransition[state][action][nextState] < pruningThreshold :
+        for action in range(0, self.actionsNum):
+            for nextState in range(0, self.statesNum):
+                if self.estimatedTransition[state][action][nextState] < self.pruningThreshold :
                     VNextStateBest = 0
                 else:    
-                    VNextState = valueEstimation(nextState,setpointS,inState,depthLeft-1)
-                    VNextStateBest = maxValue (VNextState)
-                homeoReward    = driveReductionReward(inState,setpointS,estimatedOutcome[state][action][nextState])
-                nonHomeoReward = estimatedNonHomeostaticReward[state][action][nextState]
-                transitionProb = estimatedTransition[state][action][nextState]
-                values[action] = values[action] + transitionProb * ( homeoReward + nonHomeoReward + gamma*VNextStateBest ) 
+                    VNextState = self.valueEstimation(nextState,setpointS,inState,depthLeft-1)
+                    VNextStateBest = self.maxValue (VNextState)
+                homeoReward = self.driveReductionReward(inState,setpointS, self.estimatedOutcome[state][action][nextState])
+                nonHomeoReward = self.estimatedNonHomeostaticReward[state][action][nextState]
+                transitionProb = self.estimatedTransition[state][action][nextState]
+                values[action] = values[action] + transitionProb * ( homeoReward + nonHomeoReward + self.gamma * VNextStateBest ) 
                 
         return values
 
     def maxValue(self, V):
         """Max ( Value[nextState,a] ) : for all a"""
         maxV = V[0]
-        for action in range(0,actionsNum):
+        for action in range(0, self.actionsNum):
             if V[action]>maxV:
                 maxV = V[action]    
         return maxV
@@ -767,22 +774,21 @@ class HomeoRLEnv():
         maxV = V[0]
         if maxV==0:
             maxV=1        
-        for action in range(0,actionsNum):
+        for action in range(0, self.actionsNum):
             if maxV < V[action]:
                 maxV = V[action]
-        for action in range(0,actionsNum):
+        for action in range(0, self.actionsNum):
             V[action] = V[action]/maxV
 
-
         sumEV = 0
-        for action in range(0,actionsNum):
-            sumEV = sumEV + abs(cmath.exp( V[action] / beta ))
+        for action in range(0, self.actionsNum):
+            sumEV = sumEV + abs(cmath.exp( V[action] / self.beta ))
 
         index = numpy.random.uniform(0,sumEV)
 
         probSum=0
-        for action in range(0,actionsNum):
-                probSum = probSum + abs(cmath.exp( V[action] / beta ))
+        for action in range(0, self.actionsNum):
+                probSum = probSum + abs(cmath.exp( V[action] / self.beta ))
                 if probSum >= index:
                     return action
 
@@ -792,48 +798,47 @@ class HomeoRLEnv():
     def loggingShA(self, trial,action,inState,setpointS,coca):
         """Logging the current information for the Short-access group"""
         if action==0: 
-            nulDoingShA[trial]             = nulDoingShA[trial] + 1
+            self.nulDoingShA[trial] = self.nulDoingShA[trial] + 1
         elif action==1: 
-            inactiveLeverPressShA[trial]   = inactiveLeverPressShA[trial] + 1
+            self.inactiveLeverPressShA[trial] = self.inactiveLeverPressShA[trial] + 1
         elif action==2: 
-            activeLeverPressShA[trial]     = activeLeverPressShA[trial] + 1
-        internalStateShA[trial]    = internalStateShA[trial] + inState
-        setpointShA[trial]         = setpointShA[trial] + setpointS    
-        if coca==cocaine:
-            infusionShA[trial]     = infusionShA[trial] + 1
+            self.activeLeverPressShA[trial] = self.activeLeverPressShA[trial] + 1
+        self.internalStateShA[trial] = self.internalStateShA[trial] + inState
+        self.setpointShA[trial] = self.setpointShA[trial] + setpointS    
+        if coca==self.cocaine:
+            self.infusionShA[trial] = self.infusionShA[trial] + 1
         return
 
     def loggingLgA(self, trial,action,inState,setpointS,coca):
         """Logging the current information for the Long-access group"""
         if action==0: 
-            nulDoingLgA[trial]             = nulDoingLgA[trial] + 1
+            self.nulDoingLgA[trial] = self.nulDoingLgA[trial] + 1
         elif action==1: 
-            inactiveLeverPressLgA[trial]   = inactiveLeverPressLgA[trial] + 1
-        elif action==2: 
-            activeLeverPressLgA[trial]     = activeLeverPressLgA[trial] + 1
-        internalStateLgA[trial]    = internalStateLgA[trial] + inState
-        setpointLgA[trial]         = setpointLgA[trial] + setpointS    
-        if coca==cocaine:
-            infusionLgA[trial]     = infusionLgA[trial] + 1
+            self.inactiveLeverPressLgA[trial] = self.inactiveLeverPressLgA[trial] + 1
+        elif action==2:
+            self.activeLeverPressLgA[trial] = self.activeLeverPressLgA[trial] + 1
+        self.internalStateLgA[trial] = self.internalStateLgA[trial] + inState
+        self.setpointLgA[trial] = self.setpointLgA[trial] + setpointS    
+        if coca==self.cocaine:
+            self.infusionLgA[trial] = self.infusionLgA[trial] + 1
         return
 
     def loggingFinalization(self):
         """Wrap up all the logged data"""
-        for trial in range(0,totalTrialsNum):
-            nulDoingShA[trial]             = nulDoingShA[trial]/animalsNum
-            inactiveLeverPressShA[trial]   = inactiveLeverPressShA[trial]/animalsNum
-            activeLeverPressShA[trial]     = activeLeverPressShA[trial]/animalsNum
-            internalStateShA[trial]        = internalStateShA[trial]/animalsNum
-            setpointShA[trial]             = setpointShA[trial]/animalsNum  
-            infusionShA[trial]             = infusionShA[trial]/animalsNum 
+        for trial in range(0, self.totalTrialsNum):
+            self.nulDoingShA[trial] = self.nulDoingShA[trial]/self.animalsNum
+            self.inactiveLeverPressShA[trial] = self.inactiveLeverPressShA[trial]/self.animalsNum
+            self.activeLeverPressShA[trial] = self.activeLeverPressShA[trial]/self.animalsNum
+            self.internalStateShA[trial] = self.internalStateShA[trial]/self.animalsNum
+            self.setpointShA[trial] = self.setpointShA[trial]/self.animalsNum  
+            self.infusionShA[trial] = self.infusionShA[trial]/self.animalsNum 
 
-            nulDoingLgA[trial]             = nulDoingLgA[trial]/animalsNum
-            inactiveLeverPressLgA[trial]   = inactiveLeverPressLgA[trial]/animalsNum
-            activeLeverPressLgA[trial]     = activeLeverPressLgA[trial]/animalsNum
-            internalStateLgA[trial]        = internalStateLgA[trial]/animalsNum
-            setpointLgA[trial]             = setpointLgA[trial]/animalsNum  
-            infusionLgA[trial]             = infusionLgA[trial]/animalsNum 
-
+            self.nulDoingLgA[trial] = self.nulDoingLgA[trial]/self.animalsNum
+            self.inactiveLeverPressLgA[trial] = self.inactiveLeverPressLgA[trial]/self.animalsNum
+            self.activeLeverPressLgA[trial] = self.activeLeverPressLgA[trial]/self.animalsNum
+            self.internalStateLgA[trial] = self.internalStateLgA[trial]/self.animalsNum
+            self.setpointLgA[trial] = self.setpointLgA[trial]/self.animalsNum  
+            self.infusionLgA[trial] = self.infusionLgA[trial]/self.animalsNum 
         return
 
     def plotInternalStateLastSession(self):
@@ -847,16 +852,16 @@ class HomeoRLEnv():
         fig1.subplots_adjust(bottom=0.2)
 
         ax1 = fig1.add_subplot(111)
-        S0 = ax1.plot(internalStateShA [trialsPerDay*sessionsNum - 50 : trialsPerDay*sessionsNum + 500 ] , linewidth = 2.5 , color='black' )
-        S1 = ax1.plot(internalStateLgA [trialsPerDay*sessionsNum - 50 : trialsPerDay*sessionsNum + 500 ] , linewidth = 1.5 , color='black' )
+        S0 = ax1.plot(self.internalStateShA [self.trialsPerDay*self.sessionsNum - 50 : self.trialsPerDay*self.sessionsNum + 500 ] , linewidth = 2.5 , color='black' )
+        S1 = ax1.plot(self.internalStateLgA [self.trialsPerDay*self.sessionsNum - 50 : self.trialsPerDay*self.sessionsNum + 500 ] , linewidth = 1.5 , color='black' )
     
         leg = fig1.legend((S1, S0), ('4sec time-out','20sec time-out'), loc = (0.4,0.68))
         leg.draw_frame(False)
 
         max = 0    
-        for i in range ( trialsPerDay*sessionsNum - 50 , trialsPerDay*sessionsNum + 500 ):
-            if max < internalStateLgA[i]:
-                max = internalStateLgA[i]      
+        for i in range ( self.trialsPerDay*self.sessionsNum - 50 , self.trialsPerDay*self.sessionsNum + 500 ):
+            if max < self.internalStateLgA[i]:
+                max = self.internalStateLgA[i]      
         pylab.ylim((-10 , max + 10))
         pylab.xlim((0,551))
     
@@ -889,7 +894,7 @@ class HomeoRLEnv():
         fig1.subplots_adjust(left=0.16)
 
         ax1 = fig1.add_subplot(111)
-        S0 = ax1.plot(infusionShA [trialsPerDay*sessionsNum - 50 : trialsPerDay*sessionsNum + 500], linewidth = 2 , color='black' )
+        S0 = ax1.plot(self.infusionShA [self.trialsPerDay*self.sessionsNum - 50 : self.trialsPerDay*self.sessionsNum + 500], linewidth = 2 , color='black' )
         
         #    pylab.yticks(pylab.arange(0, 1.01, 0.2))
         pylab.ylim((0,1.5))
@@ -921,7 +926,7 @@ class HomeoRLEnv():
         fig1.subplots_adjust(bottom=0.3)
         fig1.subplots_adjust(left=0.16)
         ax1 = fig1.add_subplot(111)
-        S0 = ax1.plot(infusionLgA [trialsPerDay*sessionsNum - 50 : trialsPerDay*sessionsNum + 500], linewidth = 2 , color='black' )
+        S0 = ax1.plot(self.infusionLgA [self.trialsPerDay*self.sessionsNum - 50 : self.trialsPerDay*self.sessionsNum + 500], linewidth = 2 , color='black' )
         
         pylab.ylim((0,1.5))
 
@@ -953,13 +958,13 @@ class HomeoRLEnv():
         x = numpy.arange(10, 61, 10)
         
         for i in range(0,6):
-            for j in range(trialsPerDay + i*(trialsPerBlock), trialsPerDay + (i+1)*trialsPerBlock):
-                infusion4sec[i] = infusion4sec[i] + infusionLgA[j]
+            for j in range(self.trialsPerDay + i*(self.trialsPerBlock), self.trialsPerDay + (i+1)*self.trialsPerBlock):
+                infusion4sec[i] = infusion4sec[i] + self.infusionLgA[j]
 
 
         for i in range(0,6):
-            for j in range(trialsPerDay + i*(trialsPerBlock), trialsPerDay + (i+1)*trialsPerBlock):
-                infusion20sec[i] = infusion20sec[i] + infusionShA[j]
+            for j in range(self.trialsPerDay + i*(self.trialsPerBlock), self.trialsPerDay + (i+1)*self.trialsPerBlock):
+                infusion20sec[i] = infusion20sec[i] + self.infusionShA[j]
 
             
         fig1 = pylab.figure( figsize=(5,3.5) )
@@ -994,13 +999,13 @@ class HomeoRLEnv():
         iiiLgA  = []   # inter-infusion intervals
         xLgA = numpy.arange(1, 31, 1)
 
-        for j in range(trialsPerDay + (sessionsNum-1)*(trialsPerDay),trialsPerDay + (sessionsNum-1)*(trialsPerDay)+seekingTrialsNumLgA):
-            if infusionLgA[j]==1:
+        for j in range(self.trialsPerDay + (self.sessionsNum-1)*(self.trialsPerDay), self.trialsPerDay + (self.sessionsNum-1)*(self.trialsPerDay)+self.seekingTrialsNumLgA):
+            if self.infusionLgA[j]==1:
                 previousInfTime = j
                 break
 
-        for j in range( j+1 , trialsPerDay + (sessionsNum-1)*(trialsPerDay)+seekingTrialsNumLgA):
-            if infusionLgA[j]==1:
+        for j in range( j+1 , self.trialsPerDay + (self.sessionsNum-1)*(self.trialsPerDay)+self.seekingTrialsNumLgA):
+            if self.infusionLgA[j]==1:
                 interInf = (j - previousInfTime) * 4        # x*4 , because every trial is 4 seconds
                 iiiLgA.append(interInf)
                 previousInfTime = j
@@ -1008,13 +1013,13 @@ class HomeoRLEnv():
     #--------------------------------------- Compute III For Short-Access
         iiiShA  = []   # inter-infusion intervals
         
-        for j in range(trialsPerDay + (sessionsNum-1)*(trialsPerDay),trialsPerDay + (sessionsNum-1)*(trialsPerDay)+seekingTrialsNumShA):
-            if infusionShA[j]==1:
+        for j in range(self.trialsPerDay + (self.sessionsNum-1)*(self.trialsPerDay),self.trialsPerDay + (self.sessionsNum-1)*(self.trialsPerDay)+self.seekingTrialsNumShA):
+            if self.infusionShA[j]==1:
                 previousInfTime = j
                 break
 
-        for j in range( j+1 , trialsPerDay + (sessionsNum-1)*(trialsPerDay)+seekingTrialsNumShA):
-            if infusionShA[j]==1:
+        for j in range( j+1 , self.trialsPerDay + (self.sessionsNum-1)*(self.trialsPerDay)+self.seekingTrialsNumShA):
+            if self.infusionShA[j]==1:
                 interInf = (j - previousInfTime) * 4        # x*4 , because every trial is 4 seconds
                 iiiShA.append(interInf)
                 previousInfTime = j
@@ -1057,12 +1062,12 @@ class HomeoRLEnv():
 
     def plotting(self):
         """Plot all the results"""
-        loggingFinalization()
+        self.loggingFinalization()
 
-        plotInternalStateLastSession()
-        plotInfusionLastSession()
-        plotInfusionPer10Min()
-        plotInterInfusionIntervals()
+        self.plotInternalStateLastSession()
+        self.plotInfusionLastSession()
+        self.plotInfusionPer10Min()
+        self.plotInterInfusionIntervals()
         
         pylab.show()   
         
@@ -1073,51 +1078,51 @@ class HomeoRLEnv():
             # From state s, and by taking a, we go to state s', with probability p
             #State 0 starting state (action 0 do nothing, action 1, press inactive lever and action 2 press active lever)
             # 0 to 4 secs
-            setTransition(0,0,0,1)
-            setTransition(0,1,0,1)
-            setTransition(0,2,1,1)
+            self.setTransition(0,0,0,1)
+            self.setTransition(0,1,0,1)
+            self.setTransition(0,2,1,1)
 
             # At state s, by doing action a and going to state s', we receive the outcome
-            setOutcome(0,2,1,cocaine)#take a hit of cocaine 
+            self.setOutcome(0,2,1, self.cocaine)#take a hit of cocaine 
 
-            setNonHomeostaticReward(0,1,0,-leverPressCost)
-            setNonHomeostaticReward(0,2,1,-leverPressCost)
+            self.setNonHomeostaticReward(0,1,0,-self.leverPressCost)
+            self.setNonHomeostaticReward(0,2,1,-self.leverPressCost)
 
             # 4 to 8 secs
-            setTransition(1,0,2,1)
-            setTransition(1,1,2,1)
-            setTransition(1,2,2,1)
+            self.setTransition(1,0,2,1)
+            self.setTransition(1,1,2,1)
+            self.setTransition(1,2,2,1)
 
-            setNonHomeostaticReward(1,1,2,-leverPressCost)
-            setNonHomeostaticReward(1,2,2,-leverPressCost)
+            self.setNonHomeostaticReward(1,1,2,-self.leverPressCost)
+            self.setNonHomeostaticReward(1,2,2,-self.leverPressCost)
 
             # 8 to 12 secs
-            setTransition(2,0,3,1)
-            setTransition(2,1,3,1)
-            setTransition(2,2,3,1)
+            self.setTransition(2,0,3,1)
+            self.setTransition(2,1,3,1)
+            self.setTransition(2,2,3,1)
 
             # 12 to 16 secs
-            setTransition(3,0,4,1)
-            setTransition(3,1,4,1)
-            setTransition(3,2,4,1)
+            self.setTransition(3,0,4,1)
+            self.setTransition(3,1,4,1)
+            self.setTransition(3,2,4,1)
 
-            setNonHomeostaticReward(3,1,4,-leverPressCost)
-            setNonHomeostaticReward(3,2,4,-leverPressCost)
+            self.setNonHomeostaticReward(3,1,4,-self.leverPressCost)
+            self.setNonHomeostaticReward(3,2,4,-self.leverPressCost)
 
             # 16 to 20 secs
-            setTransition(4,0,0,1)
-            setTransition(4,1,0,1)
-            setTransition(4,2,0,1)
+            self.setTransition(4,0,0,1)
+            self.setTransition(4,1,0,1)
+            self.setTransition(4,2,0,1)
 
-            setNonHomeostaticReward(4,1,0,-leverPressCost)
-            setNonHomeostaticReward(4,2,0,-leverPressCost)
-        elif(sec=4):
-            setTransition(0,0,0,1)          # From state s, and by taking a, we go to state s', with probability p
-            setTransition(0,1,0,1)
-            setOutcome(0,1,0,cocaine)       # At state s, by doing action a and going to state s', we receive the outcome 
-            setNonHomeostaticReward(0,1,0,-leverPressCost)
-
+            self.setNonHomeostaticReward(4,1,0,-self.leverPressCost)
+            self.setNonHomeostaticReward(4,2,0,-self.leverPressCost)
+        elif(sec==4):
+            self.setTransition(0,0,0,1)          # From state s, and by taking a, we go to state s', with probability p
+            self.setTransition(0,1,0,1)
+            self.setOutcome(0,1,0,self.cocaine)       # At state s, by doing action a and going to state s', we receive the outcome 
+            self.setNonHomeostaticReward(0,1,0,-self.leverPressCost)
 
 if __name__ == "__main__":
     #run sim
-    HomeoRLEnv()
+    #HomeoRLEnv()
+    pass
