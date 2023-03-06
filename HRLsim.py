@@ -206,11 +206,12 @@ class HomeoRLEnv():
         self.searchDepth = 3 # Depth of going into the decision tree for goal-directed valuation of choices
         self.pruningThreshold = 0.1 # If the probability of a transition like (s,a,s') is less than "pruningThreshold", cut it from the decision tree 
 
+        #this is the model the agent thinks the world will be vs what it actually becomes (e.g self.transition, self.outcome and self.nonHomeostaticReward)
         self.estimatedTransition = np.zeros( [self.statesNum , self.actionsNum, self.statesNum] , float)
         self.estimatedOutcome = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
         self.estimatedNonHomeostaticReward = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
 
-        self.state = np.zeros( [4] , int) # a vector of the external state, internal state, setpoint, and trial
+        self.state = np.zeros( [4] , int) # the observation of the agent, a vector of the external state, internal state, setpoint, and trial
 
         #Simulation Parameters
         self.animalsNum = 1 # Number of animals
@@ -239,9 +240,9 @@ class HomeoRLEnv():
         self.totalTrialsNum = self.trialsPerDay + self.sessionsNum * (self.trialsPerDay)  #+ extinctionTrialsNum*2 + 1
 
         #Plotting Parameters
-        self.trialsPerBlock = int(10*60/4)            # Each BLOCK is 10 minutes - Each minute 60 second - Each trial takes 4 seconds
+        self.trialsPerBlock = 150  # Each BLOCK is 10 minutes - Each minute 60 second - Each trial takes 4 seconds. ros - removed int(10*60/4)
 
-        #Logging Parameters
+        #Logging Parameters for each trial of SHA
         self.nulDoingShA = np.zeros( [self.totalTrialsNum] , float)
         self.inactiveLeverPressShA = np.zeros( [self.totalTrialsNum] , float)
         self.activeLeverPressShA = np.zeros( [self.totalTrialsNum] , float)
@@ -249,6 +250,7 @@ class HomeoRLEnv():
         self.setpointShA = np.zeros( [self.totalTrialsNum] , float)
         self.infusionShA = np.zeros( [self.totalTrialsNum] , float)
 
+        #Logging Parameters for each trial of SHA
         self.nulDoingLgA = np.zeros( [self.totalTrialsNum] , float)
         self.inactiveLeverPressLgA = np.zeros( [self.totalTrialsNum] , float)
         self.activeLeverPressLgA = np.zeros( [self.totalTrialsNum] , float)
@@ -267,7 +269,7 @@ class HomeoRLEnv():
         #ros - Agent Brain, a neural network that represents our Q-function
         self.ShA_DQN_agent = Dqn(s, a, g, l, t , r) # e.g 5 sensors, 6 actions, gamma = 0.9, temperature
 
-        self.animal = 0
+        self.animal = 0 # number of animals being tested
         
         #------------------------------------------ Simulating the 20sec time-out
         self.initializeAnimal()
