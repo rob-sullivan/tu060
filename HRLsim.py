@@ -1,11 +1,19 @@
-# Simulating Addiction with Deep Q Learning
-
+"""Homeostatic Reinforcement Learning Simulator 
+created by Robert S. Sullivan in 2023 using Python 3.8.10.
+Adapted from Mehdi Keramati's HomeoSim. Keramati's simulator 
+was called escalation of cocaine-seeking in the homeostatic 
+reinforcement learning framework. It was created by Keramati 
+in March 2013 using Python 2.6 to mimic experimental cocaine data.
+This simulator incoporates object orientated programming and deep
+Q learning, a value based off policy reinforcement learning technique
+that makes use of deep neural networks for value approximation.
+"""
 
 import os
 from os import system, name
 import random
 import time
-#import numpy as np #imported later in Keramati's simulator
+import numpy as np #Keramati's simulator imported as numpy. changed for consistency
 import matplotlib.pyplot as plt
 
 #pytorch for gpu processing of ML model
@@ -23,7 +31,7 @@ from torch.autograd import Variable
 
 #used for Keramati's simulator
 import scipy
-import numpy
+#import numpy
 import pylab
 import cmath
 
@@ -74,10 +82,13 @@ class ReplayMemory():
 
 ### DQN Ensemble
 class Dqn():
-    """This is our RL Agent"""
-    def __init__(self, input_size, nb_action, gamma, alpha=0.001, memory=100000):
+    """This is our Deep Q-Learning Agent Architecture"""
+    def __init__(self, input_size, nb_action, gamma, alpha=0.001, memory=100000, temp=100, samp=100, reward_max=1000):
         self.gamma = gamma
+        self.temperature = temp
+        self.experience_sample_size = samp
         self.reward_window = []
+        self.reward_window_max_size = reward_max
         self.model = Network(input_size, nb_action)
         self.memory = ReplayMemory(memory)
         self.optimizer = optim.Adam(self.model.parameters(), lr = alpha)
@@ -87,24 +98,27 @@ class Dqn():
         
     
     def select_action(self, state):
-        #softmax converts q value numbers into a probability distribution.
-        #Q values are the output of the neural network
-        # Temperature value = 100. closer to zero the less sure the NN will be to taking the action
-        probs = F.softmax(self.model(Variable(state, volatile = True))*100) # T=100
-        #e.g actions[1,2,3] = prob[0.04, 0.11, 0.85] # temperature increases 0.85 value to be selected
+        """This uses softmax to convert outputted q value 
+        numbers from the neural network into a probability distribution.
+        Temperature value = 100. Closer to zero the less sure the NN will 
+        be to taking the action. e.g actions[1,2,3] = prob[0.04, 0.11, 0.85]. 
+        Temperature increases 0.85 value to be selected"""
+        probs = F.softmax(self.model(Variable(state, volatile = True))*self.temperature) # T=100
         action = probs.multinomial(num_samples=1)
         return action.data[0,0]#convert from pytorch tensor to action
     
-    #to train our AI
-    #forward propagation then backproagation
-    # get our output, target, compare our output to the target to compute the loss error
-    # backproagate loss error into the nn and use stochastic gradient descent we update the weights according to how much they contributed to the loss error
     def learn(self, batch_state, batch_next_state, batch_reward, batch_action):
-        outputs = self.model(batch_state).gather(1, batch_action.unsqueeze(1)).squeeze(1)
-        next_outputs = self.model(batch_next_state).detach().max(1)[0]
-        target = self.gamma*next_outputs + batch_reward
-        td_loss = F.smooth_l1_loss(outputs, target)
-        self.optimizer.zero_grad()
+        """To train the Agent, we use forward propagation then backpropagation.
+        We forward input data through the network to get our output and target then 
+        we compare our output to the target to compute the loss error.
+        This error is backproagated into the nn and we use stochastic gradient descent 
+        to update the weights according to how much they contributed to that loss error.
+        """
+        outputs = self.model(batch_state).gather(1, batch_action.unsqueeze(1)).squeeze(1) #gathers samples of output q-values from each row of the nn along a dimension
+        next_outputs = self.model(batch_next_state).detach().max(1)[0] # this detaches values into a sample that doesn't receive gradient or backpropagation.
+        target = self.gamma * next_outputs + batch_reward #create a target q value using the bellman equation
+        td_loss = F.smooth_l1_loss(outputs, target) #calculate our losses from what the nn thinks q value should be vs actual
+        self.optimizer.zero_grad() #zero gradient is a pytorch parameter to ensure we don't use old gradient with our new one in backpropagation and get wrong minimums.
         td_loss.backward(retain_graph = True)
         self.optimizer.step()
     
@@ -112,14 +126,14 @@ class Dqn():
         new_state = torch.Tensor(new_signal).float().unsqueeze(0)
         self.memory.push((self.last_state, new_state, torch.LongTensor([int(self.last_action)]), torch.Tensor([self.last_reward])))
         action = self.select_action(new_state)
-        if len(self.memory.memory) > 100:
-            batch_state, batch_next_state, batch_action, batch_reward = self.memory.sample(100)
+        if len(self.memory.memory) > self.experience_sample_size: #e.g size 100
+            batch_state, batch_next_state, batch_action, batch_reward = self.memory.sample(self.experience_sample_size) #e.g size 100
             self.learn(batch_state, batch_next_state, batch_reward, batch_action)
         self.last_action = action
         self.last_state = new_state
         self.last_reward = reward
         self.reward_window.append(reward)
-        if len(self.reward_window) > 1000:
+        if len(self.reward_window) > self.reward_window_max_size: #e.g size 1000
             del self.reward_window[0]
         return action
     
@@ -142,14 +156,13 @@ class Dqn():
 
 
 class HomeoRLEnv():
-    """Homeostatic Reinforcement Learning environment 
+    """Homeostatic Reinforcement Learning Simulator 
     created by Robert S. Sullivan in 2023 using Python 3.8.10.
     Adapted from Mehdi Keramati's HomeoSim. Keramati's simulator 
     was called escalation of cocaine-seeking in the homeostatic 
     reinforcement learning framework. It was created by Keramati 
     in March 2013 using Python 2.6 to mimic experimental cocaine data.
-
-"""
+    """
     def __init__(self):
         # Definition of the Markov Decison Process FR1 - Timeout 20sec
         self.cocaine = 50 # Dose of self-administered drug
@@ -160,9 +173,9 @@ class HomeoRLEnv():
         self.actionsNum = 3 # number of action   action 0 = Null     action 1 = Inactive Lever Press    action 2 = Active Lever Press
         self.initialExState = 0
 
-        self.transition = numpy.zeros( [self.statesNum , self.actionsNum, self.statesNum] , float)
-        self.outcome = numpy.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
-        self.nonHomeostaticReward = numpy.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
+        self.transition = np.zeros( [self.statesNum , self.actionsNum, self.statesNum] , float)
+        self.outcome = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
+        self.nonHomeostaticReward = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
         
         self.initializeEnvironment(20) #construct a 20 second MDP environment
 
@@ -193,11 +206,11 @@ class HomeoRLEnv():
         self.searchDepth = 3 # Depth of going into the decision tree for goal-directed valuation of choices
         self.pruningThreshold = 0.1 # If the probability of a transition like (s,a,s') is less than "pruningThreshold", cut it from the decision tree 
 
-        self.estimatedTransition = numpy.zeros( [self.statesNum , self.actionsNum, self.statesNum] , float)
-        self.estimatedOutcome = numpy.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
-        self.estimatedNonHomeostaticReward = numpy.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
+        self.estimatedTransition = np.zeros( [self.statesNum , self.actionsNum, self.statesNum] , float)
+        self.estimatedOutcome = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
+        self.estimatedNonHomeostaticReward = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
 
-        self.state = numpy.zeros( [4] , int) # a vector of the external state, internal state, setpoint, and trial
+        self.state = np.zeros( [4] , int) # a vector of the external state, internal state, setpoint, and trial
 
         #Simulation Parameters
         self.animalsNum = 1 # Number of animals
@@ -229,29 +242,30 @@ class HomeoRLEnv():
         self.trialsPerBlock = int(10*60/4)            # Each BLOCK is 10 minutes - Each minute 60 second - Each trial takes 4 seconds
 
         #Logging Parameters
-        self.nulDoingShA = numpy.zeros( [self.totalTrialsNum] , float)
-        self.inactiveLeverPressShA = numpy.zeros( [self.totalTrialsNum] , float)
-        self.activeLeverPressShA = numpy.zeros( [self.totalTrialsNum] , float)
-        self.internalStateShA = numpy.zeros( [self.totalTrialsNum] , float)
-        self.setpointShA = numpy.zeros( [self.totalTrialsNum] , float)
-        self.infusionShA = numpy.zeros( [self.totalTrialsNum] , float)
+        self.nulDoingShA = np.zeros( [self.totalTrialsNum] , float)
+        self.inactiveLeverPressShA = np.zeros( [self.totalTrialsNum] , float)
+        self.activeLeverPressShA = np.zeros( [self.totalTrialsNum] , float)
+        self.internalStateShA = np.zeros( [self.totalTrialsNum] , float)
+        self.setpointShA = np.zeros( [self.totalTrialsNum] , float)
+        self.infusionShA = np.zeros( [self.totalTrialsNum] , float)
 
-        self.nulDoingLgA = numpy.zeros( [self.totalTrialsNum] , float)
-        self.inactiveLeverPressLgA = numpy.zeros( [self.totalTrialsNum] , float)
-        self.activeLeverPressLgA = numpy.zeros( [self.totalTrialsNum] , float)
-        self.internalStateLgA = numpy.zeros( [self.totalTrialsNum] , float)
-        self.setpointLgA = numpy.zeros( [self.totalTrialsNum] , float)
-        self.infusionLgA = numpy.zeros( [self.totalTrialsNum] , float)
+        self.nulDoingLgA = np.zeros( [self.totalTrialsNum] , float)
+        self.inactiveLeverPressLgA = np.zeros( [self.totalTrialsNum] , float)
+        self.activeLeverPressLgA = np.zeros( [self.totalTrialsNum] , float)
+        self.internalStateLgA = np.zeros( [self.totalTrialsNum] , float)
+        self.setpointLgA = np.zeros( [self.totalTrialsNum] , float)
+        self.infusionLgA = np.zeros( [self.totalTrialsNum] , float)
 
         # 20 second Time Out Simulation
         #ros - Create a ShA DQL Agent
-        s = self.state.shape[0]#get shape of numpy array sensors. i.e external state, internal state, setpoint, and trial
+        s = self.state.shape[0]#get shape of np array sensors. i.e external state, internal state, setpoint, and trial
         a = self.actionsNum #get number of actions
         g = self.gamma #get discount rate
         l = 0.2 #learning rate taken from goal directed system
-
+        t = 100 #temperature value. e.g if actions[1,2,3] = prob[0.04, 0.11, 0.85] then temperature will increase change of 0.85 value to be selected"""
+        r = 1000 #reward window max. collecting rewards as agent progresses through environment but window is emptied if over this value
         #ros - Agent Brain, a neural network that represents our Q-function
-        self.ShA_DQN_agent = Dqn(s,a,g,l) # e.g 5 sensors, 6 actions, gamma = 0.9
+        self.ShA_DQN_agent = Dqn(s, a, g, l, t , r) # e.g 5 sensors, 6 actions, gamma = 0.9, temperature
 
         self.animal = 0
         
@@ -275,33 +289,35 @@ class HomeoRLEnv():
         self.actionsNum = 2                  # number of action   action 0 = Null     action 1 = Inactive Lever Press    action 2 = Active Lever Press
         self.initialExState = 0
 
-        self.transition = numpy.zeros( [self.statesNum , self.actionsNum, self.statesNum] , float)
-        self.outcome = numpy.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
-        self.nonHomeostaticReward = numpy.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
+        self.transition = np.zeros( [self.statesNum , self.actionsNum, self.statesNum] , float)
+        self.outcome = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
+        self.nonHomeostaticReward = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
 
         self.initializeEnvironment(4) #construct a 4 second MDP environment
         
         #------------------------------------------ ReDefining the animal
-        self.estimatedTransition = numpy.zeros( [self.statesNum , self.actionsNum, self.statesNum] , float)
-        self.estimatedOutcome = numpy.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
-        self.estimatedNonHomeostaticReward = numpy.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
+        self.estimatedTransition = np.zeros( [self.statesNum , self.actionsNum, self.statesNum] , float)
+        self.estimatedOutcome = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
+        self.estimatedNonHomeostaticReward = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
 
         #------------------------------------------ ReDefining the Logging Parameters
-        self.nulDoingLgA            = numpy.zeros( [self.totalTrialsNum] , float)
-        self.inactiveLeverPressLgA  = numpy.zeros( [self.totalTrialsNum] , float)
-        self.activeLeverPressLgA    = numpy.zeros( [self.totalTrialsNum] , float)
-        self.internalStateLgA       = numpy.zeros( [self.totalTrialsNum] , float)
-        self.setpointLgA            = numpy.zeros( [self.totalTrialsNum] , float)
-        self.infusionLgA            = numpy.zeros( [self.totalTrialsNum] , float)
+        self.nulDoingLgA            = np.zeros( [self.totalTrialsNum] , float)
+        self.inactiveLeverPressLgA  = np.zeros( [self.totalTrialsNum] , float)
+        self.activeLeverPressLgA    = np.zeros( [self.totalTrialsNum] , float)
+        self.internalStateLgA       = np.zeros( [self.totalTrialsNum] , float)
+        self.setpointLgA            = np.zeros( [self.totalTrialsNum] , float)
+        self.infusionLgA            = np.zeros( [self.totalTrialsNum] , float)
 
         #ros - Create a LgA DQL Agent
-        s = self.state.shape[0]#get shape of numpy array sensors. i.e external state, internal state, setpoint, and trial
+        s = self.state.shape[0]#get shape of np array sensors. i.e external state, internal state, setpoint, and trial
         a = self.actionsNum #get number of actions
         g = self.gamma #get discount rate
         l = 0.2 #learning rate taken from goal directed system
+        t = 100 #temperature value. e.g if actions[1,2,3] = prob[0.04, 0.11, 0.85] then temperature will increase change of 0.85 value to be selected"""
+        r = 1000 #reward window max. collecting rewards as agent progresses through environment but window is emptied if over this value
 
         #ros - Agent Brain, a neural network that represents our Q-function
-        self.LgA_DQN_agent = Dqn(s,a,g,l) # e.g 5 sensors, 6 actions, gamma = 0.9
+        self.LgA_DQN_agent = Dqn(s, a, g, l, t, r) # e.g 5 sensors, 6 actions, gamma = 0.9, temperature = 100
 
         # Simulating the 4sec time-out
         self.initializeAnimal()
@@ -625,7 +641,7 @@ class HomeoRLEnv():
 
     def getRealizedTransition(self, state,action):
         """Return the next state that the animal fell into"""
-        index = numpy.random.uniform(0,1)
+        index = np.random.uniform(0,1)
         probSum = 0
         for nextS in range(0, self.statesNum):
             probSum = probSum + self.getTransition(state,action,nextS)
@@ -675,8 +691,8 @@ class HomeoRLEnv():
 
     def driveReductionReward(self, inState, setpointS, outcome):
         """Homeostatically-regulated Reward"""
-        d1 = numpy.power(numpy.absolute(numpy.power(setpointS-inState, self.n*1.0)),(1.0/self.m))
-        d2 = numpy.power(numpy.absolute(numpy.power(setpointS-inState-outcome, self.n*1.0)),(1.0/self.m))
+        d1 = np.power(np.absolute(np.power(setpointS-inState, self.n*1.0)),(1.0/self.m))
+        d2 = np.power(np.absolute(np.power(setpointS-inState-outcome, self.n*1.0)),(1.0/self.m))
         return d1-d2
 
     def updateInState(self, inState,outcome):
@@ -733,7 +749,7 @@ class HomeoRLEnv():
 
     def valueEstimation(self, state,inState,setpointS,depthLeft):
         """Goal-directed Value estimation"""
-        values = numpy.zeros ( [self.actionsNum] , float )
+        values = np.zeros ( [self.actionsNum] , float )
 
         # If this is the last depth that should be searched :
         if depthLeft==1:
@@ -784,7 +800,7 @@ class HomeoRLEnv():
         for action in range(0, self.actionsNum):
             sumEV = sumEV + abs(cmath.exp( V[action] / self.beta ))
 
-        index = numpy.random.uniform(0,sumEV)
+        index = np.random.uniform(0,sumEV)
 
         probSum=0
         for action in range(0, self.actionsNum):
@@ -953,9 +969,9 @@ class HomeoRLEnv():
 
     def plotInfusionPer10Min(self):
         """Plot the infusions per 10 minutes for the Short-Access group"""
-        infusion4sec   = numpy.zeros( [6] , float)
-        infusion20sec  = numpy.zeros( [6] , float)
-        x = numpy.arange(10, 61, 10)
+        infusion4sec   = np.zeros( [6] , float)
+        infusion20sec  = np.zeros( [6] , float)
+        x = np.arange(10, 61, 10)
         
         for i in range(0,6):
             for j in range(self.trialsPerDay + i*(self.trialsPerBlock), self.trialsPerDay + (i+1)*self.trialsPerBlock):
@@ -997,7 +1013,7 @@ class HomeoRLEnv():
         """Plot the inter-nfusion intervals for the last session of the Long-Access group"""
         #--------------------------------------- Compute III For Long-Access
         iiiLgA  = []   # inter-infusion intervals
-        xLgA = numpy.arange(1, 31, 1)
+        xLgA = np.arange(1, 31, 1)
 
         for j in range(self.trialsPerDay + (self.sessionsNum-1)*(self.trialsPerDay), self.trialsPerDay + (self.sessionsNum-1)*(self.trialsPerDay)+self.seekingTrialsNumLgA):
             if self.infusionLgA[j]==1:
@@ -1025,7 +1041,7 @@ class HomeoRLEnv():
                 previousInfTime = j
 
         infusionsNumShA = len(iiiShA)
-        xShA = numpy.arange(1, infusionsNumShA+1, 1)
+        xShA = np.arange(1, infusionsNumShA+1, 1)
             
         
         iiimax = 0
