@@ -169,8 +169,8 @@ class HomeoRLEnv():
         self.nonContingentCocaine = 50
         self.leverPressCost = 1 # Energy cost for pressing the lever
 
-        self.statesNum = 5 # number of stater 
-        self.actionsNum = 3 # number of action   action 0 = Null     action 1 = Inactive Lever Press    action 2 = Active Lever Press
+        self.statesNum = 5 # sequence of steps that each take 4 second to complete. 5 states x 4secs = 20secs
+        self.actionsNum = 3 # number of action, e.g action 0 = Null, action 1 = Inactive Lever Press, action 2 = Active Lever Press
         self.initialExState = 0
 
         self.transition = np.zeros( [self.statesNum , self.actionsNum, self.statesNum] , float)
@@ -636,7 +636,10 @@ class HomeoRLEnv():
         return 
 
     def getTransition(self, s,a,nextS):
-        """Return the probability of the transitions s-a->s'"""
+        """Return the probability of the transitions to 
+        the next state s-a->s'
+        used in getRealizedTransition() and isActionAvailable()
+        """
         return self.transition[s][a][nextS]
 
     def getRealizedTransition(self, state,action):
@@ -896,7 +899,7 @@ class HomeoRLEnv():
         ax1.set_ylabel('Internal State')
         ax1.set_xlabel('Time (min)')
         ax1.set_title('Post-escalation')
-        fig1.savefig('internalStateLastSession.eps', format='eps')
+        fig1.savefig('internalStateLastSession.png', format='png') #changed eps to png
 
         return
 
@@ -932,7 +935,7 @@ class HomeoRLEnv():
         ax1.set_ylabel('Infusion')
         ax1.set_xlabel('Time (min)')
         ax1.set_title('20sec time-out')
-        fig1.savefig('infusionShALastSession.eps', format='eps')
+        fig1.savefig('infusionShALastSession.png', format='png') #changed eps to png
 
 
     #---------------------------------LgA rats
@@ -963,7 +966,7 @@ class HomeoRLEnv():
         ax1.set_ylabel('Infusions')
         ax1.set_xlabel('Time (min)')
         ax1.set_title('4sec time-out')
-        fig1.savefig('infusionLgALastSession.eps', format='eps')
+        fig1.savefig('infusionLgALastSession.png', format='png') #changed eps to png
 
         return
 
@@ -1005,7 +1008,7 @@ class HomeoRLEnv():
         ax1.set_ylabel('Infusions / 10 min')
         ax1.set_xlabel('Time (min)')
         ax1.set_title(' Post-escalation')
-        fig1.savefig('infusionPer10Min.eps', format='eps')
+        fig1.savefig('infusionPer10Min.png', format='png') #changed eps to png
 
         return
 
@@ -1072,7 +1075,7 @@ class HomeoRLEnv():
         ax1.set_ylabel('Inter-infusion intervals (sec)')
         ax1.set_xlabel('Infusion number')
         ax1.set_title('Post-escalation')
-        fig1.savefig('interInfusionIntervals.eps', format='eps')
+        fig1.savefig('interInfusionIntervals.png', format='png') #changed eps to png
 
         return
 
@@ -1133,12 +1136,11 @@ class HomeoRLEnv():
             self.setNonHomeostaticReward(4,1,0,-self.leverPressCost)
             self.setNonHomeostaticReward(4,2,0,-self.leverPressCost)
         elif(sec==4):
-            self.setTransition(0,0,0,1)          # From state s, and by taking a, we go to state s', with probability p
+            self.setTransition(0,0,0,1) # From state s, and by taking a, we go to state s', with probability p
             self.setTransition(0,1,0,1)
-            self.setOutcome(0,1,0,self.cocaine)       # At state s, by doing action a and going to state s', we receive the outcome 
+            self.setOutcome(0,1,0,self.cocaine) # At state s, by doing action a and going to state s', we receive the outcome 
             self.setNonHomeostaticReward(0,1,0,-self.leverPressCost)
 
 if __name__ == "__main__":
     #run sim
-    #HomeoRLEnv()
-    pass
+    HomeoRLEnv()
