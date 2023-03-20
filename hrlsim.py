@@ -9,6 +9,8 @@ Q learning, a value based off policy reinforcement learning technique
 that makes use of deep neural networks for value approximation.
 """
 
+#import gymnasium as gym #Gym has been moved to Gymnasium: https://www.gymlibrary.dev/, https://towardsdatascience.com/creating-a-custom-gym-environment-for-jupyter-notebooks-e17024474617
+
 import os
 from os import system, name
 import random
@@ -189,10 +191,7 @@ class HomeoRLEnv():
         self.LgA_DQN_agent = Dqn(s, a, g, l, t, r) # e.g 5 sensors, 6 actions, gamma = 0.9, temperature = 100
         """
 
-        #set initial addiction values, leverpress values, number of states, actions, etc.
-        self.setupEnvironment()
-        #setup Homeostatic System, Allostatic (Stress) System, Drive Function and Goal-directed system
-        self.setupAnimal()
+        self.reset()
 
     #Simulated Experiments
     def pretraining(self, ratType):
@@ -230,12 +229,13 @@ class HomeoRLEnv():
             """
 
             estimatedActionValues = self.valueEstimation(exState,inState,setpointS, self.searchDepth)
-            action = self.actionSelectionSoftmax(exState,estimatedActionValues) #ros - removed non DQL agent
+            action = self.actionSelectionSoftmax(exState,estimatedActionValues)
             nextState = self.getRealizedTransition(exState,action)
             out = self.getOutcome(exState,action,nextState)
             nonHomeoRew = self.getNonHomeostaticReward(exState,action,nextState)
             HomeoRew = self.driveReductionReward(inState,setpointS,out)
 
+            #log information to user
             if ratType=='ShA':  
                 self.loggingShA (trial,action,inState,setpointS,out)    
                 print("ShA rat number: %d / %d \t Pre-training session \t trial: %d / %d \t animal seeking cocaine" %(self.animal+1,self.animalsNum,trial+1,trialsNum))
@@ -490,7 +490,7 @@ class HomeoRLEnv():
 
         return
 
-    #Utility Functions
+    #Utility functions for Homeostatic state space and rewards 
     def setTransition(self, state, action, nextState, transitionProbability):
         """Setting the transition function of the MDP"""
         self.transition [state][action][nextState] = transitionProbability
@@ -733,6 +733,29 @@ class HomeoRLEnv():
 
         print("Error: An unexpected (strange) problem has occured in action selection...")
         return 0
+
+    #custom gym functions
+    def reset(self):
+        """Resets the environment for the RL agent"""
+        #set initial addiction values, leverpress values, number of states, actions, etc.
+        self.setupEnvironment()
+        #setup Homeostatic System, Allostatic (Stress) System, Drive Function and Goal-directed system
+        self.setupAnimal()
+
+    def _next_observation(self):
+        """Collects information about the environment from animal's senses and provides it to the RL agent"""
+        exState = self.state[0]
+        inState = self.state[1]
+        setpointS = self.state[2]
+        trialCount = self.state[3]
+
+        self.state[0] = exState
+        self.state[1] = inState
+        self.state[2] = setpointS
+        self.state[3] = trialCount+trialsNum
+
+        obs = self.state
+        return obs
 
     #Keramati's log and graph functions
     def loggingShA(self, trial,action,inState,setpointS,coca):
@@ -1181,6 +1204,6 @@ class HomeoRLEnv():
         #finish up and plot results
         self.plotting()
 if __name__ == "__main__":
-    app = HomeoRLEnv() #create so,
+    env = HomeoRLEnv() #create so,
     #run Keramati's 20sec vs 4 sec Experiment in sim
-    app.runKeramatiExperiment()
+    env.runKeramatiExperiment()
