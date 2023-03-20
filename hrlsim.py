@@ -164,176 +164,35 @@ class HomeoRLEnv():
     in March 2013 using Python 2.6 to mimic experimental cocaine data.
     """
     def __init__(self):
-        # Definition of the Markov Decison Process FR1 - Timeout 20sec
-        self.cocaine = 50 # Dose of self-administered drug
-        self.nonContingentCocaine = 50
-        self.leverPressCost = 1 # Energy cost for pressing the lever
 
-        self.statesNum = 5 # sequence of steps that each take 4 second to complete. 5 states x 4secs = 20secs
-        self.actionsNum = 3 # number of action, e.g action 0 = Null, action 1 = Inactive Lever Press, action 2 = Active Lever Press
-        self.initialExState = 0
-
-        self.transition = np.zeros( [self.statesNum , self.actionsNum, self.statesNum] , float)
-        self.outcome = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
-        self.nonHomeostaticReward = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
-        
-        self.initializeEnvironment(20) #construct a 20 second MDP environment
-
-        # Definition of the Animal
-        #------------ Homeostatic System
-        self.initialInState = 0
-        self.initialSetpoint = 200
-        self.inStateLowerBound = 0
-        self.cocaineDegradationRate = 0.007 # Dose of cocaine that the animal loses in every time-step
-        self.cocAbsorptionRatio = 0.12 # Proportion of the injected cocaine that affects the brain right after infusion 
-
-        #------------ Allostatic (Stress) System
-        self.setpointShiftRate = 0.0018
-        self.setpointRecoveryRate = 0.00016
-        self.optimalInStateLowerBound = 100
-        self.optimalInStateUpperBound = 200
-
-        #------------ Drive Function
-        self.m = 3 # Parameter of the drive function : m-th root
-        self.n = 4 # Parameter of the drive function : n-th pawer
-
-        #------------ Goal-directed system
-        self.updateOutcomeRate = 0.2  # Learning rate for updating the outcome function
-        self.updateTransitionRate = 0.2  # Learning rate for updating the transition function
-        self.updateRewardRate = 0.2  # Learning rate for updating the non-homeostatic reward function
-        self.gamma = 1 # Discount factor
-        self.beta = 0.25 # Rate of exploration
-        self.searchDepth = 3 # Depth of going into the decision tree for goal-directed valuation of choices
-        self.pruningThreshold = 0.1 # If the probability of a transition like (s,a,s') is less than "pruningThreshold", cut it from the decision tree 
-
-        #this is the model the agent thinks the world will be vs what it actually becomes (e.g self.transition, self.outcome and self.nonHomeostaticReward)
-        self.estimatedTransition = np.zeros( [self.statesNum , self.actionsNum, self.statesNum] , float)
-        self.estimatedOutcome = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
-        self.estimatedNonHomeostaticReward = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
-
-        self.state = np.zeros( [4] , int) # the observation of the agent, a vector of the external state, internal state, setpoint, and trial
-
-        #Simulation Parameters
-        self.animalsNum = 1 # Number of animals
-
-        pretrainingHours = 1
-        self.sessionsNum = 1 # Number of sessions of cocain seeking, followed by rest in home-cage
-        seekingHoursShA = 3 
-        seekingHoursLgA = 3 
-        extinctionHours = 0
-
-        trialsPerHour = 900 # 60*60/4 = 3600/4 = 900 trials during one hour (as each trial is supposed to be 4 seconds)
-        self.trialsPerDay = 24*trialsPerHour
-        self.pretrainingTrialsNum= pretrainingHours* trialsPerHour
-        self.restAfterPretrainingTrialsNum = (24 - pretrainingHours) * trialsPerHour
-
-        self.seekingTrialsNumShA = seekingHoursShA * trialsPerHour    # Number of trials for each cocaine seeking session
-        restingHoursShA = 24 - seekingHoursShA
-        self.restTrialsNumShA = restingHoursShA * trialsPerHour    # Number of trials for each session of the animal being in the home cage
-        self.extinctionTrialsNum = extinctionHours * trialsPerHour      # Number of trials for each extinction session
-
-        self.seekingTrialsNumLgA = seekingHoursLgA * trialsPerHour    # Number of trials for each cocaine seeking session
-        restingHoursLgA = 24 - seekingHoursLgA
-        self.restTrialsNumLgA = restingHoursLgA * trialsPerHour    # Number of trials for each session of the animal being in the home cage
-        self.extinctionTrialsNum = extinctionHours * trialsPerHour      # Number of trials for each extinction session
-
-        self.totalTrialsNum = self.trialsPerDay + self.sessionsNum * (self.trialsPerDay)  #+ extinctionTrialsNum*2 + 1
-
-        #Plotting Parameters
-        self.trialsPerBlock = 150  # Each BLOCK is 10 minutes - Each minute 60 second - Each trial takes 4 seconds. ros - removed int(10*60/4)
-
-        #Logging Parameters for each trial of SHA
-        self.nulDoingShA = np.zeros( [self.totalTrialsNum] , float)
-        self.inactiveLeverPressShA = np.zeros( [self.totalTrialsNum] , float)
-        self.activeLeverPressShA = np.zeros( [self.totalTrialsNum] , float)
-        self.internalStateShA = np.zeros( [self.totalTrialsNum] , float)
-        self.setpointShA = np.zeros( [self.totalTrialsNum] , float)
-        self.infusionShA = np.zeros( [self.totalTrialsNum] , float)
-
-        #Logging Parameters for each trial of SHA
-        self.nulDoingLgA = np.zeros( [self.totalTrialsNum] , float)
-        self.inactiveLeverPressLgA = np.zeros( [self.totalTrialsNum] , float)
-        self.activeLeverPressLgA = np.zeros( [self.totalTrialsNum] , float)
-        self.internalStateLgA = np.zeros( [self.totalTrialsNum] , float)
-        self.setpointLgA = np.zeros( [self.totalTrialsNum] , float)
-        self.infusionLgA = np.zeros( [self.totalTrialsNum] , float)
-
-        # 20 second Time Out Simulation
+        """
         #ros - Create a ShA DQL Agent
         s = self.state.shape[0]#get shape of np array sensors. i.e external state, internal state, setpoint, and trial
         a = self.actionsNum #get number of actions
         g = self.gamma #get discount rate
         l = 0.2 #learning rate taken from goal directed system
-        t = 100 #temperature value. e.g if actions[1,2,3] = prob[0.04, 0.11, 0.85] then temperature will increase change of 0.85 value to be selected"""
+        t = 100 #temperature value. e.g if actions[1,2,3] = prob[0.04, 0.11, 0.85] then temperature will increase change of 0.85 value to be selected
         r = 1000 #reward window max. collecting rewards as agent progresses through environment but window is emptied if over this value
         #ros - Agent Brain, a neural network that represents our Q-function
         self.ShA_DQN_agent = Dqn(s, a, g, l, t , r) # e.g 5 sensors, 6 actions, gamma = 0.9, temperature
-
-        self.animal = 0 # number of animals being tested
-        
-        #------------------------------------------ Simulating the 20sec time-out
-        self.initializeAnimal()
-
-        #pretrain agent
-        self.pretraining('ShA')
-
-        #put pretrained agent in a cage to rest. Homeostatic system cools off
-        self.homeCage ( 0,'afterPretrainingShA' )
-
-        #let pretrained ShA_DQN_agent seek cocaine then rest in cage
-        for session in range(0, self.sessionsNum):
-            self.cocaineSeeking(session, 'ShA')
-            self.homeCage(session,'ShA')
-
-        # 4 second Time Out Simulation
-        #------------------------------------------ ReDefining MDP
-        self.statesNum  = 1                  # number of stater 
-        self.actionsNum = 2                  # number of action   action 0 = Null     action 1 = Inactive Lever Press    action 2 = Active Lever Press
-        self.initialExState = 0
-
-        self.transition = np.zeros( [self.statesNum , self.actionsNum, self.statesNum] , float)
-        self.outcome = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
-        self.nonHomeostaticReward = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
-
-        self.initializeEnvironment(4) #construct a 4 second MDP environment
-        
-        #------------------------------------------ ReDefining the animal
-        self.estimatedTransition = np.zeros( [self.statesNum , self.actionsNum, self.statesNum] , float)
-        self.estimatedOutcome = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
-        self.estimatedNonHomeostaticReward = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
-
-        #------------------------------------------ ReDefining the Logging Parameters
-        self.nulDoingLgA            = np.zeros( [self.totalTrialsNum] , float)
-        self.inactiveLeverPressLgA  = np.zeros( [self.totalTrialsNum] , float)
-        self.activeLeverPressLgA    = np.zeros( [self.totalTrialsNum] , float)
-        self.internalStateLgA       = np.zeros( [self.totalTrialsNum] , float)
-        self.setpointLgA            = np.zeros( [self.totalTrialsNum] , float)
-        self.infusionLgA            = np.zeros( [self.totalTrialsNum] , float)
-
+        """
+        """
         #ros - Create a LgA DQL Agent
         s = self.state.shape[0]#get shape of np array sensors. i.e external state, internal state, setpoint, and trial
         a = self.actionsNum #get number of actions
         g = self.gamma #get discount rate
         l = 0.2 #learning rate taken from goal directed system
-        t = 100 #temperature value. e.g if actions[1,2,3] = prob[0.04, 0.11, 0.85] then temperature will increase change of 0.85 value to be selected"""
+        t = 100 #temperature value. e.g if actions[1,2,3] = prob[0.04, 0.11, 0.85] then temperature will increase change of 0.85 value to be selected
         r = 1000 #reward window max. collecting rewards as agent progresses through environment but window is emptied if over this value
 
         #ros - Agent Brain, a neural network that represents our Q-function
         self.LgA_DQN_agent = Dqn(s, a, g, l, t, r) # e.g 5 sensors, 6 actions, gamma = 0.9, temperature = 100
+        """
 
-        # Simulating the 4sec time-out
-        self.initializeAnimal()
-        #pretrain agent
-        self.pretraining('LgA')
-        self.homeCage(0,'afterPretrainingLgA') 
-
-        for session in range(0, self.sessionsNum):
-            #ros - let pretrained ShA_DQN_agent seek cocaine then rest in cage
-            self.cocaineSeeking(session, 'LgA')
-            self.homeCage(session, 'LgA') 
-
-        #finish up and plot results
-        self.plotting()
+        #set initial addiction values, leverpress values, number of states, actions, etc.
+        self.setupEnvironment()
+        #setup Homeostatic System, Allostatic (Stress) System, Drive Function and Goal-directed system
+        self.setupAnimal()
 
     #Simulated Experiments
     def pretraining(self, ratType):
@@ -657,7 +516,7 @@ class HomeoRLEnv():
         '''Update the expected-transition function'''
         #---- First inhibit all associations
         for i in range(0, self.statesNum):
-            self.estimatedTransition[state][action][i] = (1.0- self.updateTransitionRate)* self.estimatedTransition[state][action][i]
+            self.estimatedTransition[state][action][i] = (1.0 - self.updateTransitionRate) * self.estimatedTransition[state][action][i]
         
         #---- Then increase the effect of experiences association
         self.estimatedTransition[state][action][nextState] = self.estimatedTransition[state][action][nextState] + self.updateTransitionRate
@@ -719,13 +578,72 @@ class HomeoRLEnv():
 
         return optInS
     
+    def setupEnvironment(self):
+        # Definition of the Markov Decison Process FR1 - Timeout 20sec
+        self.cocaine = 50 # Dose of self-administered drug
+        self.nonContingentCocaine = 50
+        self.leverPressCost = 1 # Energy cost for pressing the lever
+
+        self.statesNum = 5 # sequence of steps that each take 4 second to complete. 5 states x 4secs = 20secs
+        self.actionsNum = 3 # number of action, e.g action 0 = Null, action 1 = Inactive Lever Press, action 2 = Active Lever Press
+        self.initialExState = 0 #external state
+
+        self.transition = np.zeros( [self.statesNum , self.actionsNum, self.statesNum] , float)
+        self.outcome = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
+        self.nonHomeostaticReward = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
+
+    def setupAnimal(self):
+        # Definition of the Animal
+        #------------ Homeostatic System
+        self.initialInState = 0
+        self.initialSetpoint = 200
+        self.inStateLowerBound = 0
+        self.cocaineDegradationRate = 0.007 # Dose of cocaine that the animal loses in every time-step
+        self.cocAbsorptionRatio = 0.12 # Proportion of the injected cocaine that affects the brain right after infusion 
+
+        #------------ Allostatic (Stress) System
+        self.setpointShiftRate = 0.0018
+        self.setpointRecoveryRate = 0.00016
+        self.optimalInStateLowerBound = 100
+        self.optimalInStateUpperBound = 200
+
+        #------------ Drive Function
+        self.m = 3 # Parameter of the drive function : m-th root
+        self.n = 4 # Parameter of the drive function : n-th pawer
+
+        #------------ Goal-directed system
+        self.updateOutcomeRate = 0.2  # Learning rate for updating the outcome function
+        self.updateTransitionRate = 0.2  # Learning rate for updating the transition function
+        self.updateRewardRate = 0.2  # Learning rate for updating the non-homeostatic reward function
+        self.gamma = 1 # Discount factor
+        self.beta = 0.25 # Rate of exploration
+        self.searchDepth = 3 # Depth of going into the decision tree for goal-directed valuation of choices
+        self.pruningThreshold = 0.1 # If the probability of a transition like (s,a,s') is less than "pruningThreshold", cut it from the decision tree
+
+        #this is the model the agent thinks the world will be vs what it actually becomes (e.g self.transition, self.outcome and self.nonHomeostaticReward)
+        self.estimatedTransition = np.zeros( [self.statesNum , self.actionsNum, self.statesNum] , float)
+        self.estimatedOutcome = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
+        self.estimatedNonHomeostaticReward = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
+
+        self.state = np.zeros( [4] , int) # the observation of the agent, a vector of the external state, internal state, setpoint, and trial
+
     def initializeAnimal(self):    
-        """Creates a new animal"""       
+        """Creates a new animal for simulator"""   
+
+        #this is the model the agent thinks the world will be vs what it actually becomes (e.g self.transition, self.outcome and self.nonHomeostaticReward)
+        self.estimatedTransition = np.zeros( [self.statesNum , self.actionsNum, self.statesNum] , float)
+        self.estimatedOutcome = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
+        self.estimatedNonHomeostaticReward = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
+
+        self.state = np.zeros( [4] , int) # the observation or sensors of the agent, a vector of the external state, internal state, setpoint, and trial
+
+
         self.state[0] = self.initialExState
         self.state[1] = self.initialInState
         self.state[2] = self.initialSetpoint 
         self.state[3] = 0 
-            
+        
+        #initialise the transition table, outcome table and the non-homeostatic-reward table
         for i in range(0, self.statesNum):
             for j in range(0, self.actionsNum):
                 for k in range(0, self.statesNum):
@@ -733,7 +651,7 @@ class HomeoRLEnv():
                     self.estimatedOutcome[i][j][k] = 0.0
                     self.estimatedNonHomeostaticReward[i][j][k] = 0.0
         
-    #    Assuming that the animals know the energy cost (fatigue) of pressing a lever 
+        #Assume animal knows its energy cost (fatigue) of pressing a lever 
         for i in range(0, self.statesNum):
             for j in range(0, self.statesNum):
                 self.estimatedNonHomeostaticReward[i][1][j] = -self.leverPressCost
@@ -816,6 +734,7 @@ class HomeoRLEnv():
         print("Error: An unexpected (strange) problem has occured in action selection...")
         return 0
 
+    #Keramati's log and graph functions
     def loggingShA(self, trial,action,inState,setpointS,coca):
         """Logging the current information for the Short-access group"""
         if action==0: 
@@ -846,6 +765,7 @@ class HomeoRLEnv():
 
     def loggingFinalization(self):
         """Wrap up all the logged data"""
+
         for trial in range(0, self.totalTrialsNum):
             self.nulDoingShA[trial] = self.nulDoingShA[trial]/self.animalsNum
             self.inactiveLeverPressShA[trial] = self.inactiveLeverPressShA[trial]/self.animalsNum
@@ -1082,7 +1002,7 @@ class HomeoRLEnv():
         return
 
     def plotting(self):
-        """Plot all the results"""
+        """Get values then plot all Keramati's results"""
         self.loggingFinalization()
 
         self.plotInternalStateLastSession()
@@ -1094,8 +1014,49 @@ class HomeoRLEnv():
         
         return
 
-    def initializeEnvironment(self, sec):
+    #Keramati's 20sec vs 4 sec Experiment
+    def setupKeramatiParameters(self):
+        """Parameters for Keramati lever pulling experiment from original simulator"""
+        #Simulation Parameters
+        self.animalsNum = 1 # Number of animals
+        self.animal = 0 # number of animals being tested
+
+        self.pretrainingHours = 1
+        self.sessionsNum = 1 # Number of sessions of cocain seeking, followed by rest in home-cage
+        self.seekingHoursShA = 3 
+        self.seekingHoursLgA = 3 
+        self.extinctionHours = 0
+
+        self.trialsPerHour = 900 # 60*60/4 = 3600/4 = 900 trials during one hour (as each trial is supposed to be 4 seconds)
+        self.trialsPerDay = 24*self.trialsPerHour
+        self.pretrainingTrialsNum= self.pretrainingHours* self.trialsPerHour
+        self.restAfterPretrainingTrialsNum = (24 - self.pretrainingHours) * self.trialsPerHour
+
+        self.seekingTrialsNumShA = self.seekingHoursShA * self.trialsPerHour    # Number of trials for each cocaine seeking session
+        self.restingHoursShA = 24 - self.seekingHoursShA
+        self.restTrialsNumShA = self.restingHoursShA * self.trialsPerHour    # Number of trials for each session of the animal being in the home cage
+        self.extinctionTrialsNum = self.extinctionHours * self.trialsPerHour      # Number of trials for each extinction session
+
+        self.seekingTrialsNumLgA = self.seekingHoursLgA * self.trialsPerHour    # Number of trials for each cocaine seeking session
+        restingHoursLgA = 24 - self.seekingHoursLgA
+        self.restTrialsNumLgA = restingHoursLgA * self.trialsPerHour    # Number of trials for each session of the animal being in the home cage
+        self.extinctionTrialsNum = self.extinctionHours * self.trialsPerHour      # Number of trials for each extinction session
+
+        self.totalTrialsNum = self.trialsPerDay + self.sessionsNum * (self.trialsPerDay)  #+ extinctionTrialsNum*2 + 1
+
+        #Plotting Parameters
+        self.trialsPerBlock = 150  # Each BLOCK is 10 minutes - Each minute 60 second - Each trial takes 4 seconds. ros - removed int(10*60/4)
+
+    def initializeKeramatiEnvironment(self, sec):
         if(sec==20):
+            self.statesNum = 5 # sequence of steps that each take 4 second to complete. 5 states x 4secs = 20secs
+            self.actionsNum = 3 # number of action, e.g action 0 = Null, action 1 = Inactive Lever Press, action 2 = Active Lever Press
+            self.initialExState = 0 #external state
+
+            self.transition = np.zeros( [self.statesNum , self.actionsNum, self.statesNum] , float)
+            self.outcome = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
+            self.nonHomeostaticReward = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
+
             # From state s, and by taking a, we go to state s', with probability p
             #State 0 starting state (action 0 do nothing, action 1, press inactive lever and action 2 press active lever)
             # 0 to 4 secs
@@ -1137,12 +1098,89 @@ class HomeoRLEnv():
 
             self.setNonHomeostaticReward(4,1,0,-self.leverPressCost)
             self.setNonHomeostaticReward(4,2,0,-self.leverPressCost)
+
+            
         elif(sec==4):
+            #------------------------------------------ ReDefining MDP
+            self.statesNum  = 1                  # number of stater 
+            self.actionsNum = 2                  # number of action   action 0 = Null     action 1 = Inactive Lever Press    action 2 = Active Lever Press
+            self.initialExState = 0
+
+            self.transition = np.zeros( [self.statesNum , self.actionsNum, self.statesNum] , float)
+            self.outcome = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
+            self.nonHomeostaticReward = np.zeros ( [self.statesNum , self.actionsNum , self.statesNum] , float )
+
             self.setTransition(0,0,0,1) # From state s, and by taking a, we go to state s', with probability p
             self.setTransition(0,1,0,1)
             self.setOutcome(0,1,0,self.cocaine) # At state s, by doing action a and going to state s', we receive the outcome 
             self.setNonHomeostaticReward(0,1,0,-self.leverPressCost)
 
+    def initializeKeramatiLogging(self, sec):
+        if(sec==20):
+            #Logging Parameters for each trial of SHA (short self administered) (on screen logging)
+            self.nulDoingShA = np.zeros( [self.totalTrialsNum] , float)
+            self.inactiveLeverPressShA = np.zeros( [self.totalTrialsNum] , float)
+            self.activeLeverPressShA = np.zeros( [self.totalTrialsNum] , float)
+            self.internalStateShA = np.zeros( [self.totalTrialsNum] , float)
+            self.setpointShA = np.zeros( [self.totalTrialsNum] , float)
+            self.infusionShA = np.zeros( [self.totalTrialsNum] , float)
+
+            #Logging Parameters for each trial of LgA (long self administered)
+            self.nulDoingLgA = np.zeros( [self.totalTrialsNum] , float)
+            self.inactiveLeverPressLgA = np.zeros( [self.totalTrialsNum] , float)
+            self.activeLeverPressLgA = np.zeros( [self.totalTrialsNum] , float)
+            self.internalStateLgA = np.zeros( [self.totalTrialsNum] , float)
+            self.setpointLgA = np.zeros( [self.totalTrialsNum] , float)
+            self.infusionLgA = np.zeros( [self.totalTrialsNum] , float)
+
+        elif(sec==4):
+            #Logging Parameters for each trial of LgA (long self administered)
+            self.nulDoingLgA = np.zeros( [self.totalTrialsNum] , float)
+            self.inactiveLeverPressLgA = np.zeros( [self.totalTrialsNum] , float)
+            self.activeLeverPressLgA = np.zeros( [self.totalTrialsNum] , float)
+            self.internalStateLgA = np.zeros( [self.totalTrialsNum] , float)
+            self.setpointLgA = np.zeros( [self.totalTrialsNum] , float)
+            self.infusionLgA = np.zeros( [self.totalTrialsNum] , float)      
+
+    def runKeramatiExperiment(self):
+        """Keramati's 20sec vs 4 sec Experiment used as a test to validate simulator working correctly"""
+
+        #simulation parameters for Keramati's 20sec vs 4 sec Experiment
+        self.setupKeramatiParameters()
+
+        # 20 second Time Out Simulation
+        #construct a 20 second MDP environment
+        self.initializeKeramatiEnvironment(20)
+        self.initializeKeramatiLogging(20)
+        self.initializeAnimal()
+        
+        #------------------------------------------ Simulating the 20sec time-out
+        #pretrain agent
+        self.pretraining('ShA')
+        #put pretrained agent in a cage to rest. Homeostatic system cools off
+        self.homeCage ( 0,'afterPretrainingShA' )
+        #let pretrained ShA_DQN_agent seek cocaine then rest in cage
+        for session in range(0, self.sessionsNum):
+            self.cocaineSeeking(session, 'ShA')
+            self.homeCage(session,'ShA')
+
+        # 4 second Time Out Simulation
+        self.initializeKeramatiEnvironment(4) #construct a 4 second MDP environment
+        self.initializeKeramatiLogging(4)
+        self.initializeAnimal()
+        
+        # Simulating the 4sec time-out
+        #pretrain agent
+        self.pretraining('LgA')
+        self.homeCage(0,'afterPretrainingLgA') 
+        for session in range(0, self.sessionsNum):
+            #ros - let pretrained ShA_DQN_agent seek cocaine then rest in cage
+            self.cocaineSeeking(session, 'LgA')
+            self.homeCage(session, 'LgA') 
+
+        #finish up and plot results
+        self.plotting()
 if __name__ == "__main__":
-    #run sim
-    HomeoRLEnv()
+    app = HomeoRLEnv() #create so,
+    #run Keramati's 20sec vs 4 sec Experiment in sim
+    app.runKeramatiExperiment()
