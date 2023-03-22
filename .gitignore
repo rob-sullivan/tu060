@@ -13,6 +13,7 @@
 /venv_research/
 /venv_dl/
 /keramati-sims/
+*.csv
 # Example code in package build process
 *-Ex.R
 
