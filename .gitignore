@@ -16,10 +16,12 @@
 /venv_research/
 /venv_dl/
 /keramati-sims/
+*/training_checkpoints/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 *.csv
+*.pth
 # Mono auto generated files
 mono_crash.*
 
