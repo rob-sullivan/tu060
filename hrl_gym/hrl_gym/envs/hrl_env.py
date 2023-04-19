@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """hrl_env.ipynb
-https://www.youtube.com/watch?v=kd4RrN-FTWY
 Original file is located at
     https://colab.research.google.com/drive/1thnWxbviGs7KOVZqSCiPb8ZaGHxVMPoY
 
@@ -95,19 +94,23 @@ class HRLSim(gym.Env):
         # reward agent wants to maximise this will be the homeostatic reward
         self.reward = 0.0
 
-        self.finish = False #trigger to end simulation
-
         self.observation_space = spaces.Box(self.internal_state, self.setpoint_S, dtype=np.float32)
+        #to fix WARN: The obs returned by the `reset()` method is not within the observation space.
+        #self.observation_space = Box(low=np.array([0.0, 0.0]), high=np.array([1.0, 1.0]))
 
         assert render_mode is None or render_mode in self.metadata["render_modes"]
         self.render_mode = render_mode
 
-        while not self.finish:
-            self.finish = self.step()# begin simulation and repeat until triggered not to
+        #self.finish = False #trigger to end simulation
+        #while not self.finish:
+        #    self.finish = self.step()# begin simulation and repeat until triggered not to
 
 
-    def reset(self):
-        pass # nothing to reset with this simulation
+    def reset(self, seed=None, options=None):
+        super().reset(seed=seed)
+        next_state = np.array([self.internal_state, self.setpoint_S], dtype=np.float32)
+        print("Nothing to reset with this simulation.")
+        return next_state, {}
 
     def step(self, action):
         ## get the time left
@@ -124,7 +127,7 @@ class HRLSim(gym.Env):
         #action_taken = sa #automatic
 
         #openai gym
-        action_taken = action[0]
+        action_taken = action
         self.last_action = action_taken #automatic
             
         #update agent brain chemicals after action taken
@@ -207,7 +210,7 @@ class HRLSim(gym.Env):
                 self.epochs_inactive += 1 #count down by 4secs
                 
             done = False
-        next_state = [self.internal_state, self.setpoint_S]
+        next_state = np.array([self.internal_state, self.setpoint_S], dtype=np.float32)
         return next_state, self.reward, done, {}#info
 
     def render(self, mode='human'):

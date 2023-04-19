@@ -7,3 +7,7 @@ in March 2013 using Python 2.6 to mimic experimental cocaine data.
 This simulator incoporates open ai gym to allow deep Q learning, 
 which is a value based off policy reinforcement learning technique
 that makes use of deep neural networks for value approximation.
+
+## References
+https://gymnasium.farama.org/tutorials/gymnasium_basics/environment_creation/#sphx-glr-tutorials-gymnasium-basics-environment-creation-py
+https://www.youtube.com/watch?v=kd4RrN-FTWY
