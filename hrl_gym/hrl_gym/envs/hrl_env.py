@@ -19,6 +19,7 @@ that makes use of deep neural networks for value approximation.
 
 #basic
 from os import system, name
+import pandas as pd
 import numpy as np
 import math
 import matplotlib.pyplot as plt
@@ -31,10 +32,12 @@ from gymnasium import spaces
 from rich import print
 #from rich.prompt import IntPrompt
 
+from IPython.display import clear_output
+
 """## Simulation"""
 
 class HRLSim(gym.Env):
-    metadata = {"render_modes": ["human", "agent"]}
+    metadata = {"render_modes": ["notebook", "script"]}
 
     def __init__(self, render_mode=None, time_hours=4):
         #Agent's Actions
@@ -98,18 +101,20 @@ class HRLSim(gym.Env):
         #to fix WARN: The obs returned by the `reset()` method is not within the observation space.
         #self.observation_space = Box(low=np.array([0.0, 0.0]), high=np.array([1.0, 1.0]))
 
+        #create data table
+        self.df = pd.DataFrame(columns=['epoch', 'action', 'epochs_inactive', 'internal_variable', 'homeostatic_setpoint', 'reward', 'score'])
+
         assert render_mode is None or render_mode in self.metadata["render_modes"]
         self.render_mode = render_mode
-
-        #self.finish = False #trigger to end simulation
-        #while not self.finish:
-        #    self.finish = self.step()# begin simulation and repeat until triggered not to
 
 
     def reset(self, seed=None, options=None):
         super().reset(seed=seed)
         next_state = np.array([self.internal_state, self.setpoint_S], dtype=np.float32)
-        print("Nothing to reset with this simulation.")
+        if self.render_mode == "notebook":
+            print("Simulation Reset.\n" + 
+                  "Total Time: " + str(self.total_time) + " hrs.\n" + 
+                  "Total Epochs expected: " + str(self.total_epochs))
         return next_state, {}
 
     def step(self, action):
@@ -167,6 +172,9 @@ class HRLSim(gym.Env):
             #self.reward = values[action] +  transitionProb * ( self.driveReductionReward + self.estimatedNonHomeostaticReward )
             #self.reward = qValue +  transitionProb * ( self.driveReductionReward + self.estimatedNonHomeostaticReward )
             self.reward = self.driveReductionReward + self.estimatedNonHomeostaticReward
+            #record cumulative reward
+            self.total_reward.append((self.reward + self.total_reward[-1]) if len(self.total_reward)>0 else self.reward)
+            
             #5. update estimated next state
             # n/a
             
@@ -189,10 +197,12 @@ class HRLSim(gym.Env):
 
             ## Update outcome buffer
             self.outcomeBuffer = self.outcomeBuffer * (1 - self.outcomeAbsorptionRatio)
-
         elif(action_taken == -1):#quit
             return True   #end simulation
         
+        #save step to dataset log
+        self.df.loc[self.current_epoch] = [self.current_epoch, self.actions[action], self.epochs_inactive, self.internal_state, self.setpoint_S, self.reward, self.total_reward[-1]]
+            
         #check if this is the last round otherwise continue
         if(self.current_epoch >= self.total_epochs):
             done = True   #end simulation
@@ -211,17 +221,18 @@ class HRLSim(gym.Env):
                 
             done = False
         next_state = np.array([self.internal_state, self.setpoint_S], dtype=np.float32)
-        return next_state, self.reward, done, {}#info
+        return next_state, self.reward, done, False, {}#info
 
-    def render(self, mode='human'):
-        self.clear() #clear_output(wait=True)
-        print("** Current Time: [bold dark_violet]" + str(round((1/900)*(self.current_epoch),2)) + 
-              "[/bold dark_violet] hrs, Epoch Left: [bold dark_violet]" + str(round((1/900)*(self.epochs_left),2)) + 
-              "[/bold dark_violet] hrs, **\n[bold dark_green]Last Action: " + str(self.actions[self.last_action]) + 
-              "[/bold dark_green],\n[bold dark_green]Current Homeostatic Variable: " + str(round(self.internal_state, 4)) + 
-              "[/bold dark_green], [bold dark_green]Current Homeostatic Setpoint: " + str(round(self.setpoint_S, 4)) +
-              "[/bold dark_green],\n [bold dark_green]Reward Received: " + str(round(self.reward,2)) + 
-              "[/bold dark_green], [bold dark_green]Total Score: " + str(round(self.total_reward[-1],2)))
+    def render(self, mode='notebook'):
+        if self.render_mode == "notebook":
+            clear_output(wait=True)
+            print("** Current Time: [bold dark_violet]" + str(round((1/900)*(self.current_epoch),2)) + 
+                "[/bold dark_violet] hrs, Epoch Left: [bold dark_violet]" + str(round((1/900)*(self.epochs_left),2)) + 
+                "[/bold dark_violet] hrs, **\n[bold dark_green]Last Action: " + str(self.actions[self.last_action]) + 
+                "[/bold dark_green],\n[bold dark_green]Current Homeostatic Variable: " + str(round(self.internal_state, 4)) + 
+                "[/bold dark_green], [bold dark_green]Current Homeostatic Setpoint: " + str(round(self.setpoint_S, 4)) +
+                "[/bold dark_green],\n [bold dark_green]Reward Received: " + str(round(self.reward,2)) + 
+                "[/bold dark_green], [bold dark_green]Total Score: " + str(round(self.total_reward[-1],2)))
 
     def clear(self): 
         """
