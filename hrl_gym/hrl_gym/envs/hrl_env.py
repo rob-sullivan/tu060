@@ -114,22 +114,12 @@ class HRLSim(gym.Env):
         if self.render_mode == "notebook":
             print("Simulation Reset.\n" + 
                   "Total Time: " + str(self.total_time) + " hrs.\n" + 
-                  "Total Epochs expected: " + str(self.total_epochs))
+                  "Total Epochs: " + str(self.total_epochs))
         return next_state, {}
 
     def step(self, action):
         ## get the time left
         self.epochs_left = int(self.total_epochs - self.current_epoch)
-        
-        #we can take the agent's NN and call forward to output via softmax q values for each state.
-        #suggested_action = self.actions[action_to_take]
-        #sa = int(0 if suggested_action=="Sleep" else 1 if suggested_action=="Binge on Internet" else 2 if suggested_action=="Work" else 3 if suggested_action=="Exercise" else 4 if suggested_action=="Socialise" else 5 if suggested_action=="Drink Alcohol" else 6 if suggested_action=="Smoke" else 7 if suggested_action=="Take Cocaine" else -1)
-        #sa = int(0 if suggested_action=="Do Nothing" else 1 if suggested_action=="In-Active Lever" else 2 if suggested_action=="Active Lever" else -1)
-        #give user options
-        #print("0. [bold dark_violet]Sleep[/bold dark_violet]\n1. [bold dark_violet]Binge on Internet[/bold dark_violet]\n2. [bold dark_violet]Work[/bold dark_violet]\n3. [bold dark_violet]Exercise[/bold dark_violet]\n4. [bold dark_violet]Socialise[/bold dark_violet]\n5. [bold dark_violet]Drink Alcohol[/bold dark_violet]\n6. [bold dark_violet]Smoke[/bold dark_violet]\n")
-        #action_taken = 0
-        #action_taken = IntPrompt.ask("Choose from 1 to 6", default=sa)
-        #action_taken = sa #automatic
 
         #openai gym
         action_taken = action
@@ -172,8 +162,6 @@ class HRLSim(gym.Env):
             #self.reward = values[action] +  transitionProb * ( self.driveReductionReward + self.estimatedNonHomeostaticReward )
             #self.reward = qValue +  transitionProb * ( self.driveReductionReward + self.estimatedNonHomeostaticReward )
             self.reward = self.driveReductionReward + self.estimatedNonHomeostaticReward
-            #record cumulative reward
-            self.total_reward.append((self.reward + self.total_reward[-1]) if len(self.total_reward)>0 else self.reward)
             
             #5. update estimated next state
             # n/a
@@ -200,6 +188,8 @@ class HRLSim(gym.Env):
         elif(action_taken == -1):#quit
             return True   #end simulation
         
+        #record cumulative reward
+        self.total_reward.append(self.reward + self.total_reward[-1] if len(self.total_reward)>0 else self.reward)
         #save step to dataset log
         self.df.loc[self.current_epoch] = [self.current_epoch, self.actions[action], self.epochs_inactive, self.internal_state, self.setpoint_S, self.reward, self.total_reward[-1]]
             
@@ -232,7 +222,7 @@ class HRLSim(gym.Env):
                 "[/bold dark_green],\n[bold dark_green]Current Homeostatic Variable: " + str(round(self.internal_state, 4)) + 
                 "[/bold dark_green], [bold dark_green]Current Homeostatic Setpoint: " + str(round(self.setpoint_S, 4)) +
                 "[/bold dark_green],\n [bold dark_green]Reward Received: " + str(round(self.reward,2)) + 
-                "[/bold dark_green], [bold dark_green]Total Score: " + str(round(self.total_reward[-1],2)))
+                "[/bold dark_green], [bold dark_green]Total Score: " + str(round(self.total_reward[-1] if len(self.total_reward)>0 else self.reward,2)))
 
     def clear(self): 
         """
@@ -251,10 +241,41 @@ class HRLSim(gym.Env):
 
     def close(self):
         #plot our results
-        plt.title("Rewards")
+
+        # Filter the data to only include 'Active Lever' actions
+        active_lever_data = self.df[self.df['action'] == 'Active Lever']
+        active_lever_data['active_lever'] = active_lever_data['action'].apply(lambda x: 1 if x == 'Active Lever' else 0)
+
+        # Convert epoch values to seconds
+        active_lever_data['time_sec'] = active_lever_data['epoch'] * 4 / 60
+
+        # Create a bar chart of the 'Active Lever' action occurrence as a time series
+        plt.bar(active_lever_data['time_sec'], active_lever_data['active_lever'])
+
+        #plot
+        plt.xlabel('Time (min)')
+        plt.ylabel('Infusion')
+        plt.title('20 sec lever time out')
+
+        # Set x-axis limits to 0 and 40 minutes
+        #plt.xlim([0, 35])
+
+        plt.ylim([0, 1.5])
+        # Set y-tick values and labels
+        plt.yticks([0, 1], ['0', '1'])
+
+        plt.show()
+
+        plt.title("Reward")
         plt.xlabel("Epoch")
         plt.ylabel("Reward")
-        plt.plot(self.total_reward)
+        plt.plot(self.df["reward"])
+        plt.show()
+
+        plt.title("Cumulative Reward")
+        plt.xlabel("Epoch")
+        plt.ylabel("Reward")
+        plt.plot(self.df["score"])
         plt.show()
 
         plt.title("Internal_variable [e.g Dopamine]")
