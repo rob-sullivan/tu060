@@ -241,13 +241,12 @@ class HRLSim(gym.Env):
 
     def close(self):
         #plot our results
+        # Convert epoch values to seconds
+        self.df['time_sec'] = self.df['epoch'] * 4 / 60
 
         # Filter the data to only include 'Active Lever' actions
         active_lever_data = self.df[self.df['action'] == 'Active Lever']
         active_lever_data['active_lever'] = active_lever_data['action'].apply(lambda x: 1 if x == 'Active Lever' else 0)
-
-        # Convert epoch values to seconds
-        active_lever_data['time_sec'] = active_lever_data['epoch'] * 4 / 60
 
         # Create a bar chart of the 'Active Lever' action occurrence as a time series
         plt.bar(active_lever_data['time_sec'], active_lever_data['active_lever'])
@@ -256,36 +255,34 @@ class HRLSim(gym.Env):
         plt.xlabel('Time (min)')
         plt.ylabel('Infusion')
         plt.title('20 sec lever time out')
-
         # Set x-axis limits to 0 and 40 minutes
         #plt.xlim([0, 35])
-
         plt.ylim([0, 1.5])
         # Set y-tick values and labels
         plt.yticks([0, 1], ['0', '1'])
-
         plt.show()
 
+        # Convert epoch values to seconds
         plt.title("Reward")
-        plt.xlabel("Epoch")
+        plt.xlabel("Time (min)")
         plt.ylabel("Reward")
-        plt.plot(self.df["reward"])
+        plt.plot(self.df['time_sec'], self.df["reward"])
         plt.show()
 
         plt.title("Cumulative Reward")
-        plt.xlabel("Epoch")
+        plt.xlabel("Time (min)")
         plt.ylabel("Reward")
-        plt.plot(self.df["score"])
+        plt.plot(self.df['time_sec'], self.df["score"])
         plt.show()
 
         plt.title("Internal_variable [e.g Dopamine]")
-        plt.xlabel("Epoch")
+        plt.xlabel("Time (min)")
         plt.ylabel("Internal Variable")
-        plt.plot(self.df["internal_variable"])
+        plt.plot(self.df['time_sec'], self.df["internal_variable"])
         plt.show()
 
         plt.title("Homeostatic Setpoint")
-        plt.xlabel("Epoch")
+        plt.xlabel("Time (min)")
         plt.ylabel("Homeostatic Setpoint")
-        plt.plot(self.df["homeostatic_setpoint"])
+        plt.plot(self.df['time_sec'], self.df["homeostatic_setpoint"])
         plt.show()
