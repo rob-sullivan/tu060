@@ -240,6 +240,9 @@ class HRLSim(gym.Env):
             _ = system('clear')
 
     def close(self):
+        if self.render_mode == "notebook":
+            print("Simulation Ended.")
+    """
         #plot our results
         # Convert epoch values to seconds
         self.df['time_sec'] = self.df['epoch'] * 4 / 60
@@ -286,3 +289,4 @@ class HRLSim(gym.Env):
         plt.ylabel("Homeostatic Setpoint")
         plt.plot(self.df['time_sec'], self.df["homeostatic_setpoint"])
         plt.show()
+    """
