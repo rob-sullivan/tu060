@@ -18,6 +18,7 @@
 /keramati-sims/
 */training_checkpoints/
 */dataset/
+*/models/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
