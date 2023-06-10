@@ -2,6 +2,7 @@
 """hrl_env.ipynb
 Original file is located at
     https://colab.research.google.com/drive/1thnWxbviGs7KOVZqSCiPb8ZaGHxVMPoY
+    https://github.com/mehdiKeramati/HRRL-Addiction
 
 # Addiction Simulator
 Homeostatic Reinforcement Learning Simulator 
