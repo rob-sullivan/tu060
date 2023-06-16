@@ -13,7 +13,9 @@
 /venv_research/
 /venv_dl/
 /keramati-sims/
-*.csv
+/archive/*
+/ca-2/attempt-2/data/*
+datasets/addiction_sim/*
 *.png
 *.pth
 *.zip
