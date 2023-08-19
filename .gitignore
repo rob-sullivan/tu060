@@ -22,7 +22,9 @@ datasets/addiction_sim/*
 */training_checkpoints/
 # Example code in package build process
 *-Ex.R
-
+*.png
+*.gif
+*.csv
 # Output files from R CMD build
 /*.tar.gz
 
