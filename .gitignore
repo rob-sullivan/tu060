@@ -10,7 +10,11 @@
 *.userosscache
 *.sln.docstates
 .venv/
-/venv/
+/venv_*
+/sim-notebook
+/models/
+/datasets/
+/archive/
 .Rproj.user/
 
 /venv_research/
