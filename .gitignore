@@ -4,13 +4,21 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # User-specific files
+/venv*
+/archive*
+/datasets*
+data*
+/models*
+/plots*
+/sim-notebook*
+/keramati-sims*
 *.rsuser
 *.suo
 *.user
 *.userosscache
 *.sln.docstates
 .venv/
-/venv/
+
 .Rproj.user/
 week-10/lab/GoogleNews-vectors-negative300.bin
 week-10/lab/recipes
