@@ -9,11 +9,13 @@
 
 # User-specific files
 .Ruserdata
-/venv/
+/venv*
+/datasets*
+/archive*
+ca-2-recommender/
 /venv_research/
 /venv_dl/
 /keramati-sims/
-/archive/*
 /ca-2/attempt-2/data/*
 datasets/addiction_sim/*
 *.png
