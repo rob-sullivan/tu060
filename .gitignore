@@ -25,7 +25,26 @@ datasets/addiction_sim/*
 # Example code in package build process
 *-Ex.R
 *.png
-*.gif
+#*.gif
+/plots/shapexplainer/
+/plots/shapexplainer2/ale_air*
+/plots/shapexplainer2/ale_ast*
+/plots/shapexplainer2/ale_bow*
+/plots/shapexplainer2/ale_bre*
+/plots/shapexplainer2/ale_dem*
+/plots/shapexplainer2/ale_fre*
+/plots/shapexplainer2/ale_gra*
+/plots/shapexplainer2/ale_jam*
+/plots/shapexplainer2/ale_mon*
+/plots/shapexplainer2/ale_pon*
+/plots/shapexplainer2/ale_pri*
+/plots/shapexplainer2/ale_qbe*
+/plots/shapexplainer2/ale_sea*
+/plots/shapexplainer2/ale_spa*
+/plots/shapexplainer2/ale_ven*
+/plots/shapexplainer2/ale_wiz*
+/plots/shapexplainer2/ale_yar*
+/plots/shapexplainer2/ale_zax*
 *.csv
 # Output files from R CMD build
 /*.tar.gz
